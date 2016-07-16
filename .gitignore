@@ -1,0 +1,11 @@
+target/
+
+/webapp/WEB-INF/classes
+/logs
+/.settings
+
+/.classpath
+
+/.project
+/.idea
+orange.iml

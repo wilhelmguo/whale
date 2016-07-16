@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jy.repository.attendance.WorkRecordDao">
+    <!--  com.jy.entity.attendance.WorkRecord -->
+    <resultMap id="base" type="WorkRecord"></resultMap>
+    <select id="find" resultMap="base" parameterType="WorkRecord">
+        SELECT t.* FROM JY_WORK_RECORD t WHERE 1=1
+        <if test="id != null and id!='' ">AND t.id=#{id}</if>
+        <if test="employeeName != null and employeeName!='' ">AND t.employeeName LIKE
+            CONCAT('%',#{param.employeeName},'%')
+        </if>
+    </select>
+    <select id="findByPage" resultMap="base" parameterType="WorkRecord">
+        SELECT t.id, t.type, t.employee, t.employeeName,t.location, t.picture, t.date, t.week, t.morning, t.beforenoon,
+        t.afternoon,
+        t.night FROM JY_WORK_RECORD t
+        WHERE 1=1
+        <if test="param.employee != null and param.employee!='' ">
+            AND t.employee LIKE CONCAT('%',#{param.employee},'%')
+        </if>
+
+        <if test="param.employeeName != null and param.employeeName!='' ">
+            AND t.employeeName LIKE CONCAT('%',#{param.employeeName},'%')
+        </if>
+        <if test="param.keyWord!=null and param.keyWord!='' ">
+            AND t.employeeName LIKE CONCAT('%',#{param.keyWord},'%')
+        </if>
+
+
+        ORDER BY t.date desc
+    </select>
+    <select id="count" resultType="int" parameterType="WorkRecord">
+        SELECT count(*)
+        FROM JY_WORK_RECORD t
+        WHERE 1 = 1
+    </select>
+    <insert id="insert" parameterType="WorkRecord">
+    <![CDATA[
+        INSERT INTO JY_WORK_RECORD (
+            id, type, employee, employeeName, location, picture, date, week, morning, beforenoon, afternoon,
+            night
+        ) VALUES (#{id,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{employee,jdbcType=VARCHAR},
+                                          #{employeeName,jdbcType=VARCHAR},
+                                          #{location,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
+                                          #{date,jdbcType=DATE},
+                                          #{week,jdbcType=VARCHAR}, #{morning,jdbcType=VARCHAR},
+                                          #{beforenoon,jdbcType=VARCHAR},
+                                          #{afternoon,jdbcType=VARCHAR}, #{night,jdbcType=VARCHAR})
+        ]]>
+  </insert>
+    <delete id="delete" parameterType="WorkRecord">DELETE FROM JY_WORK_RECORD
+    WHERE 1 = 1 AND id = #{id}</delete>
+    <delete id="deleteBatch" parameterType="java.util.List">
+        DELETE FROM JY_WORK_RECORD WHERE id IN(
+        <foreach item="o" collection="list" open="" separator="," close="">#{o.id}</foreach>
+        )
+    </delete>
+    <update id="update" parameterType="WorkRecord">
+        UPDATE JY_WORK_RECORD
+        SET
+            type       = #{record.type,jdbcType=CHAR},
+            employee   = #{record.employee,jdbcType=VARCHAR},
+            location   = #{record.location,jdbcType=VARCHAR},
+            picture    = #{record.picture,jdbcType=VARCHAR},
+            date       = #{record.date,jdbcType=DATE},
+            week       = #{record.week,jdbcType=VARCHAR},
+            morning    = #{record.morning,jdbcType=VARCHAR},
+            beforenoon = #{record.beforenoon,jdbcType=VARCHAR},
+            afternoon  = #{record.afternoon,jdbcType=VARCHAR},
+            night      = #{record.night,jdbcType=VARCHAR}
+        WHERE id = #{id}
+    </update>
+
+
+</mapper>

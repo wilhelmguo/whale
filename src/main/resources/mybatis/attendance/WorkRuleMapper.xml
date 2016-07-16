@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jy.repository.attendance.WorkRuleDao">
+  <!--  com.jy.entity.attendance.WorkRule -->
+  <resultMap id="base" type="WorkRule"></resultMap>
+  <select id="find" resultMap="base" parameterType="WorkRule">
+    SELECT t.* FROM JY_WORK_RULE t WHERE 1=1
+    <if test="id != null and id!='' ">AND t.id=#{id}</if>
+    <if test="name != null and name!='' ">AND t.title LIKE CONCAT('%',#{param.name},'%')</if>
+  </select>
+  <select id="findByPage" resultMap="base" parameterType="WorkRule">
+    SELECT t.id, t.year, t.workDate, t.status, t.name FROM JY_WORK_RULE t
+    WHERE 1=1
+    <if test="param.name != null and param.name!='' ">
+      AND t.name LIKE CONCAT('%',#{param.name},'%')
+    </if>
+
+    <if test="param.year!= null">
+      AND t.year=#{param.year}
+    </if>
+    <if test="param.keyWord!=null and param.keyWord!='' ">
+      AND t.name LIKE CONCAT('%',#{param.keyWord},'%')
+    </if>
+    <if test="param.status != null and param.status!='' ">
+      AND t.status=#{param.status}
+    </if>
+
+    ORDER BY t.workDate
+  </select>
+  <select id="count" resultType="int" parameterType="WorkRule">
+    SELECT count(*)
+    FROM JY_WORK_RULE t
+    WHERE 1 = 1
+  </select>
+  <insert id="insert" parameterType="WorkRule">
+    <![CDATA[
+        INSERT INTO JY_WORK_RULE (id, year, workDate,
+                                  status, name) VALUES (
+          #{id,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, #{workdate},
+          #{status,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}
+        )
+        ]]>
+  </insert>
+  <delete id="delete" parameterType="WorkRule">DELETE FROM JY_WORK_RULE
+    WHERE 1 = 1 AND id = #{id}</delete>
+  <delete id="deleteBatch" parameterType="java.util.List">
+    DELETE FROM JY_WORK_RULE WHERE id IN(
+    <foreach item="o" collection="list" open="" separator="," close="">#{o.id}</foreach>
+    )
+  </delete>
+  <update id="update" parameterType="WorkRule">
+    UPDATE JY_WORK_RULE
+    set
+      year = #{record.year,jdbcType=INTEGER},
+      workDate = #{record.workdate},
+      status = #{record.status,jdbcType=CHAR},
+      name = #{record.name,jdbcType=VARCHAR}
+    WHERE id = #{id}
+  </update>
+
+
+</mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jy.repository.attendance.WorkTimeDao">
+    <!--  com.jy.entity.attendance.WorkTime -->
+    <resultMap id="base" type="WorkTime"></resultMap>
+    <select id="find" resultMap="base" parameterType="WorkTime">
+        SELECT t.* FROM JY_WORK_TIME t WHERE 1=1
+        <if test="id != null and id!='' ">AND t.id=#{id}</if>
+    </select>
+    <select id="findByPage" resultMap="base" parameterType="WorkTime">
+        SELECT
+            t.id,
+            t.morning,
+            t.beforenoon,
+            t.afternoon,
+            t.night
+        FROM JY_WORK_TIME t
+        WHERE 1 = 1
+        ORDER BY t.id DESC
+    </select>
+    <select id="count" resultType="int" parameterType="WorkTime">
+        SELECT count(*)
+        FROM JY_WORK_TIME t
+        WHERE 1 = 1
+    </select>
+    <insert id="insert" parameterType="WorkTime">
+    <![CDATA[
+        INSERT INTO JY_WORK_TIME (id, morning, beforenoon,
+                                  afternoon, night)
+        VALUES (#{id,jdbcType=VARCHAR}, #{morning,jdbcType=VARCHAR}, #{beforenoon,jdbcType=VARCHAR},
+                #{afternoon,jdbcType=VARCHAR}, #{night,jdbcType=VARCHAR})
+        ]]>
+  </insert>
+    <delete id="delete" parameterType="WorkTime">DELETE FROM JY_WORK_TIME
+    WHERE 1 = 1 AND id = #{id}</delete>
+    <delete id="deleteBatch" parameterType="java.util.List">
+        DELETE FROM JY_WORK_TIME WHERE id IN(
+        <foreach item="o" collection="list" open="" separator="," close="">#{o.id}</foreach>
+        )
+    </delete>
+    <update id="update" parameterType="WorkTime">
+        UPDATE JY_WORK_TIME
+        SET
+            morning    = #{record.morning,jdbcType=VARCHAR},
+            beforenoon = #{record.beforenoon,jdbcType=VARCHAR},
+            afternoon  = #{record.afternoon,jdbcType=VARCHAR},
+            night      = #{record.night,jdbcType=VARCHAR}
+        WHERE id = #{id}
+    </update>
+
+
+</mapper>

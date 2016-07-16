@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jy.repository.system.cms.SysNewsDao">
+    <!--  com.jy.entity.system.cms.SysNews -->
+    <resultMap id="base" type="SysNews"></resultMap>
+    <select id="find" resultMap="base" parameterType="SysNews">
+        SELECT t.* FROM JY_SYS_NEWS t WHERE 1=1
+        <if test="id != null and id!='' ">AND t.id=#{id}</if>
+        <if test="title != null and title!='' ">AND t.title LIKE CONCAT('%',#{param.title},'%')</if>
+    </select>
+    <select id="findByPage" resultMap="base" parameterType="SysNews">
+        SELECT t.id,
+        t.title,
+        t.content,
+        t.publisher,
+        t.addtime,
+        t.uptime,
+        t.pip,
+        t.hits,
+        t.sequence,
+        t.recommand,
+        t.status FROM JY_SYS_NEWS t
+        WHERE 1=1
+        <if test="param.title != null and param.title!='' ">
+            AND t.title LIKE CONCAT('%',#{param.title},'%')
+        </if>
+        <if test="param.publisher != null and param.publisher!='' ">
+            AND t.publisher LIKE CONCAT('%',#{param.publisher},'%')
+        </if>
+        <if test="param.isValid!= null">
+            AND t.status=#{param.isValid}
+        </if>
+        <if test="param.keyWord!=null and param.keyWord!='' ">
+            AND t.title LIKE CONCAT('%',#{param.keyWord},'%')
+        </if>
+        <if test="param.addtime != null and param.addtime!='' ">
+            AND t.addtime=#{param.addtime,jdbcType=DATETIME}
+        </if>
+
+        ORDER BY t.addtime desc
+    </select>
+    <select id="count" resultType="int" parameterType="SysNews">
+        SELECT count(*)
+        FROM JY_SYS_NEWS t
+        WHERE 1 = 1
+    </select>
+    <insert id="insert" parameterType="SysNews">
+        <![CDATA[
+        INSERT INTO JY_SYS_NEWS (
+            id,
+            title,
+            content,
+            publisher,
+            addtime,
+            uptime,
+            pip,
+            hits,
+            sequence,
+            recommand,
+            status
+        ) VALUES (
+            #{id},
+            #{title},
+            #{content},
+            #{publisher},
+            #{addtime},
+            #{uptime},
+            #{pip},
+            #{hits},
+            #{sequence},
+            #{recommand},
+            #{status}
+        )
+        ]]>
+    </insert>
+    <delete id="delete" parameterType="SysNews">DELETE FROM JY_SYS_NEWS
+    WHERE 1 = 1 AND id = #{id}</delete>
+    <delete id="deleteBatch" parameterType="java.util.List">
+        DELETE FROM JY_SYS_NEWS WHERE id IN(
+        <foreach item="o" collection="list" open="" separator="," close="">#{o.id}</foreach>
+        )
+    </delete>
+    <update id="update" parameterType="SysNews">
+        UPDATE JY_SYS_NEWS
+        SET title = #{title},content=#{content},publisher = #{publisher}, addtime = #{addtime}, uptime = #{uptime},
+            pip   = #{pip}, hits = #{hits}, sequence = #{sequence}, recommand = #{recommand}, status = #{status}
+        WHERE id = #{id}
+    </update>
+
+
+</mapper>

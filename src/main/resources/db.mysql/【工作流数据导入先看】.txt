@@ -1,0 +1,6 @@
+工作流identity,history,engine三张表都需要导
+
+
+identity不分版本
+
+但history，engine分版本，根据自己的mysql版本导一个版本就好
