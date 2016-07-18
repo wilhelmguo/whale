@@ -41,10 +41,10 @@
     <update id="update" parameterType="WorkTime">
         UPDATE JY_WORK_TIME
         SET
-            morning    = #{record.morning,jdbcType=VARCHAR},
-            beforenoon = #{record.beforenoon,jdbcType=VARCHAR},
-            afternoon  = #{record.afternoon,jdbcType=VARCHAR},
-            night      = #{record.night,jdbcType=VARCHAR}
+            morning    = #{morning,jdbcType=VARCHAR},
+            beforenoon = #{beforenoon,jdbcType=VARCHAR},
+            afternoon  = #{afternoon,jdbcType=VARCHAR},
+            night      = #{night,jdbcType=VARCHAR}
         WHERE id = #{id}
     </update>
 

@@ -3,15 +3,15 @@
 				<div class="navbar-header pull-right" >
 				<!-- 	<div class="navbar-header pull-right" role="navigation"> -->
 					<ul class="nav ace-nav">
-						<li class="grey">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-								<i class="icon-tasks"></i><span class="badge badge-grey">0</span>
-							</a>
-							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-								<li class="dropdown-header"><i class="icon-ok"></i>还有0个任务完成</li>
-							</ul>
-						</li>
-						<li class="purple">
+						<%--<li class="grey">--%>
+							<%--<a data-toggle="dropdown" class="dropdown-toggle" href="#">--%>
+								<%--<i class="icon-tasks"></i><span class="badge badge-grey">0</span>--%>
+							<%--</a>--%>
+							<%--<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">--%>
+								<%--<li class="dropdown-header"><i class="icon-ok"></i>还有0个任务完成</li>--%>
+							<%--</ul>--%>
+						<%--</li>--%>
+						<li class="green">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="icon-bell-alt icon-animated-bell"></i>
 								<span class="badge badge-important">0</span>
@@ -20,15 +20,15 @@
 								<li class="dropdown-header"><i class="icon-warning-sign"></i>0条通知</li>
 							</ul>
 						</li>
-						<li class="green">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-								<i class="icon-envelope icon-animated-vertical"></i>
-								<span class="badge badge-success">0</span>
-							</a>
-							<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-								<li class="dropdown-header"><i class="icon-envelope-alt"></i>0条消息</li>
-							</ul>
-						</li>
+						<%--<li class="green">--%>
+							<%--<a data-toggle="dropdown" class="dropdown-toggle" href="#">--%>
+								<%--<i class="icon-envelope icon-animated-vertical"></i>--%>
+								<%--<span class="badge badge-success">0</span>--%>
+							<%--</a>--%>
+							<%--<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">--%>
+								<%--<li class="dropdown-header"><i class="icon-envelope-alt"></i>0条消息</li>--%>
+							<%--</ul>--%>
+						<%--</li>--%>
 						<li class="userperLi">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<img id="mainHeadpic" class="nav-user-photo" src="<c:choose>

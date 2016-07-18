@@ -2,12 +2,14 @@ package com.jy.controller.attendance;
 
 import com.jy.common.ajax.AjaxRes;
 import com.jy.common.mybatis.Page;
+import com.jy.common.utils.DateUtils;
 import com.jy.common.utils.base.Const;
 import com.jy.controller.base.BaseController;
 import com.jy.entity.attendance.WorkTime;
 import com.jy.entity.attendance.WorkTime;
 import com.jy.service.attendance.WorkRuleService;
 import com.jy.service.attendance.WorkTimeService;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 
 /*
- * 考勤规则
+ * 考勤时间
  */
 @Controller
 @RequestMapping("/backstage/workTime/")
@@ -31,13 +33,13 @@ public class WorkTimeController extends BaseController<WorkTime> {
   public WorkTimeService service;
 
   /**
-   * 考勤规则首页
+   * 考勤时间首页
    */
   @RequestMapping("index")
   public String index(Model model) {
     if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
       model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
-      return "/system/dict/sys/list";
+      return "/system/attendance/worktime/list";
     }
     return Const.NO_AUTHORIZED_URL;
   }
@@ -46,7 +48,7 @@ public class WorkTimeController extends BaseController<WorkTime> {
   @ResponseBody
   public AjaxRes findByPage(Page<WorkTime> page, WorkTime o) {
     AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/sysDict/index"))) {
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/workTime/index"))) {
       try {
         Page<WorkTime> result = service.findByPage(o, page);
         Map<String, Object> p = new HashMap<String, Object>();
@@ -67,6 +69,11 @@ public class WorkTimeController extends BaseController<WorkTime> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
       try {
+        int count = service.count(new WorkTime());
+        if (count > 0) {
+          ar.setFailMsg("考勤时间规则只能设置一条!");
+          return ar;
+        }
         o.setId(get32UUID());
 //				o.setCreateTime(new Date());	
         service.insert(o);

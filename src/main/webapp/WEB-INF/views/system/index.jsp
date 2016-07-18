@@ -36,7 +36,7 @@
 				<a href="#" class="navbar-brand">
 					<small>
 						<i class="icon-leaf"></i>
-						北京零距科创OA
+						OA
 					</small>
 				</a><!-- /.brand -->
 			</div><!-- /.navbar-header -->
@@ -53,17 +53,17 @@
 		<div class="sidebar" id="sidebar">
 			<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 				<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">	
-					<button title="基础功能"  class="btn"             onclick="getMenu('1','y')"><i class="icon-desktop"></i></button>					
-					<button title="系统功能"  class="btn btn-primary" onclick="getMenu('2','y')"><i class="icon-th"></i></button>		
-					<button title="个人功能"  class="btn btn-success" onclick="getMenu('3','y')"><i class="icon-user"></i></button>					
-					<button title="监控功能"  class="btn btn-warning" onclick="getMenu('4','y')"><i class="icon-bitbucket"></i></button>
+					<%--<button title="基础功能"  class="btn"             onclick="getMenu('1','y')"><i class="icon-desktop"></i></button>					--%>
+					<%--<button title="系统功能"  class="btn btn-primary" onclick="getMenu('2','y')"><i class="icon-th"></i></button>		--%>
+					<%--<button title="个人功能"  class="btn btn-success" onclick="getMenu('3','y')"><i class="icon-user"></i></button>					--%>
+					<%--<button title="监控功能"  class="btn btn-warning" onclick="getMenu('4','y')"><i class="icon-bitbucket"></i></button>--%>
 				</div>
 				<!--左边 导航 小图标  -->
 				<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-					<span title="基础功能" class="btn"              onclick="getMenu('1','y')"></span>
-					<span title="系统功能" class="btn btn-primary"  onclick="getMenu('2','y')"></span>
-					<span title="个人功能" class="btn btn-success"  onclick="getMenu('3','y')"></span>
-					<span title="监控功能" class="btn btn-warning"  onclick="getMenu('4','y')" ></span>
+					<%--<span title="基础功能" class="btn"              onclick="getMenu('1','y')"></span>--%>
+					<%--<span title="系统功能" class="btn btn-primary"  onclick="getMenu('2','y')"></span>--%>
+					<%--<span title="个人功能" class="btn btn-success"  onclick="getMenu('3','y')"></span>--%>
+					<%--<span title="监控功能" class="btn btn-warning"  onclick="getMenu('4','y')" ></span>--%>
 				</div>
 				<!--左边 导航 小图标  end-->
 			</div><!-- #sidebar-shortcuts -->

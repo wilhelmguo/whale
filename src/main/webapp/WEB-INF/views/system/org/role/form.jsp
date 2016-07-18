@@ -83,9 +83,9 @@
 <div id="authorityDiv" class="hide">
 	<div class="row-fluid">	
 		<button title="选择显示层级" value='1' class="btn btn-xs btn-success"><i class="icon-desktop"></i></button>					
-		<button title="选择显示层级" value='2' class="btn btn-xs"><i class="icon-th"></i></button>		
-		<button title="选择显示层级" value='3' class="btn btn-xs"><i class="icon-user"></i></button>		
-		<button title="选择显示层级" value='4' class="btn btn-xs"><i class="icon-bitbucket"></i></button>	
+		<%--<button title="选择显示层级" value='2' class="btn btn-xs"><i class="icon-th"></i></button>		--%>
+		<%--<button title="选择显示层级" value='3' class="btn btn-xs"><i class="icon-user"></i></button>		--%>
+		<%--<button title="选择显示层级" value='4' class="btn btn-xs"><i class="icon-bitbucket"></i></button>	--%>
 		<input type="hidden" name="layer" value="1" >
 		<input type="hidden" name="auth" value="org" >
 		<input type="hidden" name="roleId" value="" >

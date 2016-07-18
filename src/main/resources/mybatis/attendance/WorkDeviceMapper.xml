@@ -14,12 +14,17 @@
         t.name,
         t.belongto FROM JY_WORK_DEVICE t
         WHERE 1=1
+        <if test="param.isValid!= null">
+            AND t.type=#{param.isValid}
+        </if>
+
         <if test="param.name != null and param.name!='' ">
             AND t.name LIKE CONCAT('%',#{param.name},'%')
         </if>
 
         <if test="param.keyWord!=null and param.keyWord!='' ">
-            AND t.name LIKE CONCAT('%',#{param.keyWord},'%')
+            AND (t.name LIKE CONCAT('%',#{param.keyWord},'%')
+            OR t.belongto LIKE CONCAT('%',#{param.keyWord},'%'))
         </if>
 
         ORDER BY t.name desc
@@ -31,10 +36,12 @@
     </select>
     <insert id="insert" parameterType="WorkDevice">
     <![CDATA[
+
         INSERT INTO JY_WORK_DEVICE (
             id, type, name, belongto
         ) VALUES (#{id,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{name,jdbcType=VARCHAR},
                   #{belongto,jdbcType=VARCHAR})
+
         ]]>
   </insert>
     <delete id="delete" parameterType="WorkDevice">DELETE FROM JY_WORK_DEVICE
@@ -47,9 +54,9 @@
     <update id="update" parameterType="WorkDevice">
         UPDATE JY_WORK_DEVICE
         SET
-            type     = #{record.type,jdbcType=CHAR},
-            name     = #{record.name,jdbcType=VARCHAR},
-            belongto = #{record.belongto,jdbcType=VARCHAR}
+            type     = #{type,jdbcType=CHAR},
+            name     = #{name,jdbcType=VARCHAR},
+            belongto = #{belongto,jdbcType=VARCHAR}
         WHERE id = #{id}
     </update>
 

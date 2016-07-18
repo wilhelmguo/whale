@@ -32,7 +32,7 @@ public class WorkDeviceController extends BaseController<WorkDevice> {
   public String index(Model model) {
     if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
       model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
-      return "/system/dict/sys/list";
+      return "/system/attendance/workdevice/list";
     }
     return Const.NO_AUTHORIZED_URL;
   }
@@ -41,7 +41,7 @@ public class WorkDeviceController extends BaseController<WorkDevice> {
   @ResponseBody
   public AjaxRes findByPage(Page<WorkDevice> page, WorkDevice o) {
     AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/sysDict/index"))) {
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/workDevice/index"))) {
       try {
         Page<WorkDevice> result = service.findByPage(o, page);
         Map<String, Object> p = new HashMap<String, Object>();
