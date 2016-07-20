@@ -51,10 +51,10 @@
   <update id="update" parameterType="WorkRule">
     UPDATE JY_WORK_RULE
     set
-      year = #{record.year,jdbcType=INTEGER},
-      workDate = #{record.workdate},
-      status = #{record.status,jdbcType=CHAR},
-      name = #{record.name,jdbcType=VARCHAR}
+      year = #{year,jdbcType=INTEGER},
+      workDate = #{workdate},
+      status = #{status,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR}
     WHERE id = #{id}
   </update>
 

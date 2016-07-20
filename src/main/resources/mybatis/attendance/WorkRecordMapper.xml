@@ -58,16 +58,16 @@
     <update id="update" parameterType="WorkRecord">
         UPDATE JY_WORK_RECORD
         SET
-            type       = #{record.type,jdbcType=CHAR},
-            employee   = #{record.employee,jdbcType=VARCHAR},
-            location   = #{record.location,jdbcType=VARCHAR},
-            picture    = #{record.picture,jdbcType=VARCHAR},
-            date       = #{record.date,jdbcType=DATE},
-            week       = #{record.week,jdbcType=VARCHAR},
-            morning    = #{record.morning,jdbcType=VARCHAR},
-            beforenoon = #{record.beforenoon,jdbcType=VARCHAR},
-            afternoon  = #{record.afternoon,jdbcType=VARCHAR},
-            night      = #{record.night,jdbcType=VARCHAR}
+            type       = #{type,jdbcType=CHAR},
+            employee   = #{employee,jdbcType=VARCHAR},
+            location   = #{location,jdbcType=VARCHAR},
+            picture    = #{picture,jdbcType=VARCHAR},
+            date       = #{date,jdbcType=DATE},
+            week       = #{week,jdbcType=VARCHAR},
+            morning    = #{morning,jdbcType=VARCHAR},
+            beforenoon = #{beforenoon,jdbcType=VARCHAR},
+            afternoon  = #{afternoon,jdbcType=VARCHAR},
+            night      = #{night,jdbcType=VARCHAR}
         WHERE id = #{id}
     </update>
 

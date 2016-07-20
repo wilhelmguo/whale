@@ -11,6 +11,16 @@ public class BaseEntity implements Serializable {
 
 	protected String keyWord;
 
+	protected String cid;
+
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
 	public Integer getIsValid() {
 		return isValid;
 	}

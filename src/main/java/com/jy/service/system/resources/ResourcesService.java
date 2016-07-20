@@ -14,6 +14,8 @@ public interface ResourcesService extends BaseService<Resources>{
      * @return
      */
 	public List<Resources> findMenuTree(String userId,String layer);
+
+	public List<Resources> findSuperUserMenuTree(String loginName,String layer);
 	 /**
      * 按钮列
      * @param type

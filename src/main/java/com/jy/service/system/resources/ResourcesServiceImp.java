@@ -23,6 +23,10 @@ public class ResourcesServiceImp extends BaseServiceImp<Resources> implements Re
 		return ((ResourcesDao) baseDao).findMenuTree(userId,layer);
 	}
 	@Override
+	public List<Resources> findSuperUserMenuTree(String loginName,String layer) {
+		return ((ResourcesDao) baseDao).findSuperUserMenuTree(loginName,layer);
+	}
+	@Override
 	public List<Resources> findBtn(String type,String menuId,String userId) {			
 		return ((ResourcesDao) baseDao).findBtn(type,menuId,userId);
 	}

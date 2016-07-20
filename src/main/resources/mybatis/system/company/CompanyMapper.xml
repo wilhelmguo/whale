@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jy.repository.system.company.CompanyDao">
+	<!-- com.jy.entity.system.company.Company  -->
+ 	<resultMap id="base" type="Company" ></resultMap>
+ 	<select id="find"  resultMap="base" parameterType="Company">
+       SELECT t.* FROM JY_BASE_COMPANY t WHERE 1=1 
+       <if test="id != null and id!='' ">
+        	AND t.id=#{id}
+       </if>
+
+    </select> 
+ 	<select id="findByPage"  resultMap="base" parameterType="Company">
+       SELECT t.* FROM JY_BASE_COMPANY t WHERE 1=1 
+        <if test="param.id!= null and param.id!='' ">
+        	AND t.id=#{param.id}
+       </if>
+		<if test="param.name!= null and param.name!='' ">
+			AND t.id=#{param.name}
+		</if>
+       <if test="param.keyWord!= null">
+        	AND t.name LIKE CONCAT('%',#{param.keyWord},'%')
+       </if>
+       order by t.name desc
+    </select>  
+    <select id="count"  resultType="int" parameterType="Company">
+       SELECT count(*) FROM JY_BASE_COMPANY t WHERE 1=1 
+    </select>        
+ 	<insert id="insert"  parameterType="Company">	
+ 	<![CDATA[
+	INSERT INTO JY_BASE_COMPANY(
+	id,
+	name
+	) VALUES (
+	#{id},
+	#{name}
+	)
+	]]>  
+	</insert>
+	<delete id="delete" parameterType="Company">
+	DELETE FROM JY_BASE_COMPANY  WHERE 1=1 
+	AND id=#{id} 
+	</delete>
+	<delete id="deleteBatch" parameterType="java.util.List">
+	DELETE FROM JY_BASE_COMPANY 
+	WHERE id IN(
+		<foreach item="o" collection="list" open="" separator="," close="" >
+			#{o.id}
+		</foreach>
+		)
+	</delete>
+	<update id="update" parameterType="Company">
+		UPDATE JY_BASE_COMPANY 
+		SET 
+			name  =#{name}
+		WHERE
+			id=#{id}
+	</update>	
+</mapper>

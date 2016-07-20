@@ -6,33 +6,33 @@
             <tr style="display:none">
                 <td colspan="2" class="ui-state-error"><input type="hidden" name="id"></td>
             </tr>
+
             <tr class="FormData">
-                <p style="color: red;">说明:上午签退时间和下午签到时间必须同时设置或不设置.
-                    设置则表示中午需要打卡,不设置表示中午不需要打卡,输入格式'hh:mm',例如:18:00</td>
-                </p>
+                <td class="CaptionTD"><span style="color: red; ">*</span>年度：</td>
+                <td class="DataTD">&nbsp;
+                    <span id="selectYear"><label></label><select data-placeholder="状态" name="year"></select></span>
+                    <%--<input type="text" jyValidate="required" role="textbox" maxlength="64" name="year"--%>
+                           <%--class="FormElement ui-widget-content ui-corner-all">--%>
+                </td>
             </tr>
             <tr class="FormData">
-                <td class="CaptionTD"><span style="color: red; ">*</span>上班时间：</td>
+                <td class="CaptionTD">日期：</td>
                 <td class="DataTD">&nbsp;
-                    <input type="text" jyValidate="required" role="textbox" maxlength="64" name="morning"
+                    <input type="text" role="textbox" maxlength="32" name="workDate"
                            class="FormElement ui-widget-content ui-corner-all"></td>
             </tr>
             <tr class="FormData">
-                <td class="CaptionTD">上午签退时间：</td>
+                <td class="CaptionTD">种类：</td>
                 <td class="DataTD">&nbsp;
-                    <input type="text"  role="textbox" maxlength="32" name="beforenoon"
-                           class="FormElement ui-widget-content ui-corner-all"></td>
+                    <input type="text" role="textbox" maxlength="64" name="status"
+                           class="FormElement ui-widget-content ui-corner-all">
+                    <span id="selectType"><label></label><select data-placeholder="状态" name="status"></select></span>
+                </td>
             </tr>
             <tr class="FormData">
-                <td class="CaptionTD">下午签到时间：</td>
+                <td class="CaptionTD"><font color="red">*</font>规则名称：</td>
                 <td class="DataTD">&nbsp;
-                    <input type="text"  role="textbox" maxlength="64" name="afternoon"
-                           class="FormElement ui-widget-content ui-corner-all"></td>
-            </tr>
-            <tr class="FormData">
-                <td class="CaptionTD"><font color="red">*</font>下班时间：</td>
-                <td class="DataTD">&nbsp;
-                    <input type="text" jyValidate="required" role="textbox" maxlength="64" name="night"
+                    <input type="text" jyValidate="required" role="textbox" maxlength="64" name="name"
                            class="FormElement ui-widget-content ui-corner-all">
                 </td>
             </tr>

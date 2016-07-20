@@ -119,8 +119,18 @@
 		AND t.role_id IN(SELECT jba.roleId FROM JY_BASE_ACCOUNT jba WHERE  jba.isValid=1 AND jba.id=#{userId})
 		WHERE jbm.isValid=1 AND jbm.type=1 AND jbm.layer=#{layer}
 		ORDER BY jbm.parentId,jbm.sort
-    </select>  
-    <!-- 按钮列 -->
+    </select>
+	<!-- 超级管理员菜单树-->
+	<select id="findSuperUserMenuTree"  resultMap="base" parameterType="String">
+		SELECT  jbm.id,jbm.name,jbm.parentId,jbm.type,jbm.resUrl,jbm.icon,jbm.sort,jbm.isValid
+		FROM JY_BASE_RESOURCES jbm
+		RIGHT JOIN(select jbrm.* from JY_BASE_ROLE jbr,JY_BASE_ROLE_RESOURCES jbrm WHERE jbr.id=jbrm.role_id AND jbr.isValid=1) t
+		ON t.resources_id=jbm.id
+		AND t.role_id IN(SELECT jba.roleId FROM JY_BASE_ACCOUNT jba WHERE  jba.isValid=1 AND jba.loginName=#{loginName})
+		WHERE jbm.isValid=1 AND jbm.type=1 AND jbm.layer=#{layer}
+		ORDER BY jbm.parentId,jbm.sort
+	</select>
+	<!-- 按钮列 -->
     <select id="findBtn"  resultMap="base" parameterType="java.util.Map">    		
 		SELECT jbm.name,jbm.parentId,jbm.type,jbm.resUrl,jbm.btnId,jbm.btnFun,jbm.icon,jbm.sort,jbm.isValid,jbm.layer
 		FROM JY_BASE_RESOURCES jbm

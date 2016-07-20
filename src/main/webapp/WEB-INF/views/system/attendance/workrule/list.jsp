@@ -11,13 +11,13 @@
 		<div class="row-fluid">
 			<div class="col-xs-12">
 				<form id="baseForm" class="form-inline" method="POST" onsubmit="return false;">
-				<%--<div class="row">--%>
-					<%--<div class="widget-main">	--%>
-						<%--<input  type="text"  name="keyWord" placeholder="这里输入关键词" class="input-large">--%>
-						<%--&nbsp;&nbsp;<span id="selectisValid"><label></label>：<select  data-placeholder="状态" name="isValid" class="chosen-select isSelect75"></select></span>														--%>
-						<%--&nbsp;&nbsp;<button id='searchBtn' class="btn btn-warning  btn-xs" title="过滤" type="button" onclick="getbaseList(1)"><i class="icon-search bigger-110 icon-only"></i></button>--%>
-					<%--</div>--%>
-				<%--</div>--%>
+				<div class="row">
+					<div class="widget-main">
+						<input  type="text"  name="keyWord" placeholder="这里输入关键词" class="input-large">
+						&nbsp;&nbsp;<span id="selectisValid"><label>年度</label>：<select  data-placeholder="状态" name="isValid" class="chosen-select isSelect75"></select></span>
+						&nbsp;&nbsp;<button id='searchBtn' class="btn btn-warning  btn-xs" title="过滤" type="button" onclick="getbaseList(1)"><i class="icon-search bigger-110 icon-only"></i></button>
+					</div>
+				</div>
 				<input type='hidden' class='pageNum' name='pageNum' value='1'/>
 				<input type='hidden' class='pageSize'  name='pageSize' value='5'/>
 				</form>
@@ -28,10 +28,10 @@
 								<label><input type="checkbox" class="ace" ><span class="lbl"></span></label>
 							</th>
 							<th style="width:5%" class="center hidden-480">序号</th>
-							<th style="width:15%" class="center">上班时间</th>
-							<th style="width:15%" class="center hidden-480">上午签退时间</th>
-							<th style="width:15%" class="center">下午签到时间</th>
-							<th style="width:15%" class="center" >下班时间</th>
+							<th style="width:15%" class="center">年度</th>
+							<th style="width:15%" class="center hidden-480">日期</th>
+							<th style="width:15%" class="center">种类</th>
+							<th style="width:15%" class="center" >规则名称</th>
 							<th style="width:10%" class="center">操作</th>
 						</tr>
 					</thead>
@@ -59,6 +59,6 @@
 			</div>
 		</div>
 	</div>
-<script src="${jypath}/static/js/system/attendance/workTime.js"></script>
+<script src="${jypath}/static/js/system/attendance/workRule.js"></script>
 </body>
 </html>

@@ -35,7 +35,7 @@ public class WorkRuleController extends BaseController<WorkRule> {
   public String index(Model model) {
     if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
       model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
-      return "/system/dict/sys/list";
+      return "/system/attendance/workrule/list";
     }
     return Const.NO_AUTHORIZED_URL;
   }
