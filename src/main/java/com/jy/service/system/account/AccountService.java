@@ -61,6 +61,7 @@ public interface AccountService extends BaseService<Account>{
      * @return
      */
     public List<ZNodes> getRoles();
+  public List<ZNodes> getRoles(String company);
 	  /**
      * 系统密码重置
      * @param Account

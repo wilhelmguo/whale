@@ -333,7 +333,7 @@ function authorized(id) {
     $("#authorityDiv input[name$='roleId']").val(id);
     $("#authorityDiv input[name$='auth']").val("role");
     var layer = $("#authorityDiv input[name$='layer']").val();
-    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/listAuthorized', {id: id, layer: layer}, function (data) {
+    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/listCompanyAuthorized', {id: id, layer: layer}, function (data) {
         //获取数据
         var zNodes = data.obj;
         //设置

@@ -57,14 +57,20 @@ public class OrgServiceImp extends BaseServiceImp<Org> implements OrgService {
 
     return ((OrgDao) baseDao).getOrgTree(company);
   }
+
   @Override
-  public List<ZNodes> getOrgTree(){
+  public List<ZNodes> getOrgTree() {
     return ((OrgDao) baseDao).getSuperUserOrgTree();
   }
 
   @Override
   public List<ZNodes> getPreOrgTree() {
     return ((OrgDao) baseDao).getPreOrgTree();
+  }
+
+  @Override
+  public List<ZNodes> getCompanyPreOrgTree(String company) {
+    return ((OrgDao) baseDao).getCompanyPreOrgTree(company);
   }
 
   @Override

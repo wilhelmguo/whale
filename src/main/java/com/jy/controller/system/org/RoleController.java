@@ -236,6 +236,25 @@ public class RoleController extends BaseController<Role> {
     return ar;
   }
 
+  @RequestMapping(value = "listCompanyAuthorized", method = RequestMethod.POST)
+  @ResponseBody
+  public AjaxRes listCompanyAuthorized() {
+    AjaxRes ar = getAjaxRes();
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
+      try {
+        PageData pd = this.getPageData();
+        String roleId = pd.getString("id");
+        String layer = pd.getString("layer");
+        List<ZNodes> r = roleService.listCompanyAuthorized(roleId, layer);
+        ar.setSucceed(r);
+      } catch (Exception e) {
+        logger.error(e.toString(), e);
+        ar.setFailMsg(Const.DATA_FAIL);
+      }
+    }
+    return ar;
+  }
+
   @RequestMapping(value = "listAuthorized", method = RequestMethod.POST)
   @ResponseBody
   public AjaxRes listAuthorized() {
@@ -371,6 +390,22 @@ public class RoleController extends BaseController<Role> {
     return ar;
   }
 
+  @RequestMapping(value = "getCompanyPreOrgTree", method = RequestMethod.POST)
+  @ResponseBody
+  public AjaxRes getCompanyPreOrgTree() {
+    AjaxRes ar = getAjaxRes();
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
+      try {
+        List<ZNodes> r = orgService.getCompanyPreOrgTree(getCompany());
+        ar.setSucceed(r);
+      } catch (Exception e) {
+        logger.error(e.toString(), e);
+        ar.setFailMsg(Const.DATA_FAIL);
+      }
+    }
+    return ar;
+  }
+
   @RequestMapping(value = "addCompany", method = RequestMethod.POST)
   @ResponseBody
   public AjaxRes addCompany(Org o) {
@@ -410,6 +445,7 @@ public class RoleController extends BaseController<Role> {
         }
         String uid = get32UUID();
         o.setId(uid);
+        o.setCompany(getCompany());
         o.setCreateTime(new Date());
         orgService.insert(o);
         ar.setSucceedMsg(Const.SAVE_SUCCEED);

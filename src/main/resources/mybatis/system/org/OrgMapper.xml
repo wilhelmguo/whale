@@ -86,7 +86,18 @@
 	   		  t.pId as pId
 	   FROM JY_BASE_ORG t
        ORDER BY t.id,t.name
-    </select> 
+    </select>
+	<!-- 公司上级机构树 -->
+	<select id="getCompanyPreOrgTree" resultMap="ZNodes" parameterType="String">
+		SELECT t.id as id,
+		t.name as name,
+		t.pId as pId
+		FROM JY_BASE_ORG t where 1=1
+		<if test="company != null and company!='' ">
+			and t.cid=#{company}
+		</if>
+		ORDER BY t.id,t.name
+	</select>
     <!-- 权限列表包含按钮 -->
     <select id="listAuthorized" resultMap="ZNodes" parameterType="String">    		
       SELECT jbre.id as id,

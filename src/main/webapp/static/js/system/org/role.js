@@ -23,7 +23,7 @@ $(function () {
 			});
 		}else if(auth=='role'){
 			var roleId=$("#authorityDiv input[name$='roleId']").val();
-			JY.Ajax.doRequest(null,jypath +'/backstage/org/role/listAuthorized',{id:roleId,layer:layer},function(data){
+			JY.Ajax.doRequest(null,jypath +'/backstage/org/role/listCompanyAuthorized',{id:roleId,layer:layer},function(data){
 				$.fn.zTree.init($("#authorityTree"),{check: {enable: true,chkDisabledInherit: true,chkboxType:{"Y":"ps","N":"s"}},data:{simpleData:{enable: true}}},data.obj);	      
 			});
 		}else{
@@ -181,7 +181,7 @@ function refreshOrgTree(){
 	 });	 
 }
 function loadPreOrgTree(){
-	JY.Ajax.doRequest(null,jypath +'/backstage/org/role/getPreOrgTree',null,function(data){
+	JY.Ajax.doRequest(null,jypath +'/backstage/org/role/getCompanyPreOrgTree',null,function(data){
 		//设置
 		$.fn.zTree.init($("#preOrgTree"),{view:{dblClickExpand:false,selectedMulti:false,nameIsHTML:true},data:{simpleData:{enable: true}},callback:{onClick:clickPreOrg}},data.obj);
 	});
@@ -276,7 +276,7 @@ function authorized(id){
 	$("#authorityDiv input[name$='roleId']").val(id);
 	$("#authorityDiv input[name$='auth']").val("role");
 	var layer=$("#authorityDiv input[name$='layer']").val();
-	JY.Ajax.doRequest(null,jypath +'/backstage/org/role/listAuthorized',{id:id,layer:layer},function(data){
+	JY.Ajax.doRequest(null,jypath +'/backstage/org/role/listCompanyAuthorized',{id:id,layer:layer},function(data){
 	         //获取数据
 	    	 var zNodes=data.obj;
 	         //设置

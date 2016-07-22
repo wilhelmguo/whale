@@ -16,6 +16,7 @@ public interface RoleService extends BaseService<Role>{
      * @return
      */
 	public List<ZNodes> listAuthorized(String roleId,String layer);
+	public List<ZNodes> listCompanyAuthorized(String roleId,String layer);
 	 /**
      * 根据角色Id保存权限列表
      * @param roleId 角色Id

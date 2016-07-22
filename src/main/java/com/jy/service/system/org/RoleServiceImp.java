@@ -28,7 +28,14 @@ public class RoleServiceImp extends BaseServiceImp<Role> implements RoleService{
 	
 	@Override
 	public List<ZNodes> listAuthorized(String roleId,String layer) {
+
 		return roleDao.listAuthorized(roleId,layer);
+	}
+
+	@Override
+	public List<ZNodes> listCompanyAuthorized(String roleId,String layer) {
+
+		return roleDao.listCompanyAuthorized(roleId,layer);
 	}
 
 	@Override

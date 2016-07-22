@@ -83,7 +83,7 @@ public class AccountServiceImp extends BaseServiceImp<Account> implements Accoun
     int res = 0;
     String loginName = o.getLoginName();
     //查询数据库是否已经存在用户名
-    if (StringUtils.isNotBlank(loginName) && (accountDao.findCountByLoginName(loginName) == 0)) {
+    if (StringUtils.isNotBlank(loginName) && (accountDao.findCountByLoginNameAndCompany(loginName,o.getCompany()) == 0)) {
       String pwrs = CipherUtil.createRandomString(6);//随机密码,以后发邮箱
       o.setDescription(pwrs);//用户随机密码暂时保存在描述里
       String pwrsMD5 = CipherUtil.generatePassword(pwrs);//第一次加密md5，
@@ -121,6 +121,11 @@ public class AccountServiceImp extends BaseServiceImp<Account> implements Accoun
   @Override
   public List<ZNodes> getRoles() {
     return accountDao.getRoles();
+  }
+
+  @Override
+  public List<ZNodes> getRoles(String company) {
+    return accountDao.getCompanyRoles(company);
   }
 
   @Override

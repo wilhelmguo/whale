@@ -66,6 +66,11 @@ public interface AccountDao  extends BaseDao<Account>{
      */
     public List<ZNodes> getRoles();
     /**
+     * 获得角色树
+     * @return
+     */
+    public List<ZNodes> getCompanyRoles(@Param("company")String company);
+    /**
      * 通过登录名查找用户数量
      * @param loginName 用户名
      * @return

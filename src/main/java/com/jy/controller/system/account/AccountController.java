@@ -42,7 +42,7 @@ public class AccountController extends BaseController<Account>{
 		AjaxRes ar=getAjaxRes();
 		if(ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU,"/backstage/account/index"))){
 			try {
-				List<ZNodes> list=service.getRoles();
+				List<ZNodes> list=service.getRoles(getCompany());
 				ar.setSucceed(list);
 			} catch (Exception e) {
 				logger.error(e.toString(),e);
@@ -58,6 +58,7 @@ public class AccountController extends BaseController<Account>{
 		AjaxRes ar=getAjaxRes();
 		if(ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU,"/backstage/account/index"))){
 			try {
+				o.setCompany(getCompany());
 				Page<Account> accounts=service.findByPage(o, page);
 				Map<String, Object> p=new HashMap<String, Object>();
 				p.put("permitBtn",getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
@@ -77,7 +78,8 @@ public class AccountController extends BaseController<Account>{
 		AjaxRes ar=getAjaxRes();
 		if(ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))){			
 			try {
-				o.setAccountId(get32UUID());	
+				o.setAccountId(get32UUID());
+				o.setCompany(getCompany());
 				int res=service.insertAccount(o);
 				if(res==1)ar.setSucceedMsg(Const.SAVE_SUCCEED);
 				else ar.setFailMsg("登录名已存在");	
@@ -111,6 +113,7 @@ public class AccountController extends BaseController<Account>{
 		AjaxRes ar=getAjaxRes();
 		if(ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))){	
 			try {
+				o.setCompany(getCompany());
 				List<Account> list=service.find(o);
 				Account acount =list.get(0);
 				ar.setSucceed(acount);

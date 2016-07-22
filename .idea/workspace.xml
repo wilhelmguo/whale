@@ -2,129 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="092f2751-1f83-4438-8486-1b87272be1f3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_r09.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/a.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/category.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/category_list.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/css/member.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/css/order3.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/css/productDetail.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/Search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/addIcon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/aim-sprites.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/back_icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/bot_top_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/checkIcont.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/member_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/member_img16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/member_mp_img.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/noavatar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg_10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg_7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg_8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_bg_9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/order_top_l.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/search.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/images/sou.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/01d5dc75-9e5d-405f-bf93-5793fec72e24.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/01de5ef6-3763-4cfe-bda8-c412266e14c7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/04ef50d9-97f0-4fea-8359-ee21376df392.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/0bbbb6bf-0d00-45c0-92f7-347377f2edb5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/0d86960d-20b5-4dd3-afee-8453b5ea5e95.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/0da8eb94-0159-4700-a6a5-bc007da5a853.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/1613e012-64fa-444a-b4de-83ebd804b0d6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/1787bd1d-9381-402b-b98e-97ceeddf7692.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/1c9cc5cf-4ef5-4474-b4ae-7b2f1efa88f0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/1e13498f-419d-4ebd-a3b2-d0ad95ceaa39.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/276aed28-5c4c-4ded-9070-59719e583ee5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/2cf2f1f9-df47-47bc-be52-c5d70af53778.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/2e7b0a93-2da2-437e-adde-ffba0cfbe218.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/33c256a8-7bff-4c6b-8686-f209bbad1301.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/3bec333d-f60a-48a3-999c-371c4fe67134.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/419da357-1a5e-4191-8652-fa9f73579824.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/44cd1b3d-80e7-4e62-94db-ba53a273cfe4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/53698282-4ff7-4daa-bb4c-4bcaa14b00fc.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/61647775-f5d0-4cfe-b84f-96060eb8e2e3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/65bd9fc8-7f5e-4dba-b083-0c05b1bc9b96.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/7865e470-0296-4f6b-98aa-30ab9824358d.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/78743cc9-5d29-4289-b0a1-0d5df79e63c7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/83baf5bf-92df-4d85-b504-3dda879c84d7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/886a68b6-f0aa-41cd-ad89-757c427a33c9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/899329e3-9ec3-466b-856f-15f2a91b72a4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/8a009458-f5df-407c-95ca-c2ee81bffbc2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/8a9740c7-7f8e-4f20-ba64-1e90dd596ebe.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/8d502712-32ed-4301-a4e7-45b1ea4aaa77.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/917b4ded-1980-4602-8ad6-a5fa95a9b3b9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/977a1fc2-0ee7-4f73-a7f6-eea5b73f642b.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/9cb5861c-5ff8-42b8-8c9b-0f6b4a53cde9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/Search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/a265b462-4d22-4914-951b-4068d533be6b.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/a5b3890a-7d78-4bac-be54-45febc984835.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/a909bfc1-cada-4008-81c0-556ff86aace1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/b0c64749-6129-4069-9965-4ab577d48d6a.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/b5804b78-d14c-4e34-bd39-244183f92997.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/bd6771d9-f220-454d-83b2-d58d2046d23a.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/c2abb958-aca8-42f2-be52-ee1c072caec0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/ce94d818-bc17-4028-9c5f-cd22e6661d83.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/d07a93ef-cdff-4b21-a12b-d817890aa6d6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/d2cd16e6-71f0-4c42-b57e-30e417e8a28f.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/e6657ca7-c4c5-43fc-9bd6-29999102fc61.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/e71099af-8a08-45f5-af16-4e8edf2f1bff.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/ee3aac6b-26a0-41bb-8e24-897d522e8412.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/ee767da6-119b-4463-a376-72eb0f495629.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/ef8d9883-7711-4142-8533-5d7cf91082e4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/efa1dc7b-1375-4876-acae-e344cae7d55c.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/f3e8ccfb-2827-43ad-80a4-b59d3a2d406d.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/f91ac28f-b66c-45e0-9752-41bcfa0302c7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/ffb9f5ad-27c7-44e0-8a48-634a71872dfb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/icon_pp.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/icon_rm.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/icon_tm.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/order_top_l.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/sou.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/img/theme.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/TouchSlide.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/category.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/global.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/jquery.form.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/login.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/prodDetail.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/prodSort.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/randomimage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/shopCart.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/js/template.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/shopcart.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/userhome.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/mobile/views.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/whale_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/whale_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/common/utils/base/Const.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/common/utils/base/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/base/BaseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/base/BaseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/backstage/BackstageController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/backstage/BackstageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/company/CompanyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/company/CompanyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/login/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/login/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/account/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/account/AccountController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/org/RoleController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/org/RoleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/entity/base/BaseEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/entity/base/BaseEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/interceptor/shiro/ShiroRealm.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/interceptor/shiro/ShiroRealm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/repository/system/account/AccountDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/repository/system/account/AccountDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/OrgDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/OrgDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/RoleDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/RoleDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/service/company/CompanyServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/service/company/CompanyServiceImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountServiceImp.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgService.java" />
@@ -134,15 +16,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/system/account/AccountMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/system/account/AccountMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/system/org/RoleMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/system/org/RoleMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/system/resources/ResourcesMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/system/resources/ResourcesMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/form.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/form.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/login/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/login/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/org/role/form.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/org/role/form.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties" afterPath="$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/system/company/company.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/system/company/company.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/system/login/login.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/system/login/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whale.iml" afterPath="$PROJECT_DIR$/whale.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/system/org/role.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/system/org/role.js" />
     </list>
     <ignored path="whale.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -172,24 +48,82 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RoleController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RoleController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/org/RoleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="244" column="41" selection-start-line="244" selection-start-column="41" selection-end-line="244" selection-end-column="41" />
+            <state relative-caret-position="129">
+              <caret line="408" column="20" selection-start-line="408" selection-start-column="20" selection-end-line="408" selection-end-column="20" />
               <folding>
-                <element signature="e#9063#9071#0" expanded="true" />
-                <element signature="e#10203#10211#0" expanded="true" />
+                <element signature="e#9695#9703#0" expanded="true" />
+                <element signature="e#10835#10843#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoleService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/org/RoleService.java">
+      <file leaf-file-name="AccountController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/account/AccountController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+            <state relative-caret-position="210">
+              <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dbconfig.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/account/AccountMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="203" column="54" selection-start-line="203" selection-start-column="54" selection-end-line="203" selection-end-column="54" />
+              <folding>
+                <marker date="1469177154404" expanded="true" signature="1636:2717" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
+                <marker date="1469177154404" expanded="true" signature="2809:2858" ph="SELECT count... JY_BASE_ACCOUNT" />
+                <marker date="1469177154404" expanded="true" signature="2939:3201" ph="INSERT INTO JY_BASE_ACCOUNT... " />
+                <marker date="1469177154404" expanded="true" signature="3269:3321" ph="delete from " />
+                <marker date="1469177154404" expanded="true" signature="3393:3539" ph="DELETE FROM " />
+                <marker date="1469177154404" expanded="true" signature="3603:3798" ph="UPDATE JY_BA... " />
+                <marker date="1469177154404" expanded="true" signature="3937:4043" ph="SELECT a.* F... JY_BASE_ACCOUNT" />
+                <marker date="1469177154404" expanded="true" signature="4177:4330" ph="SELECT a.* F... JY_BASE_ACCOUNT" />
+                <marker date="1469177154404" expanded="true" signature="4461:4863" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
+                <marker date="1469177154404" expanded="true" signature="4936:5005" ph="UPDATE JY_BA... " />
+                <marker date="1469177154404" expanded="true" signature="5089:5473" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
+                <marker date="1469177154404" expanded="true" signature="5542:5665" ph="UPDATE JY_BA... " />
+                <marker date="1469177154404" expanded="true" signature="5733:5838" ph="UPDATE JY_BA... " />
+                <marker date="1469177154404" expanded="true" signature="5895:5983" ph="SELECT jbo.i... JY_BASE_ORG" />
+                <marker date="1469177154404" expanded="true" signature="5895:6118" ph="SELECT jbo.i... " />
+                <marker date="1469177154404" expanded="true" signature="5999:6118" ph="SELECT CONCA... JY_BASE_ROLE" />
+                <marker date="1469177154404" expanded="true" signature="6205:6295" ph="SELECT jbo.i... JY_BASE_ORG" />
+                <marker date="1469177154404" expanded="true" signature="6205:6304" ph="SELECT jbo.i... JY_BASE_ORG" />
+                <marker date="1469177154404" expanded="true" signature="6205:6305" ph="SELECT jbo.i... JY_BASE_ORG" />
+                <marker date="1469177154404" expanded="true" signature="6205:6450" ph="SELECT jbo.i... " />
+                <marker date="1469177154404" expanded="true" signature="6205:6451" ph="SELECT jbo.i... " />
+                <marker date="1469177154404" expanded="true" signature="6320:6450" ph="SELECT CONCA... JY_BASE_ROLE" />
+                <marker date="1469177154404" expanded="true" signature="6526:6615" ph="SELECT COUNT... JY_BASE_ACCOUNT" />
+                <marker date="1469177154404" expanded="true" signature="6696:6791" ph="SELECT COUNT... JY_BASE_ACCOUNT" />
+                <marker date="1469177154404" expanded="true" signature="6861:6958" ph="UPDATE JY_BA... " />
+                <marker date="1469177154404" expanded="true" signature="7048:7167" ph="SELECT t.log... JY_BASE_LOGIN_LOG" />
+                <marker date="1469177154404" expanded="true" signature="7252:7417" ph="SELECT jbp.*... JY_BASE_ACCOUNT_POSITION" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/repository/system/account/AccountDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="84" column="45" selection-start-line="84" selection-start-column="15" selection-end-line="84" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -198,74 +132,68 @@
       <file leaf-file-name="OrgMapper.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="117" column="46" selection-start-line="117" selection-start-column="46" selection-end-line="117" selection-end-column="46" />
+            <state relative-caret-position="126">
+              <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
               <folding>
-                <marker date="1469152623732" expanded="true" signature="965:1279" ph="SELECT t.*,j... JY_BASE_ORG" />
-                <marker date="1469152623732" expanded="true" signature="1373:1442" ph="SELECT t.* F... JY_BASE_ORG" />
-                <marker date="1469152623732" expanded="true" signature="1532:1577" ph="SELECT count... JY_BASE_ROLE" />
-                <marker date="1469152623732" expanded="true" signature="1663:1807" ph="INSERT INTO JY_BASE_ORG... " />
-                <marker date="1469152623732" expanded="true" signature="1873:1914" ph="DELETE FROM " />
-                <marker date="1469152623732" expanded="true" signature="1986:2123" ph="DELETE from " />
-                <marker date="1469152623732" expanded="true" signature="2183:2299" ph="UPDATE JY_BA... " />
-                <marker date="1469152623732" expanded="true" signature="2401:2604" ph="SELECT t.id JY_BASE_ORG" />
-                <marker date="1469152623732" expanded="true" signature="2699:2805" ph="SELECT t.id JY_BASE_ORG" />
-                <marker date="1469152623732" expanded="true" signature="2915:3029" ph="SELECT t.id JY_BASE_ORG" />
-                <marker date="1469152623732" expanded="true" signature="3154:3732" ph="SELECT jbre.... " />
-                <marker date="1469152623732" expanded="true" signature="3852:4415" ph="SELECT jbre.... " />
-                <marker date="1469152623732" expanded="true" signature="4545:5475" ph="SELECT jbre.... JY_BASE_RESOURCES" />
-                <marker date="1469152623732" expanded="true" signature="5014:5362" ph="SELECT thjbo... JY_BASE_ORG_RESOURCES" />
-                <marker date="1469152623732" expanded="true" signature="5187:5270" ph="SELECT t.org... JY_BASE_ORG_RESOURCES" />
-                <marker date="1469152623732" expanded="true" signature="5554:5612" ph="DELETE FROM " />
-                <marker date="1469152623732" expanded="true" signature="5695:5869" ph="DELETE FROM " />
-                <marker date="1469152623732" expanded="true" signature="5766:5868" ph="SELECT jbr.i... JY_BASE_RESOURCES" />
-                <marker date="1469152623732" expanded="true" signature="5957:6108" ph="DELETE FROM " />
-                <marker date="1469152623732" expanded="true" signature="6761:6846" ph="SELECT t.id,... JY_BASE_ORG" />
-                <marker date="1469152623732" expanded="true" signature="6947:7032" ph="SELECT t.id,... JY_BASE_ORG" />
-                <marker date="1469152623732" expanded="true" signature="7133:7218" ph="SELECT t.id,... JY_BASE_ORG" />
-                <marker date="1469152623732" expanded="true" signature="7314:7388" ph="SELECT t.id,... JY_BASE_ROLE" />
-                <marker date="1469152623732" expanded="true" signature="7491:7802" ph="SELECT jbor.... JY_BASE_ORG_RESOURCES" />
+                <marker date="1469165469725" expanded="true" signature="965:1279" ph="SELECT t.*,j... JY_BASE_ORG" />
+                <marker date="1469165469725" expanded="true" signature="1373:1442" ph="SELECT t.* F... JY_BASE_ORG" />
+                <marker date="1469165469725" expanded="true" signature="1532:1577" ph="SELECT count... JY_BASE_ROLE" />
+                <marker date="1469165469725" expanded="true" signature="1663:1807" ph="INSERT INTO JY_BASE_ORG... " />
+                <marker date="1469165469725" expanded="true" signature="1873:1914" ph="DELETE FROM " />
+                <marker date="1469165469725" expanded="true" signature="1986:2123" ph="DELETE from " />
+                <marker date="1469165469725" expanded="true" signature="2183:2299" ph="UPDATE JY_BA... " />
+                <marker date="1469165469725" expanded="true" signature="2401:2604" ph="SELECT t.id JY_BASE_ORG" />
+                <marker date="1469165469725" expanded="true" signature="2699:2805" ph="SELECT t.id JY_BASE_ORG" />
+                <marker date="1469165469725" expanded="true" signature="2915:3029" ph="SELECT t.id JY_BASE_ORG" />
+                <marker date="1469165469725" expanded="true" signature="3142:3326" ph="SELECT t.id JY_BASE_ORG" />
+                <marker date="1469165469725" expanded="true" signature="3447:4025" ph="SELECT jbre.... " />
+                <marker date="1469165469725" expanded="true" signature="4145:4708" ph="SELECT jbre.... " />
+                <marker date="1469165469725" expanded="true" signature="4838:5768" ph="SELECT jbre.... JY_BASE_RESOURCES" />
+                <marker date="1469165469725" expanded="true" signature="5307:5655" ph="SELECT thjbo... JY_BASE_ORG_RESOURCES" />
+                <marker date="1469165469725" expanded="true" signature="5480:5563" ph="SELECT t.org... JY_BASE_ORG_RESOURCES" />
+                <marker date="1469165469725" expanded="true" signature="5847:5905" ph="DELETE FROM " />
+                <marker date="1469165469725" expanded="true" signature="5988:6162" ph="DELETE FROM " />
+                <marker date="1469165469725" expanded="true" signature="6059:6161" ph="SELECT jbr.i... JY_BASE_RESOURCES" />
+                <marker date="1469165469725" expanded="true" signature="6250:6401" ph="DELETE FROM " />
+                <marker date="1469165469725" expanded="true" signature="7054:7139" ph="SELECT t.id,... JY_BASE_ORG" />
+                <marker date="1469165469725" expanded="true" signature="7240:7325" ph="SELECT t.id,... JY_BASE_ORG" />
+                <marker date="1469165469725" expanded="true" signature="7426:7511" ph="SELECT t.id,... JY_BASE_ORG" />
+                <marker date="1469165469725" expanded="true" signature="7607:7681" ph="SELECT t.id,... JY_BASE_ROLE" />
+                <marker date="1469165469725" expanded="true" signature="7784:8095" ph="SELECT jbor.... JY_BASE_ORG_RESOURCES" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/form.jsp">
+      <file leaf-file-name="role.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/org/role.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="100" column="33" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="33" />
+            <state relative-caret-position="297">
+              <caret line="183" column="76" selection-start-line="183" selection-start-column="56" selection-end-line="183" selection-end-column="76" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/list.jsp">
+      <file leaf-file-name="AccountService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
-              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+            <state relative-caret-position="125">
+              <caret line="55" column="28" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="company.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/company/company.js">
+      <file leaf-file-name="AccountServiceImp.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountServiceImp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="63" column="46" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResourcesController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/resources/ResourcesController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="28" column="38" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="38" />
-              <folding />
+            <state relative-caret-position="41">
+              <caret line="81" column="56" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
+              <folding>
+                <element signature="e#3905#3906#0" expanded="true" />
+                <element signature="e#3957#3958#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -296,8 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workdevice/list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workdevice/form.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkDeviceMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workDevice.js" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRuleMapper.xml" />
@@ -315,11 +241,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/system/company/CompanyMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/service/company/CompanyService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/system/backstage/BackstageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/RoleService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/RoleDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/RoleServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/service/company/CompanyServiceImp.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/org/role/form.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/login/login.jsp" />
@@ -331,22 +253,28 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-shiro.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/common/utils/springfox/SpringfoxDocConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/system/org/RoleMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/form.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jy/repository/system/account/AccountDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountServiceImp.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/system/account/AccountMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/system/company/CompanyController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/system/resources/ResourcesMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/base/BaseController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/system/org/RoleMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/RoleDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/RoleServiceImp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/RoleService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/js/system/company/company.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static/js/system/org/role.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/OrgDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgServiceImp.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/system/org/RoleController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static/js/system/company/company.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/repository/system/account/AccountDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/system/account/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/system/account/AccountMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountServiceImp.java" />
       </list>
     </option>
   </component>
@@ -440,10 +368,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -482,6 +406,142 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="account" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1088,12 +1148,12 @@
       <workItem from="1468666696750" duration="12180000" />
       <workItem from="1468743100792" duration="1790000" />
       <workItem from="1468805642425" duration="66624000" />
-      <workItem from="1469095982683" duration="20684000" />
+      <workItem from="1469095982683" duration="31748000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103435000" />
+    <option name="totallyTimeSpent" value="114499000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="24" width="1307" height="744" extended-state="6" />
@@ -1110,19 +1170,19 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5" sideWeight="0.49497655" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39460155" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39318886" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29706115" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24861" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15488483" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3142415" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31419623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34055728" sideWeight="0.49722" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36996904" sideWeight="0.49722" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1196,8 +1256,20 @@
           <properties />
           <option name="timeStamp" value="31" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/account/AccountController.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountServiceImp.java</url>
+          <line>83</line>
+          <properties />
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="46" />
+      <option name="time" value="54" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1206,98 +1278,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/entity/system/account/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="61" column="16" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="16" />
-          <folding>
-            <element signature="e#1076#1077#0" expanded="false" />
-            <element signature="e#1099#1100#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/login/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="69" column="49" selection-start-line="68" selection-start-column="5" selection-end-line="69" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1988#2004#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-all/1.2.3/shiro-all-1.2.3.jar!/org/apache/shiro/session/Session.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/local/jdk1.8.0_45/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
-          <folding>
-            <element signature="e#10065#10066#0" expanded="false" />
-            <element signature="e#10148#10149#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar!/org/apache/commons/lang3/ObjectUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="128" column="45" selection-start-line="128" selection-start-column="45" selection-end-line="128" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4-sources.jar!/org/apache/commons/lang3/ObjectUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="390" column="25" selection-start-line="390" selection-start-column="25" selection-end-line="390" selection-end-column="25" />
-          <folding>
-            <element signature="e#16178#16179#0" expanded="false" />
-            <element signature="e#16234#16235#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/local/jdk1.8.0_45/src.zip!/java/util/Objects.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="140" column="25" selection-start-line="140" selection-start-column="25" selection-end-line="140" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/entity/system/org/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/interceptor/shiro/ShiroRealm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="55" column="46" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="122" column="35" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/common/mybatis/Page.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-533">
@@ -1374,45 +1354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/RoleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-          <folding>
-            <marker date="1469106937032" expanded="true" signature="458:774" ph="SELECT t.* F... JY_BASE_ROLE" />
-            <marker date="1469106937032" expanded="true" signature="868:1246" ph="SELECT t.* F... JY_BASE_ROLE" />
-            <marker date="1469106937032" expanded="true" signature="1338:1716" ph="SELECT t.* F... JY_BASE_ROLE" />
-            <marker date="1469106937032" expanded="true" signature="1817:2234" ph="SELECT t.* F... JY_BASE_ROLE" />
-            <marker date="1469106937032" expanded="true" signature="2327:2372" ph="SELECT count... JY_BASE_ROLE" />
-            <marker date="1469106937032" expanded="true" signature="2460:2618" ph="INSERT INTO JY_BASE_ROLE... " />
-            <marker date="1469106937032" expanded="true" signature="2685:2727" ph="DELETE FROM " />
-            <marker date="1469106937032" expanded="true" signature="2799:2937" ph="DELETE FROM " />
-            <marker date="1469106937032" expanded="true" signature="2998:3139" ph="UPDATE JY_BA... " />
-            <marker date="1469106937032" expanded="true" signature="3254:4171" ph="SELECT jbre.... " />
-            <marker date="1469106937032" expanded="true" signature="4251:4312" ph="DELETE from " />
-            <marker date="1469106937032" expanded="true" signature="4395:4572" ph="DELETE from " />
-            <marker date="1469106937032" expanded="true" signature="4469:4571" ph="SELECT jbr.i... JY_BASE_RESOURCES" />
-            <marker date="1469106937032" expanded="true" signature="4661:4814" ph="DELETE from " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/base/BaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/repository/system/account/AccountDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="79" column="97" selection-start-line="79" selection-start-column="97" selection-end-line="79" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.0.5.RELEASE/spring-aop-4.0.5.RELEASE.jar!/org/springframework/aop/framework/CglibAopProxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
@@ -1429,44 +1370,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/account/AccountMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="115" column="22" selection-start-line="115" selection-start-column="22" selection-end-line="115" selection-end-column="22" />
-          <folding>
-            <marker date="1469112443787" expanded="true" signature="1558:2543" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
-            <marker date="1469112443787" expanded="true" signature="2635:2684" ph="SELECT count... JY_BASE_ACCOUNT" />
-            <marker date="1469112443787" expanded="true" signature="2765:3027" ph="INSERT INTO JY_BASE_ACCOUNT... " />
-            <marker date="1469112443787" expanded="true" signature="3095:3147" ph="delete from " />
-            <marker date="1469112443787" expanded="true" signature="3219:3365" ph="DELETE FROM " />
-            <marker date="1469112443787" expanded="true" signature="3429:3624" ph="UPDATE JY_BA... " />
-            <marker date="1469112443787" expanded="true" signature="3763:3869" ph="SELECT a.* F... JY_BASE_ACCOUNT" />
-            <marker date="1469112443787" expanded="true" signature="4003:4156" ph="SELECT a.* F... JY_BASE_ACCOUNT" />
-            <marker date="1469112443787" expanded="true" signature="4287:4689" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
-            <marker date="1469112443787" expanded="true" signature="4762:4831" ph="UPDATE JY_BA... " />
-            <marker date="1469112443787" expanded="true" signature="4915:5299" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
-            <marker date="1469112443787" expanded="true" signature="5368:5491" ph="UPDATE JY_BA... " />
-            <marker date="1469112443787" expanded="true" signature="5559:5664" ph="UPDATE JY_BA... " />
-            <marker date="1469112443787" expanded="true" signature="5721:5809" ph="SELECT jbo.i... JY_BASE_ORG" />
-            <marker date="1469112443787" expanded="true" signature="5721:5944" ph="SELECT jbo.i... " />
-            <marker date="1469112443787" expanded="true" signature="5825:5944" ph="SELECT CONCA... JY_BASE_ROLE" />
-            <marker date="1469112443787" expanded="true" signature="6019:6108" ph="SELECT COUNT... JY_BASE_ACCOUNT" />
-            <marker date="1469112443787" expanded="true" signature="6189:6284" ph="SELECT COUNT... JY_BASE_ACCOUNT" />
-            <marker date="1469112443787" expanded="true" signature="6354:6451" ph="UPDATE JY_BA... " />
-            <marker date="1469112443787" expanded="true" signature="6541:6660" ph="SELECT t.log... JY_BASE_LOGIN_LOG" />
-            <marker date="1469112443787" expanded="true" signature="6745:6910" ph="SELECT jbp.*... JY_BASE_ACCOUNT_POSITION" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/account/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="82" column="15" selection-start-line="82" selection-start-column="15" selection-end-line="82" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/company/CompanyController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1479,22 +1382,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
           <caret line="67" column="41" selection-start-line="67" selection-start-column="41" selection-end-line="67" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="104" column="20" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="55" column="28" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1569,25 +1456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgServiceImp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="86" column="43" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="43" />
-          <folding>
-            <element signature="e#1841#1842#0" expanded="true" />
-            <element signature="e#1898#1899#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/common/utils/base/Const.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -1604,47 +1472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/OrgDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="59" column="43" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="117" column="46" selection-start-line="117" selection-start-column="46" selection-end-line="117" selection-end-column="46" />
-          <folding>
-            <marker date="1469152623732" expanded="true" signature="965:1279" ph="SELECT t.*,j... JY_BASE_ORG" />
-            <marker date="1469152623732" expanded="true" signature="1373:1442" ph="SELECT t.* F... JY_BASE_ORG" />
-            <marker date="1469152623732" expanded="true" signature="1532:1577" ph="SELECT count... JY_BASE_ROLE" />
-            <marker date="1469152623732" expanded="true" signature="1663:1807" ph="INSERT INTO JY_BASE_ORG... " />
-            <marker date="1469152623732" expanded="true" signature="1873:1914" ph="DELETE FROM " />
-            <marker date="1469152623732" expanded="true" signature="1986:2123" ph="DELETE from " />
-            <marker date="1469152623732" expanded="true" signature="2183:2299" ph="UPDATE JY_BA... " />
-            <marker date="1469152623732" expanded="true" signature="2401:2604" ph="SELECT t.id JY_BASE_ORG" />
-            <marker date="1469152623732" expanded="true" signature="2699:2805" ph="SELECT t.id JY_BASE_ORG" />
-            <marker date="1469152623732" expanded="true" signature="2915:3029" ph="SELECT t.id JY_BASE_ORG" />
-            <marker date="1469152623732" expanded="true" signature="3154:3732" ph="SELECT jbre.... " />
-            <marker date="1469152623732" expanded="true" signature="3852:4415" ph="SELECT jbre.... " />
-            <marker date="1469152623732" expanded="true" signature="4545:5475" ph="SELECT jbre.... JY_BASE_RESOURCES" />
-            <marker date="1469152623732" expanded="true" signature="5014:5362" ph="SELECT thjbo... JY_BASE_ORG_RESOURCES" />
-            <marker date="1469152623732" expanded="true" signature="5187:5270" ph="SELECT t.org... JY_BASE_ORG_RESOURCES" />
-            <marker date="1469152623732" expanded="true" signature="5554:5612" ph="DELETE FROM " />
-            <marker date="1469152623732" expanded="true" signature="5695:5869" ph="DELETE FROM " />
-            <marker date="1469152623732" expanded="true" signature="5766:5868" ph="SELECT jbr.i... JY_BASE_RESOURCES" />
-            <marker date="1469152623732" expanded="true" signature="5957:6108" ph="DELETE FROM " />
-            <marker date="1469152623732" expanded="true" signature="6761:6846" ph="SELECT t.id,... JY_BASE_ORG" />
-            <marker date="1469152623732" expanded="true" signature="6947:7032" ph="SELECT t.id,... JY_BASE_ORG" />
-            <marker date="1469152623732" expanded="true" signature="7133:7218" ph="SELECT t.id,... JY_BASE_ORG" />
-            <marker date="1469152623732" expanded="true" signature="7314:7388" ph="SELECT t.id,... JY_BASE_ROLE" />
-            <marker date="1469152623732" expanded="true" signature="7491:7802" ph="SELECT jbor.... JY_BASE_ORG_RESOURCES" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/resources/ResourcesController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -1657,14 +1484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="100" column="33" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1701,29 +1520,306 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/company/company.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/RoleMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="63" column="46" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
+        <state relative-caret-position="42">
+          <caret line="115" column="37" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="37" />
+          <folding>
+            <marker date="1469158972247" expanded="true" signature="458:774" ph="SELECT t.* F... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="868:1246" ph="SELECT t.* F... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="1338:1716" ph="SELECT t.* F... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="1817:2234" ph="SELECT t.* F... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="2327:2372" ph="SELECT count... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="2460:2618" ph="INSERT INTO JY_BASE_ROLE... " />
+            <marker date="1469158972247" expanded="true" signature="2685:2727" ph="DELETE FROM " />
+            <marker date="1469158972247" expanded="true" signature="2799:2937" ph="DELETE FROM " />
+            <marker date="1469158972247" expanded="true" signature="2998:3139" ph="UPDATE JY_BA... " />
+            <marker date="1469158972247" expanded="true" signature="3254:4171" ph="SELECT jbre.... " />
+            <marker date="1469158972247" expanded="true" signature="4289:5167" ph="SELECT jbre.... " />
+            <marker date="1469158972247" expanded="true" signature="5244:5305" ph="DELETE from " />
+            <marker date="1469158972247" expanded="true" signature="5388:5565" ph="DELETE from " />
+            <marker date="1469158972247" expanded="true" signature="5462:5564" ph="SELECT jbr.i... JY_BASE_RESOURCES" />
+            <marker date="1469158972247" expanded="true" signature="5654:5807" ph="DELETE from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/org/RoleServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="35" column="43" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/org/RoleService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="205">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/company/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/company/company.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="96" column="17" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/org/role/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-775">
+          <caret line="20" column="61" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/org/role/form.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="28" column="170" selection-start-line="28" selection-start-column="160" selection-end-line="28" selection-end-column="170" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/PositionMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="25" column="12" selection-start-line="23" selection-start-column="6" selection-end-line="25" selection-end-column="12" />
+          <folding>
+            <marker date="1468661955000" expanded="true" signature="968:1284" ph="SELECT t.* F... JY_BASE_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="1387:1720" ph="SELECT t.* F... JY_BASE_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="1813:1862" ph="SELECT count... JY_BASE_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="1944:2086" ph="INSERT INTO JY_BASE_POSITION... " />
+            <marker date="1468661955000" expanded="true" signature="2154:2200" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2272:2414" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2474:2637" ph="UPDATE JY_BA... " />
+            <marker date="1468661955000" expanded="true" signature="2731:2841" ph="SELECT jbo.i... JY_BASE_ORG" />
+            <marker date="1468661955000" expanded="true" signature="2731:3001" ph="SELECT jbo.i... " />
+            <marker date="1468661955000" expanded="true" signature="2857:3001" ph="SELECT CONCA... JY_BASE_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="3126:3240" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1468661955000" expanded="true" signature="3565:3634" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="3719:3883" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="3958:4019" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="4104:4257" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="4359:4899" ph="SELECT jba.i... JY_BASE_ACCOUNT" />
+            <marker date="1468661955000" expanded="true" signature="4554:4672" ph="SELECT jbap.... JY_BASE_ACCOUNT_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="5002:5555" ph="SELECT jba.i... JY_BASE_ACCOUNT" />
+            <marker date="1468661955000" expanded="true" signature="5407:5525" ph="SELECT jbap.... JY_BASE_ACCOUNT_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="5653:5710" ph="SELECT t.* F... JY_BASE_POSITION" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/RoleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-432">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="71" column="57" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="57" />
+          <folding>
+            <element signature="e#1843#1844#0" expanded="true" />
+            <element signature="e#1900#1901#0" expanded="true" />
+            <element signature="e#1953#1954#0" expanded="true" />
+            <element signature="e#2004#2005#0" expanded="true" />
+            <element signature="e#2078#2079#0" expanded="true" />
+            <element signature="e#2143#2144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/org/role.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="183" column="76" selection-start-line="183" selection-start-column="56" selection-end-line="183" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/org/RoleController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="244" column="41" selection-start-line="244" selection-start-column="41" selection-end-line="244" selection-end-column="41" />
+        <state relative-caret-position="129">
+          <caret line="408" column="20" selection-start-line="408" selection-start-column="20" selection-end-line="408" selection-end-column="20" />
           <folding>
-            <element signature="e#9063#9071#0" expanded="true" />
-            <element signature="e#10203#10211#0" expanded="true" />
+            <element signature="e#9695#9703#0" expanded="true" />
+            <element signature="e#10835#10843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/account/account.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/base/BaseServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/base/BaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/OrgDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="51" column="42" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="90" column="31" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+          <folding>
+            <marker date="1469165469725" expanded="true" signature="965:1279" ph="SELECT t.*,j... JY_BASE_ORG" />
+            <marker date="1469165469725" expanded="true" signature="1373:1442" ph="SELECT t.* F... JY_BASE_ORG" />
+            <marker date="1469165469725" expanded="true" signature="1532:1577" ph="SELECT count... JY_BASE_ROLE" />
+            <marker date="1469165469725" expanded="true" signature="1663:1807" ph="INSERT INTO JY_BASE_ORG... " />
+            <marker date="1469165469725" expanded="true" signature="1873:1914" ph="DELETE FROM " />
+            <marker date="1469165469725" expanded="true" signature="1986:2123" ph="DELETE from " />
+            <marker date="1469165469725" expanded="true" signature="2183:2299" ph="UPDATE JY_BA... " />
+            <marker date="1469165469725" expanded="true" signature="2401:2604" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1469165469725" expanded="true" signature="2699:2805" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1469165469725" expanded="true" signature="2915:3029" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1469165469725" expanded="true" signature="3142:3326" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1469165469725" expanded="true" signature="3447:4025" ph="SELECT jbre.... " />
+            <marker date="1469165469725" expanded="true" signature="4145:4708" ph="SELECT jbre.... " />
+            <marker date="1469165469725" expanded="true" signature="4838:5768" ph="SELECT jbre.... JY_BASE_RESOURCES" />
+            <marker date="1469165469725" expanded="true" signature="5307:5655" ph="SELECT thjbo... JY_BASE_ORG_RESOURCES" />
+            <marker date="1469165469725" expanded="true" signature="5480:5563" ph="SELECT t.org... JY_BASE_ORG_RESOURCES" />
+            <marker date="1469165469725" expanded="true" signature="5847:5905" ph="DELETE FROM " />
+            <marker date="1469165469725" expanded="true" signature="5988:6162" ph="DELETE FROM " />
+            <marker date="1469165469725" expanded="true" signature="6059:6161" ph="SELECT jbr.i... JY_BASE_RESOURCES" />
+            <marker date="1469165469725" expanded="true" signature="6250:6401" ph="DELETE FROM " />
+            <marker date="1469165469725" expanded="true" signature="7054:7139" ph="SELECT t.id,... JY_BASE_ORG" />
+            <marker date="1469165469725" expanded="true" signature="7240:7325" ph="SELECT t.id,... JY_BASE_ORG" />
+            <marker date="1469165469725" expanded="true" signature="7426:7511" ph="SELECT t.id,... JY_BASE_ORG" />
+            <marker date="1469165469725" expanded="true" signature="7607:7681" ph="SELECT t.id,... JY_BASE_ROLE" />
+            <marker date="1469165469725" expanded="true" signature="7784:8095" ph="SELECT jbor.... JY_BASE_ORG_RESOURCES" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/db.mysql/attendance.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-537">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/account/AccountMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="203" column="54" selection-start-line="203" selection-start-column="54" selection-end-line="203" selection-end-column="54" />
+          <folding>
+            <marker date="1469177154404" expanded="true" signature="1636:2717" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="2809:2858" ph="SELECT count... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="2939:3201" ph="INSERT INTO JY_BASE_ACCOUNT... " />
+            <marker date="1469177154404" expanded="true" signature="3269:3321" ph="delete from " />
+            <marker date="1469177154404" expanded="true" signature="3393:3539" ph="DELETE FROM " />
+            <marker date="1469177154404" expanded="true" signature="3603:3798" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="3937:4043" ph="SELECT a.* F... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="4177:4330" ph="SELECT a.* F... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="4461:4863" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="4936:5005" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="5089:5473" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="5542:5665" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="5733:5838" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="5895:5983" ph="SELECT jbo.i... JY_BASE_ORG" />
+            <marker date="1469177154404" expanded="true" signature="5895:6118" ph="SELECT jbo.i... " />
+            <marker date="1469177154404" expanded="true" signature="5999:6118" ph="SELECT CONCA... JY_BASE_ROLE" />
+            <marker date="1469177154404" expanded="true" signature="6205:6295" ph="SELECT jbo.i... JY_BASE_ORG" />
+            <marker date="1469177154404" expanded="true" signature="6205:6304" ph="SELECT jbo.i... JY_BASE_ORG" />
+            <marker date="1469177154404" expanded="true" signature="6205:6305" ph="SELECT jbo.i... JY_BASE_ORG" />
+            <marker date="1469177154404" expanded="true" signature="6205:6450" ph="SELECT jbo.i... " />
+            <marker date="1469177154404" expanded="true" signature="6205:6451" ph="SELECT jbo.i... " />
+            <marker date="1469177154404" expanded="true" signature="6320:6450" ph="SELECT CONCA... JY_BASE_ROLE" />
+            <marker date="1469177154404" expanded="true" signature="6526:6615" ph="SELECT COUNT... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="6696:6791" ph="SELECT COUNT... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="6861:6958" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="7048:7167" ph="SELECT t.log... JY_BASE_LOGIN_LOG" />
+            <marker date="1469177154404" expanded="true" signature="7252:7417" ph="SELECT jbp.*... JY_BASE_ACCOUNT_POSITION" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="45" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="55" column="28" selection-start-line="55" selection-start-column="15" selection-end-line="55" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/repository/system/account/AccountDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="84" column="45" selection-start-line="84" selection-start-column="15" selection-end-line="84" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/account/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountServiceImp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="81" column="56" selection-start-line="81" selection-start-column="56" selection-end-line="81" selection-end-column="56" />
+          <folding>
+            <element signature="e#3905#3906#0" expanded="true" />
+            <element signature="e#3957#3958#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -34,6 +34,9 @@
        <if test="accountId != null ">
         	and t.id=#{accountId}
        </if>
+		<if test="company != null and company!=''">
+			AND t.cid=#{company}
+		</if>
     </select>
     <!--  防止密码外泄，取消密码列 -->
  	<select id="findByPage"  resultMap="base" parameterType="BaseAccount">
@@ -65,6 +68,9 @@
         <if test="param.roleId != null ">
         	AND t.roleId=#{param.roleId}
        </if>
+		<if test="param.company != null and param.company!=''">
+			AND t.cid=#{param.company}
+		</if>
        <if test="param.isValid != null ">
         	AND t.isValid=#{param.isValid}
        </if>
@@ -183,6 +189,19 @@
 			   jbr.name,
 			   'r' as other 
 		FROM JY_BASE_ROLE jbr
+	</select>
+	<select id="getCompanyRoles" resultMap="ZNodes" parameterType="string">
+		SELECT jbo.id,
+		jbo.pId,
+		jbo.name,
+		'o' as other
+		FROM JY_BASE_ORG jbo where jbo.cid=#{company}
+		UNION ALL
+		SELECT CONCAT('role',jbr.id) as id,
+		jbr.orgId as pId,
+		jbr.name,
+		'r' as other
+		FROM JY_BASE_ROLE jbr where jbr.cid=#{company}
 	</select>
     <select id="findCountByLoginName" resultType="int">
        SELECT COUNT(*)

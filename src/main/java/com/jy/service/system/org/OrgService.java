@@ -20,6 +20,12 @@ public interface OrgService extends BaseService<Org>{
      * @return
      */
 	public List<ZNodes> getPreOrgTree();
+
+	/**
+	 * 获取上级机构树
+	 * @return
+	 */
+	public List<ZNodes> getCompanyPreOrgTree(String company);
 	 /**
      * 权限列表包含按钮
      * @param orgId 组织Id
