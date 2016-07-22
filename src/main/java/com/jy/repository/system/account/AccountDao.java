@@ -23,6 +23,15 @@ public interface AccountDao  extends BaseDao<Account>{
      * @return
      */
     public Account findFormatByLoginName(String loginName);
+
+    /**
+     * 根据登录帐号查找loginName和accountType，正常只有一条数据
+     * and a.isvalid='1' and a.account_type='1'需要该条件
+     * @param loginName
+     * @return
+     */
+    public Account findFormatByLoginNameAndCompany(@Param("loginName") String loginName,@Param("company")String company);
+
     /**
      * 根据登录帐号ID,正常只有一条数据
      * @param loginName
@@ -62,6 +71,13 @@ public interface AccountDao  extends BaseDao<Account>{
      * @return
      */
     public int findCountByLoginName(@Param("loginName")String loginName);
+
+    /**
+     * 通过登录名查找用户数量
+     * @param loginName 用户名
+     * @return
+     */
+    public int findCountByLoginNameAndCompany(@Param("loginName")String loginName,@Param("company")String company);
     /**
      * 密码重置
      * @param Account 

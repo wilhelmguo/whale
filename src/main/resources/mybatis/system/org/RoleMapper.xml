@@ -16,7 +16,23 @@
         	and t.isValid=#{isValid}
        </if>
        ORDER BY t.createTime
-    </select> 
+    </select>
+
+	<select id="findSuperUserRole"  resultMap="base" parameterType="BaseRole">
+		SELECT t.* FROM JY_BASE_ROLE t ,JY_BASE_ORG o WHERE 1=1
+		<if test="param.orgId!= null and param.orgId!=''">
+			AND t.orgId=#{param.orgId}
+		</if>
+		<if test="param.keyWord!= null">
+			AND (t.name like CONCAT('%',#{param.keyWord},'%') )
+		</if>
+		<if test="param.isValid!= null">
+			AND t.isValid=#{param.isValid}
+		</if>
+		AND t.orgId=o.id AND o.pId = 0
+		ORDER BY t.createTime
+	</select>
+
     <select id="findByPage"  resultMap="base" parameterType="BaseRole">
        SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1
       <if test="param.orgId!= null and param.orgId!=''">
@@ -48,8 +64,8 @@
     </select>      
     	<insert id="insert"  parameterType="BaseRole">	
  	<![CDATA[
-	INSERT INTO JY_BASE_ROLE(id,orgId,name,isValid,description,createTime) 
-	VALUES (#{id},#{orgId},#{name},#{isValid},#{description},#{createTime})
+	INSERT INTO JY_BASE_ROLE(id,orgId,name,isValid,description,createTime,cid)
+	VALUES (#{id},#{orgId},#{name},#{isValid},#{description},#{createTime},#{company})
 	]]>  
 	</insert>
 	<delete id="delete" parameterType="BaseRole">

@@ -37,7 +37,9 @@ public interface OrgDao extends BaseDao<Org>{
      * 获取机构树
      * @return
      */
-	public List<ZNodes> getOrgTree();
+	public List<ZNodes> getOrgTree(@Param("company")String company);
+
+	public List<ZNodes>  getSuperUserOrgTree ();
 	/**
      * 获取上级机构树
      * @return
@@ -48,7 +50,15 @@ public interface OrgDao extends BaseDao<Org>{
      * @param orgId 组织Id
      * @return
      */
-	public List<ZNodes> listAuthorized(@Param("orgId")String orgId,@Param("layer")String layer);	
+	public List<ZNodes> listAuthorized(@Param("orgId")String orgId,@Param("layer")String layer);
+
+	/**
+	 * 权限列表包含按钮
+	 * @param orgId 组织Id
+	 * @return
+	 */
+	public List<ZNodes> listCompanyAuthorized(@Param("orgId")String orgId,@Param("layer")String layer);
+
 	/**
      * 权限列表包含按钮（带门限）
      * @param pId   父Id
@@ -93,5 +103,5 @@ public interface OrgDao extends BaseDao<Org>{
      * @return
      */
 	public void delBatchAuthByRole(List<RoleResources> rr);
-	
+
 }

@@ -27,6 +27,17 @@ public class AccountServiceImp extends BaseServiceImp<Account> implements Accoun
   private PositionDao positionDao;
 
   @Override
+  public Account findFormatByLoginName(String loginName, String company) {
+    Account a = null;
+    try {
+      a = accountDao.findFormatByLoginNameAndCompany(loginName, company);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return a;
+  }
+
+  @Override
   public Account findFormatByLoginName(String loginName) {
     Account a = null;
     try {
@@ -75,6 +86,26 @@ public class AccountServiceImp extends BaseServiceImp<Account> implements Accoun
     if (StringUtils.isNotBlank(loginName) && (accountDao.findCountByLoginName(loginName) == 0)) {
       String pwrs = CipherUtil.createRandomString(6);//随机密码,以后发邮箱
       o.setDescription(pwrs);//用户随机密码暂时保存在描述里
+      String pwrsMD5 = CipherUtil.generatePassword(pwrs);//第一次加密md5，
+      o.setSkin("skin-0");//默认皮肤
+      String salt = CipherUtil.createSalt();
+      o.setPassword(CipherUtil.createPwdEncrypt(loginName, pwrsMD5, salt));
+      o.setSalt(salt);
+      o.setCreateTime(new Date());
+      accountDao.insert(o);
+      res = 1;
+    }
+    return res;
+  }
+
+  @Override
+  public int insertAdminAccount(Account o) throws Exception {
+    int res = 0;
+    String loginName = o.getLoginName();
+    //查询数据库是否已经存在用户名
+    if (accountDao.findCountByLoginNameAndCompany(loginName, o.getCompany()) == 0) {
+      String pwrs = "1";
+      o.setDescription(pwrs);//用户密码暂时保存在描述里
       String pwrsMD5 = CipherUtil.generatePassword(pwrs);//第一次加密md5，
       o.setSkin("skin-0");//默认皮肤
       String salt = CipherUtil.createSalt();

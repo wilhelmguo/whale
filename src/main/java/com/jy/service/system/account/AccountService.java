@@ -9,14 +9,22 @@ import com.jy.service.base.BaseService;
 
 public interface AccountService extends BaseService<Account>{
 
-  
+
     /**
      * 根据登录帐号查找loginName和accountType，正常只有一条数据
      * and a.isvalid='1' and a.account_type='1'需要该条件
      * @param loginName
      * @return
      */
-    public Account findFormatByLoginName(String loginName);
+    public Account findFormatByLoginName(String loginName,String company);
+
+  /**
+   * 根据登录帐号查找loginName和accountType，正常只有一条数据
+   * and a.isvalid='1' and a.account_type='1'需要该条件
+   * @param loginName
+   * @return
+   */
+  public Account findFormatByLoginName(String loginName);
     /**
      * 设置个人化皮肤
      * @param skin 皮肤属性
@@ -46,6 +54,8 @@ public interface AccountService extends BaseService<Account>{
      * @return
      */
     public int insertAccount(Account account) throws Exception;
+
+  public int insertAdminAccount(Account o) throws Exception;
     /**
      * 获得角色树
      * @return
@@ -53,25 +63,25 @@ public interface AccountService extends BaseService<Account>{
     public List<ZNodes> getRoles();
 	  /**
      * 系统密码重置
-     * @param Account 
+     * @param Account
      * @return
      */
 	public int sysResetPwd(Account o);
 	/**
      * 个人密码重置
-     * @param Account 
+     * @param Account
      * @return
      */
 	public int preResetPwd(String opwd,String npwd,String qpwd);
 	 /**
      * 删除人员
-     * @param Account 
+     * @param Account
      * @return
      */
 	public void deleteAccount(Account o);
 	 /**
      * 批量删除人员
-     * @param chks 人员id 
+     * @param chks 人员id
      * @return
      */
 	public void deleteBatchAccount(String chks);

@@ -1,6 +1,7 @@
 //JavaScript Document
 var box_view_btn = "loginBtn";//初始化按钮值
 $(function () {
+    companySelect();
     getVerifyCode();
     //监听docuemnt的onkeydown事件看是不是按了回车键
     $(document).keydown(function (event) {
@@ -25,7 +26,8 @@ $(function () {
             var loginname = $("#accountNameId").val();
             var password = $("#passwordId").val();
             var verifyCode = $("#verifyCodeId").val();
-            var code = loginname + ",jy," + $.md5(password) + ",jy," + verifyCode;
+            var companyID = $("#companyID").val();
+            var code = loginname + ",jy," + $.md5(password) + ",jy," + verifyCode + ",jy," + companyID;
             $.ajax({
                 type: 'POST', url: jypath + '/system_login', data: {KEYDATA: code, tm: new Date().getTime()},
                 dataType: 'json', success: function (data, textStatus) {
@@ -37,7 +39,7 @@ $(function () {
                         loginAlert(result);
                     } else {
                         if (isPc()) {
-                            window.location.href = jypath + "/backstage/index";
+                            window.location.href = jypath + "/backstage/index?company=" + companyID;
                         } else {
                             window.location.href = jypath + "/mobile/index.html";
                         }
@@ -75,6 +77,29 @@ $(function () {
         }
     }));
 });
+
+function companySelect() {
+    var idss = "selectisValid";
+    $.ajax({
+        type: 'POST',
+        url: jypath + '/backstage/company/getCompanySelect',
+        data: {ids: idss},
+        dataType: 'json',
+        success: function (data, textStatus) {
+            if (data.res == 1) {
+                var map = data.obj;
+                var opts = "";
+                var it = map["selectisValid"];
+                for (var i = 0; i < it.length; i++) {
+                    opts += "<option value='" + it[i].id + "'>" + it[i].name + "</option>";
+                }
+
+                $("#" + idss + " select").append(opts);
+            }
+
+        }
+    });
+}
 
 function isPc() {
     var userAgentInfo = navigator.userAgent;

@@ -11,14 +11,14 @@ public class BaseEntity implements Serializable {
 
 	protected String keyWord;
 
-	protected String cid;
+	protected String company;
 
-	public String getCid() {
-		return cid;
+	public String getCompany() {
+		return company;
 	}
 
-	public void setCid(String cid) {
-		this.cid = cid;
+	public void setCompany(String company) {
+		this.company = company;
 	}
 
 	public Integer getIsValid() {

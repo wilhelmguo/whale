@@ -64,7 +64,7 @@ public class BackstageController extends BaseController<Object> {
       menus = (List<Resources>) menu_o;
       if (menus == null) {
         if (StringUtils.isBlank(layer)) layer = "1";
-        if ("superuser".equals(acount.getLoginName())) {
+        if (Const.SUPERUSER.equals(acount.getLoginName())) {
           menus = menuService.findSuperUserMenuTree(acount.getLoginName(), layer);
         } else {
           menus = menuService.findMenuTree(userId, layer);

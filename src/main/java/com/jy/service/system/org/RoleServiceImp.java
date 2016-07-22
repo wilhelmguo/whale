@@ -61,6 +61,14 @@ public class RoleServiceImp extends BaseServiceImp<Role> implements RoleService{
 	}
 
 	@Override
+	public Page<Role> findOneRole(Role o, Page<Role> page) {
+
+		List<Role> roles=roleDao.findSuperUserRole(o,page);
+		page.setResults(roles);
+		return page;
+	}
+
+	@Override
 	public Page<Role> findAllRoleByPage(Role o, Page<Role> page) {
 		String orgId=o.getOrgId();
 		StringBuffer orgIds=new StringBuffer();

@@ -24,10 +24,10 @@
 						<input type="text" jyValidate="required"  maxlength="25" name="name" class="FormElement ui-widget-content ui-corner-all"></td>
 					</tr>
 					<tr id="preOrgTR" class="FormData">
-						<td  class="CaptionTD">上级组织：</td>
+						<td  class="CaptionTD"><font color="red">*</font>上级组织：</td>
 						<td class="DataTD">&nbsp;
-							<input id="preOrg" type="text" readonly value="" class="FormElement ui-widget-content ui-corner-all" onclick="showPreOrg(); return false;"/>
-							<input type="hidden" name="pId" value="0" >
+							<input id="preOrg" type="text" jyValidate="required" readonly value="" class="FormElement ui-widget-content ui-corner-all" onclick="showPreOrg(); return false;"/>
+							<input  type="hidden" name="pId" value="0" >
 							<a href="#" title="清空" onclick="emptyPreOrg(); return false;" class="lrspace3 aBtnNoTD" data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>
 							<div id='preOrgContent' class="menuContent ztreeMC" style="display: none; position: absolute;">
 								<ul id="preOrgTree" class="ztree preOrgTree"></ul>

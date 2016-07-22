@@ -28,4 +28,6 @@ public interface RoleService extends BaseService<Role>{
      * @return
      */
 	public Page<Role> findAllRoleByPage(Role o,Page<Role> page);
+
+	public Page<Role> findOneRole(Role o, Page<Role> page);
 }

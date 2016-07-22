@@ -127,7 +127,7 @@
 		RIGHT JOIN(select jbrm.* from JY_BASE_ROLE jbr,JY_BASE_ROLE_RESOURCES jbrm WHERE jbr.id=jbrm.role_id AND jbr.isValid=1) t
 		ON t.resources_id=jbm.id
 		AND t.role_id IN(SELECT jba.roleId FROM JY_BASE_ACCOUNT jba WHERE  jba.isValid=1 AND jba.loginName=#{loginName})
-		WHERE jbm.isValid=1 AND jbm.type=1 AND jbm.layer=#{layer}
+		WHERE jbm.isValid=1 AND jbm.type=1 AND jbm.layer=#{layer} AND jbm.cid='-1'
 		ORDER BY jbm.parentId,jbm.sort
 	</select>
 	<!-- 按钮列 -->

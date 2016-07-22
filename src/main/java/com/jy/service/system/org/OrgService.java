@@ -12,6 +12,8 @@ public interface OrgService extends BaseService<Org>{
 	 * 获取机构树
 	 * @return
 	 */
+	public List<ZNodes> getOrgTree(String company);
+
 	public List<ZNodes> getOrgTree();
 	/**
      * 获取上级机构树
@@ -25,6 +27,8 @@ public interface OrgService extends BaseService<Org>{
      * @return
      */
 	public List<ZNodes> listAuthorized(String orgId,String layer);
+
+	public List<ZNodes> listCompanyAuthorized(String orgId, String layer);
 	 /**
      * 根据角色Id保存权限列表
      * @param orgId 组织Id

@@ -76,9 +76,9 @@
  	<insert id="insert"  parameterType="BaseAccount">
  	<![CDATA[
 	INSERT INTO JY_BASE_ACCOUNT(
-	id,loginName,name,password,salt,roleId,skin,email,isValid,createTime,description
+	id,loginName,name,password,salt,roleId,skin,email,isValid,createTime,description,cid
 	) VALUES (#{accountId},#{loginName},#{name},#{password},#{salt},#{roleId},#{skin},
-	#{email},#{isValid},#{createTime},#{description}
+	#{email},#{isValid},#{createTime},#{description},#{company}
 	)
 	]]>
 	</insert>
@@ -110,6 +110,14 @@
        AND a.loginname=#{loginName,jdbcType=VARCHAR}
        ]]>
     </select>
+
+	<select id="findFormatByLoginNameAndCompany"  resultMap="base" parameterType="String">
+		<![CDATA[
+       SELECT a.* FROM JY_BASE_ACCOUNT a WHERE a.isvalid='1'
+       AND a.loginname=#{loginName,jdbcType=VARCHAR}
+       AND a.cid = #{company,jdbcType=VARCHAR}
+       ]]>
+	</select>
     <!-- 这方法不能能获取密码和盐 -->
     <select id="findAccountById"  resultMap="base" parameterType="String">
        SELECT  t.id,
@@ -181,6 +189,13 @@
        		  FROM JY_BASE_ACCOUNT t 
        WHERE  t.loginName=#{loginName}
     </select>
+
+	<select id="findCountByLoginNameAndCompany" resultType="int">
+		SELECT COUNT(*)
+		FROM JY_BASE_ACCOUNT t
+		WHERE  t.loginName=#{loginName} AND t.cid=#{company}
+	</select>
+
     <update id="resetPwd" parameterType="BaseAccount">
 		UPDATE JY_BASE_ACCOUNT 
 		SET   password =#{password},

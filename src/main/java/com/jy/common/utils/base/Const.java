@@ -7,7 +7,8 @@ package com.jy.common.utils.base;
 public class Const {
 	
 	public static final String SESSION_SECURITY_CODE = "sessionSecCode";
-	public static final String SESSION_USER = "sessionUser";            
+	public static final String SESSION_USER = "sessionUser";
+	public static final String SESSION_COMPANY = "company";
 	public static final String SESSION_MENULIST = "menuList";			//当前菜单
 	/**
 	 *邮箱配置文件位置
@@ -85,5 +86,7 @@ public class Const {
 	 *数据获取失败
 	 */
 	public static final String DATA_FAIL = "数据获取失败";
+
+	public static final String SUPERUSER = "superuser";
 
 }

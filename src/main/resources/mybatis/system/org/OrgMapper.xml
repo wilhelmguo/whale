@@ -35,8 +35,8 @@
     </select>      
     <insert id="insert"  parameterType="BaseOrg">	
  	<![CDATA[
-	INSERT INTO JY_BASE_ORG(id,pId,name,isValid,description,createTime) 
-	VALUES (#{id},#{pId},#{name},1,#{description},#{createTime})
+	INSERT INTO JY_BASE_ORG(id,pId,name,isValid,description,createTime,cid)
+	VALUES (#{id},#{pId},#{name},1,#{description},#{createTime},#{company})
 	]]>  
 	</insert>
 	<delete id="delete" parameterType="BaseOrg">
@@ -63,10 +63,23 @@
        SELECT t.id as id,
 	   		  t.name as name,
 	   		  t.pId as pId
-	   FROM JY_BASE_ORG t
+	   FROM JY_BASE_ORG t WHERE 1=1
+		<if test="company != null and company!='' ">
+			and t.cid=#{company}
+		</if>
        ORDER BY t.id,t.name
-    </select> 
-    <!-- 上级机构树 -->
+    </select>
+
+	<select id="getSuperUserOrgTree" resultMap="ZNodes" parameterType="String">
+		SELECT t.id as id,
+		t.name as name,
+		t.pId as pId
+		FROM JY_BASE_ORG t WHERE 1=1
+
+		ORDER BY t.id,t.name
+	</select>
+
+	<!-- 上级机构树 -->
     <select id="getPreOrgTree" resultMap="ZNodes" parameterType="String">
        SELECT t.id as id,
 	   		  t.name as name,
@@ -92,6 +105,25 @@
 	 WHERE jbre.layer=#{layer}
      ORDER BY jbre.parentId,jbre.type,jbre.sort
     </select>
+
+	<!-- 普通权限权限列表包含按钮 -->
+	<select id="listCompanyAuthorized" resultMap="ZNodes" parameterType="String">
+		SELECT jbre.id as id,
+		jbre.name as name,
+		jbre.parentId as pId,
+		(CASE WHEN jbor.org_id IS NOT NULL THEN 'true'
+		ELSE '' END) as checked,
+		(CASE WHEN jbre.isValid=1 and jbor.org_id IS NOT NULL THEN 'true'
+		ELSE '' END) as open,
+		(CASE WHEN jbre.isValid!=1 THEN 'true'
+		ELSE '' END) as chkDisabled
+		FROM JY_BASE_RESOURCES jbre
+		LEFT JOIN (SELECT t.org_Id,t.resources_id from JY_BASE_ORG_RESOURCES t
+		WHERE t.org_id=#{orgId}) jbor
+		ON jbor.resources_id=jbre.id
+		WHERE jbre.layer=#{layer} AND jbre.cid!='-1'
+		ORDER BY jbre.parentId,jbre.type,jbre.sort
+	</select>
       <!-- 权限列表包含按钮带门限 -->
     <select id="listAuthorizedByTh" resultMap="ZNodes" parameterType="String">    		
       SELECT jbre.id as id,

@@ -54,5 +54,11 @@ public interface RoleDao extends BaseDao<Role>{
      * @return
      */
 	public List<Role> findAllRoleByPage(@Param("param")Role o,Page<Role> page);
+
+	/**
+	 * 获取所有角色
+	 * @return
+	 */
+	public List<Role> findSuperUserRole(@Param("param")Role o,Page<Role> page);
 	
 }

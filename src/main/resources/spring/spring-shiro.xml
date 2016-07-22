@@ -26,6 +26,8 @@
             		 user:用户拦截器，用户已经身份验证/记住我登录的都可 -->
 			<property name="filterChainDefinitions">
 			<value>
+				/backstage/company/** = anon
+				/api-docs/** = anon
 				/mobile/**  = anon
 				/api/v1/**  = anon
 				/act-process-editor/** = anon
