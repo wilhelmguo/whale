@@ -2,7 +2,9 @@ package com.jy.controller.attendance;
 
 import com.jy.common.ajax.AjaxRes;
 import com.jy.common.mybatis.Page;
+import com.jy.common.utils.DateUtils;
 import com.jy.common.utils.base.Const;
+import com.jy.common.utils.security.AccountShiroUtil;
 import com.jy.controller.base.BaseController;
 import com.jy.entity.attendance.WorkRecord;
 import com.jy.service.attendance.WorkDeviceService;
@@ -14,10 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
  * 考勤记录
@@ -36,7 +35,7 @@ public class WorkRecordController extends BaseController<WorkRecord> {
   public String index(Model model) {
     if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
       model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
-      return "/system/dict/sys/list";
+      return "/system/attendance/workrecord/list";
     }
     return Const.NO_AUTHORIZED_URL;
   }
@@ -45,8 +44,9 @@ public class WorkRecordController extends BaseController<WorkRecord> {
   @ResponseBody
   public AjaxRes findByPage(Page<WorkRecord> page, WorkRecord o) {
     AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/sysDict/index"))) {
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/workRecord/index"))) {
       try {
+        o.setCompany(getCompany());
         Page<WorkRecord> result = service.findByPage(o, page);
         Map<String, Object> p = new HashMap<String, Object>();
         p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
@@ -67,6 +67,7 @@ public class WorkRecordController extends BaseController<WorkRecord> {
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
       try {
         o.setId(get32UUID());
+        o.setCompany(getCompany());
 //				o.setCreateTime(new Date());	
         service.insert(o);
         ar.setSucceedMsg(Const.SAVE_SUCCEED);
@@ -84,7 +85,14 @@ public class WorkRecordController extends BaseController<WorkRecord> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
       try {
+        o.setCompany(getCompany());
+        o.setEmployee(AccountShiroUtil.getCurrentUser().getLoginName());
+        o.setDate(DateUtils.getDateStart(new Date()));
         List<WorkRecord> list = service.find(o);
+        if (list == null || list.size() == 0) {
+          ar.setSucceed(new WorkRecord());
+          return ar;
+        }
         WorkRecord obj = list.get(0);
         ar.setSucceed(obj);
       } catch (Exception e) {

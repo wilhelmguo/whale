@@ -7,6 +7,7 @@
     SELECT t.* FROM JY_WORK_RULE t WHERE 1=1
     <if test="id != null and id!='' ">AND t.id=#{id}</if>
     <if test="name != null and name!='' ">AND t.title LIKE CONCAT('%',#{param.name},'%')</if>
+    <if test="company != null and company!='' ">AND t.cid=#{company}</if>
   </select>
   <select id="findByPage" resultMap="base" parameterType="WorkRule">
     SELECT t.id, t.year, t.workDate, t.status, t.name FROM JY_WORK_RULE t
@@ -21,23 +22,29 @@
     <if test="param.keyWord!=null and param.keyWord!='' ">
       AND t.name LIKE CONCAT('%',#{param.keyWord},'%')
     </if>
+    <if test="param.isValid!=null and param.isValid!='' ">
+      AND t.year = #{param.isValid}
+    </if>
     <if test="param.status != null and param.status!='' ">
       AND t.status=#{param.status}
     </if>
-
+    <if test="param.company != null and param.company!='' ">
+      AND t.cid=#{param.company}
+    </if>
     ORDER BY t.workDate
   </select>
   <select id="count" resultType="int" parameterType="WorkRule">
     SELECT count(*)
     FROM JY_WORK_RULE t
     WHERE 1 = 1
+    <if test="company != null and company!='' ">AND t.cid=#{company}</if>
   </select>
   <insert id="insert" parameterType="WorkRule">
     <![CDATA[
         INSERT INTO JY_WORK_RULE (id, year, workDate,
-                                  status, name) VALUES (
+                                  status, name,cid) VALUES (
           #{id,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, #{workdate},
-          #{status,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}
+          #{status,jdbcType=CHAR}, #{name,jdbcType=VARCHAR},#{company}
         )
         ]]>
   </insert>

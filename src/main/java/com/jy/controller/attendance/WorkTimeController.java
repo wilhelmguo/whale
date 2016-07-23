@@ -50,6 +50,7 @@ public class WorkTimeController extends BaseController<WorkTime> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/workTime/index"))) {
       try {
+        o.setCompany(getCompany());
         Page<WorkTime> result = service.findByPage(o, page);
         Map<String, Object> p = new HashMap<String, Object>();
         p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
@@ -69,11 +70,14 @@ public class WorkTimeController extends BaseController<WorkTime> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
       try {
-        int count = service.count(new WorkTime());
+        WorkTime w=new WorkTime();
+        w.setCompany(getCompany());
+        int count = service.count(w);
         if (count > 0) {
           ar.setFailMsg("考勤时间规则只能设置一条!");
           return ar;
         }
+        o.setCompany(getCompany());
         o.setId(get32UUID());
 //				o.setCreateTime(new Date());	
         service.insert(o);
@@ -92,6 +96,7 @@ public class WorkTimeController extends BaseController<WorkTime> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
       try {
+        o.setCompany(getCompany());
         List<WorkTime> list = service.find(o);
         WorkTime obj = list.get(0);
         ar.setSucceed(obj);

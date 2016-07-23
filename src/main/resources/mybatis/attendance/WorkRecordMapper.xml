@@ -6,9 +6,11 @@
     <select id="find" resultMap="base" parameterType="WorkRecord">
         SELECT t.* FROM JY_WORK_RECORD t WHERE 1=1
         <if test="id != null and id!='' ">AND t.id=#{id}</if>
+        <if test="date != null and date!='' ">AND t.date=#{date}</if>
         <if test="employeeName != null and employeeName!='' ">AND t.employeeName LIKE
             CONCAT('%',#{param.employeeName},'%')
         </if>
+        <if test="company != null and company!='' ">AND t.cid=#{company}</if>
     </select>
     <select id="findByPage" resultMap="base" parameterType="WorkRecord">
         SELECT t.id, t.type, t.employee, t.employeeName,t.location, t.picture, t.date, t.week, t.morning, t.beforenoon,
@@ -25,7 +27,9 @@
         <if test="param.keyWord!=null and param.keyWord!='' ">
             AND t.employeeName LIKE CONCAT('%',#{param.keyWord},'%')
         </if>
-
+        <if test="param.company != null and param.company!='' ">
+            AND t.cid=#{param.company}
+        </if>
 
         ORDER BY t.date desc
     </select>
@@ -33,19 +37,23 @@
         SELECT count(*)
         FROM JY_WORK_RECORD t
         WHERE 1 = 1
+        <if test="company != null and company!='' ">AND t.cid=#{company}</if>
     </select>
     <insert id="insert" parameterType="WorkRecord">
     <![CDATA[
+
         INSERT INTO JY_WORK_RECORD (
             id, type, employee, employeeName, location, picture, date, week, morning, beforenoon, afternoon,
-            night
+            night,cid
         ) VALUES (#{id,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{employee,jdbcType=VARCHAR},
                                           #{employeeName,jdbcType=VARCHAR},
                                           #{location,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
                                           #{date,jdbcType=DATE},
                                           #{week,jdbcType=VARCHAR}, #{morning,jdbcType=VARCHAR},
                                           #{beforenoon,jdbcType=VARCHAR},
-                                          #{afternoon,jdbcType=VARCHAR}, #{night,jdbcType=VARCHAR})
+                                          #{afternoon,jdbcType=VARCHAR}, #{night,jdbcType=VARCHAR},
+                                          #{company})
+
         ]]>
   </insert>
     <delete id="delete" parameterType="WorkRecord">DELETE FROM JY_WORK_RECORD

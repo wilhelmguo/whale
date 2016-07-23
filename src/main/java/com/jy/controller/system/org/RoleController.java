@@ -278,7 +278,7 @@ public class RoleController extends BaseController<Role> {
   @ResponseBody
   public AjaxRes saveAuthorized() {
     AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON, "/backstage/org/role/listAuthorized"))) {
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON, "/backstage/org/role/listCompanyAuthorized"))) {
       try {
         PageData pd = this.getPageData();
         String roleId = pd.getString("id");

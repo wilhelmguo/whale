@@ -18,7 +18,7 @@ $(function () {
 		var auth=$("#authorityDiv input[name$='auth']").val();
 		if(auth=='org'){
 			var orgId=$("#baseForm input[name$='orgId']").val();
-			JY.Ajax.doRequest("",jypath +'/backstage/org/role/orglistAuthorized',{id:orgId,layer:layer},function(data){
+			JY.Ajax.doRequest("",jypath +'/backstage/org/role/orglistCompanyAuthorized',{id:orgId,layer:layer},function(data){
 				$.fn.zTree.init($("#authorityTree"),{check: {enable: true,chkDisabledInherit: true,chkboxType:{"Y":"ps","N":"s"}},data:{simpleData:{enable: true}}},data.obj);	      
 			});
 		}else if(auth=='role'){
@@ -39,7 +39,7 @@ $(function () {
 		var orgId=$("#baseForm input[name$='orgId']").val();
 		var layer=$("#authorityDiv input[name$='layer']").val();
 		if(JY.Object.notNull(orgId)){
-			JY.Ajax.doRequest("",jypath +'/backstage/org/role/orglistAuthorized',{id:orgId,layer:layer},function(data){
+			JY.Ajax.doRequest("",jypath +'/backstage/org/role/orglistCompanyAuthorized',{id:orgId,layer:layer},function(data){
 			         $.fn.zTree.init($("#authorityTree"),{check: {enable: true,chkDisabledInherit: true,chkboxType:{"Y":"ps","N":"s"}},data:{simpleData:{enable: true}}},data.obj);	      
 			         JY.Model.edit("authorityDiv","机构组织授权",function(){
 			        		var zTree = $.fn.zTree.getZTreeObj("authorityTree"),

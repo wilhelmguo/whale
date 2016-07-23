@@ -6,6 +6,7 @@
     <select id="find" resultMap="base" parameterType="WorkTime">
         SELECT t.* FROM JY_WORK_TIME t WHERE 1=1
         <if test="id != null and id!='' ">AND t.id=#{id}</if>
+        <if test="company != null and company!='' ">AND t.cid=#{company}</if>
     </select>
     <select id="findByPage" resultMap="base" parameterType="WorkTime">
         SELECT
@@ -16,19 +17,23 @@
             t.night
         FROM JY_WORK_TIME t
         WHERE 1 = 1
+        <if test="param.company != null and param.company!='' ">
+            AND t.cid=#{param.company}
+        </if>
         ORDER BY t.id DESC
     </select>
     <select id="count" resultType="int" parameterType="WorkTime">
         SELECT count(*)
         FROM JY_WORK_TIME t
         WHERE 1 = 1
+        <if test="company != null and company!='' ">AND t.cid=#{company}</if>
     </select>
     <insert id="insert" parameterType="WorkTime">
     <![CDATA[
         INSERT INTO JY_WORK_TIME (id, morning, beforenoon,
-                                  afternoon, night)
+                                  afternoon, night,cid)
         VALUES (#{id,jdbcType=VARCHAR}, #{morning,jdbcType=VARCHAR}, #{beforenoon,jdbcType=VARCHAR},
-                #{afternoon,jdbcType=VARCHAR}, #{night,jdbcType=VARCHAR})
+                #{afternoon,jdbcType=VARCHAR}, #{night,jdbcType=VARCHAR},#{company})
         ]]>
   </insert>
     <delete id="delete" parameterType="WorkTime">DELETE FROM JY_WORK_TIME

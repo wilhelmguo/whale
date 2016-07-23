@@ -6,6 +6,7 @@
     <select id="find" resultMap="base" parameterType="WorkDevice">
         SELECT t.* FROM JY_WORK_DEVICE t WHERE 1=1
         <if test="id != null and id!='' ">AND t.id=#{id}</if>
+        <if test="company != null and company!='' ">AND t.cid=#{company}</if>
         <if test="name != null and name!='' ">AND t.name LIKE CONCAT('%',#{param.name},'%')</if>
     </select>
     <select id="findByPage" resultMap="base" parameterType="WorkDevice">
@@ -17,7 +18,9 @@
         <if test="param.isValid!= null">
             AND t.type=#{param.isValid}
         </if>
-
+        <if test="param.company != null and param.company!='' ">
+            AND t.cid=#{param.company}
+        </if>
         <if test="param.name != null and param.name!='' ">
             AND t.name LIKE CONCAT('%',#{param.name},'%')
         </if>
@@ -33,14 +36,15 @@
         SELECT count(*)
         FROM JY_WORK_DEVICE t
         WHERE 1 = 1
+        <if test="company != null and company!='' ">AND t.cid=#{company}</if>
     </select>
     <insert id="insert" parameterType="WorkDevice">
     <![CDATA[
 
         INSERT INTO JY_WORK_DEVICE (
-            id, type, name, belongto
+            id, type, name, belongto,cid
         ) VALUES (#{id,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{name,jdbcType=VARCHAR},
-                  #{belongto,jdbcType=VARCHAR})
+                  #{belongto,jdbcType=VARCHAR},#{company})
 
         ]]>
   </insert>

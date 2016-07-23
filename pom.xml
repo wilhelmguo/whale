@@ -609,7 +609,7 @@
                 <artifactId>tomcat-maven-plugin</artifactId>
                 <version>1.1</version>
                 <configuration>
-                    <path>/orange</path>
+                    <path>/whale</path>
                     <port>9090</port>
                     <uriEncoding>UTF-8</uriEncoding>
                     <url>http://localhost:9090/manager/html</url>
@@ -661,7 +661,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>orange</finalName>
+        <finalName>whale</finalName>
         <resources>
             <resource>
                 <directory>src/main/java</directory>

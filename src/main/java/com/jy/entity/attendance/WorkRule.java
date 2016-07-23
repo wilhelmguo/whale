@@ -2,6 +2,7 @@ package com.jy.entity.attendance;
 
 import com.jy.entity.base.BaseEntity;
 import org.apache.ibatis.type.Alias;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 @Alias("WorkRule")
@@ -11,6 +12,7 @@ public class WorkRule extends BaseEntity {
 
     private Integer year;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date workdate;
 
     private String status;

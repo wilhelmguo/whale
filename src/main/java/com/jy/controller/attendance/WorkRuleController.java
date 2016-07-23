@@ -44,8 +44,9 @@ public class WorkRuleController extends BaseController<WorkRule> {
   @ResponseBody
   public AjaxRes findByPage(Page<WorkRule> page, WorkRule o) {
     AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/sysDict/index"))) {
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/workRule/index"))) {
       try {
+        o.setCompany(getCompany());
         Page<WorkRule> result = service.findByPage(o, page);
         Map<String, Object> p = new HashMap<String, Object>();
         p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
@@ -65,6 +66,7 @@ public class WorkRuleController extends BaseController<WorkRule> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
       try {
+        o.setCompany(getCompany());
         o.setId(get32UUID());
 //				o.setCreateTime(new Date());	
         service.insert(o);
@@ -83,6 +85,7 @@ public class WorkRuleController extends BaseController<WorkRule> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
       try {
+        o.setCompany(getCompany());
         List<WorkRule> list = service.find(o);
         WorkRule obj = list.get(0);
         ar.setSucceed(obj);

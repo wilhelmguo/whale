@@ -100,7 +100,7 @@ public class OrgServiceImp extends BaseServiceImp<Org> implements OrgService {
       list = rd.listCompanyAuthorized(orgId, layer);
     } else {
       //其他机构要通过上级机构门限获取权限
-      list = rd.listAuthorizedByTh(pId, orgId, layer);
+      list = rd.listCompanyAuthorizedByTh(pId, orgId, layer);
     }
     return list;
   }

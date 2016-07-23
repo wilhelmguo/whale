@@ -158,6 +158,29 @@
 	 WHERE jbre.layer=#{layer}
      ORDER BY jbre.parentId,jbre.type,jbre.sort
     </select>
+	<!-- 权限普通权限列表包含按钮带门限 -->
+	<select id="listCompanyAuthorizedByTh" resultMap="ZNodes" parameterType="String">
+		SELECT jbre.id as id,
+		jbre.name as name,
+		jbre.parentId as pId,
+		(CASE WHEN jbor.th_org_Id IS NOT NULL AND jbor.org_id IS NOT NULL THEN 'true'
+		ELSE '' END) as 'checked',
+		(CASE WHEN jbre.isValid=1 and jbor.th_org_Id IS NOT NULL AND jbor.org_id IS NOT NULL THEN 'true'
+		ELSE '' END) as 'open',
+		(CASE WHEN jbre.isValid!=1 or jbor.th_org_Id IS NULL THEN 'true'
+		ELSE '' END) as 'chkDisabled'
+		FROM JY_BASE_RESOURCES jbre
+		LEFT JOIN (SELECT thjbor.org_Id as th_org_Id,
+		thjbor.resources_id as resources_id,
+		tjbor.org_Id as org_Id
+		FROM JY_BASE_ORG_RESOURCES thjbor
+		LEFT JOIN  (SELECT t.org_Id,t.resources_id FROM JY_BASE_ORG_RESOURCES t where t.org_id=#{orgId}) tjbor
+		ON thjbor.resources_id=tjbor.resources_id
+		WHERE thjbor.org_Id=#{pId}) jbor
+		ON jbor.resources_id=jbre.id
+		WHERE jbre.layer=#{layer} AND jbre.cid!='-1'
+		ORDER BY jbre.parentId,jbre.type,jbre.sort
+	</select>
     <delete id="delAuthorizedByOrgId" parameterType="String">
 		DELETE FROM JY_BASE_ORG_RESOURCES 
 		WHERE org_Id=#{orgId} 

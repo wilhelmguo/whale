@@ -71,7 +71,10 @@ public interface OrgDao extends BaseDao<Org>{
      * @return
      */
 	public List<ZNodes> listAuthorizedByTh(@Param("pId")String pId,@Param("orgId")String orgId,@Param("layer")String layer);
-	 /**
+
+	public List<ZNodes> listCompanyAuthorizedByTh(@Param("pId")String pId,@Param("orgId")String orgId,@Param("layer")String layer);
+
+	/**
      * 根据组织Id删除所有权限关系
      * @param orgId 组织Id
      * @return

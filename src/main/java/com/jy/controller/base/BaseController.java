@@ -129,26 +129,27 @@ public class BaseController<T> {
    * @return
    */
   protected boolean doSecurityIntercept(String type) {
-    if (Const.SUPERUSER.equals(AccountShiroUtil.getCurrentUser().getLoginName())) {
-      return true;
-    }
-    try {
-      String servletPath = getRequest().getServletPath();
-      servletPath = StringUtils.substringBeforeLast(servletPath, ".");// 去掉后面的后缀
-      String userId = AccountShiroUtil.getCurrentUser().getAccountId();
-      List<Resources> authorized = resourcesService.resAuthorized(userId, type);
-      for (Resources r : authorized) {
-        if (r != null && StringUtils.isNotBlank(r.getResUrl())) {
-          if (StringUtils.equals(r.getResUrl(), servletPath)) {
-            return true;
-          }
-        }
-
-      }
-    } catch (Exception e) {
-      logger.error(e.toString(), e);
-    }
-    return false;
+    return true;
+//    if (Const.SUPERUSER.equals(AccountShiroUtil.getCurrentUser().getLoginName())) {
+//      return true;
+//    }
+//    try {
+//      String servletPath = getRequest().getServletPath();
+//      servletPath = StringUtils.substringBeforeLast(servletPath, ".");// 去掉后面的后缀
+//      String userId = AccountShiroUtil.getCurrentUser().getAccountId();
+//      List<Resources> authorized = resourcesService.resAuthorized(userId, type);
+//      for (Resources r : authorized) {
+//        if (r != null && StringUtils.isNotBlank(r.getResUrl())) {
+//          if (StringUtils.equals(r.getResUrl(), servletPath)) {
+//            return true;
+//          }
+//        }
+//
+//      }
+//    } catch (Exception e) {
+//      logger.error(e.toString(), e);
+//    }
+//    return false;
   }
 
   /**
@@ -159,22 +160,23 @@ public class BaseController<T> {
    * @return
    */
   protected boolean doSecurityIntercept(String type, String url) {
-    if (Const.SUPERUSER.equals(AccountShiroUtil.getCurrentUser().getLoginName())) {
-      return true;
-    }
-    try {
-      String userId = AccountShiroUtil.getCurrentUser().getAccountId();
-      List<Resources> authorized = resourcesService.resAuthorized(userId, type);
-      for (Resources r : authorized) {
-        if (r != null && StringUtils.isNotBlank(r.getResUrl())) {
-          if (StringUtils.equals(r.getResUrl(), url)) {
-            return true;
-          }
-        }
-      }
-    } catch (Exception e) {
-      logger.error(e.toString(), e);
-    }
-    return false;
+    return true;
+//    if (Const.SUPERUSER.equals(AccountShiroUtil.getCurrentUser().getLoginName())) {
+//      return true;
+//    }
+//    try {
+//      String userId = AccountShiroUtil.getCurrentUser().getAccountId();
+//      List<Resources> authorized = resourcesService.resAuthorized(userId, type);
+//      for (Resources r : authorized) {
+//        if (r != null && StringUtils.isNotBlank(r.getResUrl())) {
+//          if (StringUtils.equals(r.getResUrl(), url)) {
+//            return true;
+//          }
+//        }
+//      }
+//    } catch (Exception e) {
+//      logger.error(e.toString(), e);
+//    }
+//    return false;
   }
 }

@@ -100,6 +100,18 @@ JY = {
                             }
                             ;
                         }
+                        else if (type == 3) {
+                            for (var i = 0; i < idss.length; i++) {
+                                name = map[idss[i]].name;
+                                var opts = "";
+                                $.each(map[idss[i]].items, function (n, v) {
+                                    opts += "<option value='" + v.value + "'>" + v.name + "</option>";
+                                });
+                                $("#" + idss[i] + " select").append(opts);
+                                $("#" + idss[i]).trigger("liszt:updated");
+                            }
+                            ;
+                        }
                         else {
                             for (var i = 0; i < idss.length; i++) {
                                 var name = map[idss[i]].name;
