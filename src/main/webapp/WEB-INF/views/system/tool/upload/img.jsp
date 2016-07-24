@@ -75,7 +75,7 @@ jQuery(function() {
     });
     // 文件上传成功，给item添加成功class, 用样式标记上传成功。
     uploader.on('uploadSuccess', function( file,json) {
-        
+
         if("1"==json.res){
         	$( '#'+file.id ).addClass('upload-state-done');
         	var savePath=$("#savePath").val();
@@ -86,14 +86,14 @@ jQuery(function() {
         		JY.Model.info(json.resMsg);
         	}
         	$("#savePath").val(savePath);
-        	
+
         }else{
         	JY.Model.error(json.resMsg);
         	 var $li = $( '#'+file.id ),$error = $li.find('div.error');
              // 避免重复创建
              if ( !$error.length )$error = $('<div class="error"></div>').appendTo( $li );
              $error.text('上传失败');
-        }       
+        }
     });
     // 文件上传失败，现实上传出错。
     uploader.on( 'uploadError', function(file) {

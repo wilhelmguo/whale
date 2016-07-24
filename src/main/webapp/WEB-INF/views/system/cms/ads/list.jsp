@@ -3,12 +3,16 @@
 <!DOCTYPE html >
 <html lang="en">
 <head>
-    <%@include file="../common/includeBaseSet.jsp" %>
-    <%@include file="../common/includeSystemSet.jsp" %>
+    <%@include file="../../common/includeBaseSet.jsp" %>
+    <%@include file="../../common/includeSystemSet.jsp" %>
     <link rel="stylesheet" href="${jypath}/static/plugins/zTree/3.5/zTreeStyle.css"/>
     <script src="${jypath}/static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
     <script src="${jypath}/static/plugins/ueditor/ueditor.config.js"></script>
     <script src="${jypath}/static/plugins/ueditor/ueditor.all.min.js"></script>
+    <%--<link rel="stylesheet" type="text/css" href="${jypath}/static/plugins/webuploader/css/webuploader.css" />--%>
+    <link rel="stylesheet" type="text/css" href="${jypath}/static/plugins/webuploader/image-upload/style.css" />
+
+    <script src="${jypath}/static/plugins/webuploader/js/webuploader.nolog.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="${jypath}/static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
@@ -20,8 +24,8 @@
                     <div class="widget-main">
                         <input type="text" name="keyWord" placeholder="这里输入标题" class="input-large">
                         <%--&nbsp;&nbsp;<span id="selectisValid"><label></label>：<select data-placeholder="状态"--%>
-                                                                                     <%--name="isValid"--%>
-                                                                                     <%--class="chosen-select isSelect75"></select></span>--%>
+                        <%--name="isValid"--%>
+                        <%--class="chosen-select isSelect75"></select></span>--%>
                         &nbsp;&nbsp;
                         <button id='searchBtn' class="btn btn-warning  btn-xs" title="过滤" type="button"
                                 onclick="getbaseList(1)"><i class="icon-search bigger-110 icon-only"></i></button>
@@ -96,8 +100,11 @@
                         <div class="form-group">
                             <div class="col-sm-11 col-xs-12">
                                 <input type="hidden" name="id">
-                                <input jyValidate="required" type="text" style="width:100%;" name="title" id="title" value="${pd.title }"
-                                           placeholder="这里输入标题" title="标题"/>
+                                <input jyValidate="required" type="text" style="width:100%;"
+                                                          name="title" id="title"
+                                                          value="${pd.title }"
+                                                          placeholder="这里输入标题" title="标题"/>
+
                                 <%--<input type="title" maxlength="5000" class="col-xs-12" name="toList">--%>
                                 <%--<h3 style="align-content: center" id="cmstitle">标题</h3>--%>
                                 <%--<p>--%>
@@ -106,8 +113,21 @@
                                 <%--</p>--%>
                             </div>
                         </div>
+                        <br>
 
+                        <div class="form-group">
+                            <div class="col-sm-11 col-xs-12">
+                                <div id="uploader-demo">
+                                    <!--用来存放item-->
+                                    <div id="fileList" class="uploader-list"></div>
+                                    <div id="filePicker">选择图片</div>
+                                    <!-- style只为显示效果，真正用请去掉 -->
+                                    <div>存放位置:<input style="width:100%" id="savePath" readonly="readonly" type="text" name="savePath" ></div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="hr hr-18 dotted"></div>
+                        <br>
                         <div class="form-group">
                             <div class="col-sm-11 col-xs-12">
                                 <script id="editor" style="width:100%;height:300px;" type="text/plain"></script>
@@ -179,9 +199,9 @@
     <!-- #addorUpdateFrom -->
     <%@include file="form.jsp" %>
     <!-- #dialog-confirm -->
-    <%@include file="../common/dialog.jsp" %>
+    <%@include file="../../common/dialog.jsp" %>
 </div>
-<script src="${jypath}/static/js/system/cms/news.js"></script>
+<script src="${jypath}/static/js/system/cms/ads.js"></script>
 <script src="${jypath}/static/plugins/tabs/js/tab-control.min.js"></script>
 <script type="text/javascript">
     UE.getEditor('editor');

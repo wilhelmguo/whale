@@ -9,3 +9,5 @@ target/
 /.project
 
 orange.iml
+/src/main/webapp/static/upload/
+/src/main/webapp/upload/
