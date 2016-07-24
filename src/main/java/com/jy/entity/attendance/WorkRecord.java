@@ -29,13 +29,33 @@ public class WorkRecord extends BaseEntity {
 
   private String week;
 
+  //考勤状态
+  private String status;
+
   private String morning;
+  private String department;
 
   private String beforenoon;
 
   private String afternoon;
 
   private String night;
+
+  public String getDepartment() {
+    return department;
+  }
+
+  public void setDepartment(String department) {
+    this.department = department;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   public Date getStarttime() {
     return starttime;

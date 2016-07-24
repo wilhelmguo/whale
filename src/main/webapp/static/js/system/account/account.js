@@ -119,6 +119,7 @@ function getbaseList(init){
             		 html+="<td class='center'>"+JY.Object.notEmpty(l.loginName)+"</td>";
             		 html+="<td class='center hidden-480' >"+JY.Object.notEmpty(l.name)+"</td>";
             		 html+="<td class='center '>"+JY.Object.notEmpty(l.roleName)+"</td>";
+					 html+="<td class='center '>"+JY.Object.notEmpty(l.department)+"</td>";
             		 html+="<td class='center hidden-480'>"+JY.Object.notEmpty(l.email)+"</td>";
             		 if(l.isValid==1) html+="<td class='center hidden-480'><span class='label label-sm label-success'>有效</span></td>";
             		 else             html+="<td class='center hidden-480'><span class='label label-sm arrowed-in'>无效</span></td>";

@@ -122,12 +122,14 @@ function getbaseList(init) {
                 html += "<tr>";
                 html += "<td class='center'><label> <input type='checkbox' name='ids' value='" + l.id + "' class='ace' /> <span class='lbl'></span></label></td>";
                 html += "<td class='center hidden-480'>" + (i + leng + 1) + "</td>";
+                html += "<td class='center'>" + JY.Object.notEmpty(l.department) + "</td>";
                 if (JY.Object.notEmpty(l.type) == 0) {
                     html += "<td class='center'>内勤</td>";
                 } else {
                     html += "<td class='center'>外勤</td>";
                 }
-                html += "<td class='center hidden-480' >" + JY.Date.Format(l.date, "yyyy-MM-dd") + "</td>";
+                html += "<td class='center hidden-480' >" + JY.Date.Format(l.date, "yyyy-MM-dd")+"("
+                    + JY.Object.notEmpty(l.week)+")</td>";
                 html += "<td class='center'>" + JY.Object.notEmpty(l.morning) + "</td>";
                 html += "<td class='center'>" + JY.Object.notEmpty(l.beforenoon) + "</td>";
                 html += "<td class='center'>" + JY.Object.notEmpty(l.afternoon) + "</td>";

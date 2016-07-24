@@ -1,0 +1,62 @@
+
+
+.ui-widget {
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+    font-size: 1em;
+}
+
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+    font-size: 1em;
+}
+.ui-widget-content {
+    border: 1px solid #dddddd;
+    background: #eeeeee  50% top repeat-x;
+    color: #333333;
+}
+.ui-widget-content a {
+    color: #333333;
+}
+.ui-widget-header {
+    border: 1px solid #e78f08;
+    background: #f6a828  50% 50% repeat-x;
+    color: #ffffff;
+    font-weight: bold;
+}
+.ui-widget-header a {
+    color: #ffffff;
+}
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    border: 1px solid #cccccc;
+    background: #f6f6f6 50% 50% repeat-x;
+    font-weight: bold;
+    color: #1c94c4;
+}
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+    color: #1c94c4;
+    text-decoration: none;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+    border: 1px solid #fbcb09;
+    background: #fdf5ce 50% 50% repeat-x;
+    font-weight: bold;
+    color: #c77405;
+}
+

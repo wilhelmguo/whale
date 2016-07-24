@@ -33,11 +33,12 @@
 								<th style="width:10%" class="center">登录名</th>
 								<th style="width:10%" class="center hidden-480">用户名</th>
 								<th style="width:8%"  class="center ">用户角色</th>
+								<th style="width:8%"  class="center ">部门</th>
 								<th style="width:15%" class="center hidden-480"><i class="icon-envelope-alt  bigger-110 hidden-480"></i>电子邮箱</th>
 								<th style="width:5%"  class="center hidden-480">状态</th>
-								<th style="width:15%" class="center hidden-480"><i class="icon-time bigger-110 hidden-480"></i>最近登录</th>
-								<th style="width:15%" class="center hidden-480">最近登录IP</th>
-								<th style="width:15%" class="center">操作</th>
+								<th style="width:10%" class="center hidden-480"><i class="icon-time bigger-110 hidden-480"></i>最近登录</th>
+								<th style="width:10%" class="center hidden-480">最近登录IP</th>
+								<th style="width:10%" class="center">操作</th>
 							</tr>
 						</thead>
 						<tbody></tbody>

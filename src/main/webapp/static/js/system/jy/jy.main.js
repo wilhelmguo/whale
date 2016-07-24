@@ -432,6 +432,26 @@ JY = {
                 }]
             });
         },
+        //divId,fn 方法
+        widthcheck: function (width,id, title, fn) {
+            $("#" + id).removeClass('hide').dialog({
+                width:width,
+                resizable: true,
+                modal: true,
+                title: "<div class='widget-header'><h4 class='smaller'>" + (JY.Object.notNull(title) ? title : "查看") + "</h4></div>",
+                title_html: true,
+                buttons: [{
+                    html: "<i class='icon-remove bigger-110'></i>&nbsp;取消",
+                    "class": "btn btn-xs",
+                    click: function () {
+                        $(this).dialog("close");
+                        if (typeof(fn) == 'function') {
+                            fn.call(this);
+                        }
+                    }
+                }]
+            });
+        },
         edit: function (id, title, savefn, cancelfn) {
             $("#" + id).removeClass('hide').dialog({
                 resizable: false,

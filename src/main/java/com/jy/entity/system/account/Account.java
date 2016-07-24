@@ -25,6 +25,8 @@ public class Account extends BaseEntity{
 	
 	private String salt;
 
+	private String department;
+
 	private String name;
 	
 	private String picUrl;
@@ -50,6 +52,14 @@ public class Account extends BaseEntity{
 	private String keyWord;
 	
 	private List<Position> poss=new ArrayList<Position>();
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
 
 	public String getAccountId() {
 		return accountId;

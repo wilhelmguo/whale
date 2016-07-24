@@ -6,7 +6,8 @@
     <select id="find" resultMap="base" parameterType="SysNews">
         SELECT t.* FROM JY_SYS_NEWS t WHERE 1=1
         <if test="id != null and id!='' ">AND t.id=#{id}</if>
-        <if test="title != null and title!='' ">AND t.title LIKE CONCAT('%',#{param.title},'%')</if>
+        <if test="title != null and title!='' ">AND t.title LIKE CONCAT('%',#{title},'%')</if>
+        <if test="company != null and company!='' ">AND t.cid=#{company}</if>
     </select>
     <select id="findByPage" resultMap="base" parameterType="SysNews">
         SELECT t.id,
@@ -36,7 +37,9 @@
         <if test="param.addtime != null and param.addtime!='' ">
             AND t.addtime=#{param.addtime,jdbcType=DATETIME}
         </if>
-
+        <if test="param.company != null and param.company!='' ">
+            AND t.cid=#{param.company}
+        </if>
         ORDER BY t.addtime desc
     </select>
     <select id="count" resultType="int" parameterType="SysNews">
@@ -57,7 +60,8 @@
             hits,
             sequence,
             recommand,
-            status
+            status,
+            cid
         ) VALUES (
             #{id},
             #{title},
@@ -69,7 +73,8 @@
             #{hits},
             #{sequence},
             #{recommand},
-            #{status}
+            #{status},
+            #{company}
         )
         ]]>
     </insert>

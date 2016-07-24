@@ -17,6 +17,7 @@
        		  t.roleId,
        		  jbr.name as roleName,
        		  t.name,
+		t.department,
        		  t.picUrl,
        		  t.email,
        		  t.isValid,
@@ -47,6 +48,7 @@
        		  t.name,
        		  t.picUrl,
        		  t.email,
+		t.department,
        		  t.isValid,
        		  t.createTime,
        		  t.updateTime,
@@ -82,9 +84,9 @@
  	<insert id="insert"  parameterType="BaseAccount">
  	<![CDATA[
 	INSERT INTO JY_BASE_ACCOUNT(
-	id,loginName,name,password,salt,roleId,skin,email,isValid,createTime,description,cid
+	id,loginName,name,password,salt,roleId,skin,email,isValid,createTime,description,cid,department
 	) VALUES (#{accountId},#{loginName},#{name},#{password},#{salt},#{roleId},#{skin},
-	#{email},#{isValid},#{createTime},#{description},#{company}
+	#{email},#{isValid},#{createTime},#{description},#{company},#{department}
 	)
 	]]>
 	</insert>
@@ -106,7 +108,8 @@
 			isValid =#{isValid},
 			roleId =#{roleId},
 			updateTime =#{updateTime},
-			description =#{description}
+			description =#{description},
+			department=#{department}
 		WHERE id=#{accountId}
 	</update>
     <!-- 这方法能获取密码和盐 -->
@@ -137,6 +140,7 @@
        		  t.createTime,
        		  t.updateTime,
        		  t.skin,
+       		  t.department,
        		  t.description 
        	FROM JY_BASE_ACCOUNT t 
        	LEFT JOIN JY_BASE_ROLE jbr
@@ -154,7 +158,8 @@
        		  t.roleId,
        		  t.picUrl,
        		  t.name,
-       		  t.email,   		  
+       		  t.email,
+       		  		  t.department,
        		  t.createTime,
        		  t.updateTime,
        		  t.description,

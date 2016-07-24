@@ -7,10 +7,13 @@ import com.jy.common.utils.security.AccountShiroUtil;
 import com.jy.controller.base.BaseController;
 import com.jy.entity.attendance.WorkDevice;
 import com.jy.entity.attendance.WorkRecord;
+import com.jy.entity.attendance.WorkTime;
 import com.jy.entity.oa.leave.Leave;
 import com.jy.entity.system.account.Account;
 import com.jy.service.attendance.WorkRecordService;
+import com.jy.service.attendance.WorkTimeService;
 import org.activiti.engine.runtime.ProcessInstance;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +34,9 @@ public class SignController extends BaseController<WorkRecord> {
   @Autowired
   public WorkRecordService service;
 
+  @Autowired
+  public WorkTimeService worktimeservice;
+
   /**
    * 打卡
    */
@@ -48,12 +54,20 @@ public class SignController extends BaseController<WorkRecord> {
   public AjaxRes signMorning(String type) {
     AjaxRes ar = getAjaxRes();
     try {
+      WorkTime w = new WorkTime();
+      w.setCompany(getCompany());
+      List<WorkTime> workTimes = worktimeservice.find(w);
+      if (workTimes == null || workTimes.size() == 0) {
+        ar.setFailMsg("请先设置考勤时间规则!");
+        return ar;
+      }
       Date now = new Date();
       Account curentuser = AccountShiroUtil.getCurrentUser();
       WorkRecord o = new WorkRecord();
       o.setCompany(getCompany());
       o.setDate(DateUtils.getDateStart(now));
       o.setEmployee(curentuser.getLoginName());
+      o.setDepartment(curentuser.getDepartment());
       List<WorkRecord> list = service.find(o);
       if (list == null || list.size() == 0) {
         o.setId(get32UUID());
@@ -72,22 +86,24 @@ public class SignController extends BaseController<WorkRecord> {
         if ("4".equals(type)) {
           o.setNight(DateUtils.formatDate(now, "HH:mm"));
         }
+        o.setStatus(getSignStatus(o, workTimes.get(0)));
         service.insert(o);
       } else {
-        WorkRecord w = list.get(0);
+        WorkRecord wr = list.get(0);
         if ("1".equals(type)) {
-          w.setMorning(DateUtils.formatDate(now, "HH:mm"));
+          wr.setMorning(DateUtils.formatDate(now, "HH:mm"));
         }
         if ("2".equals(type)) {
-          w.setBeforenoon(DateUtils.formatDate(now, "HH:mm"));
+          wr.setBeforenoon(DateUtils.formatDate(now, "HH:mm"));
         }
         if ("3".equals(type)) {
-          w.setAfternoon(DateUtils.formatDate(now, "HH:mm"));
+          wr.setAfternoon(DateUtils.formatDate(now, "HH:mm"));
         }
         if ("4".equals(type)) {
-          w.setNight(DateUtils.formatDate(now, "HH:mm"));
+          wr.setNight(DateUtils.formatDate(now, "HH:mm"));
         }
-        service.update(w);
+        wr.setStatus(getSignStatus(wr, workTimes.get(0)));
+        service.update(wr);
       }
       ar.setSucceedMsg(Const.SAVE_SUCCEED);
     } catch (Exception e) {
@@ -97,5 +113,54 @@ public class SignController extends BaseController<WorkRecord> {
     return ar;
   }
 
+  private String getSignStatus(WorkRecord workRecord, WorkTime wt) {
+    String status = workRecord.getStatus();
+    if (StringUtils.isBlank(workRecord.getMorning()) &&
+            StringUtils.isBlank(workRecord.getBeforenoon()) &&
+            StringUtils.isBlank(workRecord.getAfternoon()) &&
+            StringUtils.isBlank(workRecord.getNight())) {
+      if (!status.contains("旷工")) {
+        status = status + ",旷工";
+      }
+
+    } else {
+      if (StringUtils.isBlank(workRecord.getMorning())) {
+        if (!status.contains("缺卡")) {
+          status += ",缺卡";
+        }
+      } else {
+        if (DateUtils.paseDates(workRecord.getMorning(), "HH:mm").after(DateUtils.paseDates(wt.getMorning(), "HH:mm"))) {
+          if (!status.contains("迟到")) {
+            status += ",迟到";
+          }
+        }
+      }
+      if (StringUtils.isBlank(workRecord.getNight())) {
+        if (!status.contains("缺卡")) {
+          status += ",缺卡";
+        }
+      } else {
+        if (DateUtils.paseDates(workRecord.getNight(), "HH:mm").before(DateUtils.paseDates(wt.getNight(), "HH:mm"))) {
+          if (!status.contains("早退")) {
+            status += ",早退";
+          }
+        }
+      }
+      if (StringUtils.isBlank(workRecord.getBeforenoon()) && StringUtils.isNotBlank(wt.getBeforenoon())) {
+        if (!status.contains("缺卡")) {
+          status += ",缺卡";
+        }
+      }
+      if (StringUtils.isBlank(workRecord.getAfternoon()) && StringUtils.isNotBlank(wt.getAfternoon())) {
+        if (!status.contains("缺卡")) {
+          status += ",缺卡";
+        }
+      }
+    }
+    if (status.startsWith(",")) {
+      status = status.replaceFirst(",", "");
+    }
+    return status;
+  }
 
 }

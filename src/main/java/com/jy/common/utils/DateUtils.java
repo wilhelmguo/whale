@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 /**
@@ -58,6 +59,17 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
     }
     try {
       return parseDate(str.toString(), parsePatterns);
+    } catch (ParseException e) {
+      return null;
+    }
+  }
+
+  public static Date paseDates(String date, String pattern) {
+    if (StringUtils.isBlank(date) || StringUtils.isBlank(pattern)) {
+      return null;
+    }
+    try {
+      return parseDate(date, pattern);
     } catch (ParseException e) {
       return null;
     }
@@ -294,6 +306,6 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
   }
 
   public static void main(String[] args) {
-    System.out.println(getDateStart(new Date()));
+    System.out.println();
   }
 }

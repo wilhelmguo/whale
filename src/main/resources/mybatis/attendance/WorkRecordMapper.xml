@@ -13,9 +13,9 @@
         <if test="company != null and company!='' ">AND t.cid=#{company}</if>
     </select>
     <select id="findByPage" resultMap="base" parameterType="WorkRecord">
-        SELECT t.id, t.type, t.employee, t.employeeName,t.location, t.picture, t.date, t.week, t.morning, t.beforenoon,
+        SELECT t.id, t.type, t.employee,t.department, t.employeeName,t.location, t.picture, t.date, t.week, t.morning, t.beforenoon,
         t.afternoon,
-        t.night FROM JY_WORK_RECORD t
+        t.night,t.status FROM JY_WORK_RECORD t
         WHERE 1=1
         <if test="param.employee != null and param.employee!='' ">
             AND t.employee LIKE CONCAT('%',#{param.employee},'%')
@@ -51,7 +51,7 @@
 
         INSERT INTO JY_WORK_RECORD (
             id, type, employee, employeeName, location, picture, date, week, morning, beforenoon, afternoon,
-            night,cid
+            night,cid,department,status
         ) VALUES (#{id,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{employee,jdbcType=VARCHAR},
                                           #{employeeName,jdbcType=VARCHAR},
                                           #{location,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
@@ -59,7 +59,7 @@
                                           #{week,jdbcType=VARCHAR}, #{morning,jdbcType=VARCHAR},
                                           #{beforenoon,jdbcType=VARCHAR},
                                           #{afternoon,jdbcType=VARCHAR}, #{night,jdbcType=VARCHAR},
-                                          #{company})
+                                          #{company},#{department},#{status})
 
         ]]>
   </insert>
@@ -82,7 +82,8 @@
             morning    = #{morning,jdbcType=VARCHAR},
             beforenoon = #{beforenoon,jdbcType=VARCHAR},
             afternoon  = #{afternoon,jdbcType=VARCHAR},
-            night      = #{night,jdbcType=VARCHAR}
+            night      = #{night,jdbcType=VARCHAR},
+            status = #{status,jdbcType=VARCHAR}
         WHERE id = #{id}
     </update>
 
