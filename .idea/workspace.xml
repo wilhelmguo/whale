@@ -2,30 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="092f2751-1f83-4438-8486-1b87272be1f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/whale_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/whale_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/whale_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/whale_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/common/utils/DateUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/common/utils/DateUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkDeviceController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkDeviceController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRecordController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRecordController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRuleController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRuleController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkTimeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkTimeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/base/BaseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/base/BaseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/org/RoleController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/controller/system/org/RoleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkRule.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkRule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/OrgDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/OrgDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgServiceImp.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/service/system/org/OrgServiceImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkDeviceMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkDeviceMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkRecord.java" afterPath="$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkRecord.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRecordMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRecordMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRuleMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRuleMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkTimeMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkTimeMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties" afterPath="$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrule/form.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrule/form.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRule.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRule.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/system/jy/jy.main.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/system/jy/jy.main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/system/org/role.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/system/org/role.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrecord/list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrecord/list.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRecord.js" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRecord.js" />
     </list>
     <ignored path="whale.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,52 +38,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sign.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/sign.js">
+      <file leaf-file-name="WorkRecordMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRecordMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workDevice.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workDevice.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workRecord.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRecord.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorkDeviceController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkDeviceController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1629">
-              <caret line="104" column="30" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SignController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/SignController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="60" column="23" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="189">
+              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+              <folding>
+                <marker date="1469282462745" expanded="true" signature="392:789" ph="SELECT t.* F... JY_WORK_RECORD" />
+                <marker date="1469282462745" expanded="true" signature="890:1954" ph="SELECT t.id,... JY_WORK_RECORD" />
+                <marker date="1469282462745" expanded="true" signature="2045:2183" ph="SELECT count... JY_WORK_RECORD" />
+                <marker date="1469282462745" expanded="true" signature="2278:3099" ph="INSERT INTO JY_WORK_RECORD... " />
+                <marker date="1469282462745" expanded="true" signature="3176:3233" ph="DELETE FROM " />
+                <marker date="1469282462745" expanded="true" signature="3312:3454" ph="DELETE FROM " />
+                <marker date="1469282462745" expanded="true" signature="3529:4116" ph="UPDATE JY_WO... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,18 +59,8 @@
       <file leaf-file-name="WorkRecordController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRecordController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1794">
-              <caret line="46" column="90" selection-start-line="46" selection-start-column="90" selection-end-line="46" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrecord/form.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -128,18 +69,48 @@
       <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrecord/list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="64" column="57" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
+            <state relative-caret-position="504">
+              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dbconfig.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorkTimeController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkTimeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="96" column="44" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="workRecord.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRecord.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="642">
+              <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/cms/list.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/task/log/list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="104" />
+            <state relative-caret-position="-945">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -172,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/org/role/form.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/login/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/js/system/login/login.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/common/utils/base/Const.java" />
@@ -197,11 +167,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/system/account/AccountMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/service/system/account/AccountServiceImp.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/js/system/org/role.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkDeviceController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkDeviceMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkTimeController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkTimeMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRuleController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/repository/system/org/OrgDao.java" />
@@ -214,15 +182,18 @@
         <option value="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRuleMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrule/form.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/apidoc/JYUI/now.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRecordMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/base/BaseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/common/utils/DateUtils.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/sign.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/sign/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/SignController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkRecord.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRecordMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRecordController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRecord.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrecord/list.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkTimeController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties" />
       </list>
     </option>
   </component>
@@ -502,6 +473,90 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="apply" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scheduleJob" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="task" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -843,6 +898,44 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="dict" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whale" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="attendance" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -921,7 +1014,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mybatis" />
+              <option name="myItemId" value="spring" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -940,478 +1033,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mybatis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="attendance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="repository" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="repository" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="leave" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="attendance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workflow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workflow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="online" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="workflow" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="online" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apply" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="attendance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whale" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2051,12 +1672,12 @@
       <workItem from="1468743100792" duration="1790000" />
       <workItem from="1468805642425" duration="66624000" />
       <workItem from="1469095982683" duration="35233000" />
-      <workItem from="1469194729127" duration="30960000" />
+      <workItem from="1469194729127" duration="37340000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148944000" />
+    <option name="totallyTimeSpent" value="155324000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="24" width="1541" height="876" extended-state="6" />
@@ -2071,7 +1692,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38174808" sideWeight="0.49722" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.59383035" sideWeight="0.49722" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="SBT Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -2081,8 +1702,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33161953" sideWeight="0.49497655" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21336761" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22705962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21336761" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21902211" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31362468" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2166,7 +1787,7 @@
           <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="79" />
+      <option name="time" value="80" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2175,206 +1796,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/system/org/RoleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="282" column="41" selection-start-line="282" selection-start-column="41" selection-end-line="282" selection-end-column="41" />
-          <folding>
-            <element signature="e#9702#9710#0" expanded="false" />
-            <element signature="e#10842#10850#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/RoleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="29" />
-          <folding>
-            <marker date="1469158972247" expanded="true" signature="458:774" ph="SELECT t.* F... JY_BASE_ROLE" />
-            <marker date="1469158972247" expanded="true" signature="868:1246" ph="SELECT t.* F... JY_BASE_ROLE" />
-            <marker date="1469158972247" expanded="true" signature="1338:1716" ph="SELECT t.* F... JY_BASE_ROLE" />
-            <marker date="1469158972247" expanded="true" signature="1817:2234" ph="SELECT t.* F... JY_BASE_ROLE" />
-            <marker date="1469158972247" expanded="true" signature="2327:2372" ph="SELECT count... JY_BASE_ROLE" />
-            <marker date="1469158972247" expanded="true" signature="2460:2618" ph="INSERT INTO JY_BASE_ROLE... " />
-            <marker date="1469158972247" expanded="true" signature="2685:2727" ph="DELETE FROM " />
-            <marker date="1469158972247" expanded="true" signature="2799:2937" ph="DELETE FROM " />
-            <marker date="1469158972247" expanded="true" signature="2998:3139" ph="UPDATE JY_BA... " />
-            <marker date="1469158972247" expanded="true" signature="3254:4171" ph="SELECT jbre.... " />
-            <marker date="1469158972247" expanded="true" signature="4289:5167" ph="SELECT jbre.... " />
-            <marker date="1469158972247" expanded="true" signature="5244:5305" ph="DELETE from " />
-            <marker date="1469158972247" expanded="true" signature="5388:5565" ph="DELETE from " />
-            <marker date="1469158972247" expanded="true" signature="5462:5564" ph="SELECT jbr.i... JY_BASE_RESOURCES" />
-            <marker date="1469158972247" expanded="true" signature="5654:5807" ph="DELETE from " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/org/role.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/cms/news.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workTime.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-252">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/entity/oa/leave/Leave.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/common/ajax/AjaxRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/entity/base/BaseEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRuleMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
-          <folding>
-            <marker date="1469250145755" expanded="true" signature="374:561" ph="SELECT t.* F... JY_WORK_RULE" />
-            <marker date="1469250145755" expanded="true" signature="374:635" ph="SELECT t.* F... JY_WORK_RULE" />
-            <marker date="1469250145755" expanded="true" signature="726:1463" ph="SELECT t.id,... JY_WORK_RULE" />
-            <marker date="1469250145755" expanded="true" signature="1544:1599" ph="SELECT count... JY_WORK_RULE" />
-            <marker date="1469250145755" expanded="true" signature="1544:1668" ph="SELECT count... JY_WORK_RULE" />
-            <marker date="1469250145755" expanded="true" signature="1756:2016" ph="INSERT INTO JY_WORK_RULE... " />
-            <marker date="1469250145755" expanded="true" signature="2088:2143" ph="DELETE FROM " />
-            <marker date="1469250145755" expanded="true" signature="2216:2348" ph="DELETE FROM " />
-            <marker date="1469250145755" expanded="true" signature="2413:2608" ph="UPDATE JY_WO... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrule/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrule/form.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="22" column="75" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="1189" column="0" selection-start-line="1189" selection-start-column="0" selection-end-line="1189" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/workflow/online/apply/list.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/apidoc/JYUI/buttons.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="708" column="28" selection-start-line="708" selection-start-column="28" selection-end-line="1960" selection-end-column="48" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1468661955000" expanded="true" signature="53377:53485" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/apidoc/JYUI/now.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/account/account.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRuleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="24" column="37" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkTimeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1143">
-          <caret line="124" column="28" selection-start-line="124" selection-start-column="28" selection-end-line="124" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/apidoc/JYUI/assets/css/font-awesome.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="271" column="1" selection-start-line="271" selection-start-column="1" selection-end-line="271" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/css/system/ace/ace.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
@@ -2464,33 +1885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRecordMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding>
-            <marker date="1469268388160" expanded="true" signature="392:789" ph="SELECT t.* F... JY_WORK_RECORD" />
-            <marker date="1469268388160" expanded="true" signature="890:1683" ph="SELECT t.id,... JY_WORK_RECORD" />
-            <marker date="1469268388160" expanded="true" signature="1774:1912" ph="SELECT count... JY_WORK_RECORD" />
-            <marker date="1469268388160" expanded="true" signature="2007:2828" ph="INSERT INTO JY_WORK_RECORD... " />
-            <marker date="1469268388160" expanded="true" signature="2905:2962" ph="DELETE FROM " />
-            <marker date="1469268388160" expanded="true" signature="3041:3183" ph="DELETE FROM " />
-            <marker date="1469268388160" expanded="true" signature="3258:3845" ph="UPDATE JY_WO... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="45" column="16" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-          <folding>
-            <element signature="e#835#836#0" expanded="false" />
-            <element signature="e#896#897#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/base/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -2542,14 +1936,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRecordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1794">
-          <caret line="46" column="90" selection-start-line="46" selection-start-column="90" selection-end-line="46" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/SignController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -2566,16 +1952,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/jy/jy.main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-          <folding>
-            <marker date="1469241573862" expanded="true" signature="10967:10989" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/cms/list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -2584,7 +1960,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/jy/jy.main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="690" column="8" selection-start-line="690" selection-start-column="8" selection-end-line="690" selection-end-column="8" />
+          <folding>
+            <marker date="1469241573862" expanded="true" signature="10967:10989" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrecord/form.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrule/form.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="156" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrule/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="61" column="54" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="73" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/dict/sysDict.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63">
+          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkDevice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkRule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/entity/attendance/WorkRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#835#836#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#907#908#0" expanded="true" />
+            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#997#998#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+            <element signature="e#1288#1289#0" expanded="true" />
+            <element signature="e#1343#1344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/task/scheduleJob.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -2592,18 +2053,312 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrecord/list.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/task/log/list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="64" column="57" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
+        <state relative-caret-position="-945">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/cms/SysNewsMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1313">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1468661955000" expanded="true" signature="380:577" ph="SELECT t.* F... JY_SYS_NEWS" />
+            <marker date="1468661955000" expanded="true" signature="675:1602" ph="SELECT t.id,... JY_SYS_NEWS" />
+            <marker date="1468661955000" expanded="true" signature="1690:1752" ph="SELECT count... JY_SYS_NEWS" />
+            <marker date="1468661955000" expanded="true" signature="1842:2367" ph="INSERT INTO JY_SYS_NEWS... " />
+            <marker date="1468661955000" expanded="true" signature="2442:2496" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2575:2714" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2786:3058" ph="UPDATE JY_SY... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/company/CompanyMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-641">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1468938636857" expanded="true" signature="598:964" ph="SELECT t.* F... JY_BASE_COMPANY" />
+            <marker date="1468938636857" expanded="true" signature="1054:1102" ph="SELECT count... JY_BASE_COMPANY" />
+            <marker date="1468938636857" expanded="true" signature="1188:1259" ph="INSERT INTO JY_BASE_COMPANY... " />
+            <marker date="1468938636857" expanded="true" signature="1325:1378" ph="DELETE FROM " />
+            <marker date="1468938636857" expanded="true" signature="1450:1591" ph="DELETE FROM " />
+            <marker date="1468938636857" expanded="true" signature="1651:1719" ph="UPDATE JY_BA... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/account/AccountMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1469177154404" expanded="true" signature="1636:2717" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="2809:2858" ph="SELECT count... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="2939:3201" ph="INSERT INTO JY_BASE_ACCOUNT... " />
+            <marker date="1469177154404" expanded="true" signature="3269:3321" ph="delete from " />
+            <marker date="1469177154404" expanded="true" signature="3393:3539" ph="DELETE FROM " />
+            <marker date="1469177154404" expanded="true" signature="3603:3798" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="3937:4043" ph="SELECT a.* F... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="4177:4330" ph="SELECT a.* F... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="4461:4863" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="4936:5005" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="5089:5473" ph="SELECT t.id,... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="5542:5665" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="5733:5838" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="5895:5983" ph="SELECT jbo.i... JY_BASE_ORG" />
+            <marker date="1469177154404" expanded="true" signature="5895:6118" ph="SELECT jbo.i... " />
+            <marker date="1469177154404" expanded="true" signature="5999:6118" ph="SELECT CONCA... JY_BASE_ROLE" />
+            <marker date="1469177154404" expanded="true" signature="6205:6305" ph="SELECT jbo.i... JY_BASE_ORG" />
+            <marker date="1469177154404" expanded="true" signature="6205:6451" ph="SELECT jbo.i... " />
+            <marker date="1469177154404" expanded="true" signature="6320:6451" ph="SELECT CONCA... JY_BASE_ROLE" />
+            <marker date="1469177154404" expanded="true" signature="6526:6615" ph="SELECT COUNT... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="6696:6791" ph="SELECT COUNT... JY_BASE_ACCOUNT" />
+            <marker date="1469177154404" expanded="true" signature="6861:6958" ph="UPDATE JY_BA... " />
+            <marker date="1469177154404" expanded="true" signature="7048:7167" ph="SELECT t.log... JY_BASE_LOGIN_LOG" />
+            <marker date="1469177154404" expanded="true" signature="7252:7417" ph="SELECT jbp.*... JY_BASE_ACCOUNT_POSITION" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/log/LoginLogMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-410">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1468661955000" expanded="true" signature="383:1214" ph="SELECT t.id,... JY_BASE_LOGIN_LOG" />
+            <marker date="1468661955000" expanded="true" signature="1305:1355" ph="SELECT count... JY_BASE_LOGIN_LOG" />
+            <marker date="1468661955000" expanded="true" signature="1441:1562" ph="INSERT INTO JY_BASE_LOGIN_LOG... " />
+            <marker date="1468661955000" expanded="true" signature="1641:1782" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/dict/DataDictMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1502">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1468661955000" expanded="true" signature="852:944" ph="SELECT t.* F... JY_DATA_DICT_ITEM" />
+            <marker date="1468661955000" expanded="true" signature="1037:1486" ph="SELECT t.* F... JY_DATA_DICT" />
+            <marker date="1468661955000" expanded="true" signature="1806:1960" ph="INSERT INTO JY_DATA_DICT... " />
+            <marker date="1468661955000" expanded="true" signature="2287:2342" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2418:2565" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2625:2667" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2740:2879" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2940:3080" ph="UPDATE JY_DA... " />
+            <marker date="1468661955000" expanded="true" signature="3163:3369" ph="SELECT jdd.d... JY_DATA_DICT" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/dict/SysDictMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-567">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1468661955000" expanded="true" signature="690:1224" ph="SELECT t.* F... JY_SYS_DICT" />
+            <marker date="1468661955000" expanded="true" signature="1314:1358" ph="SELECT count... JY_SYS_DICT" />
+            <marker date="1468661955000" expanded="true" signature="1444:1658" ph="INSERT INTO JY_SYS_DICT... " />
+            <marker date="1468661955000" expanded="true" signature="1724:1773" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="1845:1982" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2042:2258" ph="UPDATE JY_SY... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/resources/ResourcesMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2961">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1469113880461" expanded="true" signature="714:815" ph="SELECT t.* F... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="909:1440" ph="SELECT t.*,j... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="1540:1971" ph="SELECT t.* F... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="2067:2117" ph="SELECT count... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="2209:2473" ph="INSERT INTO JY_BASE_RESOURCES... " />
+            <marker date="1469113880461" expanded="true" signature="2545:2591" ph="DELETE FROM " />
+            <marker date="1469113880461" expanded="true" signature="2663:2734" ph="DELETE from " />
+            <marker date="1469113880461" expanded="true" signature="2805:2875" ph="DELETE from " />
+            <marker date="1469113880461" expanded="true" signature="2947:3090" ph="DELETE FROM " />
+            <marker date="1469113880461" expanded="true" signature="3173:3331" ph="DELETE from " />
+            <marker date="1469113880461" expanded="true" signature="3414:3571" ph="DELETE from " />
+            <marker date="1469113880461" expanded="true" signature="3637:3949" ph="UPDATE JY_BA... " />
+            <marker date="1469113880461" expanded="true" signature="4055:4520" ph="SELECT jbm.i... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="4184:4291" ph="select jbrm.... JY_BASE_ROLE" />
+            <marker date="1469113880461" expanded="true" signature="4342:4426" ph="SELECT jba.r... JY_BASE_ACCOUNT" />
+            <marker date="1469113880461" expanded="true" signature="4633:5124" ph="SELECT jbm.i... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="4762:4869" ph="select jbrm.... JY_BASE_ROLE" />
+            <marker date="1469113880461" expanded="true" signature="4919:5013" ph="SELECT jba.r... JY_BASE_ACCOUNT" />
+            <marker date="1469113880461" expanded="true" signature="5232:5725" ph="SELECT jbm.n... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="5384:5491" ph="select jbrm.... JY_BASE_ROLE" />
+            <marker date="1469113880461" expanded="true" signature="5542:5626" ph="SELECT jba.r... JY_BASE_ACCOUNT" />
+            <marker date="1469113880461" expanded="true" signature="5856:6024" ph="SELECT t.id JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="6117:6465" ph="SELECT jbm.r... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="6180:6287" ph="select jbrm.... JY_BASE_ROLE" />
+            <marker date="1469113880461" expanded="true" signature="6338:6421" ph="SELECT jba.r... JY_BASE_ACCOUNT" />
+            <marker date="1469113880461" expanded="true" signature="6558:6627" ph="SELECT count... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="6731:6891" ph="SELECT count... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="6991:7108" ph="SELECT jbr.*... JY_BASE_RESOURCES" />
+            <marker date="1469113880461" expanded="true" signature="7188:7371" ph="UPDATE JY_BA... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/OrgMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2961">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1469235371509" expanded="true" signature="965:1279" ph="SELECT t.*,j... JY_BASE_ORG" />
+            <marker date="1469235371509" expanded="true" signature="1373:1442" ph="SELECT t.* F... JY_BASE_ORG" />
+            <marker date="1469235371509" expanded="true" signature="1532:1577" ph="SELECT count... JY_BASE_ROLE" />
+            <marker date="1469235371509" expanded="true" signature="1663:1807" ph="INSERT INTO JY_BASE_ORG... " />
+            <marker date="1469235371509" expanded="true" signature="1873:1914" ph="DELETE FROM " />
+            <marker date="1469235371509" expanded="true" signature="1986:2123" ph="DELETE from " />
+            <marker date="1469235371509" expanded="true" signature="2183:2299" ph="UPDATE JY_BA... " />
+            <marker date="1469235371509" expanded="true" signature="2401:2604" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1469235371509" expanded="true" signature="2699:2805" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1469235371509" expanded="true" signature="2915:3029" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1469235371509" expanded="true" signature="3142:3326" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1469235371509" expanded="true" signature="3447:4025" ph="SELECT jbre.... " />
+            <marker date="1469235371509" expanded="true" signature="4145:4708" ph="SELECT jbre.... " />
+            <marker date="1469235371509" expanded="true" signature="4838:5768" ph="SELECT jbre.... JY_BASE_RESOURCES" />
+            <marker date="1469235371509" expanded="true" signature="5307:5655" ph="SELECT thjbo... JY_BASE_ORG_RESOURCES" />
+            <marker date="1469235371509" expanded="true" signature="5480:5563" ph="SELECT t.org... JY_BASE_ORG_RESOURCES" />
+            <marker date="1469235371509" expanded="true" signature="5894:6778" ph="SELECT jbre.... JY_BASE_RESOURCES" />
+            <marker date="1469235371509" expanded="true" signature="6337:6649" ph="SELECT thjbo... JY_BASE_ORG_RESOURCES" />
+            <marker date="1469235371509" expanded="true" signature="6486:6569" ph="SELECT t.org... JY_BASE_ORG_RESOURCES" />
+            <marker date="1469235371509" expanded="true" signature="6854:6912" ph="DELETE FROM " />
+            <marker date="1469235371509" expanded="true" signature="6995:7169" ph="DELETE FROM " />
+            <marker date="1469235371509" expanded="true" signature="7066:7168" ph="SELECT jbr.i... JY_BASE_RESOURCES" />
+            <marker date="1469235371509" expanded="true" signature="7257:7408" ph="DELETE FROM " />
+            <marker date="1469235371509" expanded="true" signature="8061:8146" ph="SELECT t.id,... JY_BASE_ORG" />
+            <marker date="1469235371509" expanded="true" signature="8247:8332" ph="SELECT t.id,... JY_BASE_ORG" />
+            <marker date="1469235371509" expanded="true" signature="8433:8518" ph="SELECT t.id,... JY_BASE_ORG" />
+            <marker date="1469235371509" expanded="true" signature="8614:8688" ph="SELECT t.id,... JY_BASE_ROLE" />
+            <marker date="1469235371509" expanded="true" signature="8791:9102" ph="SELECT jbor.... JY_BASE_ORG_RESOURCES" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/PositionMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1953">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1468661955000" expanded="true" signature="968:1284" ph="SELECT t.* F... JY_BASE_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="1387:1720" ph="SELECT t.* F... JY_BASE_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="1813:1862" ph="SELECT count... JY_BASE_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="1944:2086" ph="INSERT INTO JY_BASE_POSITION... " />
+            <marker date="1468661955000" expanded="true" signature="2154:2200" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2272:2414" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="2474:2637" ph="UPDATE JY_BA... " />
+            <marker date="1468661955000" expanded="true" signature="2731:2841" ph="SELECT jbo.i... JY_BASE_ORG" />
+            <marker date="1468661955000" expanded="true" signature="2731:3001" ph="SELECT jbo.i... " />
+            <marker date="1468661955000" expanded="true" signature="2857:3001" ph="SELECT CONCA... JY_BASE_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="3126:3240" ph="SELECT t.id JY_BASE_ORG" />
+            <marker date="1468661955000" expanded="true" signature="3565:3634" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="3719:3883" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="3958:4019" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="4104:4257" ph="DELETE FROM " />
+            <marker date="1468661955000" expanded="true" signature="4359:4899" ph="SELECT jba.i... JY_BASE_ACCOUNT" />
+            <marker date="1468661955000" expanded="true" signature="4554:4672" ph="SELECT jbap.... JY_BASE_ACCOUNT_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="5002:5555" ph="SELECT jba.i... JY_BASE_ACCOUNT" />
+            <marker date="1468661955000" expanded="true" signature="5407:5525" ph="SELECT jbap.... JY_BASE_ACCOUNT_POSITION" />
+            <marker date="1468661955000" expanded="true" signature="5653:5710" ph="SELECT t.* F... JY_BASE_POSITION" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/system/org/RoleMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-567">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1469158972247" expanded="true" signature="458:774" ph="SELECT t.* F... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="868:1246" ph="SELECT t.* F... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="1338:1716" ph="SELECT t.* F... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="1817:2234" ph="SELECT t.* F... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="2327:2372" ph="SELECT count... JY_BASE_ROLE" />
+            <marker date="1469158972247" expanded="true" signature="2460:2618" ph="INSERT INTO JY_BASE_ROLE... " />
+            <marker date="1469158972247" expanded="true" signature="2685:2727" ph="DELETE FROM " />
+            <marker date="1469158972247" expanded="true" signature="2799:2937" ph="DELETE FROM " />
+            <marker date="1469158972247" expanded="true" signature="2998:3139" ph="UPDATE JY_BA... " />
+            <marker date="1469158972247" expanded="true" signature="3254:4171" ph="SELECT jbre.... " />
+            <marker date="1469158972247" expanded="true" signature="4289:5167" ph="SELECT jbre.... " />
+            <marker date="1469158972247" expanded="true" signature="5244:5305" ph="DELETE from " />
+            <marker date="1469158972247" expanded="true" signature="5388:5565" ph="DELETE from " />
+            <marker date="1469158972247" expanded="true" signature="5462:5564" ph="SELECT jbr.i... JY_BASE_RESOURCES" />
+            <marker date="1469158972247" expanded="true" signature="5654:5807" ph="DELETE from " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/attendance/WorkRecordMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+          <folding>
+            <marker date="1469282462745" expanded="true" signature="392:789" ph="SELECT t.* F... JY_WORK_RECORD" />
+            <marker date="1469282462745" expanded="true" signature="890:1954" ph="SELECT t.id,... JY_WORK_RECORD" />
+            <marker date="1469282462745" expanded="true" signature="2045:2183" ph="SELECT count... JY_WORK_RECORD" />
+            <marker date="1469282462745" expanded="true" signature="2278:3099" ph="INSERT INTO JY_WORK_RECORD... " />
+            <marker date="1469282462745" expanded="true" signature="3176:3233" ph="DELETE FROM " />
+            <marker date="1469282462745" expanded="true" signature="3312:3454" ph="DELETE FROM " />
+            <marker date="1469282462745" expanded="true" signature="3529:4116" ph="UPDATE JY_WO... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static/apidoc/JYUI/assets/js/jquery-ui-1.10.3.full.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="6" column="2894" selection-start-line="6" selection-start-column="2894" selection-end-line="6" selection-end-column="2894" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/static/js/system/attendance/workRecord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+        <state relative-caret-position="642">
+          <caret line="102" column="22" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/system/attendance/workrecord/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/dbconfig.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkRecordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jy/controller/attendance/WorkTimeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="96" column="44" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
           <folding />
         </state>
       </provider>

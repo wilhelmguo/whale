@@ -2,128 +2,150 @@ package com.jy.entity.attendance;
 
 import com.jy.entity.base.BaseEntity;
 import org.apache.ibatis.type.Alias;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+
 @Alias("WorkRecord")
 public class WorkRecord extends BaseEntity {
-    private static final long serialVersionUID = 1L;
-    private String id;
+  private static final long serialVersionUID = 1L;
+  private String id;
 
-    private String type;
+  private String type;
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date starttime;
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date endtime;
 
-    private String employee;
+  private String employee;
 
-    private String employeeName;
+  private String employeeName;
 
-    private String location;
+  private String location;
 
-    private String picture;
+  private String picture;
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date date;
 
-    private Date date;
+  private String week;
 
-    private String week;
+  private String morning;
 
-    private String morning;
+  private String beforenoon;
 
-    private String beforenoon;
+  private String afternoon;
 
-    private String afternoon;
+  private String night;
 
-    private String night;
+  public Date getStarttime() {
+    return starttime;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public void setStarttime(Date starttime) {
+    this.starttime = starttime;
+  }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
+  public Date getEndtime() {
+    return endtime;
+  }
 
-    public String getType() {
-        return type;
-    }
+  public void setEndtime(Date endtime) {
+    this.endtime = endtime;
+  }
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
-    }
+  public String getId() {
+    return id;
+  }
 
-    public String getEmployeeName() {
-        return employeeName;
-    }
+  public void setId(String id) {
+    this.id = id == null ? null : id.trim();
+  }
 
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
+  public String getType() {
+    return type;
+  }
 
-    public String getEmployee() {
-        return employee;
-    }
+  public void setType(String type) {
+    this.type = type == null ? null : type.trim();
+  }
 
-    public void setEmployee(String employee) {
-        this.employee = employee == null ? null : employee.trim();
-    }
+  public String getEmployeeName() {
+    return employeeName;
+  }
 
-    public String getLocation() {
-        return location;
-    }
+  public void setEmployeeName(String employeeName) {
+    this.employeeName = employeeName;
+  }
 
-    public void setLocation(String location) {
-        this.location = location == null ? null : location.trim();
-    }
+  public String getEmployee() {
+    return employee;
+  }
 
-    public String getPicture() {
-        return picture;
-    }
+  public void setEmployee(String employee) {
+    this.employee = employee == null ? null : employee.trim();
+  }
 
-    public void setPicture(String picture) {
-        this.picture = picture == null ? null : picture.trim();
-    }
+  public String getLocation() {
+    return location;
+  }
 
-    public Date getDate() {
-        return date;
-    }
+  public void setLocation(String location) {
+    this.location = location == null ? null : location.trim();
+  }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+  public String getPicture() {
+    return picture;
+  }
 
-    public String getWeek() {
-        return week;
-    }
+  public void setPicture(String picture) {
+    this.picture = picture == null ? null : picture.trim();
+  }
 
-    public void setWeek(String week) {
-        this.week = week == null ? null : week.trim();
-    }
+  public Date getDate() {
+    return date;
+  }
 
-    public String getMorning() {
-        return morning;
-    }
+  public void setDate(Date date) {
+    this.date = date;
+  }
 
-    public void setMorning(String morning) {
-        this.morning = morning == null ? null : morning.trim();
-    }
+  public String getWeek() {
+    return week;
+  }
 
-    public String getBeforenoon() {
-        return beforenoon;
-    }
+  public void setWeek(String week) {
+    this.week = week == null ? null : week.trim();
+  }
 
-    public void setBeforenoon(String beforenoon) {
-        this.beforenoon = beforenoon == null ? null : beforenoon.trim();
-    }
+  public String getMorning() {
+    return morning;
+  }
 
-    public String getAfternoon() {
-        return afternoon;
-    }
+  public void setMorning(String morning) {
+    this.morning = morning == null ? null : morning.trim();
+  }
 
-    public void setAfternoon(String afternoon) {
-        this.afternoon = afternoon == null ? null : afternoon.trim();
-    }
+  public String getBeforenoon() {
+    return beforenoon;
+  }
 
-    public String getNight() {
-        return night;
-    }
+  public void setBeforenoon(String beforenoon) {
+    this.beforenoon = beforenoon == null ? null : beforenoon.trim();
+  }
 
-    public void setNight(String night) {
-        this.night = night == null ? null : night.trim();
-    }
+  public String getAfternoon() {
+    return afternoon;
+  }
+
+  public void setAfternoon(String afternoon) {
+    this.afternoon = afternoon == null ? null : afternoon.trim();
+  }
+
+  public String getNight() {
+    return night;
+  }
+
+  public void setNight(String night) {
+    this.night = night == null ? null : night.trim();
+  }
 }

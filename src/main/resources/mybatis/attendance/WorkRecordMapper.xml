@@ -27,6 +27,13 @@
         <if test="param.keyWord!=null and param.keyWord!='' ">
             AND t.employeeName LIKE CONCAT('%',#{param.keyWord},'%')
         </if>
+        <if test="param.starttime!=null and param.starttime!='' ">
+            AND t.date <![CDATA[>=]]> #{param.starttime}
+        </if>
+        <if test="param.endtime!=null and param.endtime!='' ">
+            AND t.date <![CDATA[<=]]> #{param.endtime}
+        </if>
+
         <if test="param.company != null and param.company!='' ">
             AND t.cid=#{param.company}
         </if>

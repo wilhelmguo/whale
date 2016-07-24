@@ -13,8 +13,10 @@
 				<form id="baseForm" class="form-inline" method="POST" onsubmit="return false;">
 				<div class="row">
 					<div class="widget-main">
-						<input  type="text"  name="keyWord" placeholder="这里输入关键词" class="input-large">
-						&nbsp;&nbsp;<span id="selectisValid"><label></label>：<select  data-placeholder="状态" name="isValid" class="chosen-select isSelect95"></select></span>
+						<%--<input  type="text"  name="keyWord" placeholder="这里输入关键词" class="input-large">--%>
+							<label>开始日期:</label><input  type="text" jyValidate="required" name="starttime" id="starttime" class="FormElement ui-widget-content ui-corner-all" />
+							<label>结束日期:</label><input  type="text" jyValidate="required" name="endtime" id="endtime" class="FormElement ui-widget-content ui-corner-all" />
+						<%--&nbsp;&nbsp;<span id="selectisValid"><label></label>：<select  data-placeholder="状态" name="isValid" class="chosen-select isSelect95"></select></span>--%>
 						&nbsp;&nbsp;<button id='searchBtn' class="btn btn-warning  btn-xs" title="过滤" type="button" onclick="getbaseList(1)"><i class="icon-search bigger-110 icon-only"></i></button>
 					</div>
 				</div>
@@ -28,14 +30,14 @@
 								<label><input type="checkbox" class="ace" ><span class="lbl"></span></label>
 							</th>
 							<th style="width:5%" class="center hidden-480">序号</th>
-							<th style="width:15%" class="center">考勤类型</th>
-							<th style="width:15%" class="center hidden-480">所属员工</th>
-							<th style="width:15%" class="center"><i class="icon-time bigger-110 hidden-480"></i>考勤日期</th>
-							<th style="width:15%" class="center"><i class="icon-time bigger-110 hidden-480"></i>上班时间</th>
-							<th style="width:15%" class="center"><i class="icon-time bigger-110 hidden-480"></i>中午签退时间</th>
-							<th style="width:15%" class="center"><i class="icon-time bigger-110 hidden-480"></i>中午签到时间</th>
-							<th style="width:15%" class="center"><i class="icon-time bigger-110 hidden-480"></i>下班时间</th>
-							<th style="width:10%" class="center">操作</th>
+							<th style="width:10%" class="center">考勤类型</th>
+							<%--<th style="width:10%" class="center hidden-480">所属员工</th>--%>
+							<th style="width:10%" class="center"><i class="icon-time bigger-110 hidden-480"></i>考勤日期</th>
+							<th style="width:10%" class="center"><i class="icon-time bigger-110 hidden-480"></i>上班时间</th>
+							<th style="width:10%" class="center"><i class="icon-time bigger-110 hidden-480"></i>中午签退时间</th>
+							<th style="width:10%" class="center"><i class="icon-time bigger-110 hidden-480"></i>中午签到时间</th>
+							<th style="width:10%" class="center"><i class="icon-time bigger-110 hidden-480"></i>下班时间</th>
+							<%--<th style="width:10%" class="center">操作</th>--%>
 						</tr>
 					</thead>
 					<tbody></tbody>

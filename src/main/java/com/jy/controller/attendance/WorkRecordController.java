@@ -40,12 +40,34 @@ public class WorkRecordController extends BaseController<WorkRecord> {
     return Const.NO_AUTHORIZED_URL;
   }
 
+  @RequestMapping(value = "findMyRecordByPage", method = RequestMethod.POST)
+  @ResponseBody
+  public AjaxRes findMyRecordByPage(Page<WorkRecord> page, WorkRecord o) {
+    AjaxRes ar = getAjaxRes();
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/workRecord/index"))) {
+      try {
+        o.setEmployee(AccountShiroUtil.getCurrentUser().getLoginName());
+        o.setCompany(getCompany());
+        Page<WorkRecord> result = service.findByPage(o, page);
+        Map<String, Object> p = new HashMap<String, Object>();
+        p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
+        p.put("list", result);
+        ar.setSucceed(p);
+      } catch (Exception e) {
+        logger.error(e.toString(), e);
+        ar.setFailMsg(Const.DATA_FAIL);
+      }
+    }
+    return ar;
+  }
+
   @RequestMapping(value = "findByPage", method = RequestMethod.POST)
   @ResponseBody
   public AjaxRes findByPage(Page<WorkRecord> page, WorkRecord o) {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/workRecord/index"))) {
       try {
+//        o.setEmployee();
         o.setCompany(getCompany());
         Page<WorkRecord> result = service.findByPage(o, page);
         Map<String, Object> p = new HashMap<String, Object>();

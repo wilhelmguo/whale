@@ -98,6 +98,10 @@ public class WorkTimeController extends BaseController<WorkTime> {
       try {
         o.setCompany(getCompany());
         List<WorkTime> list = service.find(o);
+        if (list==null || list.size()==0){
+          ar.setSucceed(new WorkTime());
+          return ar;
+        }
         WorkTime obj = list.get(0);
         ar.setSucceed(obj);
       } catch (Exception e) {

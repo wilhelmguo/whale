@@ -1,5 +1,5 @@
 $(function () {
-    JY.Dict.setSelect("selectisValid", "deviceType", 2, '全部');
+    // JY.Dict.setSelect("selectisValid", "deviceType", 2, '全部');
     // JY.Dict.setSelect("selectisValid", "deviceType");
     // JY.Dict.setSelect("type", "deviceType", 1, '全部');
     getbaseList();
@@ -9,6 +9,54 @@ $(function () {
         if (keycode == 13) {
             search();
         }
+    });
+
+    $((function($){
+        $.datepicker.regional['zh-CN'] = {
+            clearText: '清除',
+            clearStatus: '清除已选日期',
+            closeText: '关闭',
+            closeStatus: '不改变当前选择',
+            prevText: '<上月',
+            prevStatus: '显示上月',
+            prevBigText: '<<',
+            prevBigStatus: '显示上一年',
+            nextText: '下月>',
+            nextStatus: '显示下月',
+            nextBigText: '>>',
+            nextBigStatus: '显示下一年',
+            currentText: '今天',
+            currentStatus: '显示本月',
+            monthNames: ['一月','二月','三月','四月','五月','六月', '七月','八月','九月','十月','十一月','十二月'],
+            monthNamesShort: ['一','二','三','四','五','六', '七','八','九','十','十一','十二'],
+            monthStatus: '选择月份',
+            yearStatus: '选择年份',
+            weekHeader: '周',
+            weekStatus: '年内周次',
+            dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+            dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],
+            dayNamesMin: ['日','一','二','三','四','五','六'],
+            dayStatus: '设置 DD 为一周起始',
+            dateStatus: '选择 m月 d日, DD',
+            dateFormat: 'yyyy-mm-dd',
+            firstDay: 1,
+            initStatus: '请选择日期',
+            isRTL: false};
+        $.datepicker.setDefaults($.datepicker.regional['zh-CN']);
+    })(jQuery));
+
+    $("#endtime").datepicker({
+        dateFormat: 'yy-mm-dd',
+        regional:'zh-CN',
+        showOtherMonths: true,
+        selectOtherMonths: false,
+    });
+
+    $("#starttime").datepicker({
+        dateFormat: 'yy-mm-dd',
+        regional:'zh-CN',
+        showOtherMonths: true,
+        selectOtherMonths: false,
     });
 
     //新加
@@ -51,15 +99,15 @@ $(function () {
     });
 });
 function search() {
-    // $("#searchBtn").trigger("click");
-    getbaseList(1);
+    $("#searchBtn").trigger("click");
+    // getbaseList(1);
 }
 
 
 function getbaseList(init) {
     if (init == 1) $("#baseForm .pageNum").val(1);
     JY.Model.loading();
-    JY.Ajax.doRequest("baseForm", jypath + '/backstage/workRecord/findByPage', null, function (data) {
+    JY.Ajax.doRequest("baseForm", jypath + '/backstage/workRecord/findMyRecordByPage', null, function (data) {
         $("#baseTable tbody").empty();
         var obj = data.obj;
         var list = obj.list;
@@ -75,14 +123,16 @@ function getbaseList(init) {
                 html += "<td class='center'><label> <input type='checkbox' name='ids' value='" + l.id + "' class='ace' /> <span class='lbl'></span></label></td>";
                 html += "<td class='center hidden-480'>" + (i + leng + 1) + "</td>";
                 if (JY.Object.notEmpty(l.type) == 0) {
-                    html += "<td class='center'>wifi</td>";
+                    html += "<td class='center'>内勤</td>";
                 } else {
-                    html += "<td class='center'>mac地址</td>";
+                    html += "<td class='center'>外勤</td>";
                 }
-
-                html += "<td class='center hidden-480' >" + JY.Object.notEmpty(l.name) + "</td>";
-                html += "<td class='center'>" + JY.Object.notEmpty(l.belongto) + "</td>";
-                html += JY.Tags.setFunction(l.id, permitBtn);
+                html += "<td class='center hidden-480' >" + JY.Date.Format(l.date, "yyyy-MM-dd") + "</td>";
+                html += "<td class='center'>" + JY.Object.notEmpty(l.morning) + "</td>";
+                html += "<td class='center'>" + JY.Object.notEmpty(l.beforenoon) + "</td>";
+                html += "<td class='center'>" + JY.Object.notEmpty(l.afternoon) + "</td>";
+                html += "<td class='center'>" + JY.Object.notEmpty(l.night) + "</td>";
+                // html += JY.Tags.setFunction(l.id, permitBtn);
                 html += "</tr>";
             }
             $("#baseTable tbody").append(html);
