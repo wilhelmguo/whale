@@ -9,13 +9,12 @@
     <script src="${jypath}/static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
     <script src="${jypath}/static/plugins/ueditor/ueditor.config.js"></script>
     <script src="${jypath}/static/plugins/ueditor/ueditor.all.min.js"></script>
-    <%--<link rel="stylesheet" type="text/css" href="${jypath}/static/plugins/webuploader/css/webuploader.css" />--%>
-    <link rel="stylesheet" type="text/css" href="${jypath}/static/plugins/webuploader/image-upload/style.css" />
-
-    <script src="${jypath}/static/plugins/webuploader/js/webuploader.nolog.min.js"></script>
+    <link rel="stylesheet" href="${jypath}/static/plugins/webuploader/css/webuploader.css"/>
+    <script src="${jypath}/static/plugins/webuploader/js/webuploader.js"></script>
     <script type="text/javascript" charset="utf-8" src="${jypath}/static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
+
 <div class="page-content">
     <div id="row-fluid" class="row-fluid">
         <div class="col-xs-12">
@@ -76,7 +75,9 @@
 
     </div>
     <div id="auDiv" hidden="hidden">
+
         <form id="auForm" method="POST" onsubmit="return false;">
+
             <div class="message-container">
                 <div class="message-navbar align-center clearfix" style="width: 90%;margin-left: 1%">
                     <div class="message-bar">
@@ -98,43 +99,46 @@
                     <form id="mailform" class="form-horizontal message-form col-xs-12" method="POST"
                           onsubmit="return false;">
                         <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right"><font color="red">*</font>标题：</label>
                             <div class="col-sm-11 col-xs-12">
                                 <input type="hidden" name="id">
                                 <input jyValidate="required" type="text" style="width:100%;"
-                                                          name="title" id="title"
-                                                          value="${pd.title }"
-                                                          placeholder="这里输入标题" title="标题"/>
+                                       name="title" id="title"
+                                       value="${pd.title }"
+                                       placeholder="这里输入标题" title="标题"/>
 
-                                <%--<input type="title" maxlength="5000" class="col-xs-12" name="toList">--%>
-                                <%--<h3 style="align-content: center" id="cmstitle">标题</h3>--%>
-                                <%--<p>--%>
-                                <%--<span style="color:gray;" id="cmsaddtime">发布时间</span>--%>
-                                <%--<span style="color:gray;" id="cmspublisher">发布人</span>--%>
-                                <%--</p>--%>
+
                             </div>
                         </div>
                         <br>
-
+                        <br>
                         <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right"><font color="red">*</font>广告封面：</label>
                             <div class="col-sm-11 col-xs-12">
-                                <div id="uploader-demo">
-                                    <!--用来存放item-->
-                                    <div id="fileList" class="uploader-list"></div>
-                                    <div id="filePicker">选择图片</div>
-                                    <!-- style只为显示效果，真正用请去掉 -->
-                                    <div>存放位置:<input style="width:100%" id="savePath" readonly="readonly" type="text" name="savePath" ></div>
-                                </div>
+                                <!--用来存放item-->
+                                <div id="fileList" class="uploader-list"></div>
+                                <%--<div>   <label style="color: red">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
+                                <%--</div>--%>
+
+                                <div id="filePicker">请选择封面图片</div>
+
+                                <!-- style只为显示效果，真正用请去掉 -->
+                                <input hidden="hidden" id="cover" jyValidate="required" readonly="readonly"
+                                       type="text"
+                                       name="cover">
                             </div>
                         </div>
                         <div class="hr hr-18 dotted"></div>
                         <br>
                         <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right"><font color="red">*</font>内容：</label>
                             <div class="col-sm-11 col-xs-12">
                                 <script id="editor" style="width:100%;height:300px;" type="text/plain"></script>
                                 <input type="hidden" name="content" id="content">
                             </div>
                         </div>
                         <div class="form-group">
+
                             <div class="col-sm-11 col-xs-12">
                                 <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
                                     <div class="ui-dialog-buttonset">

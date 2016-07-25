@@ -52,6 +52,12 @@ a:hover {
     -webkit-align-items: center;
     align-items: center;
 }
+/*head*/
+.top-wrap{
+    width: 100%;
+    height: 30px;
+    padding: 5px 10px;
+}
 
 .item-wrap{
   margin-top: 20px; 
@@ -120,10 +126,18 @@ a:hover {
 /*top control*/
 .back{
     width: 27px;
-    margin: 8px 0 0 12px;
+    display: inline-block;
+}
+.notice-back{
+    width: 27px;
+    display: inline-block;
+}
+.top-lable{
+
 }
 .control-wrap{
     background-color: #56ABE4;
+    overflow: hidden;
 }
 .control-div{
   margin-bottom: 0;
@@ -139,4 +153,120 @@ a:hover {
   color: #ffffff;
   display: block;
   margin: 10px 0 10px 0;
+}
+
+
+/*notice*/
+.tip-div{
+  width: 50%;
+  margin-bottom: 10px;
+}
+.tip-item{
+  margin: 0;
+}
+.tip-lable{
+    font-size: 1em;
+    color: #000;
+    display: block;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #dedede;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-right: 1px solid #dedede;
+}
+.tip-other{
+  border-right: 0;
+}
+.tip-hr{
+  width: 1px;
+  height: 
+}
+.tip-focus{
+  color: #56ABE4;
+  border-bottom: 1px solid #56ABE4;
+}
+.tip-item{
+  width: 100%;
+  max-height: 100px;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+.tip-style{
+    border-top: 1px solid #dedede;
+    padding: 5px;
+    background-color: #fff;
+    border-bottom: 1px solid #dedede;
+}
+.tip-img-wrap{
+  width: 30%;
+  overflow: hidden;
+}
+.tip-img-del{
+  width: 10%;
+}
+.tip-img{
+  width: 100%;
+}
+.tip-title{
+  margin: 0 0 0 5;
+  font-size: 1em;
+}
+.tip-brief{
+  margin: 5 0 0 5px;
+  color: #666;
+  font-size: 0.9em;
+}
+.tip-del{
+  width: 50%;
+  margin: 30px 0 0 30px;
+}
+
+.detailed-wrap{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 40px;
+  background-color: #fff;
+}
+.detailed-title{
+  margin: 10px 0 0 15px;
+  font-size: 1em;
+}
+.detailed-brief{
+  margin: 5px 0 0 15px;
+  font-size: 0.8em;
+  color: #666;
+}
+.detailed-text{
+  margin: 10px 15px;
+}
+
+/*officeSign*/
+.history{
+    float: right;
+    margin: 4px 30px;
+    color: #fff;
+}
+.frist-tip{
+  margin-top: 50px; 
+}
+.sign-lable{
+  margin-left: 30px; 
+}
+.sing-data{
+  color: #dedede;
+}
+.request-overtime{
+  margin: 0;
+  width: 97%;
+  text-align: center;
+}
+
+
+
+.hide{
+  display: none !important;
 }

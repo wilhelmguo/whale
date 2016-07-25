@@ -1,4 +1,5 @@
 $(function () {
+    // 当domReady的时候开始初始化
 
     //下拉框
     JY.Dict.setSelect("selectisValid", "isPublished", 2, "全部");
@@ -21,7 +22,7 @@ $(function () {
         UE.getEditor('editor').setContent("");
         $("#row-fluid").hide();
         $("#auDiv").show();
-
+        initPic();
 
     });
     //批量删除
@@ -44,8 +45,7 @@ $(function () {
             });
         }
     });
-    // 当domReady的时候开始初始化
-    initPic();
+
 });
 
 function initPic() {
@@ -104,14 +104,15 @@ function initPic() {
 
         if ("1" == json.res) {
             $('#' + file.id).addClass('upload-state-done');
-            var savePath = $("#savePath").val();
-            if (JY.Object.notNull(savePath)) {
-                savePath += "," + json.saveUrl;
+            var cover = $("#cover").val();
+            if (JY.Object.notNull(cover)) {
+                cover += "," + json.saveUrl;
             } else {
-                savePath = json.saveUrl;
-                JY.Model.info(json.resMsg);
+                cover = json.saveUrl;
+                // JY.Model.info(json.resMsg);
             }
-            $("#savePath").val(savePath);
+            $("#cover").val(cover);
+            $("#filePicker").hide();
 
         } else {
             JY.Model.error(json.resMsg);
