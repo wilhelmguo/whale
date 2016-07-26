@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BPMNEditorStateService">
-    <stateFile url="file://$PROJECT_DIR$/src/main/resources/bpmn/common.bpmn20.xml">
+    <stateFile url="file://$PROJECT_DIR$/src/test/java/com/jy/workflow/myleave.bpmn">
       <view grid="false" />
     </stateFile>
   </component>

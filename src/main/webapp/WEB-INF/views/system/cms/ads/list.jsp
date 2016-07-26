@@ -72,7 +72,7 @@
 
 
         </div>
-
+        <%@include file="../../common/dialog.jsp" %>
     </div>
     <div id="auDiv" hidden="hidden">
 
@@ -113,17 +113,19 @@
                         <br>
                         <br>
                         <div class="form-group">
-                            <label class="col-sm-1 control-label no-padding-right"><font color="red">*</font>广告封面：</label>
+                            <label class="col-sm-1 control-label no-padding-right"><font
+                                    color="red">*</font>广告封面：</label>
                             <div class="col-sm-11 col-xs-12">
                                 <!--用来存放item-->
                                 <div id="fileList" class="uploader-list"></div>
                                 <%--<div>   <label style="color: red">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
-                                <%--</div>--%>
+                                <%--</div>float: left--%>
 
-                                <div id="filePicker">请选择封面图片</div>
+                                <div style="width: 15%;" id="filePicker">请选择封面图片</div>
+                                <label style="color: red;">封面图片像素要求700*400,否则可能无法正常显示</label>
 
                                 <!-- style只为显示效果，真正用请去掉 -->
-                                <input hidden="hidden" id="cover" jyValidate="required" readonly="readonly"
+                                <input  id="cover" jyValidate="required" readonly="readonly"
                                        type="text"
                                        name="cover">
                             </div>
@@ -190,6 +192,13 @@
                         </p>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="col-sm-11 col-xs-12">
+                        <p>
+                            <span style="color:gray;" id="cmscover">封面</span>
+                        </p>
+                    </div>
+                </div>
 
                 <div class="hr hr-18 dotted"></div>
                 <div class="form-group">
@@ -203,7 +212,7 @@
     <!-- #addorUpdateFrom -->
     <%@include file="form.jsp" %>
     <!-- #dialog-confirm -->
-    <%@include file="../../common/dialog.jsp" %>
+
 </div>
 <script src="${jypath}/static/js/system/cms/ads.js"></script>
 <script src="${jypath}/static/plugins/tabs/js/tab-control.min.js"></script>

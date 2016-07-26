@@ -59,6 +59,8 @@ function initPic() {
         uploader;
     // 初始化Web Uploader
     uploader = WebUploader.create({
+        allowMagnify: true,
+        fileNumLimit: 1,
         // 自动上传。
         auto: true,
         // swf文件路径
@@ -82,7 +84,7 @@ function initPic() {
     uploader.on('fileQueued', function (file) {
         var $li = $('<div id="' + file.id + '" class="file-item thumbnail">' + '<img></div>'),
             $img = $li.find('img');
-        $list.append($li);
+        $list.html($li);
         // 创建缩略图
         uploader.makeThumb(file, function (error, src) {
             if (error) {
@@ -112,7 +114,7 @@ function initPic() {
                 // JY.Model.info(json.resMsg);
             }
             $("#cover").val(cover);
-            $("#filePicker").hide();
+            // $("#filePicker").hide();
 
         } else {
             JY.Model.error(json.resMsg);
@@ -189,6 +191,7 @@ function edit(id) {
         $("#row-fluid").hide();
         $("#auDiv").show();
         setForm(data);
+        initPic();
         // loadRoleTree();
 
         // JY.Model.wideedit("800", "auDiv", "修改", function () {
@@ -287,6 +290,13 @@ function setDetailForm(data) {
     // JY.Tags.isValid("auForm",(JY.Object.notNull(l.isValid)?l.isValid:"0"));
     $("#cmsaddtime").text("发布时间:" + JY.Date.Default(l.addtime));
     $("#cmspublisher").text("发布人:" + JY.Object.notEmpty(l.publisher));
+    var covers = "封面图片:<img style='max-width: 300px' src='" + jypath + JY.Object.notEmpty(l.cover) + "'/>"
+    if (JY.Object.notNull(l.cover)){
+        $("#cmscover").html(covers);
+    }else {
+        $("#cmscover").html("封面图片:无");
+    }
+
     $("#cmscontent").html(JY.Object.notEmpty(l.content));
 
 }

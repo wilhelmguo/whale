@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <%@include file="../common/includeBaseSet.jsp" %>
     <link rel="stylesheet" href="${jypath}/static/css/system/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="${jypath}/static/css/system/ace/font-awesome.min.css"/>
@@ -22,9 +22,9 @@
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="login-container">
                     <div class="center">
-                        <h1><i class="icon-apple green"></i> <span class="red">鲸鱼</span>&nbsp;<span
+                        <h1><i class="icon-leaf green"></i> <span class="red">鲸鱼</span>&nbsp;<span
                                 class="white">自动化办公</span></h1>
-                        <!-- <h4 class="blue">&copy; base</h4> -->
+                        <%--<h4 class="blue">&copy; base</h4>--%>
                     </div>
                     <div class="space-6"></div>
                     <div class="position-relative">
@@ -32,7 +32,7 @@
                             <div class="widget-body">
                                 <div class="widget-main">
                                     <h4 class="header blue lighter bigger">
-                                        <i class="icon-github-sign green"></i> 请登陆
+                                        <i class="icon-coffee green"></i> 请登陆
                                     </h4>
                                     <div class="space-6"></div>
                                     <form id="loginForm" method="post">
