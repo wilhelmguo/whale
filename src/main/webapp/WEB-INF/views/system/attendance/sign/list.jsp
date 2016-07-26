@@ -8,10 +8,7 @@
 </head>
 <body>
 
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-    <i class="icon-double-angle-up icon-only bigger-110"></i>
-</a>
-</div>
+
 <div class="page-content">
     <%@include file="../../common/dialog.jsp" %>
     <div class="page-header">
@@ -51,9 +48,9 @@
 
 
 <span class="widget-toolbar">
-<a href="#" title="更新打卡时间" onclick="insertOrUpdate(1)" >
-<i class="icon-refresh"></i>
-</a>
+<%--<a href="#" title="更新打卡时间" onclick="insertOrUpdate(1)" >--%>
+<%--<i class="icon-refresh"></i>--%>
+<%--</a>--%>
 
 <a href="#" data-action="collapse">
 <i class="icon-chevron-up"></i>
@@ -63,13 +60,16 @@
 
                                         <div class="widget-body">
                                             <div class="widget-main">
-                                                美好的一天开始了!上班记得打卡哦!
                                                 <div class="space-6"></div>
 
                                                 <div class="widget-toolbox clearfix">
                                                     <div class="pull-left">
+                                                        美好的一天开始了!上班记得打卡哦!
                                                     </div>
-
+                                                    <div class="pull-right action-buttons">
+                                                        <button id="click1" class="btn btn-sm btn-primary" onclick="insertOrUpdate(1)">打卡</button>
+                                                        <button class="btn btn-sm btn-primary">补卡</button>
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -96,9 +96,9 @@
 
 
 <span class="widget-toolbar">
-<a href="#" title="更新打卡时间" onclick="insertOrUpdate(2)" >
-<i class="icon-refresh"></i>
-</a>
+<%--<a href="#" title="更新打卡时间" onclick="insertOrUpdate(2)" >--%>
+<%--<i class="icon-refresh"></i>--%>
+<%--</a>--%>
 
 <a href="#" data-action="collapse">
 <i class="icon-chevron-up"></i>
@@ -108,13 +108,17 @@
 
                                         <div class="widget-body">
                                             <div class="widget-main">
-                                                中午美餐一顿!记得签退哦!
+
                                                 <div class="space-6"></div>
 
                                                 <div class="widget-toolbox clearfix">
                                                     <div class="pull-left">
+                                                        中午美餐一顿!记得签退哦!
                                                     </div>
-
+                                                    <div class="pull-right action-buttons">
+                                                        <button id="click2" class="btn btn-sm btn-primary" onclick="insertOrUpdate(2)">打卡</button>
+                                                        <button class="btn btn-sm btn-primary">补卡</button>
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -141,9 +145,9 @@
 
 
 <span class="widget-toolbar">
-<a href="#" title="更新打卡时间" onclick="insertOrUpdate(3)">
-<i class="icon-refresh"></i>
-</a>
+<%--<a href="#" title="更新打卡时间" onclick="insertOrUpdate(3)">--%>
+<%--<i class="icon-refresh"></i>--%>
+<%--</a>--%>
 
 <a href="#" data-action="collapse">
 <i class="icon-chevron-up"></i>
@@ -153,13 +157,17 @@
 
                                         <div class="widget-body">
                                             <div class="widget-main">
-                                                下午打足精神好好工作!加油!
+
                                                 <div class="space-6"></div>
 
                                                 <div class="widget-toolbox clearfix">
                                                     <div class="pull-left">
+                                                        下午打足精神好好工作!加油!
                                                     </div>
-
+                                                    <div class="pull-right action-buttons">
+                                                        <button id="click3" class="btn btn-sm btn-primary" onclick="insertOrUpdate(3)">打卡</button>
+                                                        <button class="btn btn-sm btn-primary">补卡</button>
+                                                    </div>
 
                                                 </div>
                                             </div>
@@ -186,9 +194,9 @@
 
 
 <span class="widget-toolbar">
-<a href="#" title="更新打卡时间" onclick="insertOrUpdate(4)" >
-<i class="icon-refresh"></i>
-</a>
+<%--<a href="#" title="更新打卡时间" onclick="insertOrUpdate(4)" >--%>
+<%--<i class="icon-refresh"></i>--%>
+<%--</a>--%>
 
 <a href="#" data-action="collapse">
 <i class="icon-chevron-up"></i>
@@ -198,13 +206,17 @@
 
                                         <div class="widget-body">
                                             <div class="widget-main">
-                                                工作一天辛苦了,好好休息!
+
                                                 <div class="space-6"></div>
 
                                                 <div class="widget-toolbox clearfix">
                                                     <div class="pull-left">
+                                                        工作一天辛苦了,好好休息!
                                                     </div>
-
+                                                    <div class="pull-right action-buttons">
+                                                        <button id="click4" class="btn btn-sm btn-primary" onclick="insertOrUpdate(4)">打卡</button>
+                                                        <button class="btn btn-sm btn-primary">补卡</button>
+                                                    </div>
 
                                                 </div>
                                             </div>

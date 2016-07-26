@@ -114,7 +114,7 @@ public class SignController extends BaseController<WorkRecord> {
   }
 
   private String getSignStatus(WorkRecord workRecord, WorkTime wt) {
-    String status = workRecord.getStatus();
+    String status = workRecord.getStatus() == null ? "" : workRecord.getStatus();
     if (StringUtils.isBlank(workRecord.getMorning()) &&
             StringUtils.isBlank(workRecord.getBeforenoon()) &&
             StringUtils.isBlank(workRecord.getAfternoon()) &&
