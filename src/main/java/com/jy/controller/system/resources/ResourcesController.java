@@ -89,6 +89,7 @@ public class ResourcesController extends BaseController<Resources>{
 				o.setCreateTime(new Date());
 				o.setResUrl(StringUtils.trim(o.getResUrl()));
 				o.setParentId(StringUtils.isNotBlank(o.getParentId())?o.getParentId():"0");
+				o.setCompany("0");
 				service.insert(o);
 				ar.setSucceedMsg(Const.SAVE_SUCCEED);
 			} catch (Exception e) {

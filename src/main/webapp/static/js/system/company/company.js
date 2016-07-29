@@ -99,10 +99,16 @@ $(function () {
         e.preventDefault();
         cleanOrgForm();
         loadPreOrgTree();
-        JY.Model.edit("auOrgDiv", "新增公司", function () {
+
+        JY.Model.wideedit("300", "auOrgDiv", "新增公司", function () {
             if (JY.Validate.form("auOrgForm")) {
                 var that = $(this);
-                JY.Ajax.doRequest("auOrgForm", jypath + '/backstage/org/role/addCompany', null, function (data) {
+                var id_array = new Array();
+                $('input[name="zzbm"]:checked').each(function () {
+                    id_array.push($(this).val());//向数组中添加元素
+                });
+                var idstr = id_array.join(',');//将数组元素连接起来以构建一个字符串
+                JY.Ajax.doRequest("auOrgForm", jypath + '/backstage/org/role/addCompany', {chks: idstr}, function (data) {
                     that.dialog("close");
                     JY.Model.info(data.resMsg, function () {
                         refreshOrgTree();
@@ -333,7 +339,10 @@ function authorized(id) {
     $("#authorityDiv input[name$='roleId']").val(id);
     $("#authorityDiv input[name$='auth']").val("role");
     var layer = $("#authorityDiv input[name$='layer']").val();
-    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/listCompanyAuthorized', {id: id, layer: layer}, function (data) {
+    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/listCompanyAuthorized', {
+        id: id,
+        layer: layer
+    }, function (data) {
         //获取数据
         var zNodes = data.obj;
         //设置
@@ -413,8 +422,8 @@ function addAdmin(id) {
                 search();
             });
         });
-        
-        
+
+
     });
 }
 

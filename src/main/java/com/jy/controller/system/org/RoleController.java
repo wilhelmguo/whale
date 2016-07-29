@@ -11,11 +11,7 @@ import com.jy.common.utils.security.AccountShiroUtil;
 import com.jy.entity.system.company.Company;
 import com.jy.service.company.CompanyService;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.session.Session;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,8 +28,6 @@ import com.jy.entity.system.org.Org;
 import com.jy.entity.system.org.Role;
 import com.jy.service.system.org.OrgService;
 import com.jy.service.system.org.RoleService;
-
-import javax.servlet.http.HttpServletRequest;
 
 /*
  * 角色管理
@@ -150,6 +144,7 @@ public class RoleController extends BaseController<Role> {
             if (StringUtils.isNotBlank(pId)) {
               o.setId(get32UUID());
               o.setCreateTime(new Date());
+              o.setCompany(pOrg.getCompany());
               roleService.insert(o);
               ar.setSucceedMsg(Const.SAVE_SUCCEED);
             }
@@ -408,7 +403,7 @@ public class RoleController extends BaseController<Role> {
 
   @RequestMapping(value = "addCompany", method = RequestMethod.POST)
   @ResponseBody
-  public AjaxRes addCompany(Org o) {
+  public AjaxRes addCompany(String chks, Org o) {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
       try {
@@ -424,6 +419,8 @@ public class RoleController extends BaseController<Role> {
         cm.setId(uid);
         cm.setName(o.getName());
         companyService.insert(cm);
+        orgService.saveAuthorized(uid, Const.COMPANY_AUTH, "1");
+        addDepAndRole(chks,uid);
         ar.setSucceedMsg(Const.SAVE_SUCCEED);
       } catch (Exception e) {
         logger.error(e.toString(), e);
@@ -431,6 +428,53 @@ public class RoleController extends BaseController<Role> {
       }
     }
     return ar;
+  }
+
+  private void addDepAndRole(String chks, String pId) {
+    if (StringUtils.isBlank(chks)) {
+      return;
+    }
+    String[] deps = chks.split(",");
+    for (String dep : deps) {
+      String orgId=get32UUID();
+      Org org = new Org();
+      org.setId(orgId);
+      org.setpId(pId);
+      org.setName(dep);
+      org.setIsValid(1);
+      org.setDescription("系统自动创建");
+      org.setCreateTime(new Date());
+      org.setCompany(pId);
+      orgService.insert(org);
+      orgService.saveAuthorized(orgId, Const.COMPANY_AUTH, "1");
+      for (String roleName : Const.DEFAULT_ROLES){
+        String roleId=get32UUID();
+        Role role=new Role();
+        role.setName(roleName);
+        role.setOrgId(orgId);
+        role.setDescription("系统自动创建");
+        role.setId(roleId);
+        role.setIsValid(1);
+        role.setCreateTime(new Date());
+        role.setCompany(pId);
+        roleService.insert(role);
+        String aus;
+        if ("总经办".equals(dep)&&Const.MANAGE.equals(roleName)){
+          aus=Const.DEFAULT_ZJB_MANAGER;
+        }else if ("人力资源部".equals(dep)&&Const.MANAGE.equals(roleName)){
+          aus=Const.DEFAULT_HR_MANAGER;
+        }else if ("市场部".equals(dep)&&Const.MANAGE.equals(roleName)){
+          aus=Const.DEFAULT_HR_MANAGER;
+        }else if (Const.MANAGE.equals(roleName)){
+          aus=Const.DEFAULT_NOMAL_MANAGER;
+        }else {
+          aus=Const.DEFAULT_NOMAL_EMPLOYEE;
+        }
+        String layer = "1";
+        roleService.saveAuthorized(roleId, aus, layer);
+      }
+
+    }
   }
 
   @RequestMapping(value = "addOrg", method = RequestMethod.POST)

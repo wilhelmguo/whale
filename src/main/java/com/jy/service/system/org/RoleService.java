@@ -24,6 +24,14 @@ public interface RoleService extends BaseService<Role>{
      * @return
      */
 	public void saveAuthorized(String roleId,String auss,String layer);
+
+	/**
+	 * 根据角色Id保存权限列表
+	 * @param roleId 角色Id
+	 * @param auss 权限数组
+	 * @return
+	 */
+	public void saveAuthorizedNoTransaction(String roleId, String aus, String layer);
 	 /**
      * 获取所有角色
      * @return

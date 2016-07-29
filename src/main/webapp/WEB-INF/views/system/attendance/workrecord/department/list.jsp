@@ -20,7 +20,7 @@
 
                 <div class="row">
                     <div class="widget-main">
-                        <input type="text" name="keyWord" placeholder="搜索员工或部门" class="input-large">
+                        <input type="text" name="keyWord" placeholder="搜索员工" class="input-large">
                         <label>开始日期:</label><input type="text" jyValidate="required" name="starttime" id="starttime"
                                                    class="FormElement ui-widget-content ui-corner-all"/>
                         <label>结束日期:</label><input type="text" jyValidate="required" name="endtime" id="endtime"
@@ -91,6 +91,6 @@
         </div>
     </div>
 </div>
-<script src="${jypath}/static/js/system/attendance/workRecordAnalysis.js"></script>
+<script src="${jypath}/static/js/system/attendance/workRecordDep.js"></script>
 </body>
 </html>

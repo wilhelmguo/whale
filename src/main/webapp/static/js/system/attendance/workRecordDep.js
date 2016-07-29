@@ -88,7 +88,7 @@ $(function () {
             if (JY.Validate.form("auForm")) {
                 var that = $(this);
 
-                JY.Ajax.doRequest("auForm", jypath + '/backstage/WorkRecordAnalysis/add', null, function (data) {
+                JY.Ajax.doRequest("auForm", jypath + '/backstage/WorkRecordDept/add', null, function (data) {
                     that.dialog("close");
                     JY.Model.info(data.resMsg, function () {
                         search();
@@ -109,7 +109,7 @@ $(function () {
             JY.Model.info("您没有选择任何内容!");
         } else {
             JY.Model.confirm("确认要删除选中的数据吗?", function () {
-                JY.Ajax.doRequest(null, jypath + '/backstage/WorkRecordAnalysis/delBatch', {chks: chks.toString()}, function (data) {
+                JY.Ajax.doRequest(null, jypath + '/backstage/WorkRecordDept/delBatch', {chks: chks.toString()}, function (data) {
                     JY.Model.info(data.resMsg, function () {
                         search();
                     });
@@ -127,7 +127,7 @@ function search() {
 function getbaseList(init) {
     if (init == 1) $("#baseForm .pageNum").val(1);
     JY.Model.loading();
-    JY.Ajax.doRequest("baseForm", jypath + '/backstage/WorkRecordAnalysis/findByPage', null, function (data) {
+    JY.Ajax.doRequest("baseForm", jypath + '/backstage/WorkRecordDept/findByPage', null, function (data) {
         $("#baseTable tbody").empty();
         var obj = data.obj;
         var list = obj.list;
@@ -171,14 +171,14 @@ function getbaseList(init) {
 }
 function check(id) {
     cleanForm();
-    JY.Ajax.doRequest(null, jypath + '/backstage/WorkRecordAnalysis/find', {id: id}, function (data) {
+    JY.Ajax.doRequest(null, jypath + '/backstage/WorkRecordDept/find', {id: id}, function (data) {
         setForm(data);
         JY.Model.widthcheck("70%","auDiv");
     });
 }
 function del(id) {
     JY.Model.confirm("确认删除吗？", function () {
-        JY.Ajax.doRequest(null, jypath + '/backstage/WorkRecordAnalysis/del', {id: id}, function (data) {
+        JY.Ajax.doRequest(null, jypath + '/backstage/WorkRecordDept/del', {id: id}, function (data) {
             JY.Model.info(data.resMsg, function () {
                 search();
             });
@@ -187,7 +187,7 @@ function del(id) {
 }
 function edit(id) {
     cleanForm();
-    JY.Ajax.doRequest(null, jypath + '/backstage/WorkRecordAnalysis/find', {id: id}, function (data) {
+    JY.Ajax.doRequest(null, jypath + '/backstage/WorkRecordDept/find', {id: id}, function (data) {
         setForm(data);
         JY.Model.wideedit("70%", "auDiv", "修改", function () {
             if (JY.Validate.form("auForm")) {
@@ -219,7 +219,7 @@ function edit(id) {
                     return false;
                 }
 
-                JY.Ajax.doRequest("auForm", jypath + '/backstage/WorkRecordAnalysis/update', null, function (data) {
+                JY.Ajax.doRequest("auForm", jypath + '/backstage/WorkRecordDept/update', null, function (data) {
                     if (data.res == 1) {
                         that.dialog("close");
                         JY.Model.info(data.resMsg, function () {

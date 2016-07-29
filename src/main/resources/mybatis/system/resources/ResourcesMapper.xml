@@ -51,9 +51,9 @@
     <insert id="insert"  parameterType="BaseResources">	
  	<![CDATA[
 	INSERT INTO JY_BASE_RESOURCES(
-	id,name,parentId,layer,type,resUrl,btnId,btnFun,icon,sort,isValid,description,createTime
+	id,name,parentId,layer,type,resUrl,btnId,btnFun,icon,sort,isValid,description,createTime,cid
 	) VALUES (
-	#{id},#{name},#{parentId},#{layer},#{type},#{resUrl},#{btnId},#{btnFun},#{icon},#{sort},#{isValid},#{description},#{createTime}
+	#{id},#{name},#{parentId},#{layer},#{type},#{resUrl},#{btnId},#{btnFun},#{icon},#{sort},#{isValid},#{description},#{createTime},#{company}
 	)
 	]]>  
 	</insert>

@@ -36,6 +36,61 @@
             <%--</td>--%>
             <%--</tr>		--%>
             <tr class="FormData">
+                <td class="CaptionTD">公司部门：</td>
+                <td class="DataTD" style="font-family: Open Sans;font-size: 12px">&nbsp;
+                    <div>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="总经办"> 总经办
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="客服部"> 客服部
+                        </label>
+                    </div>
+                    <div>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="运营部"> 运营部
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="人力资源部"> 人力资源部
+                        </label>
+                    </div>
+                    <div>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="商务部"> 商务部
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="市场部"> 市场部
+                        </label>
+                    </div>
+                    <div>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="销售部"> 销售部
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="信息技术部"> 信息技术部
+                        </label>
+                    </div>
+                    <div>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="财务部"> 财务部
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="采购部"> 采购部
+                        </label>
+                    </div>
+                    <div>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="行政部"> 行政部
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="zzbm" value="培训部"> 培训部
+                        </label>
+                    </div>
+
+                </td>
+
+            </tr>
+            <tr class="FormData">
                 <td class="CaptionTD">公司描述：</td>
                 <td class="DataTD">&nbsp;
                     <textarea rows="2" cols="10" maxlength="100" name="description" multiline="true"
@@ -103,8 +158,9 @@
     </div>
 </div>
 
-<div><h4>添加公司流程如下:</h4><p style="color: red">
-    1.点击添加公司,输入信息,添加公司.选中公司,对公司进行赋权<br>
-    2.选择相应公司,点击添加角色按钮,添加角色,并对角色进行赋权<br>
-    3.点击添加管理员账户,添加管理员账户,默认用户名:admin密码:1<br>
-</p></div>
+<div><h4>添加公司流程如下:</h4>
+    <p style="color: red">
+        1.点击添加公司,输入信息,添加公司.选中公司,对公司进行赋权<br>
+        2.选择相应公司,点击添加角色按钮,添加角色,并对角色进行赋权<br>
+        3.点击添加管理员账户,添加管理员账户,默认用户名:admin密码:1<br>
+    </p></div>
