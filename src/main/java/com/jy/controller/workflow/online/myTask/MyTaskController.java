@@ -2,13 +2,15 @@ package com.jy.controller.workflow.online.myTask;
 
 import java.util.*;
 
+import com.jy.common.utils.ActivitiUtils;
 import com.jy.common.utils.DateUtils;
+import com.jy.common.utils.workflow.ActivitiDeployUtil;
 import com.jy.entity.oa.task.TaskInfo;
+import com.jy.service.oa.activiti.ActivitiDeployService;
 import com.jy.service.oa.task.TaskInfoService;
-import org.activiti.engine.HistoryService;
-import org.activiti.engine.IdentityService;
-import org.activiti.engine.RuntimeService;
-import org.activiti.engine.TaskService;
+import org.activiti.bpmn.model.BpmnModel;
+import org.activiti.bpmn.model.Process;
+import org.activiti.engine.*;
 import org.activiti.engine.history.HistoricTaskInstance;
 import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
 import org.activiti.engine.runtime.ProcessInstance;
@@ -51,9 +53,11 @@ public class MyTaskController extends BaseController<Object> {
   @Autowired
   private LeaveService leaveService;
   @Autowired
-  private HistoryService historyService;
+  private ActivitiDeployService activitiDeployService;
   @Autowired
   private TaskInfoService taskInfoService;
+  @Autowired
+  private RepositoryService repositoryService;
 
   /**
    * 签收任务列表
@@ -200,7 +204,7 @@ public class MyTaskController extends BaseController<Object> {
 
           Map<String, Object> variables = var.getVariableMap();
           taskService.complete(taskId, variables);
-          String pId=(String) variables.get("processInstanceId");
+          String pId = (String) variables.get("processInstanceId");
           ProcessInstance pi = runtimeService.createProcessInstanceQuery()//
                   .processInstanceId(pId)//使用流程实例ID查询
                   .singleResult();
@@ -213,11 +217,7 @@ public class MyTaskController extends BaseController<Object> {
               tInfo.setCode(task.getTaskDefinitionKey());
               tInfo.setName(task.getName());
               tInfo.setStatus(1);
-              String processDefinitionName = ((ExecutionEntity) pi).getProcessInstance().getProcessDefinition().getName();
-              tInfo.setAttr1(processDefinitionName);
-              String subkect = processDefinitionName + "-"
-                      + AccountShiroUtil.getCurrentUser().getName() + "-" + DateUtils.formatDate(now, "yyyy-MM-dd HH:mm");
-              tInfo.setPresentationsubject(subkect);
+              tInfo.setPresentationsubject(ti.getPresentationsubject());
               tInfo.setCreatetime(now);
               tInfo.setCreator(ti.getCreator());
               TaskInfo tQuery = new TaskInfo();
@@ -227,7 +227,8 @@ public class MyTaskController extends BaseController<Object> {
               if (ts != null) {
                 approverNext = ts.size() - 1;
               }
-              tInfo.setAssignee((String) ((ExecutionEntity) pi).getVariable("approver" + approverNext));
+              String assignee= (String) taskService.getVariable(task.getId(), "approver" + approverNext);
+              tInfo.setAssignee(assignee);
               tInfo.setTaskid(task.getId());
               tInfo.setExecutionid(task.getExecutionId());
               tInfo.setProcessinstanceid(pi.getId());
@@ -242,6 +243,20 @@ public class MyTaskController extends BaseController<Object> {
         ar.setFailMsg("办理失败");
       }
     }
+    return ar;
+  }
+
+
+  @RequestMapping(value = "test", method = RequestMethod.POST)
+  @ResponseBody
+  public AjaxRes test(String pId) {
+    AjaxRes ar = getAjaxRes();
+    try {
+      activitiDeployService.buildDeployment("leavetest", "请假流程测试",2);
+    } catch (Exception e) {
+      logger.error("部署出错", e);
+    }
+
     return ar;
   }
 
@@ -275,8 +290,38 @@ public class MyTaskController extends BaseController<Object> {
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, TODO_SECURITY_URL))) {
       try {
         Map<String, Object> variables = var.getVariableMap();
-        leaveService.updateRejectReason(pId, rejectReason);
-        taskService.complete(taskId, variables);
+
+        TaskInfo taskInfo = new TaskInfo();
+        taskInfo.setTaskid(taskId);
+        List<TaskInfo> list = taskInfoService.find(taskInfo);
+        Date now = new Date();
+        if (list == null || list.size() == 0) {
+          ar.setFailMsg("未找到相应任务");
+          return ar;
+        } else {
+          TaskInfo t = list.get(0);
+          t.setDescription(rejectReason);
+          t.setAttr2("拒绝");
+          t.setStatus(0);
+          t.setCompletetime(now);
+          taskInfoService.update(t);
+//          leaveService.updateRejectReason(pId, rejectReason);
+          taskService.complete(taskId, variables);
+          while (true) {
+            ProcessInstance pi = runtimeService.createProcessInstanceQuery()//
+                    .processInstanceId(pId)//使用流程实例ID查询
+                    .singleResult();
+            if (pi != null) {
+              List<Task> tasksNext = taskService.createTaskQuery().processInstanceId(pId).list();
+              for (Task task : tasksNext) {
+                taskService.complete(task.getId(), variables);
+              }
+            } else {
+              break;
+            }
+          }
+
+        }
         ar.setSucceedMsg("驳回成功");
       } catch (Exception e) {
         logger.error(e.toString(), e);
@@ -291,16 +336,16 @@ public class MyTaskController extends BaseController<Object> {
    */
   @RequestMapping(value = "adjust/{taskId}", method = RequestMethod.POST)
   @ResponseBody
-  public AjaxRes adjust(@PathVariable("taskId")String taskId,String pId,String description,Variable var) {
-    AjaxRes ar=getAjaxRes();
+  public AjaxRes adjust(@PathVariable("taskId") String taskId, String pId, String description, Variable var) {
+    AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, TODO_SECURITY_URL))) {
       try {
         Map<String, Object> variables = var.getVariableMap();
-        leaveService.updateDescription(pId,description);
-        taskService.complete(taskId,variables);
+        leaveService.updateDescription(pId, description);
+        taskService.complete(taskId, variables);
         ar.setSucceedMsg("调整成功");
       } catch (Exception e) {
-        logger.error(e.toString(),e);
+        logger.error(e.toString(), e);
         ar.setFailMsg("调整失败");
       }
     }

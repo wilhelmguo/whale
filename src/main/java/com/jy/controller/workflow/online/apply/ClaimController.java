@@ -1,18 +1,16 @@
 package com.jy.controller.workflow.online.apply;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.jy.common.ajax.AjaxRes;
 import com.jy.common.utils.DateUtils;
+import com.jy.common.utils.base.Const;
+import com.jy.common.utils.security.AccountShiroUtil;
+import com.jy.controller.base.BaseController;
+import com.jy.entity.oa.leave.Leave;
 import com.jy.entity.oa.task.TaskInfo;
 import com.jy.service.oa.activiti.ActivitiDeployService;
+import com.jy.service.oa.leave.LeaveService;
 import com.jy.service.oa.task.TaskInfoService;
-import org.activiti.bpmn.model.BpmnModel;
-import org.activiti.bpmn.model.Process;
 import org.activiti.engine.IdentityService;
-import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.impl.persistence.entity.ExecutionEntity;
@@ -24,21 +22,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jy.common.ajax.AjaxRes;
-import com.jy.common.utils.base.Const;
-import com.jy.common.utils.security.AccountShiroUtil;
-import com.jy.controller.base.BaseController;
-import com.jy.entity.oa.leave.Leave;
-import com.jy.service.oa.leave.LeaveService;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * 申请页面
+ * 报销页面
  */
 @Controller
-@RequestMapping(value = "/backstage/workflow/online/apply/")
-public class ApplyController extends BaseController<Object> {
+@RequestMapping(value = "/backstage/workflow/online/claim/")
+public class ClaimController extends BaseController<Object> {
 
-  private static final String SECURITY_URL = "/backstage/workflow/online/apply/index";
+  private static final String SECURITY_URL = "/backstage/workflow/online/claim/index";
 
   @Autowired
   private RuntimeService runtimeService;
@@ -61,7 +57,7 @@ public class ApplyController extends BaseController<Object> {
   public String index(org.springframework.ui.Model model) {
     if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
       model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
-      return "/system/workflow/online/apply/list";
+      return "/system/workflow/online/apply/claim";
     }
     return Const.NO_AUTHORIZED_URL;
   }

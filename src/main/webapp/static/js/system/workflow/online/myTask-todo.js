@@ -180,7 +180,7 @@ function setTodoForm(l) {
     if (JY.Object.notNull(l)) {
         $("#auForm input[name$='id']").val(l.id);
         $("#auForm input[name$='org']").val(JY.Object.notEmpty(l.org));
-        $("#auForm input[name$='account_id']").val(JY.Object.notEmpty(l.account_id));
+        $("#auForm input[name$='account_id']").val(JY.Object.notEmpty(l.name));
         $("#auForm input[name$='leaveDay']").val(JY.Object.notEmpty(l.leaveDay));
         $("#auForm input[name$='typeName']").val(JY.Object.notEmpty(l.typeName));
         $("#auForm input[name$='beginTime']").val(JY.Date.Default(l.beginTime));

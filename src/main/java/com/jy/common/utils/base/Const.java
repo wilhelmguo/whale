@@ -1,10 +1,29 @@
 package com.jy.common.utils.base;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 全局静态资源：
  *
 */
 public class Const {
+
+	public static final Map<Integer, String> SPMC = new HashMap<Integer, String>() {
+		{
+			put(0, "直属领导审批");
+			put(1, "经理审批");
+			put(2, "总经理审批");
+			put(3, "总经理审批");
+			put(4, "总经理审批");
+			put(5, "总经理审批");
+			put(6, "总经理审批");
+			put(7, "总经理审批");
+			put(8, "总经理审批");
+			put(9, "总经理审批");
+			put(10, "总经理审批");
+		}
+	};
 
 	public static final String SESSION_SECURITY_CODE = "sessionSecCode";
 	public static final String SESSION_USER = "sessionUser";

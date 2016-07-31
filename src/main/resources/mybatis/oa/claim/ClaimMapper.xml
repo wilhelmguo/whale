@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jy.repository.oa.claim.ClaimDao">
+    <!-- com.jy.entity.oa.claim.Claim  -->
+    <resultMap id="base" type="Claim"></resultMap>
+    <select id="find" resultMap="base" parameterType="Claim">
+        SELECT t.* FROM OA_CLAIM t WHERE 1=1
+        <if test="id != null and id!='' ">
+            AND t.id=#{id}
+        </if>
+        <if test="paramKey != null and paramKey!='' ">
+            AND t.paramKey=#{paramKey}
+        </if>
+    </select>
+    <select id="findByPage" resultMap="base" parameterType="Claim">
+        SELECT t.* FROM OA_CLAIM t WHERE 1=1
+        <if test="param.id!= null and param.id!='' ">
+            AND t.id=#{param.id}
+        </if>
+
+        order by t.createTime desc
+    </select>
+    <select id="count" resultType="int" parameterType="Claim">
+       SELECT count(*) FROM OA_CLAIM t WHERE 1=1 
+    </select>
+    <insert id="insert" parameterType="Claim">
+ 	<![CDATA[
+
+	INSERT INTO OA_CLAIM(
+	id, amount, account_id, 
+      name, copyto, approver, 
+      type, detail, pId, 
+      createTime, updateTime, attach
+	) VALUES (
+	#{id,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, #{accountId,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{copyto,jdbcType=VARCHAR}, #{approver,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{attach,jdbcType=LONGVARCHAR}
+	)
+
+        ]]>
+	</insert>
+    <delete id="delete" parameterType="Claim">
+	DELETE FROM OA_CLAIM  WHERE 1=1 
+	AND id=#{id} 
+	</delete>
+    <delete id="deleteBatch" parameterType="java.util.List">
+        DELETE FROM OA_CLAIM
+        WHERE id IN(
+        <foreach item="o" collection="list" open="" separator="," close="">
+            #{o.id}
+        </foreach>
+        )
+    </delete>
+    <update id="update" parameterType="Claim">
+		UPDATE OA_CLAIM 
+		SET 
+			 amount = #{amount,jdbcType=INTEGER},
+      account_id = #{accountId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      copyto = #{copyto,jdbcType=VARCHAR},
+      approver = #{approver,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      detail = #{detail,jdbcType=VARCHAR},
+      pId = #{pid,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      attach = #{attach,jdbcType=LONGVARCHAR}
+		WHERE 
+			id=#{id}
+	</update>
+</mapper>

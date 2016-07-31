@@ -15,9 +15,9 @@
     <%@include file="../../../common/dialog.jsp" %>
     <div class="page-header">
         <h1>
-            请假申请表
-            <small><i class="icon-double-angle-right"></i>&nbsp;三天以内：员工-直属领导
-                三天以上：员工-直属领导-总经理  &nbsp;&nbsp;&nbsp;多级审批按顺序选择多个审批人即可
+            报销申请表
+            <small><i class="icon-double-angle-right"></i>&nbsp;员工-直属领导-财务（核对（比如发票）并审批）
+                &nbsp;&nbsp;&nbsp;多级审批按顺序选择多个审批人即可
             </small>
         </h1>
     </div>
@@ -60,34 +60,32 @@
                 </div>
                 <div class="form-group">
 
-                    <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>请假天数</label>
+                    <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>报销金额</label>
                     <div class="col-sm-3">
-                        <input name="leaveDay" onchange="" value="" jyValidate="required,number" type="text">
+                        <input placeholder="请输入数字" name="leaveDay" onchange="" value="" jyValidate="required,number" type="text">
                     </div>
-                    <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>请假类型</label>
+                    <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>报销类别</label>
                     <div class="col-sm-3">
-                        <span id="selectLeaveType"><select name="type" class="chosen-select isSelect85"></select></span>
-                    </div>
-                </div>
-                <div class="space-4"></div>
-                <div class="form-group">
-
-                    <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>开始时间</label>
-                    <div class="col-sm-3">
-                        <input name="beginTime" value="" jyValidate="required,datetime" class="date-picker" type="text"
-                               placeholder="请假开始时间">
-                    </div>
-                    <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>结束时间</label>
-                    <div class="col-sm-3">
-                        <input name="endTime" value="" jyValidate="required,datetime" class="date-picker" type="text"
-                               placeholder="请假结束时间">
+                        <input name="leaveDay" placeholder="如:采购经费,活动经费" onchange="" value="" jyValidate="required" type="text">
                     </div>
                 </div>
+                <%--<div class="space-4"></div>--%>
+                <%--<div class="form-group">--%>
+                    <%--<label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>费用明细</label>--%>
+                    <%--<div class="col-sm-3">--%>
+                        <%--<input name="leaveDay" placeholder="请输入费用明细描述" onchange="" value="" jyValidate="required" type="text">--%>
+                    <%--</div>--%>
+                    <%--<label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>结束时间</label>--%>
+                    <%--<div class="col-sm-3">--%>
+                        <%--<input name="endTime" value="" jyValidate="required,datetime" class="date-picker" type="text"--%>
+                               <%--placeholder="请假结束时间">--%>
+                    <%--</div>--%>
+                <%--</div>--%>
                 <div class="space-4"></div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label no-padding-right">请假事由</label>
+                    <label class="col-sm-2 control-label no-padding-right">费用明细</label>
                     <div class="col-sm-7">
-                        <textarea rows="3" cols="14" maxlength="128" style="width: 100%" name="description"
+                        <textarea placeholder="请输入费用明细描述" rows="3" cols="14" maxlength="128" style="width: 100%" name="description"
                                   multiline="true" class="FormElement ui-widget-content ui-corner-all "></textarea>
                     </div>
                 </div>
@@ -103,6 +101,6 @@
         </div>
     </div>
 </div>
-<script src="${jypath}/static/js/system/workflow/online/apply.js"></script>
+<script src="${jypath}/static/js/system/workflow/online/claim.js"></script>
 </body>
 </html>
