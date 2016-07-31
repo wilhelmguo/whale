@@ -17,13 +17,13 @@
 				<tr class="FormData">
 					<td class="CaptionTD">申请人：</td>
 					<td class="DataTD">&nbsp; 
-						<input type="text" disabled="disabled" readonly role="textbox" maxlength="64" name="name" class="FormElement ui-widget-content ui-corner-all">
+						<input type="text" disabled="disabled" readonly role="textbox" maxlength="64" name="account_id" class="FormElement ui-widget-content ui-corner-all">
 					</td>
 				</tr>
 				<tr class="FormData">
-					<td class="CaptionTD">审批人：</td>
-					<td class="DataTD">&nbsp; 
-						<input type="text" disabled="disabled" readonly role="textbox" maxlength="64" name="approver" class="FormElement ui-widget-content ui-corner-all">
+					<td class="CaptionTD">请假天数：</td>
+					<td class="DataTD">&nbsp;
+						<input type="text" disabled="disabled" readonly role="textbox" maxlength="64" name="leaveDay" class="FormElement ui-widget-content ui-corner-all">
 					</td>
 				</tr>
 				<tr class="FormData">

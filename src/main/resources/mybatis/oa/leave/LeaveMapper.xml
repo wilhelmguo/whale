@@ -38,7 +38,9 @@
 	endTime,
 	pId,
 	account_id,
-	createTime
+	createTime,
+	leaveDay,
+	copyto
 	) VALUES (
 	#{id},
 	#{org},
@@ -50,7 +52,9 @@
 	#{endTime},
 	#{pId},
 	#{account_id},
-	#{createTime}	
+	#{createTime},
+	#{leaveDay},
+	#{copyto}
 	)
 	]]>  
 	</insert>
@@ -74,7 +78,9 @@
 			description =#{description},
 			name=#{name},
 			org=#{org},
-			updateTime =#{updateTime}
+			updateTime =#{updateTime},
+			leaveDay=#{leaveDay},
+			copyto=#{copyto}
 		WHERE id=#{id}
 	</update>	
 	<select id="findLeaveByPId"  resultMap="base" parameterType="OaLeave">

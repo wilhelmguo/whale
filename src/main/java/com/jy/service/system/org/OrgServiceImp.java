@@ -72,6 +72,18 @@ public class OrgServiceImp extends BaseServiceImp<Org> implements OrgService {
   public List<ZNodes> getCompanyPreOrgTree(String company) {
     return ((OrgDao) baseDao).getCompanyPreOrgTree(company);
   }
+  @Override
+  public List<ZNodes> getCompanyUserPreOrgTree(String company) {
+    List<ZNodes> resultList = new ArrayList<ZNodes>();
+    List<ZNodes> list = ((OrgDao) baseDao).getCompanyUserPreOrgTree(company);
+    for (ZNodes z : list) {
+      if ("0".equals(z.getpId())) {
+        z.setIcon("/whale/static/plugins/zTree/3.5/img/diy/home.png");
+      }
+      resultList.add(z);
+    }
+    return resultList;
+  }
 
   @Override
   public List<ZNodes> listAuthorized(String orgId, String layer) {

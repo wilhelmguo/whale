@@ -9,8 +9,18 @@ public class ZNodes implements Serializable {
 	private String name;
 	private String checked;
 	private String open;
+	private String icon;
 	private String chkDisabled;	
 	private String other;
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
 	public String getId() {
 		return id;
 	}

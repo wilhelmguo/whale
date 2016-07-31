@@ -102,6 +102,7 @@ public class AccountController extends BaseController<Account> {
           ar.setFailMsg("未找到相应部门,请检查!");
           return ar;
         }
+        o.setOrgid(orgList.get(0).getId());
         o.setDepartment(orgList.get(0).getName());
         o.setAccountId(get32UUID());
         o.setCompany(getCompany());
@@ -156,6 +157,22 @@ public class AccountController extends BaseController<Account> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
       try {
+        Role role = new Role();
+        role.setId(o.getRoleId());
+        List<Role> roleList = roleService.find(role);
+        if (roleList == null || roleList.size() < 0) {
+          ar.setFailMsg("未找到相应角色,请检查!");
+          return ar;
+        }
+        Org org = new Org();
+        org.setId(roleList.get(0).getOrgId());
+        List<Org> orgList = orgService.find(org);
+        if (orgList == null || orgList.size() < 0) {
+          ar.setFailMsg("未找到相应部门,请检查!");
+          return ar;
+        }
+        o.setOrgid(orgList.get(0).getId());
+        o.setDepartment(orgList.get(0).getName());
         o.setUpdateTime(new Date());
         service.update(o);
         ar.setSucceedMsg(Const.UPDATE_SUCCEED);

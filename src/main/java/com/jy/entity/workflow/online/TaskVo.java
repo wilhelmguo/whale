@@ -29,7 +29,27 @@ public class TaskVo extends BaseEntity{
 	private String owner;
 	
 	private String assignee;
-	
+	//任务标题
+	private String presentationSubject;
+	//流程名称
+	private String processName;
+
+	public String getPresentationSubject() {
+		return presentationSubject;
+	}
+
+	public void setPresentationSubject(String presentationSubject) {
+		this.presentationSubject = presentationSubject;
+	}
+
+	public String getProcessName() {
+		return processName;
+	}
+
+	public void setProcessName(String processName) {
+		this.processName = processName;
+	}
+
 	public TaskVo() {
 		super();
 	}

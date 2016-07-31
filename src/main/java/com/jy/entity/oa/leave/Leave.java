@@ -18,6 +18,10 @@ public class Leave extends BaseEntity{
 	private String name;
 	
 	private String approver;
+
+	private String copyto;
+
+	private String leaveDay;
 	
 	private String type;
 	
@@ -39,6 +43,22 @@ public class Leave extends BaseEntity{
 	private Date createTime;
 	
 	private Date updateTime;
+
+	public String getLeaveDay() {
+		return leaveDay;
+	}
+
+	public void setLeaveDay(String leaveDay) {
+		this.leaveDay = leaveDay;
+	}
+
+	public String getCopyto() {
+		return copyto;
+	}
+
+	public void setCopyto(String copyto) {
+		this.copyto = copyto;
+	}
 
 	public String getId() {
 		return id;

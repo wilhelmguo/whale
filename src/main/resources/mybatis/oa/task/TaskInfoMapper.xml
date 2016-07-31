@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jy.repository.oa.task.TaskInfoDao">
+    <!-- com.jy.entity.oa.task.TaskInfo  -->
+    <resultMap id="base" type="TaskInfo"></resultMap>
+    <select id="find" resultMap="base" parameterType="TaskInfo">
+        SELECT t.* FROM TASK_INFO t WHERE 1=1
+        <if test="id != null and id!='' ">
+            AND t.id=#{id}
+        </if>
+        <if test="taskid != null and taskid!='' ">
+            AND t.taskId=#{taskid}
+        </if>
+        <if test="businesskey != null and businesskey!='' ">
+            AND t.businessKey=#{businesskey}
+        </if>
+
+    </select>
+    <select id="findByPage" resultMap="base" parameterType="TaskInfo">
+        SELECT t.* FROM TASK_INFO t WHERE 1=1
+        <if test="param.id!= null and param.id!='' ">
+            AND t.id=#{param.id}
+        </if>
+
+        <if test="param.keyWord!= null">
+            AND (
+            t.name LIKE CONCAT('%',#{param.keyWord},'%')
+
+            )
+        </if>
+        order by t.createTime desc
+    </select>
+    <select id="count" resultType="int" parameterType="TaskInfo">
+       SELECT count(*) FROM TASK_INFO t WHERE 1=1 
+    </select>
+    <insert id="insert" parameterType="TaskInfo">
+ 	<![CDATA[
+insert into TASK_INFO (id, businessKey, code,
+      name, description, status,
+      presentationSubject, createTime, completeTime,
+      expirationTime, creator, assignee,
+      taskId, executionId, processInstanceid,
+      processDefinitionid, attr1, attr2,
+      attr3)
+    values (#{id,jdbcType=VARCHAR}, #{businesskey,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
+      #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
+      #{presentationsubject,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{completetime,jdbcType=TIMESTAMP},
+      #{expirationtime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{assignee,jdbcType=VARCHAR},
+      #{taskid,jdbcType=VARCHAR}, #{executionid,jdbcType=VARCHAR}, #{processinstanceid,jdbcType=VARCHAR},
+      #{processdefinitionid,jdbcType=VARCHAR}, #{attr1,jdbcType=VARCHAR}, #{attr2,jdbcType=VARCHAR},
+      #{attr3,jdbcType=VARCHAR})
+        ]]>
+	</insert>
+    <delete id="delete" parameterType="TaskInfo">
+	DELETE FROM TASK_INFO  WHERE 1=1 
+	AND id=#{id}
+	</delete>
+    <delete id="deleteBatch" parameterType="java.util.List">
+        DELETE FROM TASK_INFO
+        WHERE id IN(
+        <foreach item="o" collection="list" open="" separator="," close="">
+            #{o.id}
+        </foreach>
+        )
+    </delete>
+    <update id="update" parameterType="TaskInfo">
+		UPDATE TASK_INFO 
+		SET 
+	  businessKey = #{businesskey,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      presentationSubject = #{presentationsubject,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      completeTime = #{completetime,jdbcType=TIMESTAMP},
+      expirationTime = #{expirationtime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      assignee = #{assignee,jdbcType=VARCHAR},
+      taskId = #{taskid,jdbcType=VARCHAR},
+      executionId = #{executionid,jdbcType=VARCHAR},
+      processInstanceid = #{processinstanceid,jdbcType=VARCHAR},
+      processDefinitionid = #{processdefinitionid,jdbcType=VARCHAR},
+      attr1 = #{attr1,jdbcType=VARCHAR},
+      attr2 = #{attr2,jdbcType=VARCHAR},
+      attr3 = #{attr3,jdbcType=VARCHAR}
+		WHERE 
+			id=#{id}
+	</update>
+</mapper>

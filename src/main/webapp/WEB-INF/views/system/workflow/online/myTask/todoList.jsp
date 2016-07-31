@@ -27,17 +27,17 @@
 									<label><input type="checkbox" class="ace" ><span class="lbl"></span></label>
 								</th>
 								<th style="width:5%"  class="center hidden-480">序号</th>
-								<th style="width:10%" class="center hidden-480">任务ID</th>
-								<th style="width:10%" class="center">任务Key</th>
-								<th style="width:10%" class="center">任务名称</th>
-								<th style="width:7%"  class="center hidden-480">流程定义ID</th>
-								<th style="width:10%" class="center hidden-480">流程实例ID</th>
+								<th style="width:10%" hidden class="center hidden-480">任务ID</th>
+								<th style="width:20%" class="center">标题</th>
+								<th style="width:10%" class="center">到达时间</th>
+								<th style="width:7%"  class="center hidden-480">流程名称</th>
+								<th style="width:10%" class="center hidden-480">环节</th>
 								<!-- <th style="width:10%" class="center hidden-480">优先级</th> -->
-								<th style="width:10%" class="center hidden-480">创建时间</th>
-								<th style="width:10%" class="center hidden-480">逾期时间</th>
-								<th style="width:10%" class="center hidden-480">任务描述</th>
-								<th style="width:10%" class="center hidden-480">任务所属人</th>
-								<th style="width:10%" class="center">操作</th>
+								<%--<th style="width:10%" class="center hidden-480">创建时间</th>--%>
+								<%--<th style="width:10%" class="center hidden-480">逾期时间</th>--%>
+								<%--<th style="width:10%" class="center hidden-480">任务描述</th>--%>
+								<%--<th style="width:10%" class="center hidden-480">任务所属人</th>--%>
+								<th style="width:7%" class="center">操作</th>
 							</tr>
 						</thead>
 						<tbody></tbody>

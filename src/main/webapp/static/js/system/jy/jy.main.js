@@ -463,6 +463,7 @@ JY = {
                     "class": "btn btn-primary btn-xs",
                     click: function () {
                         if (typeof(savefn) == 'function') {
+                            $('.ui-dialog-buttonpane').find('button:first').attr('disabled','true');
                             savefn.call(this);
                         }
                     }
@@ -486,6 +487,7 @@ JY = {
                     "</i>&nbsp;保存", "class": "btn btn-primary btn-xs",
                     click: function () {
                         if (typeof(savefn) == 'function') {
+                            $('.ui-dialog-buttonpane').find('button:first').attr('disabled','true');
                             savefn.call(this);
                         }
                     }
@@ -516,7 +518,7 @@ JY = {
                         }
                     }
                 }, {
-                    html: "<i class='icon-undo bigger-110'></i>&nbsp;驳回",
+                    html: "<i class='icon-undo bigger-110'></i>&nbsp;拒绝",
                     "class": "btn btn-danger btn-xs",
                     click: function () {
                         if (typeof(rejectfn) == 'function') {
@@ -570,6 +572,11 @@ JY = {
     Validate: {//判断是否是英文数字,是返回true，不是返回false
         isEnNum: function (str) {
             if (/^[0-9a-zA-Z]+$/.test(str))return true;
+            return false;
+        },
+        //判断是否是数字,是返回true，不是返回false
+        isNum: function (str) {
+            if (/^[0-9]+$/.test(str))return true;
             return false;
         },
         //判断是否是英文,是返回true，不是返回false
@@ -692,6 +699,14 @@ JY = {
                         if (JY.Object.notNull(that.val())) {
                             if (!JY.Validate.isEnNum(that.val())) {
                                 that.tips({side: side, msg: "只能输入英文或数字", bg: '#FF2D2D', time: 1});
+                                that.focus();
+                                res = false;
+                            }
+                        }
+                    }else if (v == 'number') {
+                        if (JY.Object.notNull(that.val())) {
+                            if (!JY.Validate.isNum(that.val())) {
+                                that.tips({side: side, msg: "只能输入数字", bg: '#FF2D2D', time: 1});
                                 that.focus();
                                 res = false;
                             }
