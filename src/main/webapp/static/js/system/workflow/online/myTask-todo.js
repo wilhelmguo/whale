@@ -40,7 +40,7 @@ function getbaseList(init) {
                 // if('deptAudit'==taskDKey||'hrAudit'==taskDKey){
                 html += "<td class='center'>" +
                     "<a title='办理' class='aBtnNoTD' " +
-                    "onclick='todoTask(&apos;" + l.id + "&apos;,&apos;" + l.processInstanceId + "&apos;)' >" +
+                    "onclick='todoTask(&apos;" + l.id + "&apos;,&apos;" + l.processInstanceId + "&apos;,&apos;" + l.processName + "&apos;)' >" +
                     "<i class='icon-edit color-blue bigger-140' ></i></a>" +
                     "<a title='详情' class='aBtnNoTD' " +
                     "onclick='currentNode(&apos;" + l.processDefinitionId + "&apos;,&apos;" + l.processInstanceId + "&apos;)' >" +
@@ -62,120 +62,113 @@ function getbaseList(init) {
     });
 }
 
-function currentNode(pdId,pIId){
-    var width=document.documentElement.clientWidth * 0.85+"px";
-    var height=document.documentElement.clientHeight * 0.85+"px";
+function currentNode(pdId, pIId) {
+    var width = document.documentElement.clientWidth * 0.85 + "px";
+    var height = document.documentElement.clientHeight * 0.85 + "px";
     layer.open({
         type: 2,
         title: '当前节点',
         shadeClose: true,
         maxmin: true,
         area: [width, height],
-        content: jypath+"/act-process-editor/diagram-viewer/index.html?processDefinitionId="+pdId+"&processInstanceId="+pIId //iframe的url
+        content: jypath + "/act-process-editor/diagram-viewer/index.html?processDefinitionId=" + pdId + "&processInstanceId=" + pIId //iframe的url
     });
 }
 
-function adjustTask(id, pId) {
-    cleanAdjustForm();
-    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTask', {pId: pId}, function (data) {
+
+function todoTask(id, pId, name) {
+    if (name == '请假流程') {
+        leave(id, pId);
+    } else if (name == '报销流程') {
+        claim(id, pId);
+    }
+}
+
+function leave(id, pId) {
+    cleanTodoForm();
+    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTaskByName', {
+        pId: pId,
+        name: '请假流程'
+    }, function (data) {
         var obj = data.obj;
-        setAdjustForm(obj);
-        JY.Model.adjust("adjustDiv", "调整申请"
-            , function () {
-                //重新提交申请
-                var that = $(this);
-                var vars = [{key: 'reApply', value: true, type: 'B'}];
-                var description = $("#adjustForm textarea[name$='description']").val();
-                if (JY.Object.notNull(description)) {
-                    if (JY.Validate.form("adjustForm")) {
-                        JY.Model.confirm("确认提交申请吗?", function () {
-                            var ovar = JY.Object.comVar(vars);
-                            ovar.description = description;
-                            ovar.pId = pId;
-                            JY.Ajax.doRequest("", jypath + '/backstage/workflow/online/myTask/adjust/' + id, ovar, function (data) {
-                                JY.Model.info(data.resMsg, function () {
-                                    search();
-                                    that.dialog("close");
-                                });
+        setTodoForm(obj);
+        CallbackForm(id, pId, "auDiv");
+    });
+}
+
+
+function claim(id, pId) {
+    cleanClaimForm();
+    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTaskByName', {
+        pId: pId,
+        name: '报销流程'
+    }, function (data) {
+        var obj = data.obj;
+        setClaimForm(obj);
+        CallbackForm(id, pId, "auDivClaim");
+
+    });
+}
+
+function CallbackForm(id, pId, formId) {
+    JY.Model.audit(formId, "审核"
+        , function () {
+            //同意申请
+            var that = $(this);
+            JY.Model.confirm("确认同意吗？", function () {
+                var vars = [{key: 'approval', value: true, type: 'B'},
+                    {key: 'processInstanceId', value: pId, type: 'S'}];
+                JY.Ajax.doRequest("", jypath + '/backstage/workflow/online/myTask/complete/' + id, JY.Object.comVar(vars), function (data) {
+                    JY.Model.info(data.resMsg, function () {
+                        search();
+                        that.dialog("close");
+                    });
+                });
+            });
+        }, function () {
+            //驳回申请
+            $(this).dialog("close");
+            JY.Tags.cleanForm("rejectDiv");
+            JY.Model.edit("rejectDiv", "驳回", function () {
+                var rejectReason = $("#rejectForm textarea[name$='rejectReason']").val();
+                if (JY.Object.notNull(rejectReason)) {
+                    var that = $(this);
+                    JY.Model.confirm("确认驳回吗？", function () {
+                        var vars = [{key: 'approval', value: false, type: 'B'}];
+                        var ovar = JY.Object.comVar(vars);
+                        ovar.rejectReason = rejectReason;
+                        ovar.pId = pId;
+                        JY.Ajax.doRequest("", jypath + '/backstage/workflow/online/myTask/reject/' + id, ovar, function (data) {
+                            JY.Model.info(data.resMsg, function () {
+                                search();
+                                that.dialog("close");
                             });
                         });
-                    }
+                    });
                 } else {
-                    $("#adjustForm textarea[name$='description']").tips({
+                    $("#rejectForm textarea[name$='rejectReason']").tips({
                         side: 1,
-                        msg: "请填写事由！",
+                        msg: "请填写理由！",
                         bg: '#FF2D2D',
                         time: 1
                     });
                 }
-            }, function () {
-                //放弃申请
-                var that = $(this);
-                var vars = [{key: 'reApply', value: false, type: 'B'}];
-                JY.Model.confirm("确认放弃吗？", function () {
-                    JY.Ajax.doRequest("", jypath + '/backstage/workflow/online/myTask/complete/' + id, JY.Object.comVar(vars), function (data) {
-                        JY.Model.info(data.resMsg, function () {
-                            search();
-                            that.dialog("close");
-                        });
-                    });
-                });
             });
-    });
+        }
+    );
 }
-function todoTask(id, pId) {
-    cleanTodoForm();
-    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTask', {pId: pId}, function (data) {
-        var obj = data.obj;
-        setTodoForm(obj);
-        JY.Model.audit("auDiv", "审核"
-            , function () {
-                //同意申请
-                var that = $(this);
-                JY.Model.confirm("确认同意吗？", function () {
-                    var vars = [{key: 'approval', value: true, type: 'B'},
-                        {key: 'processInstanceId', value: pId, type: 'S'}];
-                    JY.Ajax.doRequest("", jypath + '/backstage/workflow/online/myTask/complete/' + id, JY.Object.comVar(vars), function (data) {
-                        JY.Model.info(data.resMsg, function () {
-                            search();
-                            that.dialog("close");
-                        });
-                    });
-                });
-            }, function () {
-                //驳回申请
-                $(this).dialog("close");
-                JY.Tags.cleanForm("rejectDiv");
-                JY.Model.edit("rejectDiv", "驳回", function () {
-                    var rejectReason = $("#rejectForm textarea[name$='rejectReason']").val();
-                    if (JY.Object.notNull(rejectReason)) {
-                        var that = $(this);
-                        JY.Model.confirm("确认驳回吗？", function () {
-                            var vars = [{key: 'approval', value: false, type: 'B'}];
-                            var ovar = JY.Object.comVar(vars);
-                            ovar.rejectReason = rejectReason;
-                            ovar.pId = pId;
-                            JY.Ajax.doRequest("", jypath + '/backstage/workflow/online/myTask/reject/' + id, ovar, function (data) {
-                                JY.Model.info(data.resMsg, function () {
-                                    search();
-                                    that.dialog("close");
-                                });
-                            });
-                        });
-                    } else {
-                        $("#rejectForm textarea[name$='rejectReason']").tips({
-                            side: 1,
-                            msg: "请填写理由！",
-                            bg: '#FF2D2D',
-                            time: 1
-                        });
-                    }
-                });
-            }
-        );
 
-    });
+function setClaimForm(l) {
+    if (JY.Object.notNull(l)) {
+        $("#auFormClaim input[name$='id']").val(l.id);
+        // $("#auForm input[name$='org']").val(JY.Object.notEmpty(l.org));
+        $("#auFormClaim input[name$='account_id']").val(JY.Object.notEmpty(l.name));
+        $("#auFormClaim input[name$='amount']").val(JY.Object.notEmpty(l.amount));
+        $("#auFormClaim input[name$='type']").val(JY.Object.notEmpty(l.type));
+        $("#attach").html(JY.Object.notEmpty(l.attach));
+    }
 }
+
 function setTodoForm(l) {
     if (JY.Object.notNull(l)) {
         $("#auForm input[name$='id']").val(l.id);
@@ -188,24 +181,11 @@ function setTodoForm(l) {
         $("#auForm textarea[name$='description']").val(JY.Object.notEmpty(l.description));
     }
 }
-function setAdjustForm(l) {
-    if (JY.Object.notNull(l)) {
-        $("#adjustForm input[name$='id']").val(l.id);
-        $("#adjustForm input[name$='org']").val(JY.Object.notEmpty(l.org));
-        $("#adjustForm input[name$='name']").val(JY.Object.notEmpty(l.name));
-        $("#adjustForm input[name$='approver']").val(JY.Object.notEmpty(l.approver));
-        $("#adjustForm input[name$='typeName']").val(JY.Object.notEmpty(l.typeName));
-        $("#adjustForm input[name$='type']").val(JY.Object.notEmpty(l.type));
-        $("#adjustForm input[name$='beginTime']").val(JY.Date.Default(l.beginTime));
-        $("#adjustForm input[name$='endTime']").val(JY.Date.Default(l.endTime));
-        $("#adjustForm textarea[name$='description']").val(JY.Object.notEmpty(l.description));
-        $("#adjustForm textarea[name$='rejectReason']").val(JY.Object.notEmpty(l.rejectReason));
-    }
+
+function cleanClaimForm() {
+    JY.Tags.cleanForm("auFormClaim");
 }
 
 function cleanTodoForm() {
     JY.Tags.cleanForm("auForm");
-}
-function cleanAdjustForm() {
-    JY.Tags.cleanForm("adjustForm");
 }

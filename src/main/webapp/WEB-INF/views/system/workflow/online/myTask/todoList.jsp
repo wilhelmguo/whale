@@ -59,6 +59,7 @@
 					</div>
 			<!-- #addorUpdateFrom -->
 			<%@include file="todoForm.jsp" %>
+				<%@include file="claimForm.jsp" %>
 			<!-- #dialog-confirm -->
 			<%@include file="../../../common/dialog.jsp" %>	
 			</div>

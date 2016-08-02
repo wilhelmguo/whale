@@ -9,6 +9,10 @@ import java.util.Map;
 */
 public class Const {
 
+	public static final String LEAVE_NAME="请假流程";
+
+	public static final String CLAIM_NAME="报销流程";
+
 	public static final Map<Integer, String> SPMC = new HashMap<Integer, String>() {
 		{
 			put(0, "直属领导审批");

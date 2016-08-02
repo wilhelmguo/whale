@@ -505,7 +505,8 @@ JY = {
         //审核
         audit: function (id, title, savefn, rejectfn, cancelfn) {
             $("#" + id).removeClass('hide').dialog({
-                resizable: false,
+                width:"400",
+                resizable: true,
                 modal: true,
                 title: "<div class='widget-header'><h4 class='smaller'>" + (JY.Object.notNull(title) ? title : "审核") + "</h4></div>",
                 title_html: true,

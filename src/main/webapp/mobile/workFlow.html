@@ -7,12 +7,13 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta http-equiv="cache-control" content="no-cache">
     <link type="text/css" rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/zepto.mdatetimer.css">
 	<title>工作流</title>
 </head>
-<body>
+<body class="wf">
 	<div class="control-wrap">
 		<div class="top-wrap">
-			<img class="back" src="img/back.png" />
+			<img class="wf-back" src="img/back.png" />
 		</div>
 		<div class="item-wrap">
 			<div class="item control-div">
@@ -30,19 +31,19 @@
 		</div>
 	</div>
 	<div class="item-wrap">
-	    <div class="item">
+	    <div class="item forLeave">
 	      <img class="item-icon" src="img/wf_item_4.png" />
 	      <span class="item-lable">请假</span>
 	    </div>
-	    <div class="item">
+	    <div class="item wiped">
 	      <img class="item-icon" src="img/wf_item_5.png" />
 	      <span class="item-lable">报销</span>
 	    </div>
-	    <div class="item">
+	    <div class="item busTra">
 	      <img class="item-icon" src="img/wf_item_6.png" />
 	      <span class="item-lable">出差</span>
 	    </div>
-	    <div class="item">
+	    <div class="item fillCard">
 	      <img class="item-icon" src="img/wf_item_7.png" />
 	      <span class="item-lable">补卡</span>
 	    </div>
@@ -50,10 +51,147 @@
 	      <img class="item-icon" id="plus" src="img/item_5.png" />
 	    </div>
 	  </div>
+
+	<div class="detailed-item-wrap hide">
+		<div class="wf-item-wrap">
+			<span class="btn-lable">请假类型:</span>
+			<span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">开始时间:</span>
+			<input type="text" class="date" id="picktime1-1" readonly>
+			<span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
+		</div>
+
+		<div class="wf-item-wrap time-div">
+			<span class="btn-lable">结束时间:</span>
+			<input type="text" class="date" id="picktime1-2" readonly>
+			<span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">请假天数:</span>
+			<input class="btn-input" type="text" placeholder="请输入请假天数(必填)"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">请假事由:</span>
+			<input class="btn-input" type="text" placeholder="请输入请假事由(必填)"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">图片:</span>
+			<input class="btn-input" type="file"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<p class="btn-lable">审批人:</p>
+			<img class="plus-peo" src="img/item_5.png" />
+		</div>
+	</div>
+<!-- 2 -->
+	<div class="detailed-item-wrap hide">
+		<div class="wf-item-wrap">
+			<span class="btn-lable">报销金额(元):</span>
+			<input class="btn-input" type="text" placeholder="请输入请数字(必填)"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">报销类别:</span>
+			<input class="btn-input" type="text" placeholder="如:采购经费、活动经费(必填)"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">费用明细:</span>
+			<input class="btn-input" type="text" placeholder="请输入费用明细描述"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable text-center">+增加报销明细</span>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">图片:</span>
+			<input class="btn-input" type="file"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">附件:</span>
+			<input class="btn-input" type="file"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<p class="btn-lable">审批人:</p>
+			<img class="plus-peo" src="img/item_5.png" />
+		</div>
+	</div>
+	<!-- 3 -->
+	<div class="detailed-item-wrap hide">
+		<div class="wf-item-wrap">
+			<span class="btn-lable">出差地点:</span>
+			<input class="btn-input" type="text" placeholder="如:北京、上海、杭州(必填)"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">开始时间:</span>
+			<input type="text" class="date" id="picktime3-1" readonly>
+			<span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
+		</div>
+
+		<div class="wf-item-wrap time-div">
+			<span class="btn-lable">结束时间:</span>
+			<input type="text" class="date" id="picktime3-2" readonly>
+			<span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable text-center">+增加行程明细</span>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">出差天数:</span>
+			<input class="btn-input" type="text" placeholder="请输入出差天数"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">出差事由:</span>
+			<input class="btn-input" type="text" placeholder="请输入出差事由"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<span class="btn-lable">图片:</span>
+			<input class="btn-input" type="file"></input>
+		</div>
+
+		<div class="wf-item-wrap">
+			<p class="btn-lable">审批人:</p>
+			<img class="plus-peo" src="img/item_5.png" />
+		</div>
+	</div>
 </div>
 </body>
 <script src="js/zepto.min.js"></script>
 <script src='js/swiper.min.js'></script>
+<script src="js/zepto.mdatetimer.js"></script>
 <script src="js/fastclick.js"></script>
 <script src='js/init.js'></script>
+<script>
+$(function(){
+	$('#picktime1-1,#picktime1-2,#picktime3-1, #picktime3-2').mdatetimer({
+		mode : 1, //时间选择器模式：1：年月日，2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒。默认：1
+		format : 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
+		years : [2013, 2014, 2015, 2016, 2017], //年份数组
+		nowbtn : false, //是否显示现在按钮
+		onOk : function(){
+			console.log(this);
+		},  
+		onCancel : function(){
+			
+		}, 
+	});	
+
+
+});
+</script>
 </html>

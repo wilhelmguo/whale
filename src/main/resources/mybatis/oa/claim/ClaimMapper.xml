@@ -8,9 +8,10 @@
         <if test="id != null and id!='' ">
             AND t.id=#{id}
         </if>
-        <if test="paramKey != null and paramKey!='' ">
-            AND t.paramKey=#{paramKey}
+        <if test="pid != null and pid!='' ">
+            AND t.pId=#{pid}
         </if>
+
     </select>
     <select id="findByPage" resultMap="base" parameterType="Claim">
         SELECT t.* FROM OA_CLAIM t WHERE 1=1

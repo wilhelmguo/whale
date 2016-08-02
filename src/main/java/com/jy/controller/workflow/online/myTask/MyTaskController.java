@@ -5,8 +5,10 @@ import java.util.*;
 import com.jy.common.utils.ActivitiUtils;
 import com.jy.common.utils.DateUtils;
 import com.jy.common.utils.workflow.ActivitiDeployUtil;
+import com.jy.entity.oa.claim.Claim;
 import com.jy.entity.oa.task.TaskInfo;
 import com.jy.service.oa.activiti.ActivitiDeployService;
+import com.jy.service.oa.claim.ClaimService;
 import com.jy.service.oa.task.TaskInfoService;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.bpmn.model.Process;
@@ -52,6 +54,8 @@ public class MyTaskController extends BaseController<Object> {
   private TaskService taskService;
   @Autowired
   private LeaveService leaveService;
+  @Autowired
+  private ClaimService claimService;
   @Autowired
   private ActivitiDeployService activitiDeployService;
   @Autowired
@@ -227,7 +231,7 @@ public class MyTaskController extends BaseController<Object> {
               if (ts != null) {
                 approverNext = ts.size() - 1;
               }
-              String assignee= (String) taskService.getVariable(task.getId(), "approver" + approverNext);
+              String assignee = (String) taskService.getVariable(task.getId(), "approver" + approverNext);
               tInfo.setAssignee(assignee);
               tInfo.setTaskid(task.getId());
               tInfo.setExecutionid(task.getExecutionId());
@@ -252,7 +256,7 @@ public class MyTaskController extends BaseController<Object> {
   public AjaxRes test(String pId) {
     AjaxRes ar = getAjaxRes();
     try {
-      activitiDeployService.buildDeployment("leavetest", "请假流程测试",2);
+      activitiDeployService.buildDeployment("leavetest", "请假流程测试", 2);
     } catch (Exception e) {
       logger.error("部署出错", e);
     }
@@ -260,6 +264,37 @@ public class MyTaskController extends BaseController<Object> {
     return ar;
   }
 
+
+  /**
+   * 查询任务根据流程名字
+   */
+  @RequestMapping(value = "findTaskByName", method = RequestMethod.POST)
+  @ResponseBody
+  public AjaxRes findTaskByName(String pId, String name) {
+    AjaxRes ar = getAjaxRes();
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, TODO_SECURITY_URL))) {
+      try {
+        if (Const.LEAVE_NAME.equals(name)) {
+          Leave leave = leaveService.findLeaveByPId(pId);
+          ar.setSucceed(leave, Const.DATA_SUCCEED);
+        } else if (Const.CLAIM_NAME.equals(name)) {
+          Claim claim = new Claim();
+          claim.setPid(pId);
+          List<Claim> list = claimService.find(claim);
+          if (list != null && list.size() != 0) {
+            ar.setSucceed(list.get(0), Const.DATA_SUCCEED);
+          } else {
+            ar.setFailMsg(Const.DATA_FAIL);
+          }
+        }
+
+      } catch (Exception e) {
+        logger.error(e.toString(), e);
+        ar.setFailMsg(Const.DATA_FAIL);
+      }
+    }
+    return ar;
+  }
 
   /**
    * 查询任务

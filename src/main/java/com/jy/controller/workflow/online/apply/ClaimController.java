@@ -5,9 +5,10 @@ import com.jy.common.utils.DateUtils;
 import com.jy.common.utils.base.Const;
 import com.jy.common.utils.security.AccountShiroUtil;
 import com.jy.controller.base.BaseController;
-import com.jy.entity.oa.leave.Leave;
+import com.jy.entity.oa.claim.Claim;
 import com.jy.entity.oa.task.TaskInfo;
 import com.jy.service.oa.activiti.ActivitiDeployService;
+import com.jy.service.oa.claim.ClaimService;
 import com.jy.service.oa.leave.LeaveService;
 import com.jy.service.oa.task.TaskInfoService;
 import org.activiti.engine.IdentityService;
@@ -45,7 +46,7 @@ public class ClaimController extends BaseController<Object> {
   @Autowired
   private IdentityService identityService;
   @Autowired
-  private LeaveService leaveService;
+  private ClaimService claimService;
   @Autowired
   private ActivitiDeployService activitiDeployService;
 
@@ -68,32 +69,31 @@ public class ClaimController extends BaseController<Object> {
    */
   @RequestMapping(value = "start", method = RequestMethod.POST)
   @ResponseBody
-  public AjaxRes startWorkflow(Leave leave) {
+  public AjaxRes startWorkflow(Claim claim) {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
       try {
         String currentUserId = AccountShiroUtil.getCurrentUser().getAccountId();
-        String[] approvers = leave.getApprover().split(",");
+        String[] approvers = claim.getApprover().split(",");
         Map<String, Object> variables = new HashMap<String, Object>();
         for (int i = 0; i < approvers.length; i++) {
           variables.put("approver" + i, approvers[i]);
         }
-        String key = "leave" + approvers.length;
-        activitiDeployService.buildDeployment(key, "请假流程", approvers.length);
+        String key = "claim" + approvers.length;
+        activitiDeployService.buildDeployment(key, "报销流程", approvers.length);
 
         identityService.setAuthenticatedUserId(currentUserId);
         Date now = new Date();
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(key, variables);
         String pId = processInstance.getId();
         String leaveID = get32UUID();
-        leave.setpId(pId);
-        leave.setAccount_id(currentUserId);
-        leave.setCreateTime(now);
-        leave.setName(AccountShiroUtil.getCurrentUser().getName());
-        leave.setId(leaveID);
-        leave.setOrg(AccountShiroUtil.getCurrentUser().getDepartment());
+        claim.setPid(pId);
+        claim.setAccountId(currentUserId);
+        claim.setCreatetime(now);
+        claim.setName(AccountShiroUtil.getCurrentUser().getName());
+        claim.setId(leaveID);
 
-        leaveService.insert(leave);
+        claimService.insert(claim);
         List<Task> tasks = taskService.createTaskQuery().processInstanceId(pId).list();
         for (Task task : tasks) {
           taskService.complete(task.getId(), variables);
@@ -140,7 +140,7 @@ public class ClaimController extends BaseController<Object> {
           taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
           taskInfoService.insert(taskInfo);
         }
-        ar.setSucceedMsg("发起请假申请成功!");
+        ar.setSucceedMsg("发起报销申请成功!");
       } catch (Exception e) {
         logger.error(e.toString(), e);
         ar.setFailMsg("启动流程失败");

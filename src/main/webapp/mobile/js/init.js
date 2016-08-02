@@ -1,8 +1,8 @@
 //锁住浏览器
-document.addEventListener('touchmove', function(ev) {
-    ev.stopPropagation();
-    ev.preventDefault();
-});
+// document.addEventListener('touchmove', function(ev) {
+//     ev.stopPropagation();
+//     ev.preventDefault();
+// });
 
 //解决click 200延迟
 FastClick.attach(document.body);
@@ -15,6 +15,7 @@ var swiper = new Swiper('.swiper-container', {
     loop : true,
     autoplayDisableOnInteraction : false
 });
+var thatKey = 0;
 
 
 //正文
@@ -24,9 +25,10 @@ $("#work").click(function(){
 
 $("#setup").click(function(){
 	changeItem("setup","work");
+  window.location.href='setUp.html';
 });
 
-$(".back").click(function(){
+$(".back, .loc-back").click(function(){
   window.location.href='index.html';
 });
 
@@ -41,6 +43,14 @@ $("#notice").click(function(){
 $("#office-sign").click(function(){
   window.location.href='officeSign.html';
 });
+
+$("#loc-sign").click(function(){
+  window.location.href='loc.html';
+})
+
+
+
+
 
 
 
@@ -82,6 +92,7 @@ $(".notice-back").click(function(){
 
 $(".tip-img-wrap, .tip-text-wrap").click(function(){
   var con = $(this).parent();
+  
   var title = con.find(".tip-title").text();
   var time = con.find("span").eq(1).text();
   var text = con.find("span").eq(0).text();
@@ -90,9 +101,60 @@ $(".tip-img-wrap, .tip-text-wrap").click(function(){
   $(".detailed-text").text(text);
   $(".detailed-wrap").removeClass("hide");
 
-  //
-  // if($(".unread").hasClass("tip-focus")){
-
-  //   $(this).parent().remove();
-  // }
+  var sum = parseInt($("#fsum").text());
+  if(sum!=""&&con.attr("key")!="1"){
+    sum==0?0:sum--;
+    $("#fsum").text(sum+")");
+    con.attr("key","1");
+  }
 });
+
+$(".forLeave").click(function(){
+  $(".detailed-item-wrap").addClass("hide");
+  $(".detailed-item-wrap").eq(0).removeClass("hide");
+  thatKey = 0;
+});
+
+$(".wiped").click(function(){
+  $(".detailed-item-wrap").addClass("hide");
+  $(".detailed-item-wrap").eq(1).removeClass("hide");
+  thatKey = 1;
+});
+
+$(".busTra").click(function(){
+  $(".detailed-item-wrap").addClass("hide");
+  $(".detailed-item-wrap").eq(2).removeClass("hide");
+  thatKey = 2;
+});
+
+$(".fillCard").click(function(){
+  $(".detailed-item-wrap").addClass("hide");
+  $(".detailed-item-wrap").eq(3).removeClass("hide");
+  thatKey = 3;
+});
+
+
+//work-flow
+
+$(".wf-back").click(function(){
+  if (!($(".detailed-item-wrap").eq(thatKey).hasClass("hide"))) {
+
+    $(".detailed-item-wrap").addClass("hide");
+
+  }else{
+
+    window.location.href='index.html';
+
+  };
+});
+
+
+
+//setup
+$("#setup-s").click(function(){
+  window.location.href='index.html';
+});
+
+
+
+

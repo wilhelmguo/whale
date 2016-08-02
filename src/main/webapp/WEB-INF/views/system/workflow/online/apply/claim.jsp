@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="${jypath}/static/plugins/zTree/3.5/zTreeStyle.css"/>
     <script type="text/javascript" src="${jypath}/static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
     <script type="text/javascript" src="${jypath}/static/plugins/zTree/3.5/jquery.ztree.excheck-3.5.js"></script>
-
+    <script src="${jypath}/static/plugins/ueditor/ueditor.config.js"></script>
+    <script src="${jypath}/static/plugins/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${jypath}/static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
 <div class="page-content">
-    <%@include file="../../../common/dialog.jsp" %>
+
     <div class="page-header">
         <h1>
             报销申请表
@@ -24,6 +26,7 @@
     <div class="row">
         <div class="col-xs-12">
             <form id='leaveFrom' class="form-horizontal" method="POST" onsubmit="return false;">
+
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>审批人</label>
                     <div class="col-sm-3">
@@ -36,58 +39,34 @@
                         data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>
                         <div id='preOrgContent'
                              class="datetimepicker datetimepicker-dropdown-bottom-right dropdown-menu"
-                             style="display: none; position: absolute;">
+                             style="display: none; position: absolute;z-index: 10000">
                             <ul id="preOrgTree" class="ztree preOrgTree"></ul>
                         </div>
                     </div>
-                    <%--<label class="col-sm-2 control-label no-padding-right">抄送人</label>--%>
-                    <%--<div class="col-sm-3">--%>
-                        <%--<input type="hidden" name="pId1" value="0">--%>
-                        <%--<input id="preOrgName1" type="text" style="float: left" name="copytoName"  readonly--%>
-                               <%--onclick="showPreOrg1(); return false;" >--%>
-                        <%--<input id="preOrg1" hidden type="text" name="copyto"  readonly--%>
-                               <%--class="col-xs-10 col-sm-10">--%>
-                        <%--<a href="#" title="清空" onclick="emptyPreOrg1(); return false;"  class="col-xs-1 col-sm-1"--%>
-                           <%--data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>--%>
-                        <%--<div id='preOrgContent1'--%>
-                             <%--class="datetimepicker datetimepicker-dropdown-bottom-right dropdown-menu"--%>
-                             <%--style="display: none; position: absolute;">--%>
-                            <%--<ul id="preOrgTree1" class="ztree preOrgTree"></ul>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-
 
                 </div>
                 <div class="form-group">
 
                     <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>报销金额</label>
                     <div class="col-sm-3">
-                        <input placeholder="请输入数字" name="leaveDay" onchange="" value="" jyValidate="required,number" type="text">
+                        <input placeholder="请输入数字" name="amount" onchange="" value="" jyValidate="required,number" type="text">
                     </div>
                     <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>报销类别</label>
                     <div class="col-sm-3">
-                        <input name="leaveDay" placeholder="如:采购经费,活动经费" onchange="" value="" jyValidate="required" type="text">
+                        <input name="type" placeholder="如:采购经费,活动经费" onchange="" value="" jyValidate="required" type="text">
                     </div>
                 </div>
-                <%--<div class="space-4"></div>--%>
-                <%--<div class="form-group">--%>
-                    <%--<label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>费用明细</label>--%>
-                    <%--<div class="col-sm-3">--%>
-                        <%--<input name="leaveDay" placeholder="请输入费用明细描述" onchange="" value="" jyValidate="required" type="text">--%>
-                    <%--</div>--%>
-                    <%--<label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>结束时间</label>--%>
-                    <%--<div class="col-sm-3">--%>
-                        <%--<input name="endTime" value="" jyValidate="required,datetime" class="date-picker" type="text"--%>
-                               <%--placeholder="请假结束时间">--%>
-                    <%--</div>--%>
-                <%--</div>--%>
+
                 <div class="space-4"></div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label no-padding-right">费用明细</label>
                     <div class="col-sm-7">
-                        <textarea placeholder="请输入费用明细描述" rows="3" cols="14" maxlength="128" style="width: 100%" name="description"
-                                  multiline="true" class="FormElement ui-widget-content ui-corner-all "></textarea>
+                        <script id="editor" style="width:100%;height:130px;" type="text/plain"></script>
+                        <input type="hidden" name="attach" id="attach">
+                        <%--<textarea placeholder="请输入费用明细描述" rows="3" cols="14" maxlength="128" style="width: 100%" name="detail"--%>
+                                  <%--multiline="true" class="FormElement ui-widget-content ui-corner-all "></textarea>--%>
                     </div>
+
                 </div>
                 <div class="space-4"></div>
                 <div class="clearfix form-actions">
@@ -97,10 +76,17 @@
                         </button>
                     </div>
                 </div>
+
             </form>
         </div>
+
     </div>
+
 </div>
+<%@include file="../../../common/dialog.jsp" %>
 <script src="${jypath}/static/js/system/workflow/online/claim.js"></script>
+<script type="text/javascript">
+    UE.getEditor('editor');
+</script>
 </body>
 </html>
