@@ -13,6 +13,10 @@ public class Const {
 
 	public static final String CLAIM_NAME="报销流程";
 
+	public static final String OVERTIME_NAME="加班流程";
+
+	public static final String PATCH_NAME="补卡流程";
+
 	public static final Map<Integer, String> SPMC = new HashMap<Integer, String>() {
 		{
 			put(0, "直属领导审批");

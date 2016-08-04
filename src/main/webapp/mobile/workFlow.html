@@ -16,17 +16,17 @@
 			<img class="wf-back" src="img/back.png" />
 		</div>
 		<div class="item-wrap">
-			<div class="item control-div">
+			<div class="item control-div" id="wait">
 		      <img class="icontro-icon" src="img/wf_item_1.png" />
-		      <span class="icontro-lable">代办</span>
+		      <span class="icontro-lable">待我审批</span>
 		    </div>
-		    <div class="item control-div">
+			<div class="item control-div">
+				<img class="icontro-icon" src="img/wf_item_3.png" />
+				<span class="icontro-lable">我已审批</span>
+			</div>
+		    <div class="item control-div" id="initiate">
 		      <img class="icontro-icon" src="img/wf_item_2.png" />
-		      <span class="icontro-lable">发起</span>
-		    </div>
-		    <div class="item control-div">
-		      <img class="icontro-icon" src="img/wf_item_3.png" />
-		      <span class="icontro-lable">抄送我的</span>
+		      <span class="icontro-lable">我发起的</span>
 		    </div>
 		</div>
 	</div>
@@ -39,10 +39,10 @@
 	      <img class="item-icon" src="img/wf_item_5.png" />
 	      <span class="item-lable">报销</span>
 	    </div>
-	    <div class="item busTra">
-	      <img class="item-icon" src="img/wf_item_6.png" />
-	      <span class="item-lable">出差</span>
-	    </div>
+	    <!--<div class="item busTra">-->
+	      <!--<img class="item-icon" src="img/wf_item_6.png" />-->
+	      <!--<span class="item-lable">出差</span>-->
+	    <!--</div>-->
 	    <div class="item fillCard">
 	      <img class="item-icon" src="img/wf_item_7.png" />
 	      <span class="item-lable">补卡</span>
@@ -51,7 +51,8 @@
 	      <img class="item-icon" id="plus" src="img/item_5.png" />
 	    </div>
 	  </div>
-
+	  
+	<div>
 	<div class="detailed-item-wrap hide">
 		<div class="wf-item-wrap">
 			<span class="btn-lable">请假类型:</span>
@@ -168,6 +169,7 @@
 			<p class="btn-lable">审批人:</p>
 			<img class="plus-peo" src="img/item_5.png" />
 		</div>
+	</div>
 	</div>
 </div>
 </body>

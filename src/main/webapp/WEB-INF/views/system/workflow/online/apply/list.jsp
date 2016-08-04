@@ -74,12 +74,12 @@
 
                     <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>开始时间</label>
                     <div class="col-sm-3">
-                        <input name="beginTime" value="" jyValidate="required,datetime" class="date-picker" type="text"
+                        <input name="beginTime" readonly value="" jyValidate="required,datetime" class="date-picker" type="text"
                                placeholder="请假开始时间">
                     </div>
                     <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>结束时间</label>
                     <div class="col-sm-3">
-                        <input name="endTime" value="" jyValidate="required,datetime" class="date-picker" type="text"
+                        <input name="endTime" readonly value="" jyValidate="required,datetime" class="date-picker" type="text"
                                placeholder="请假结束时间">
                     </div>
                 </div>

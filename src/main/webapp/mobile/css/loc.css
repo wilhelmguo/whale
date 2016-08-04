@@ -6,15 +6,13 @@ html, body {
 }
 
 #container {
-	position: relative;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: 250px;
-	border-bottom: 1px solid #dedede;
-	border-top: 1px solid #dedede;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 250px;
 }
 
 .button-group {
@@ -49,6 +47,9 @@ html, body {
 	margin-bottom: 4px;
 	cursor: pointer;
 }
+.amap-zoomcontrol{
+	display: none !important;
+}
  /*
 .tip {
 	position: absolute;
@@ -63,6 +64,10 @@ html, body {
 	font-size: 12px;
 }
 */
+.map-wrap{
+	border-bottom: 1px solid #dedede;
+    border-top: 1px solid #dedede;
+}
 #tip {
 	background-color: #fff;
 	padding-left: 10px;
@@ -119,11 +124,16 @@ html, body {
 }
 .user-info{
 	width: 100%;
-	height: 100px;
+    height: 86px;
 }
 .user-lable{
     margin-left: 30px;
-    margin-top: 11px;
+	margin-top: 6px;
+}
+.user-de{
+	color: #999;
+    font-size: 14px;
+    margin: 0;
 }
 
 #tips{
@@ -156,4 +166,55 @@ html, body {
     position: absolute;
     top: 13px;
     right: 26px;
+}
+.loc-img{
+    float: left;
+    width: 70px;
+    height: 70px;
+    background-color: #FF6666;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 70px;
+    margin: 0 12px;
+    color: #fff;
+}
+.map-l{
+	float: left;
+	width: 100px !important;
+	height: 100px !important;
+}
+#info-q{
+	float: left;
+	padding: 5px 0 0 5px; 
+}
+.map-wrap{
+	background: #fff;
+    width: 100%;
+    overflow: hidden;
+}
+.f-name{
+
+}
+.f-desc{
+	color: #999;
+    margin: 8px 0;
+}
+.f-re{
+	color: #56ABE4;
+    font-size: 14px;
+}
+.sign-now{
+	width: 100px;
+    height: 100px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #56ABE4;
+    border-radius: 50%;
+    line-height: 17px;
+    color: #fff;
+    font-size: 14px;
+}
+.sign-now img{
+	width: 45px;
+	margin-top:15px;
 }

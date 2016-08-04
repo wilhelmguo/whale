@@ -6,9 +6,13 @@ import com.jy.common.utils.ActivitiUtils;
 import com.jy.common.utils.DateUtils;
 import com.jy.common.utils.workflow.ActivitiDeployUtil;
 import com.jy.entity.oa.claim.Claim;
+import com.jy.entity.oa.overtime.Overtime;
+import com.jy.entity.oa.patch.Patch;
 import com.jy.entity.oa.task.TaskInfo;
 import com.jy.service.oa.activiti.ActivitiDeployService;
 import com.jy.service.oa.claim.ClaimService;
+import com.jy.service.oa.overtime.OvertimeService;
+import com.jy.service.oa.patch.PatchService;
 import com.jy.service.oa.task.TaskInfoService;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.bpmn.model.Process;
@@ -56,6 +60,10 @@ public class MyTaskController extends BaseController<Object> {
   private LeaveService leaveService;
   @Autowired
   private ClaimService claimService;
+  @Autowired
+  private OvertimeService overtimeService;
+  @Autowired
+  private PatchService patchService;
   @Autowired
   private ActivitiDeployService activitiDeployService;
   @Autowired
@@ -281,6 +289,24 @@ public class MyTaskController extends BaseController<Object> {
           Claim claim = new Claim();
           claim.setPid(pId);
           List<Claim> list = claimService.find(claim);
+          if (list != null && list.size() != 0) {
+            ar.setSucceed(list.get(0), Const.DATA_SUCCEED);
+          } else {
+            ar.setFailMsg(Const.DATA_FAIL);
+          }
+        } else if (Const.OVERTIME_NAME.equals(name)) {
+          Overtime obj = new Overtime();
+          obj.setPid(pId);
+          List<Overtime> list = overtimeService.find(obj);
+          if (list != null && list.size() != 0) {
+            ar.setSucceed(list.get(0), Const.DATA_SUCCEED);
+          } else {
+            ar.setFailMsg(Const.DATA_FAIL);
+          }
+        }else if (Const.PATCH_NAME.equals(name)) {
+          Patch obj = new Patch();
+          obj.setPid(pId);
+          List<Patch> list = patchService.find(obj);
           if (list != null && list.size() != 0) {
             ar.setSucceed(list.get(0), Const.DATA_SUCCEED);
           } else {

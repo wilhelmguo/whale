@@ -52,6 +52,19 @@
             <img class="tip-del" src="img/delete.png" />
           </div>
       </div>
+
+      <div class="tip-item tip-style">
+          <div class="tip-img-wrap">
+            <img class="tip-img" src="img/1.jpeg" />
+          </div>
+          <div class="tip-div tip-text-wrap">
+            <p class="tip-title">公告分方法第三方</p>
+            <p class="tip-brief"><span>测试第二条</span><span>2016.7.24</span></p>
+          </div>
+          <div class="tip-img-del">
+            <img class="tip-del" src="img/delete.png" />
+          </div>
+      </div>
     </div>
  </div>
 
@@ -110,4 +123,20 @@
 <script src='js/swiper.min.js'></script>
 <script src="js/fastclick.js"></script>
 <script src='js/init.js'></script>
+<script>
+  function GetQueryString(name)
+  {
+       var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+       var r = window.location.search.substr(1).match(reg);
+       if(r!=null)return  unescape(r[2]); return null;
+  }
+
+  var index = GetQueryString("index");
+  if (index != null) {
+      $(".tip-text-wrap").eq(index).trigger("click");
+  };
+
+
+
+</script>
 </html>

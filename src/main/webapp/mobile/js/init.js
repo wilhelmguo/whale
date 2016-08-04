@@ -28,7 +28,7 @@ $("#setup").click(function(){
   window.location.href='setUp.html';
 });
 
-$(".back, .loc-back").click(function(){
+$(".back, .loc-back, #work").click(function(){
   window.location.href='index.html';
 });
 
@@ -46,12 +46,12 @@ $("#office-sign").click(function(){
 
 $("#loc-sign").click(function(){
   window.location.href='loc.html';
-})
+});
 
-
-
-
-
+$(".s-ad").click(function(){
+  var index = $(this).attr("data-swiper-slide-index");
+  window.location.href='notice.html?index='+index;
+});
 
 
 
@@ -156,5 +156,16 @@ $("#setup-s").click(function(){
 });
 
 
+//initiate
+$(".initiate-back").click(function(){
+  window.location.href='workFlow.html';
+});
 
+$("#initiate").click(function(){
+   window.location.href='initiate.html';
+});
+
+$("#wait").click(function(){
+  window.location.href='wait.html';
+})
 

@@ -1,17 +1,16 @@
-package com.jy.entity.oa.overtime;
+package com.jy.entity.oa.patch;
 
 import com.jy.entity.base.BaseEntity;
 import org.apache.ibatis.type.Alias;
-import org.apache.ibatis.type.IntegerTypeHandler;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-@Alias("Overtime")
-public class Overtime extends BaseEntity {
+@Alias("Patch")
+public class Patch extends BaseEntity {
   private static final long serialVersionUID = 1L;
   private String id;
-  private Integer unit;
+
   private String accountId;
 
   private String name;
@@ -19,28 +18,24 @@ public class Overtime extends BaseEntity {
   private String copyto;
 
   private String approver;
-  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  private Date starttime;
-  @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  private Date endtime;
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date date;
 
-  private String duration;
+  private String morning;
 
-  private String reason;
+  private String beforenoon;
+
+  private String afternoon;
+
+  private String night;
 
   private String pid;
+
+  private Integer isvalid;
 
   private Date createtime;
 
   private Date updatetime;
-
-  public Integer getUnit() {
-    return unit;
-  }
-
-  public void setUnit(Integer unit) {
-    this.unit = unit;
-  }
 
   public String getId() {
     return id;
@@ -82,36 +77,44 @@ public class Overtime extends BaseEntity {
     this.approver = approver == null ? null : approver.trim();
   }
 
-  public Date getStarttime() {
-    return starttime;
+  public Date getDate() {
+    return date;
   }
 
-  public void setStarttime(Date starttime) {
-    this.starttime = starttime;
+  public void setDate(Date date) {
+    this.date = date;
   }
 
-  public Date getEndtime() {
-    return endtime;
+  public String getMorning() {
+    return morning;
   }
 
-  public void setEndtime(Date endtime) {
-    this.endtime = endtime;
+  public void setMorning(String morning) {
+    this.morning = morning == null ? null : morning.trim();
   }
 
-  public String getDuration() {
-    return duration;
+  public String getBeforenoon() {
+    return beforenoon;
   }
 
-  public void setDuration(String duration) {
-    this.duration = duration == null ? null : duration.trim();
+  public void setBeforenoon(String beforenoon) {
+    this.beforenoon = beforenoon == null ? null : beforenoon.trim();
   }
 
-  public String getReason() {
-    return reason;
+  public String getAfternoon() {
+    return afternoon;
   }
 
-  public void setReason(String reason) {
-    this.reason = reason == null ? null : reason.trim();
+  public void setAfternoon(String afternoon) {
+    this.afternoon = afternoon == null ? null : afternoon.trim();
+  }
+
+  public String getNight() {
+    return night;
+  }
+
+  public void setNight(String night) {
+    this.night = night == null ? null : night.trim();
   }
 
   public String getPid() {
@@ -120,6 +123,14 @@ public class Overtime extends BaseEntity {
 
   public void setPid(String pid) {
     this.pid = pid == null ? null : pid.trim();
+  }
+
+  public Integer getIsvalid() {
+    return isvalid;
+  }
+
+  public void setIsvalid(Integer isvalid) {
+    this.isvalid = isvalid;
   }
 
   public Date getCreatetime() {

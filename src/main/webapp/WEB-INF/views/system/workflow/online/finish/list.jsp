@@ -57,6 +57,8 @@
             <!-- #addorUpdateFrom -->
             <%@include file="form.jsp" %>
             <%@include file="../myTask/claimForm.jsp" %>
+            <%@include file="../myTask/overtimeForm.jsp" %>
+            <%@include file="../myTask/patchForm.jsp" %>
             <!-- #dialog-confirm -->
             <%@include file="../../../common/dialog.jsp" %>
         </div>

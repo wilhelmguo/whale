@@ -46,3 +46,7 @@
             console.log(result);
         });
     });
+
+    $(".notice-back").click(function(){
+        window.location.href='index.html';
+    });

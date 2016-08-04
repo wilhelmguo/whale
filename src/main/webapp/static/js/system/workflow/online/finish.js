@@ -82,6 +82,14 @@ function cleanTodoForm() {
     JY.Tags.cleanForm("auForm");
 }
 
+function cleanOvertimeTodoForm() {
+    JY.Tags.cleanForm("auFormOvertime");
+}
+
+function cleanPatchTodoForm() {
+    JY.Tags.cleanForm("auFormPatch");
+}
+
 function cleanClaimTodoForm() {
     JY.Tags.cleanForm("auFormClaim");
 }
@@ -99,11 +107,47 @@ function setTodoForm(l) {
     }
 }
 
+function setPatchForm(l) {
+    if (JY.Object.notNull(l)) {
+        $("#auFormPatch input[name$='id']").val(l.id);
+        // $("#auForm input[name$='org']").val(JY.Object.notEmpty(l.org));
+        $("#auFormPatch input[name$='account_id']").val(JY.Object.notEmpty(l.name));
+
+        $("#auFormPatch input[name$='date']").val(JY.Date.Default(l.date));
+        $("#auFormPatch input[name$='morning']").val(JY.Object.notEmpty(l.morning));
+        $("#auFormPatch input[name$='beforenoon']").val(JY.Object.notEmpty(l.beforenoon));
+        $("#auFormPatch input[name$='afternoon']").val(JY.Object.notEmpty(l.afternoon));
+        $("#auFormPatch input[name$='night']").val(JY.Object.notEmpty(l.night));
+    }
+}
+
+function setOvertimeForm(l) {
+    if (JY.Object.notNull(l)) {
+        $("#auFormOvertime input[name$='id']").val(l.id);
+        // $("#auForm input[name$='org']").val(JY.Object.notEmpty(l.org));
+        $("#auFormOvertime input[name$='account_id']").val(JY.Object.notEmpty(l.name));
+        var sc = l.duration;
+        if (l.unit == 0) {
+            sc = sc + '小时';
+        } else {
+            sc = sc + '天';
+        }
+        $("#auFormOvertime input[name$='duration']").val(JY.Object.notEmpty(sc));
+        $("#auFormOvertime input[name$='starttime']").val(JY.Date.Default(l.starttime));
+        $("#auFormOvertime input[name$='endtime']").val(JY.Date.Default(l.endtime));
+        $("#auFormOvertime textarea[name$='reason']").val(JY.Object.notEmpty(l.reason));
+    }
+}
+
 function todoTask(pId, name) {
     if (name == '请假流程') {
         leave(pId);
     } else if (name == '报销流程') {
         claim(pId);
+    }else if (name == '加班流程') {
+        overtime(pId);
+    }else if (name == '补卡流程') {
+        patch(pId);
     }
 
 }
@@ -129,6 +173,30 @@ function leave(pId) {
         var obj = data.obj;
         setTodoForm(obj);
         JY.Model.check("auDiv");
+    });
+}
+
+function patch(pId) {
+    cleanPatchTodoForm();
+    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTaskByName', {
+        pId: pId,
+        name: '补卡流程'
+    }, function (data) {
+        var obj = data.obj;
+        setPatchForm(obj);
+        JY.Model.check("auDivPatch");
+    });
+}
+
+function overtime(pId) {
+    cleanOvertimeTodoForm();
+    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTaskByName', {
+        pId: pId,
+        name: '加班流程'
+    }, function (data) {
+        var obj = data.obj;
+        setOvertimeForm(obj);
+        JY.Model.check("auDivOvertime");
     });
 }
 

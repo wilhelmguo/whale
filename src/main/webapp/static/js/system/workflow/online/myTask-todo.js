@@ -81,6 +81,10 @@ function todoTask(id, pId, name) {
         leave(id, pId);
     } else if (name == '报销流程') {
         claim(id, pId);
+    } else if (name == '加班流程') {
+        overtime(id, pId);
+    }else if (name == '补卡流程') {
+        patch(id, pId);
     }
 }
 
@@ -106,6 +110,32 @@ function claim(id, pId) {
         var obj = data.obj;
         setClaimForm(obj);
         CallbackForm(id, pId, "auDivClaim");
+
+    });
+}
+
+function patch(id, pId) {
+    cleanPatchForm();
+    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTaskByName', {
+        pId: pId,
+        name: '补卡流程'
+    }, function (data) {
+        var obj = data.obj;
+        setPatchForm(obj);
+        CallbackForm(id, pId, "auDivPatch");
+
+    });
+}
+
+function overtime(id, pId) {
+    cleanOvertimeForm();
+    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTaskByName', {
+        pId: pId,
+        name: '加班流程'
+    }, function (data) {
+        var obj = data.obj;
+        setOvertimeForm(obj);
+        CallbackForm(id, pId, "auDivOvertime");
 
     });
 }
@@ -158,6 +188,38 @@ function CallbackForm(id, pId, formId) {
     );
 }
 
+function setPatchForm(l) {
+    if (JY.Object.notNull(l)) {
+        $("#auFormPatch input[name$='id']").val(l.id);
+        // $("#auForm input[name$='org']").val(JY.Object.notEmpty(l.org));
+        $("#auFormPatch input[name$='account_id']").val(JY.Object.notEmpty(l.name));
+
+        $("#auFormPatch input[name$='date']").val(JY.Date.Default(l.date));
+        $("#auFormPatch input[name$='morning']").val(JY.Object.notEmpty(l.morning));
+        $("#auFormPatch input[name$='beforenoon']").val(JY.Object.notEmpty(l.beforenoon));
+        $("#auFormPatch input[name$='afternoon']").val(JY.Object.notEmpty(l.afternoon));
+        $("#auFormPatch input[name$='night']").val(JY.Object.notEmpty(l.night));
+    }
+}
+
+function setOvertimeForm(l) {
+    if (JY.Object.notNull(l)) {
+        $("#auFormOvertime input[name$='id']").val(l.id);
+        // $("#auForm input[name$='org']").val(JY.Object.notEmpty(l.org));
+        $("#auFormOvertime input[name$='account_id']").val(JY.Object.notEmpty(l.name));
+        var sc = l.duration;
+        if (l.unit == 0) {
+            sc = sc + '小时';
+        } else {
+            sc = sc + '天';
+        }
+        $("#auFormOvertime input[name$='duration']").val(JY.Object.notEmpty(sc));
+        $("#auFormOvertime input[name$='starttime']").val(JY.Date.Default(l.starttime));
+        $("#auFormOvertime input[name$='endtime']").val(JY.Date.Default(l.endtime));
+        $("#auFormOvertime textarea[name$='reason']").val(JY.Object.notEmpty(l.reason));
+    }
+}
+
 function setClaimForm(l) {
     if (JY.Object.notNull(l)) {
         $("#auFormClaim input[name$='id']").val(l.id);
@@ -184,6 +246,14 @@ function setTodoForm(l) {
 
 function cleanClaimForm() {
     JY.Tags.cleanForm("auFormClaim");
+}
+
+function cleanOvertimeForm() {
+    JY.Tags.cleanForm("auFormOvertime");
+}
+
+function cleanPatchForm() {
+    JY.Tags.cleanForm("auFormPatch");
 }
 
 function cleanTodoForm() {
