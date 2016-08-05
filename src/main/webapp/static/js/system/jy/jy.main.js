@@ -137,6 +137,7 @@ JY = {
             });
         }
     },
+
     Page: {//跳转分页
         jump: function (formId, num, JpFun) {
             $("#" + formId + " .pageNum").val(num);
@@ -413,9 +414,9 @@ JY = {
             });
         },
         //divId,fn 方法
-        widthcheck: function (width,id, title, fn) {
+        widthcheck: function (width, id, title, fn) {
             $("#" + id).removeClass('hide').dialog({
-                width:width,
+                width: width,
                 resizable: true,
                 modal: true,
                 title: "<div class='widget-header'><h4 class='smaller'>" + (JY.Object.notNull(title) ? title : "查看") + "</h4></div>",
@@ -433,9 +434,9 @@ JY = {
             });
         },
         //divId,fn 方法
-        widthcheck: function (width,id, title, fn) {
+        widthcheck: function (width, id, title, fn) {
             $("#" + id).removeClass('hide').dialog({
-                width:width,
+                width: width,
                 resizable: true,
                 modal: true,
                 title: "<div class='widget-header'><h4 class='smaller'>" + (JY.Object.notNull(title) ? title : "查看") + "</h4></div>",
@@ -463,7 +464,7 @@ JY = {
                     "class": "btn btn-primary btn-xs",
                     click: function () {
                         if (typeof(savefn) == 'function') {
-                            $('.ui-dialog-buttonpane').find('button:first').attr('disabled','true');
+                            $('.ui-dialog-buttonpane').find('button:first').attr('disabled', 'true');
                             savefn.call(this);
                         }
                     }
@@ -487,7 +488,7 @@ JY = {
                     "</i>&nbsp;保存", "class": "btn btn-primary btn-xs",
                     click: function () {
                         if (typeof(savefn) == 'function') {
-                            $('.ui-dialog-buttonpane').find('button:first').attr('disabled','true');
+                            $('.ui-dialog-buttonpane').find('button:first').attr('disabled', 'true');
                             savefn.call(this);
                         }
                     }
@@ -505,7 +506,7 @@ JY = {
         //审核
         audit: function (id, title, savefn, rejectfn, cancelfn) {
             $("#" + id).removeClass('hide').dialog({
-                width:"400",
+                width: "400",
                 resizable: true,
                 modal: true,
                 title: "<div class='widget-header'><h4 class='smaller'>" + (JY.Object.notNull(title) ? title : "审核") + "</h4></div>",
@@ -704,7 +705,7 @@ JY = {
                                 res = false;
                             }
                         }
-                    }else if (v == 'number') {
+                    } else if (v == 'number') {
                         if (JY.Object.notNull(that.val())) {
                             if (!JY.Validate.isNum(that.val())) {
                                 that.tips({side: side, msg: "只能输入数字", bg: '#FF2D2D', time: 1});
