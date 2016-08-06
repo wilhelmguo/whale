@@ -46,7 +46,7 @@ public class WorkRecordController extends BaseController<WorkRecord> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/workRecord/index"))) {
       try {
-        o.setEmployee(AccountShiroUtil.getCurrentUser().getLoginName());
+        o.setEmployee(AccountShiroUtil.getCurrentUser().getAccountId());
         o.setCompany(getCompany());
         Page<WorkRecord> result = service.findByPage(o, page);
         Map<String, Object> p = new HashMap<String, Object>();
@@ -108,7 +108,7 @@ public class WorkRecordController extends BaseController<WorkRecord> {
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
       try {
         o.setCompany(getCompany());
-        o.setEmployee(AccountShiroUtil.getCurrentUser().getLoginName());
+        o.setEmployee(AccountShiroUtil.getCurrentUser().getAccountId());
         o.setDate(DateUtils.getDateStart(new Date()));
         List<WorkRecord> list = service.find(o);
         if (list == null || list.size() == 0) {

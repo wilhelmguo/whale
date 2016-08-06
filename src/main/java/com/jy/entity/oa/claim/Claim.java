@@ -1,12 +1,12 @@
 package com.jy.entity.oa.claim;
 
-import com.jy.entity.base.BaseEntity;
+import com.jy.entity.oa.base.OaBase;
 import org.apache.ibatis.type.Alias;
 
 import java.util.Date;
 
 @Alias("Claim")
-public class Claim extends BaseEntity {
+public class Claim extends OaBase {
   private static final long serialVersionUID = 1L;
   private String id;
 

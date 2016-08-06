@@ -25,5 +25,6 @@
 	</context:component-scan>
    
 	<import resource="spring-datasource.xml"/>		
-    <import resource="activiti-context.xml"/>	
+    <import resource="activiti-context.xml"/>
+
 </beans>

@@ -94,6 +94,10 @@ function cleanClaimTodoForm() {
     JY.Tags.cleanForm("auFormClaim");
 }
 
+function cleanUserdefTodoForm() {
+    JY.Tags.cleanForm("auFormUserdef");
+}
+
 function setTodoForm(l) {
     if (JY.Object.notNull(l)) {
         $("#auForm input[name$='id']").val(l.id);
@@ -148,8 +152,22 @@ function todoTask(pId, name) {
         overtime(pId);
     }else if (name == '补卡流程') {
         patch(pId);
+    }else{
+        userdef(pId);
     }
 
+}
+
+function userdef(pId) {
+    cleanUserdefTodoForm();
+    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTaskByName', {
+        pId: pId,
+        name: '自定义'
+    }, function (data) {
+        var obj = data.obj;
+        setUserdefForm(obj);
+        JY.Model.check("auDivUserdef");
+    });
 }
 
 function claim(pId) {
@@ -208,5 +226,15 @@ function setClaimForm(l) {
         $("#auFormClaim input[name$='amount']").val(JY.Object.notEmpty(l.amount));
         $("#auFormClaim input[name$='type']").val(JY.Object.notEmpty(l.type));
         $("#attach").html(JY.Object.notEmpty(l.attach));
+    }
+}
+
+function setUserdefForm(l) {
+    if (JY.Object.notNull(l)) {
+        $("#auFormUserdef input[name$='id']").val(l.id);
+        // $("#auForm input[name$='org']").val(JY.Object.notEmpty(l.org));
+        $("#auFormUserdef input[name$='account_id']").val(JY.Object.notEmpty(l.name));
+
+        $("#attachUserdef").html(JY.Object.notEmpty(l.attach));
     }
 }

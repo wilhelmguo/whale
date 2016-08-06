@@ -21,6 +21,12 @@
         <if test="param.isValid!= null">
             AND t.isValid=#{param.isValid}
         </if>
+        <if test="param.isapprove!= null and param.isapprove!='' ">
+            AND t.isapprove=#{param.isapprove}
+        </if>
+        <if test="param.isValid != null ">
+            AND t.isValid=#{param.isValid}
+        </if>
 
         order by t.createTime desc
     </select>
@@ -35,13 +41,13 @@
       copyto, approver, date,
       morning, beforenoon, afternoon,
       night, pId, isValid,
-      createTime, updateTime
+      createTime, updateTime,isapprove
 	) VALUES (
 	#{id,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
       #{copyto,jdbcType=VARCHAR}, #{approver,jdbcType=VARCHAR}, #{date,jdbcType=DATE},
       #{morning,jdbcType=VARCHAR}, #{beforenoon,jdbcType=VARCHAR}, #{afternoon,jdbcType=VARCHAR},
       #{night,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, #{isvalid,jdbcType=INTEGER},
-      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP},#{isapprove}
 	)
 
         ]]>
@@ -73,8 +79,9 @@
       pId = #{pid,jdbcType=VARCHAR},
       isValid = #{isvalid,jdbcType=INTEGER},
       createTime = #{createtime,jdbcType=TIMESTAMP},
-      updateTime = #{updatetime,jdbcType=TIMESTAMP}
-		WHERE 
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      isapprove=#{isapprove}
+		WHERE
 			id=#{id}
 	</update>
 </mapper>

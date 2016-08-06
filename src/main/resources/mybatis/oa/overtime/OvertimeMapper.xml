@@ -17,6 +17,25 @@
         <if test="param.id!= null and param.id!='' ">
         	AND t.id=#{param.id}
        </if>
+		<if test="param.isapprove!= null and param.isapprove!='' ">
+			AND t.isapprove=#{param.isapprove}
+		</if>
+		<if test="param.isValid != null ">
+			AND t.isValid=#{param.isValid}
+		</if>
+		<if test="param.stime != null and param.stime!='' ">
+			AND t.createTime <![CDATA[>=]]> #{param.stime}
+		</if>
+		<if test="param.etime != null and param.etime!='' ">
+			AND t.createTime<![CDATA[<=]]> #{param.etime}
+		</if>
+
+		<if test="param.keyWord!= null and param.keyWord!='' ">
+			AND (
+			t.name LIKE CONCAT('%',#{param.keyWord},'%')
+			OR t.org LIKE CONCAT('%',#{param.keyWord},'%'))
+
+		</if>
 
        order by t.createTime desc
     </select>
@@ -29,13 +48,17 @@
 	id, account_id, name, 
       copyto, approver, startTime, 
       endTime, duration, reason, 
-      pId, createTime, updateTime,unit
+      pId, createTime, updateTime,unit,
+      isapprove,isValid,org
 	) VALUES (
 	#{id,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{copyto,jdbcType=VARCHAR}, #{approver,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, 
       #{endtime,jdbcType=TIMESTAMP}, #{duration,jdbcType=VARCHAR}, #{reason,jdbcType=VARCHAR}, 
       #{pid,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP},
-      #{unit}
+      #{unit},
+      #{isapprove},
+      #{isValid},
+       #{org}
 	)
 	]]>
 	</insert>
@@ -65,7 +88,10 @@
       pId = #{pid,jdbcType=VARCHAR},
       createTime = #{createtime,jdbcType=TIMESTAMP},
       updateTime = #{updatetime,jdbcType=TIMESTAMP},
-      unit=#{unit}
+      unit=#{unit},
+      isapprove=#{isapprove},
+      isValid=#{isValid},
+      org=#{org}
 		WHERE 
 			id=#{id}
 	</update>

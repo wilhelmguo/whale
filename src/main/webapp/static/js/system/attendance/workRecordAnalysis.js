@@ -11,24 +11,24 @@ $(function () {
         }
     });
 
-    $("#selectisValid").multiselect({
-        header: true,
-        height: 250,
-        minWidth: 225,
-        classes: '',
-        checkAllText: '选中全部',
-        uncheckAllText: '取消全选',
-        noneSelectedText: '请选择',
-        selectedText: '# 选中',
-        selectedList: 5,
-        show: null,
-        hide: null,
-        autoOpen: false,
-        multiple: true,
-        position: {},
-        appendTo: "body",
-        menuWidth: null
-    });
+    // $("#selectisValid").multiselect({
+    //     header: true,
+    //     height: 250,
+    //     minWidth: 225,
+    //     classes: '',
+    //     checkAllText: '选中全部',
+    //     uncheckAllText: '取消全选',
+    //     noneSelectedText: '请选择',
+    //     selectedText: '# 选中',
+    //     selectedList: 5,
+    //     show: null,
+    //     hide: null,
+    //     autoOpen: false,
+    //     multiple: true,
+    //     position: {},
+    //     appendTo: "body",
+    //     menuWidth: null
+    // });
 
     $((function ($) {
         $.datepicker.regional['zh-CN'] = {

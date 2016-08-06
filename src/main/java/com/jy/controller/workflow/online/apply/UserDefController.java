@@ -80,11 +80,11 @@ public class UserDefController extends BaseController<Object> {
                     variables.put("approver" + i, approvers[i]);
                 }
                 String key = o.getWkey();
-                activitiDeployService.buildDeployment(key, o.getWname(), approvers.length);
+//                activitiDeployService.buildDeployment(key, o.getWname(), approvers.length);
 
                 identityService.setAuthenticatedUserId(currentUserId);
                 Date now = new Date();
-                ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(key, variables);
+                ProcessInstance processInstance = runtimeService.startProcessInstanceByKeyAndTenantId(key, variables,getCompany());
                 String pId = processInstance.getId();
                 String leaveID = get32UUID();
                 o.setPid(pId);
@@ -140,7 +140,7 @@ public class UserDefController extends BaseController<Object> {
                     taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
                     taskInfoService.insert(taskInfo);
                 }
-                ar.setSucceedMsg("发起报销申请成功!");
+                ar.setSucceedMsg("发起审批申请成功!");
             } catch (Exception e) {
                 logger.error(e.toString(), e);
                 ar.setFailMsg("启动流程失败");

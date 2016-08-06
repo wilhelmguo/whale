@@ -40,10 +40,24 @@ public class ActivitiDeployServiceImp implements ActivitiDeployService {
    */
   @Override
   public Deployment buildDeployment(String key, String name, int size) throws IOException {
-//    ProcessEngine processEngine = getProcessEngine();
+//    ProcessEngine processEngine = getProcessEngine();433476
     // 1. Build up the model from scratch
     BpmnModel model = new BpmnModel();
     Process process = new Process();
+
+    List<ActivitiListener> executionListeners=new ArrayList<ActivitiListener>();
+    ActivitiListener end=new ActivitiListener();
+    end.setEvent("end");
+    end.setImplementationType("class");
+    end.setImplementation("com.jy.service.workflow.listener.EndListenerServiceImp");
+    executionListeners.add(end);
+//    ActivitiListener start=new ActivitiListener();
+//    start.setEvent("start");
+//    start.setImplementationType("class");
+//    start.setImplementation("com.jy.common.workflow.listener.EndListener");
+//    executionListeners.add(start);
+    process.setExecutionListeners(executionListeners);
+
     model.addProcess(process);
     process.setId(key);
     process.setName(name);

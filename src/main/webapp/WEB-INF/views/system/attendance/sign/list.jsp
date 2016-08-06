@@ -5,11 +5,15 @@
 <head>
     <%@include file="../../common/includeBaseSet.jsp" %>
     <%@include file="../../common/includeSystemSet.jsp" %>
+    <link rel="stylesheet" href="${jypath}/static/plugins/zTree/3.5/zTreeStyle.css"/>
+    <script type="text/javascript" src="${jypath}/static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
+    <script type="text/javascript" src="${jypath}/static/plugins/zTree/3.5/jquery.ztree.excheck-3.5.js"></script>
+
 </head>
 <body>
 
 
-<div class="page-content">
+<div id="patchForm" class="page-content">
     <%@include file="../../common/dialog.jsp" %>
     <div class="page-header">
         <h1>
@@ -46,8 +50,7 @@
                                             </h5>
 
 
-
-<span class="widget-toolbar">
+                                            <span class="widget-toolbar">
 <%--<a href="#" title="更新打卡时间" onclick="insertOrUpdate(1)" >--%>
 <%--<i class="icon-refresh"></i>--%>
 <%--</a>--%>
@@ -67,8 +70,10 @@
                                                         美好的一天开始了!上班记得打卡哦!
                                                     </div>
                                                     <div class="pull-right action-buttons">
-                                                        <button id="click1" class="btn btn-sm btn-primary" onclick="insertOrUpdate(1)">打卡</button>
-                                                        <button class="btn btn-sm btn-primary">补卡</button>
+                                                        <button id="click1" class="btn btn-sm btn-primary"
+                                                                onclick="insertOrUpdate(1)">打卡
+                                                        </button>
+                                                        <button onclick="patch(1)" class="btn btn-sm btn-primary">补卡</button>
                                                     </div>
 
                                                 </div>
@@ -94,8 +99,7 @@
                                             </h5>
 
 
-
-<span class="widget-toolbar">
+                                            <span class="widget-toolbar">
 <%--<a href="#" title="更新打卡时间" onclick="insertOrUpdate(2)" >--%>
 <%--<i class="icon-refresh"></i>--%>
 <%--</a>--%>
@@ -116,8 +120,10 @@
                                                         中午美餐一顿!记得签退哦!
                                                     </div>
                                                     <div class="pull-right action-buttons">
-                                                        <button id="click2" class="btn btn-sm btn-primary" onclick="insertOrUpdate(2)">打卡</button>
-                                                        <button class="btn btn-sm btn-primary">补卡</button>
+                                                        <button id="click2" class="btn btn-sm btn-primary"
+                                                                onclick="insertOrUpdate(2)">打卡
+                                                        </button>
+                                                        <button onclick="patch(2)" class="btn btn-sm btn-primary">补卡</button>
                                                     </div>
 
                                                 </div>
@@ -143,8 +149,7 @@
                                             </h5>
 
 
-
-<span class="widget-toolbar">
+                                            <span class="widget-toolbar">
 <%--<a href="#" title="更新打卡时间" onclick="insertOrUpdate(3)">--%>
 <%--<i class="icon-refresh"></i>--%>
 <%--</a>--%>
@@ -165,8 +170,10 @@
                                                         下午打足精神好好工作!加油!
                                                     </div>
                                                     <div class="pull-right action-buttons">
-                                                        <button id="click3" class="btn btn-sm btn-primary" onclick="insertOrUpdate(3)">打卡</button>
-                                                        <button class="btn btn-sm btn-primary">补卡</button>
+                                                        <button id="click3" class="btn btn-sm btn-primary"
+                                                                onclick="insertOrUpdate(3)">打卡
+                                                        </button>
+                                                        <button onclick="patch(3)" class="btn btn-sm btn-primary">补卡</button>
                                                     </div>
 
                                                 </div>
@@ -192,8 +199,7 @@
                                             </h5>
 
 
-
-<span class="widget-toolbar">
+                                            <span class="widget-toolbar">
 <%--<a href="#" title="更新打卡时间" onclick="insertOrUpdate(4)" >--%>
 <%--<i class="icon-refresh"></i>--%>
 <%--</a>--%>
@@ -214,8 +220,10 @@
                                                         工作一天辛苦了,好好休息!
                                                     </div>
                                                     <div class="pull-right action-buttons">
-                                                        <button id="click4" class="btn btn-sm btn-primary" onclick="insertOrUpdate(4)">打卡</button>
-                                                        <button class="btn btn-sm btn-primary">补卡</button>
+                                                        <button id="click4" class="btn btn-sm btn-primary"
+                                                                onclick="insertOrUpdate(4)">打卡
+                                                        </button>
+                                                        <button onclick="patch(4)" class="btn btn-sm btn-primary">补卡</button>
                                                     </div>
 
                                                 </div>
@@ -233,9 +241,10 @@
             </div>
         </div>
 
+        <%@include file="../../common/dialog.jsp" %>
     </div>
 </div>
-
+<%@include file="patch.jsp" %>
 <script src="${jypath}/static/js/system/attendance/sign.js"></script>
 <script>
     function getCurDate() {

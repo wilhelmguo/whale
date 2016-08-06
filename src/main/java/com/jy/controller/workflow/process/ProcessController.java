@@ -179,9 +179,9 @@ public class ProcessController extends BaseController<Object> {
                 String extension = FilenameUtils.getExtension(fileName);
                 if (extension.equals("zip") || extension.equals("bar")) {
                     ZipInputStream zip = new ZipInputStream(fileInputStream);
-                    deployment = repositoryService.createDeployment().addZipInputStream(zip).deploy();
+                    deployment = repositoryService.createDeployment().addZipInputStream(zip).tenantId(getCompany()).deploy();
                 } else {
-                    deployment = repositoryService.createDeployment().addInputStream(fileName, fileInputStream).deploy();
+                    deployment = repositoryService.createDeployment().addInputStream(fileName, fileInputStream).tenantId(getCompany()).deploy();
                 }
                 if (deployment != null) {
                     ar.setSucceedMsg("上传成功");
@@ -221,6 +221,7 @@ public class ProcessController extends BaseController<Object> {
                 modelObjectNode.put(ModelDataJsonConstants.MODEL_REVISION, 1);
                 modelObjectNode.put(ModelDataJsonConstants.MODEL_DESCRIPTION, processDefinition.getDescription());
                 modelData.setMetaInfo(modelObjectNode.toString());
+                modelData.setTenantId(getCompany());
 
                 repositoryService.saveModel(modelData);
                 repositoryService.addModelEditorSource(modelData.getId(), modelNode.toString().getBytes("utf-8"));

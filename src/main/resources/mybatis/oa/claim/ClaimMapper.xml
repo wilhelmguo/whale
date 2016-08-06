@@ -18,6 +18,12 @@
         <if test="param.id!= null and param.id!='' ">
             AND t.id=#{param.id}
         </if>
+        <if test="param.isapprove!= null and param.isapprove!='' ">
+            AND t.isapprove=#{param.isapprove}
+        </if>
+        <if test="param.isValid != null ">
+            AND t.isValid=#{param.isValid}
+        </if>
 
         order by t.createTime desc
     </select>
@@ -31,12 +37,13 @@
 	id, amount, account_id, 
       name, copyto, approver, 
       type, detail, pId, 
-      createTime, updateTime, attach
+      createTime, updateTime, attach,isapprove,isValid
 	) VALUES (
 	#{id,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, #{accountId,jdbcType=VARCHAR}, 
       #{name,jdbcType=VARCHAR}, #{copyto,jdbcType=VARCHAR}, #{approver,jdbcType=VARCHAR}, 
       #{type,jdbcType=VARCHAR}, #{detail,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{attach,jdbcType=LONGVARCHAR}
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{attach,jdbcType=LONGVARCHAR},
+      #{isapprove},#{isValid}
 	)
 
         ]]>
@@ -66,7 +73,9 @@
       pId = #{pid,jdbcType=VARCHAR},
       createTime = #{createtime,jdbcType=TIMESTAMP},
       updateTime = #{updatetime,jdbcType=TIMESTAMP},
-      attach = #{attach,jdbcType=LONGVARCHAR}
+      isapprove= #{isapprove},
+      attach = #{attach,jdbcType=LONGVARCHAR},
+     isValid= #{isValid}
 		WHERE 
 			id=#{id}
 	</update>

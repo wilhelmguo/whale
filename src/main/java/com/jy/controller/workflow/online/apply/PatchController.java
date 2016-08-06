@@ -143,7 +143,7 @@ public class PatchController extends BaseController<Object> {
           taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
           taskInfoService.insert(taskInfo);
         }
-        ar.setSucceedMsg("发起加班申请成功!");
+        ar.setSucceedMsg("发起补卡申请成功!");
       } catch (Exception e) {
         logger.error(e.toString(), e);
         ar.setFailMsg("启动流程失败");

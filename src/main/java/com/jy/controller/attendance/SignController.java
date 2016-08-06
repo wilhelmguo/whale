@@ -49,6 +49,18 @@ public class SignController extends BaseController<WorkRecord> {
     return Const.NO_AUTHORIZED_URL;
   }
 
+  /**
+   * 外勤打卡
+   */
+  @RequestMapping(value = "outsideindex")
+  public String outsideindex(org.springframework.ui.Model model) {
+    if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
+      model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
+      return "/system/attendance/sign/outside/list";
+    }
+    return Const.NO_AUTHORIZED_URL;
+  }
+
   @RequestMapping(value = "insertOrUpdate", method = RequestMethod.POST)
   @ResponseBody
   public AjaxRes signMorning(String type) {
@@ -66,7 +78,7 @@ public class SignController extends BaseController<WorkRecord> {
       WorkRecord o = new WorkRecord();
       o.setCompany(getCompany());
       o.setDate(DateUtils.getDateStart(now));
-      o.setEmployee(curentuser.getLoginName());
+      o.setEmployee(curentuser.getAccountId());
       o.setDepartment(curentuser.getDepartment());
       List<WorkRecord> list = service.find(o);
       if (list == null || list.size() == 0) {

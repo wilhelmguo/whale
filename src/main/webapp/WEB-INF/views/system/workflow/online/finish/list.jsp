@@ -59,6 +59,7 @@
             <%@include file="../myTask/claimForm.jsp" %>
             <%@include file="../myTask/overtimeForm.jsp" %>
             <%@include file="../myTask/patchForm.jsp" %>
+            <%@include file="../myTask/userdefForm.jsp" %>
             <!-- #dialog-confirm -->
             <%@include file="../../../common/dialog.jsp" %>
         </div>

@@ -1,12 +1,13 @@
 package com.jy.entity.oa.userdef;
 
 import com.jy.entity.base.BaseEntity;
+import com.jy.entity.oa.base.OaBase;
 import org.apache.ibatis.type.Alias;
 
 import java.util.Date;
 
 @Alias("Userdef")
-public class Userdef extends BaseEntity {
+public class Userdef extends OaBase {
     private String id;
 
     private String accountId;

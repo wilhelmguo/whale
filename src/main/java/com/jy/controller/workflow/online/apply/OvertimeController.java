@@ -1,6 +1,7 @@
 package com.jy.controller.workflow.online.apply;
 
 import com.jy.common.ajax.AjaxRes;
+import com.jy.common.mybatis.Page;
 import com.jy.common.utils.DateUtils;
 import com.jy.common.utils.base.Const;
 import com.jy.common.utils.security.AccountShiroUtil;
@@ -8,7 +9,6 @@ import com.jy.controller.base.BaseController;
 import com.jy.entity.oa.overtime.Overtime;
 import com.jy.entity.oa.task.TaskInfo;
 import com.jy.service.oa.activiti.ActivitiDeployService;
-import com.jy.service.oa.claim.ClaimService;
 import com.jy.service.oa.overtime.OvertimeService;
 import com.jy.service.oa.task.TaskInfoService;
 import org.activiti.engine.IdentityService;
@@ -19,6 +19,7 @@ import org.activiti.engine.runtime.ProcessInstance;
 import org.activiti.engine.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -53,6 +54,55 @@ public class OvertimeController extends BaseController<Object> {
 
   /**
    * 加班列表
+   */
+  @RequestMapping("indexList")
+  public String indexList(Model model) {
+    if(doSecurityIntercept(Const.RESOURCES_TYPE_MENU)){
+      model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
+      return "/system/attendance/overtime/list";
+    }
+    return Const.NO_AUTHORIZED_URL;
+  }
+
+  @RequestMapping(value="findByPage", method=RequestMethod.POST)
+  @ResponseBody
+  public AjaxRes findByPage(Page<Overtime> page, Overtime o){
+    AjaxRes ar=getAjaxRes();
+    if(ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU,"/backstage/sysDict/index"))){
+      try {
+        o.setIsapprove(1);
+        Page<Overtime> result=overtimeService.findByPage(o,page);
+        Map<String, Object> p=new HashMap<String, Object>();
+        p.put("permitBtn",getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
+        p.put("list",result);
+        ar.setSucceed(p);
+      } catch (Exception e) {
+        logger.error(e.toString(),e);
+        ar.setFailMsg(Const.DATA_FAIL);
+      }
+    }
+    return ar;
+  }
+
+  @RequestMapping(value="find", method=RequestMethod.POST)
+  @ResponseBody
+  public AjaxRes find(Overtime o){
+    AjaxRes ar=getAjaxRes();
+    if(ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))){
+      try {
+        List<Overtime> list=overtimeService.find(o);
+        Overtime obj=list.get(0);
+        ar.setSucceed(obj);
+      } catch (Exception e) {
+        logger.error(e.toString(),e);
+        ar.setFailMsg(Const.DATA_FAIL);
+      }
+    }
+    return ar;
+  }
+  
+  /**
+   *
    */
   @RequestMapping(value = "index")
   public String index(org.springframework.ui.Model model) {
@@ -92,6 +142,7 @@ public class OvertimeController extends BaseController<Object> {
         o.setCreatetime(now);
         o.setName(AccountShiroUtil.getCurrentUser().getName());
         o.setId(leaveID);
+        o.setOrg(AccountShiroUtil.getCurrentUser().getDepartment());
 
         overtimeService.insert(o);
         List<Task> tasks = taskService.createTaskQuery().processInstanceId(pId).list();

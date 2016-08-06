@@ -2,12 +2,13 @@ package com.jy.entity.oa.leave;
 
 import java.util.Date;
 
+import com.jy.entity.oa.base.OaBase;
 import org.apache.ibatis.type.Alias;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.jy.entity.base.BaseEntity;
 @Alias("OaLeave")
-public class Leave extends BaseEntity{
+public class Leave extends OaBase {
 	
 	private static final long serialVersionUID = 1L;
 	

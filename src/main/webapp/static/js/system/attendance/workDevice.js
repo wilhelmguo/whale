@@ -75,7 +75,7 @@ function getbaseList(init) {
                 html += "<td class='center'><label> <input type='checkbox' name='ids' value='" + l.id + "' class='ace' /> <span class='lbl'></span></label></td>";
                 html += "<td class='center hidden-480'>" + (i + leng + 1) + "</td>";
                 if (JY.Object.notEmpty(l.type) == 0) {
-                    html += "<td class='center'>wifi</td>";
+                    html += "<td class='center'>ip地址</td>";
                 } else {
                     html += "<td class='center'>mac地址</td>";
                 }

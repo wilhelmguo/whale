@@ -65,6 +65,7 @@
             <%@include file="claimForm.jsp" %>
             <%@include file="overtimeForm.jsp" %>
             <%@include file="patchForm.jsp" %>
+            <%@include file="userdefForm.jsp" %>
             <!-- #dialog-confirm -->
             <%@include file="../../../common/dialog.jsp" %>
         </div>

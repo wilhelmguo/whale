@@ -4,15 +4,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.activiti.bpmn.BpmnAutoLayout;
-import org.activiti.bpmn.model.BpmnModel;
-import org.activiti.bpmn.model.EndEvent;
-import org.activiti.bpmn.model.ExclusiveGateway;
+import org.activiti.bpmn.model.*;
 import org.activiti.bpmn.model.Process;
-import org.activiti.bpmn.model.SequenceFlow;
-import org.activiti.bpmn.model.StartEvent;
-import org.activiti.bpmn.model.UserTask;
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.repository.Deployment;
@@ -49,6 +47,16 @@ public class ActivitiTest01 {
     // 1. Build up the model from scratch
     BpmnModel model = new BpmnModel();
     Process process=new Process();
+
+
+    List<ActivitiListener> executionListeners=new ArrayList<ActivitiListener>();
+    ActivitiListener a=new ActivitiListener();
+    a.setEvent("end");
+    a.setImplementationType("class");
+    a.setImplementation("com.jy.common.workflow.listener.EndListener");
+    executionListeners.add(a);
+    process.setExecutionListeners(executionListeners);
+
     model.addProcess(process);
     final String PROCESSID ="process01";
     final String PROCESSNAME ="测试01";
@@ -78,6 +86,11 @@ public class ActivitiTest01 {
     // 5. Check if task is available
     List<Task> tasks = processEngine.getTaskService().createTaskQuery().processInstanceId(processInstance.getId()).list();
     Assert.assertEquals(1, tasks.size());
+    Task t=tasks.get(0);
+    Map<String, Object> variables = new HashMap<String, Object>();
+    variables.put("approver0","2");
+    processEngine.getTaskService().complete(t.getId(),variables);
+
 
     // 6. Save process diagram to a file
     InputStream processDiagram = processEngine.getRepositoryService().getProcessDiagram(processInstance.getProcessDefinitionId());
@@ -164,6 +177,13 @@ public class ActivitiTest01 {
     EndEvent endEvent = new EndEvent();
     endEvent.setId("end");
     endEvent.setName("结束");
+    List<ActivitiListener> executionListeners=new ArrayList<ActivitiListener>();
+    ActivitiListener a=new ActivitiListener();
+    a.setEvent("end");
+    a.setImplementationType("class");
+    a.setImplementation("com.jy.common.workflow.listener.EndListener");
+    executionListeners.add(a);
+    endEvent.setExecutionListeners(executionListeners);
     return endEvent;
   }
 

@@ -464,7 +464,7 @@ JY = {
                     "class": "btn btn-primary btn-xs",
                     click: function () {
                         if (typeof(savefn) == 'function') {
-                            $('.ui-dialog-buttonpane').find('button:first').attr('disabled', 'true');
+                            // $('.ui-dialog-buttonpane').find('button:first').attr('disabled', 'true');
                             savefn.call(this);
                         }
                     }
@@ -488,7 +488,7 @@ JY = {
                     "</i>&nbsp;保存", "class": "btn btn-primary btn-xs",
                     click: function () {
                         if (typeof(savefn) == 'function') {
-                            $('.ui-dialog-buttonpane').find('button:first').attr('disabled', 'true');
+                            // $('.ui-dialog-buttonpane').find('button:first').attr('disabled', 'true');
                             savefn.call(this);
                         }
                     }

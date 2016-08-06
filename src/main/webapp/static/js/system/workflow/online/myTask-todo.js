@@ -83,9 +83,23 @@ function todoTask(id, pId, name) {
         claim(id, pId);
     } else if (name == '加班流程') {
         overtime(id, pId);
-    }else if (name == '补卡流程') {
+    } else if (name == '补卡流程') {
         patch(id, pId);
+    } else {
+        usrdef(id, pId)
     }
+}
+
+function usrdef(id, pId) {
+    cleanUserdefForm();
+    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/online/myTask/findTaskByName', {
+        pId: pId,
+        name: '自定义'
+    }, function (data) {
+        var obj = data.obj;
+        setUserdefForm(obj);
+        CallbackForm(id, pId, "auDivUserdef");
+    });
 }
 
 function leave(id, pId) {
@@ -220,6 +234,16 @@ function setOvertimeForm(l) {
     }
 }
 
+function setUserdefForm(l) {
+    if (JY.Object.notNull(l)) {
+        $("#auFormUserdef input[name$='id']").val(l.id);
+        // $("#auForm input[name$='org']").val(JY.Object.notEmpty(l.org));
+        $("#auFormUserdef input[name$='account_id']").val(JY.Object.notEmpty(l.name));
+
+        $("#attachUserdef").html(JY.Object.notEmpty(l.attach));
+    }
+}
+
 function setClaimForm(l) {
     if (JY.Object.notNull(l)) {
         $("#auFormClaim input[name$='id']").val(l.id);
@@ -258,4 +282,8 @@ function cleanPatchForm() {
 
 function cleanTodoForm() {
     JY.Tags.cleanForm("auForm");
+}
+
+function cleanUserdefForm() {
+    JY.Tags.cleanForm("auFormUserdef");
 }

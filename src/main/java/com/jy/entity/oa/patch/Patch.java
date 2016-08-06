@@ -1,13 +1,14 @@
 package com.jy.entity.oa.patch;
 
 import com.jy.entity.base.BaseEntity;
+import com.jy.entity.oa.base.OaBase;
 import org.apache.ibatis.type.Alias;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 @Alias("Patch")
-public class Patch extends BaseEntity {
+public class Patch extends OaBase {
   private static final long serialVersionUID = 1L;
   private String id;
 

@@ -11,8 +11,8 @@
                 <td class="CaptionTD"><span style="color: red; ">*</span>设备类型：</td>
                 <td class="DataTD">&nbsp;
                     <select id="type" name="type" >
-                        <option value="0" selected>wifi</option>
-                        <option value="1">mac地址</option>
+                        <option value="0" selected>ip地址</option>
+                        <%--<option value="1">mac地址</option>--%>
                     </select>
                 </td>
             </tr>
