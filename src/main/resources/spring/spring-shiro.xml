@@ -28,8 +28,8 @@
 			<value>
 				/backstage/company/** = anon
 				/api-docs/** = anon
-				/mobile/**  = anon
-				/api/v1/**  = anon
+
+				/moblie/api/v1/**  = anon
 				/act-process-editor/** = anon
 	           	/static/js/system/login/**  = anon
 	           	/static/js/system/**		= authc

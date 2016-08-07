@@ -12,6 +12,7 @@
     <select id="findByPage" resultMap="base" parameterType="SysNews">
         SELECT t.id,
         t.title,
+        t.cover,
         t.content,
         t.publisher,
         t.addtime,
@@ -61,7 +62,8 @@
             sequence,
             recommand,
             status,
-            cid
+            cid,
+            cover
         ) VALUES (
             #{id},
             #{title},
@@ -74,7 +76,8 @@
             #{sequence},
             #{recommand},
             #{status},
-            #{company}
+            #{company},
+            #{cover}
         )
         ]]>
     </insert>
@@ -88,7 +91,7 @@
     <update id="update" parameterType="SysNews">
         UPDATE JY_SYS_NEWS
         SET title = #{title},content=#{content},publisher = #{publisher}, addtime = #{addtime}, uptime = #{uptime},
-            pip   = #{pip}, hits = #{hits}, sequence = #{sequence}, recommand = #{recommand}, status = #{status}
+            pip   = #{pip}, hits = #{hits}, sequence = #{sequence}, recommand = #{recommand}, status = #{status},cover=#{cover}
         WHERE id = #{id}
     </update>
 

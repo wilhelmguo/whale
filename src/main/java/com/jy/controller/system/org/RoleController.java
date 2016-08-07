@@ -480,7 +480,7 @@ public class RoleController extends BaseController<Role> {
         }else if ("人力资源部".equals(dep)&&Const.MANAGE.equals(roleName)){
           aus=Const.DEFAULT_HR_MANAGER;
         }else if ("市场部".equals(dep)&&Const.MANAGE.equals(roleName)){
-          aus=Const.DEFAULT_HR_MANAGER;
+          aus=Const.DEFAULT_SCB_MANAGER;
         }else if (Const.MANAGE.equals(roleName)){
           aus=Const.DEFAULT_NOMAL_MANAGER;
         }else {

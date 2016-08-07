@@ -10,6 +10,13 @@
     <link href='css/style.css' rel='stylesheet'/>
     <link type="text/css" rel="stylesheet" href="css/index.css" />
     <title>设置</title>
+
+    <!--<script src="../static/js/jquery/jquery-ui-1.10.3.full.min.js"></script>-->
+    <!--<script type="text/javascript" src="../static/js/jquery/jquery.tips.js"></script>-->
+    <!--<link rel="stylesheet" href="../static/css/system/jquery/jquery-ui-1.10.3.full.min.css" type="text/css" />-->
+    <script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
+    <script src='js/data/config.js'></script>
+    <!--<script src="../static/js/system/jy/jy.main.js"></script>-->
 </head>
 <body>
   <div class="control-wrap">
@@ -18,14 +25,20 @@
     </div>
     <div class="self-wrap">
       <div class="self-img">
-        <span>W</span>
+        <span id="shortname">W</span>
       </div>
-      <p>wilen</p>
+      <p id="fullname">wilen</p>
     </div>
   </div>
   <div class="control-item">
-    <div id="work-flow" class="con-d">
-      <p>工作流</p>
+    <div id="initiate" class="con-d">
+      <p>我的发起</p>
+    </div>
+    <div id="reviewFile" class="con-d">
+      <p>待我审批</p>
+    </div>
+    <div id="readedFile" class="con-d">
+      <p>我已审批</p>
     </div>
     <div id="setup-s" class="con-d">
       <p>退出</p>
@@ -37,8 +50,8 @@
       <span class="footer-lable">办公</span>
     </div>
     <div class="footer-item" id="setup">
-      <img class="footer-icon" src="img/setup_h.png" />
-      <span class="footer-lable">设置</span>
+      <img class="footer-icon" src="img/setup_b.png" />
+      <span class="footer-lable b-focus">设置</span>
     </div>
   </div>
 </body>
@@ -47,4 +60,5 @@
 <script src='js/swiper.min.js'></script>
 <script src="js/fastclick.js"></script>
 <script src='js/init.js'></script>
+
 </html>

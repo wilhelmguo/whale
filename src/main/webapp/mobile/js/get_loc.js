@@ -100,8 +100,13 @@
         indexInfo+=5;
     });
 
-    $(".notice-back").click(function(){
-        window.location.href='index.html';
+    $(".loc-back").click(function(){
+        if($(".tips-w").hasClass("hide")){
+            window.location.href='index.html';
+        }else{
+            $("#tips-sing-wrap").addClass("hide");
+        }
+       
     });
 
     $("#tips").scroll(function(){
@@ -117,5 +122,12 @@
         };
         
     });
+
+    $(".sign-now").click(function(){
+        $("#tips-sing-wrap").removeClass("hide");
+        $(".loc-op").text($(".f-desc").text());
+
+    });
+
 
 

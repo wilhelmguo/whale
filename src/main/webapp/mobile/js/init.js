@@ -7,14 +7,8 @@
 //解决click 200延迟
 FastClick.attach(document.body);
 
-//滑动框
-var swiper = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true,
-    autoplay : 2000,
-    loop : true,
-    autoplayDisableOnInteraction : false
-});
+
+
 var thatKey = 0;
 
 
@@ -28,7 +22,7 @@ $("#setup").click(function(){
   window.location.href='setUp.html';
 });
 
-$(".back, .loc-back, #work").click(function(){
+$(".back, #work").click(function(){
   window.location.href='index.html';
 });
 
@@ -94,10 +88,9 @@ $(".tip-img-wrap, .tip-text-wrap").click(function(){
   var con = $(this).parent();
   
   var title = con.find(".tip-title").text();
-  var time = con.find("span").eq(1).text();
+
   var text = con.find("span").eq(0).text();
   $(".detailed-title").find("span").eq(0).text(title);
-  $(".detailed-brief").text(time);
   $(".detailed-text").text(text);
   $(".detailed-wrap").removeClass("hide");
 
@@ -152,7 +145,7 @@ $(".wf-back").click(function(){
 
 //setup
 $("#setup-s").click(function(){
-  window.location.href='index.html';
+  window.location.href="/whale/system_logout";
 });
 
 
@@ -168,4 +161,14 @@ $("#initiate").click(function(){
 $("#wait").click(function(){
   window.location.href='wait.html';
 })
+
+$("#reviewFile").click(function(){
+  window.location.href='reviewFile.html';
+});
+
+$("#readedFile").click(function(){
+  window.location.href='readedFile.html';
+});
+
+
 

@@ -184,8 +184,11 @@ html, body {
 	height: 100px !important;
 }
 #info-q{
-	float: left;
-	padding: 5px 0 0 5px; 
+    float: left;
+    padding: 0 5px;
+    max-width: 68%;
+    overflow: hidden;
+    height: 100px;
 }
 .map-wrap{
 	background: #fff;

@@ -2,121 +2,44 @@
 <head>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta http-equiv="cache-control" content="no-cache">
-    <link type="text/css" rel="stylesheet" href="css/index.css" />
-  <title>公告</title>
+    <link type="text/css" rel="stylesheet" href="css/index.css"/>
+    <script src="js/global.js"></script>
+    <script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
+    <script src="js/data/notice.js"></script>
+    <title>公告</title>
 </head>
 <body>
-  <div class="control-wrap">
+<div class="control-wrap">
     <div class="top-wrap">
-      <img class="notice-back" src="img/back.png" />
+        <img onclick="backIndex()" class="notice-back" src="img/back.png"/>
     </div>
-  </div>
+</div>
 
-  <div class="item-wrap tip-item">
-      <div class="item tip-div hide">
-          <span class="tip-lable unread tip-focus">未读</span>
-        </div>
-      <div class="item tip-div hide">
-          <span class="tip-lable tip-other">已读</span>
-        </div>
-    </div>
-  <!-- 未读 -->
-  <div class="tips-item-wrap">
-    <div class="tip-wrap">
-      <div class="tip-item tip-style">
-          <div class="tip-img-wrap">
-            <img class="tip-img" src="img/1.jpeg" />
-          </div>
-          <div class="tip-div tip-text-wrap">
-            <p class="tip-title">公告啥的请问</p>
-            <p class="tip-brief"><span>测试第一条</span><span>2016.7.24</span></p>
-          </div>
-          <div class="tip-img-del">
-            <img class="tip-del" src="img/delete.png" />
-          </div>
-      </div>
+<div id="newDetails" class="tip-wrap">
+    <!--<div style="text-align: center;margin-bottom: 20px">-->
+        <!--<i class="timestyle" >2015-08-07</i>-->
+    <!--</div>-->
+    <!--<div class="tip-item tip-style-wx">-->
+        <!--<div class="tip-img-wrap tip-img-div">-->
+            <!--<img class="tip-img tip-img-k" src="img/1.jpeg"/>-->
+            <!--<p class="tip-title tip-title-p">公告啥的请问</p>-->
+        <!--</div>-->
 
-      <div class="tip-item tip-style">
-          <div class="tip-img-wrap">
-            <img class="tip-img" src="img/1.jpeg" />
-          </div>
-          <div class="tip-div tip-text-wrap">
-            <p class="tip-title">公告分方法第三方</p>
-            <p class="tip-brief"><span>测试第二条</span><span>2016.7.24</span></p>
-          </div>
-          <div class="tip-img-del">
-            <img class="tip-del" src="img/delete.png" />
-          </div>
-      </div>
+        <!--<div class="tip-img-wrap tip-img-div tip-two">-->
+            <!--<div class="tip-right" style="background-image:url(img/1.jpeg)">-->
+            <!--</div>-->
+            <!--<p class="tip-title tip-title-t">公告啥的请问</p>-->
+        <!--</div>-->
 
-      <div class="tip-item tip-style">
-          <div class="tip-img-wrap">
-            <img class="tip-img" src="img/1.jpeg" />
-          </div>
-          <div class="tip-div tip-text-wrap">
-            <p class="tip-title">公告分方法第三方</p>
-            <p class="tip-brief"><span>测试第二条</span><span>2016.7.24</span></p>
-          </div>
-          <div class="tip-img-del">
-            <img class="tip-del" src="img/delete.png" />
-          </div>
-      </div>
-    </div>
- </div>
+    <!--</div>-->
 
-  <!-- 已读 -->
-  <div class="tips-item-wrap hide">
-    <div class="tip-wrap">
-      <div class="tip-item tip-style">
-          <div class="tip-img-wrap">
-            <img class="tip-img" src="img/1.jpeg" />
-          </div>
-          <div class="tip-div tip-text-wrap">
-            <p class="tip-title">公告标题阿斯顿发放</p>
-            <p class="tip-brief"><span>测试第一条</span><span>2016.7.24</span></p>
-          </div>
-          <div class="tip-img-del">
-            <img class="tip-del" src="img/delete.png" />
-          </div>
-      </div>
 
-      <div class="tip-item tip-style">
-          <div class="tip-img-wrap">
-            <img class="tip-img" src="img/1.jpeg" />
-          </div>
-          <div class="tip-div tip-text-wrap">
-            <p class="tip-title">公告标题阿斯蒂芬</p>
-            <p class="tip-brief"><span>测试第二条</span><span>2016.7.24</span></p>
-          </div>
-          <div class="tip-img-del">
-            <img class="tip-del" src="img/delete.png" />
-          </div>
-      </div>
-
-      <div class="tip-item tip-style">
-          <div class="tip-img-wrap">
-            <img class="tip-img" src="img/1.jpeg" />
-          </div>
-          <div class="tip-div tip-text-wrap">
-            <p class="tip-title">公告方式发送过</p>
-            <p class="tip-brief"><span>测试第三条</span><span>2016.7.24</span></p>
-          </div>
-          <div class="tip-img-del">
-            <img class="tip-del" src="img/delete.png" />
-          </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 详情页 -->
-  <div class="detailed-wrap hide">
-    <p class="detailed-title"><span></span><span class="detailed-brief">2016.7.24</span></p>
-    <p class="detailed-text">sadasdasdasds</p>
-  </div>
+</div>
 </body>
 
 <script src="js/zepto.min.js"></script>
@@ -124,18 +47,18 @@
 <script src="js/fastclick.js"></script>
 <script src='js/init.js'></script>
 <script>
-  function GetQueryString(name)
-  {
-       var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-       var r = window.location.search.substr(1).match(reg);
-       if(r!=null)return  unescape(r[2]); return null;
-  }
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
 
-  var index = GetQueryString("index");
-  if (index != null) {
-      $(".tip-text-wrap").eq(index).trigger("click");
-  };
-
+    var index = GetQueryString("index");
+    if (index != null) {
+        $(".tip-text-wrap").eq(index).trigger("click");
+    }
+    ;
 
 
 </script>

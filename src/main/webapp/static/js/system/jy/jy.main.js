@@ -759,6 +759,27 @@ JY = {
                 }
             });
         },
+        doGetRequest: function (form, url, param, fn) {
+            var params = form || param || {};
+            if (typeof form == 'string') {
+                params = $.extend(param || {}, JY.Object.serialize($("#" + form)), {menu: JY.Url.getParam("menu")});
+            }
+            $.ajax({
+                type: 'GET', url: url, data: params, dataType: 'json', success: function (data, textStatus) {
+                    if (data.res == 1) {
+                        if (typeof(fn) == 'function') {
+                            fn.call(this, data);
+                        }
+                    } else {
+                        if (JY.Object.notNull(data.resMsg))JY.Model.error(data.resMsg);
+                    }
+                }, error: function () {
+                    return;
+                }, beforeSend: function () {
+                }, complete: function () {
+                }
+            });
+        },
         req: function (form, url, param, fn) {
             var params = form || param || {};
             if (typeof form == 'string') {
