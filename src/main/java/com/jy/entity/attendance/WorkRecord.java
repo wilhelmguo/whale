@@ -26,7 +26,7 @@ public class WorkRecord extends BaseEntity {
   private String picture;
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date date;
-
+  private String desc;
   private String week;
 
   //考勤状态
@@ -40,6 +40,14 @@ public class WorkRecord extends BaseEntity {
   private String afternoon;
 
   private String night;
+
+  public String getDesc() {
+    return desc;
+  }
+
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
 
   public String getDepartment() {
     return department;

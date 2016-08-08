@@ -59,7 +59,7 @@
 
         INSERT INTO JY_WORK_RECORD (
             id, type, employee, employeeName, location, picture, date, week, morning, beforenoon, afternoon,
-            night,cid,department,status
+            night,cid,department,status,`desc`
         ) VALUES (#{id,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, #{employee,jdbcType=VARCHAR},
                                           #{employeeName,jdbcType=VARCHAR},
                                           #{location,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
@@ -67,7 +67,7 @@
                                           #{week,jdbcType=VARCHAR}, #{morning,jdbcType=VARCHAR},
                                           #{beforenoon,jdbcType=VARCHAR},
                                           #{afternoon,jdbcType=VARCHAR}, #{night,jdbcType=VARCHAR},
-                                          #{company},#{department},#{status})
+                                          #{company},#{department},#{status},#{desc})
 
 
         ]]>

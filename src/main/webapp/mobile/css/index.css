@@ -561,6 +561,14 @@ a:hover {
     border-top: 1px solid #dedede;
     position: absolute;
     bottom: 40px;
-    padding: 10px 0;
+    padding: 5px 0;
     color: #56ABE4;
+}
+
+.inputCamera {
+    margin-top: 130px;
+    margin-left: 10px;
+    height: 70px;
+    width: 70px;
+    background-image: url("../img/camera_meitu_3.jpg");
 }

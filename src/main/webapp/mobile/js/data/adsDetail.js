@@ -31,8 +31,8 @@ function getOneNew(index) {
             if (data.res == 1) {
                 var l = data.obj;
                 $("#title").text(l.title);
-                var bref = "发布人:" + l.publisher + "发布日期:" + l.addtime;
-                $("#publishinfo").val(l.bref);
+                var bref = "发布人:  " + l.publisher + "  发布日期:  " + formatDate(l.addtime);
+                $("#publishinfo").text(bref);
                 $("#content").html(l.content);
 
             }
@@ -57,8 +57,8 @@ function getOneAd(index) {
             if (data.res == 1) {
                 var l = data.obj;
                 $("#title").text(l.title);
-                var bref = "发布人:" + l.publisher + "发布日期:" + l.addtime;
-                $("#publishinfo").val(l.bref);
+                var bref = "发布人:  " + l.publisher + "  发布日期:  " + formatDate(l.addtime);
+                $("#publishinfo").text(bref);
                 $("#content").html(l.content);
 
             }

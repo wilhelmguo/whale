@@ -17,7 +17,6 @@ function getUser() {
                 var shortName=fullname.substring(fullname.length-1,fullname.length);
                 $("#fullname").text(fullname);
                 $("#shortname").text(shortName);
-                // alert(data.obj.name);
             }
         },
         error: function () {
