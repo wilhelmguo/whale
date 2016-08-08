@@ -79,6 +79,12 @@ a:hover {
     padding: 5px 10px;
 }
 
+.top-wrap-timeline {
+    width: 100%;
+    height: 40px;
+    /*padding: 5px 10px;*/
+}
+
 .item-wrap {
     margin-top: 20px;
 }
@@ -148,6 +154,13 @@ a:hover {
 .back, .notice-back, .wf-back, .loc-back, .initiate-back {
     width: 27px;
     display: inline-block;
+}
+
+.notice-back-timeline {
+    width: 31px;
+    display: inline-block;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
 .top-lable {

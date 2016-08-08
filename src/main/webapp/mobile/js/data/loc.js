@@ -29,3 +29,7 @@ function getSignTime() {
         }
     });
 }
+
+function goToTimeLine() {
+    window.location.href = 'timeline.html?type=1';
+}
