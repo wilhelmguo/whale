@@ -18,12 +18,14 @@
     </div>
 </div>
 <div class="detailed-item-wrap">
-    <div class="wf-item-wrap">
-        <span class="btn-lable">请假类型:</span>
+    <form id="auForm" method="POST" onsubmit="return false;">
+        <div class="wf-item-wrap">
+            <span class="btn-lable">请假类型:</span>
 
-        <span class="btn-right">
+            <span class="btn-right">
 <div style="border:solid 0px #ffcc00; width:95px; height:20px;overflow:hidden;">
-    <select name="select" style="font-size:1em;background-color: #ffffff;width:105px; height:25px; margin-left:-1px; margin-top:-1px;" name="select">
+    <select name="type"
+            style="font-size:1em;background-color: #ffffff;width:105px; height:25px; margin-left:-1px; margin-top:-1px;">
        <option value="0">请选择(必填)</option>
         <option value="nj">年假</option>
         <option value="gsj">工伤假</option>
@@ -34,44 +36,45 @@
         <option value="sj">丧假</option>
     </select>
 </div>
-            <!--<select class="select-right"  id="signtype">-->
-            <!--<option value="1">请选择(必填)</option>-->
-            <!--<option value="1">上班签到</option>-->
-            <!--<option value="4">下班签退</option>-->
-            <!--</select>-->
+                <!--<select class="select-right"  id="signtype">-->
+                <!--<option value="1">请选择(必填)</option>-->
+                <!--<option value="1">上班签到</option>-->
+                <!--<option value="4">下班签退</option>-->
+                <!--</select>-->
             <i class="arrow-right"></i></span>
-    </div>
+        </div>
 
-    <div class="wf-item-wrap">
-        <span class="btn-lable">开始时间:</span>
-        <input type="text" class="date" id="picktime1-1" readonly>
-        <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
-    </div>
+        <div class="wf-item-wrap">
+            <span class="btn-lable">开始时间:</span>
+            <input name="beginTime" type="text" class="date" id="picktime1-1" readonly>
+            <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
+        </div>
 
-    <div class="wf-item-wrap time-div">
-        <span class="btn-lable">结束时间:</span>
-        <input type="text" class="date" id="picktime1-2" readonly>
-        <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
-    </div>
+        <div class="wf-item-wrap time-div">
+            <span class="btn-lable">结束时间:</span>
+            <input name="endTime" type="text" class="date" id="picktime1-2" readonly>
+            <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
+        </div>
 
-    <div class="wf-item-wrap">
-        <span class="btn-lable">请假天数:</span>
-        <input class="btn-input" type="text" placeholder="请输入请假天数(必填)"/>
-    </div>
+        <div class="wf-item-wrap">
+            <span class="btn-lable">请假天数:</span>
+            <input name="leaveDay" class="btn-input" type="text" placeholder="请输入请假天数(必填)"/>
+        </div>
 
-    <div class="wf-item-wrap">
-        <span class="btn-lable"><label>请假事由:</label></span>
-        <textarea class="btn-textarea" type="text" placeholder="请输入请假事由(必填)"></textarea>
-    </div>
-    <!--<div class="wf-item-wrap">-->
-    <!--<span class="btn-lable">图片:</span>-->
-    <!--<input class="btn-input" type="file"/>-->
-    <!--</div>-->
-    <div class="wf-item-wrap">
-        <p class="btn-lable">审批人:</p>
-        <img class="plus-peo" src="img/item_5.png"/>
-    </div>
-    <div onclick="signClick()" class="tip-sub">提交</div>
+        <div class="wf-item-wrap">
+            <span class="btn-lable"><label>请假事由:</label></span>
+            <textarea name="description" class="btn-textarea" type="text" placeholder="请输入请假事由(必填)"></textarea>
+        </div>
+        <!--<div class="wf-item-wrap">-->
+        <!--<span class="btn-lable">图片:</span>-->
+        <!--<input class="btn-input" type="file"/>-->
+        <!--</div>-->
+        <div class="wf-item-wrap">
+            <p class="btn-lable">审批人:</p>
+            <img name="approver" class="plus-peo" src="img/item_5.png"/>
+        </div>
+        <div onclick="submitClick()" class="tip-sub">提交</div>
+    </form>
 </div>
 <!-- 2 -->
 <!-- 3 -->
@@ -100,4 +103,6 @@
 
     });
 </script>
+<script src='js/global.js'></script>
+<script src='js/data/leave.js'></script>
 </html>

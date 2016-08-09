@@ -31,6 +31,40 @@ function formatDateWithPatten(date, patten) {
     return d.Format(patten);
 }
 
+function formSerialize(form) {
+    var o = {};
+    $.each(form.serializeArray(), function (index) {
+        if (o[this['name']]) {
+            o[this['name']] = o[this['name']] + "," + this['value'];
+        } else {
+            o[this['name']] = this['value'];
+        }
+    });
+    return o;
+}
+
+function doPostRequest(form, url, param, fn) {
+    var params = form || param || {};
+    if (typeof form == 'string') {
+        params = $.extend(param || {}, formSerialize($("#" + form)));
+    }
+    $.ajax({
+        type: 'POST', url: url, data: params, dataType: 'json', success: function (data, textStatus) {
+            if (data.res == 1) {
+                if (typeof(fn) == 'function') {
+                    fn.call(this, data);
+                }
+            } else {
+                if (JY.Object.notNull(data.resMsg))JY.Model.error(data.resMsg);
+            }
+        }, error: function () {
+            return;
+        }, beforeSend: function () {
+        }, complete: function () {
+        }
+    });
+}
+
 /*
  * 对Date的扩展，将 Date 转化为指定格式的String
  *月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
@@ -57,7 +91,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
 };
 
 function isEmpty(obj) {
-   return !isNotEmpty(obj);
+    return !isNotEmpty(obj);
 }
 
 function isNotEmpty(obj) {
