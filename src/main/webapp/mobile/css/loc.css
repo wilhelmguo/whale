@@ -221,3 +221,22 @@ html, body {
 	width: 45px;
 	margin-top:15px;
 }
+.loc-img-list{
+	margin-left: 10px;
+}
+.loc-uploadImg{
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    background-image: url(../img/2.jpeg);
+    float: left;
+    margin-top: 128px;
+    margin-right: 21px;
+}
+.close-img{
+    width: 20px;
+    position: absolute;
+    right: -9px;
+    top: -9px;	
+}

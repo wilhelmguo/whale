@@ -31,7 +31,19 @@
     </div>
     <div class="loc-con">
         <form>
+            
             <textarea id="loc-desc" type="text" placeholder="签到备注"></textarea>
+            <div class="loc-img-list">
+                <div class="loc-uploadImg">
+                    <img src="img/close.png" class="close-img" />
+                </div>
+                <div class="loc-uploadImg">
+                    <img src="img/close.png" class="close-img" />
+                </div>
+                <div class="loc-uploadImg">
+                    <img src="img/close.png" class="close-img" />
+                </div>
+            </div>
             <input class="inputCamera" accept="image/*" type="file">
             <div onclick="signClick()" class="tip-sub">提交</div>
         </form>
@@ -45,4 +57,11 @@
 <script src="js/fastclick.js"></script>
 <script src="js/data/sign.js"></script>
 <script src="js/global.js"></script>
+<script>
+    
+$(".close-img").click(function(){
+    $(this).parent().remove();
+});
+
+</script>
 </html>

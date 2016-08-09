@@ -100,9 +100,17 @@
             },
         });
 
-
+        $(".plus-peo").click(function(){
+            var name = '哈哈';
+            $(".list-manage").append(
+                "<div class='peo-manage'>"+
+                    "<p>"+name+"</p>"+
+                    "<p class='name-manage'>"+name+"</p>"+
+                "</div>");
+        });
+        $(".list-manage").delegate('div',"click",function(){
+            $(this).remove();
+        });
     });
 </script>
-<script src='js/global.js'></script>
-<script src='js/data/leave.js'></script>
 </html>
