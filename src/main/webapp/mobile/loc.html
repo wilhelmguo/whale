@@ -11,8 +11,9 @@
     <script src="js/data/loc.js"></script>
     <script type="text/javascript">
         function signClick() {
+            var place = $(".f-name").text();
             var addr = $(".f-desc").text();
-            window.location.href = "sign.html?location=" + addr;
+            window.location.href = "sign.html?location=" + place + "<" + addr + ">";
         }
     </script>
 <body>
@@ -20,7 +21,7 @@
 <div class="control-wrap">
     <div class="top-wrap">
         <img onclick="backIndex()" class="loc-back" src="img/back.png"/>
-        <p class="history" ><a style="color: #ffffff" href="timeline.html?type=1">历史</a></p>
+        <p class="history"><a style="color: #ffffff" href="timeline.html?type=1">历史</a></p>
     </div>
 </div>
 <div class="user-info">

@@ -34,7 +34,7 @@
     AMap.service(["AMap.PlaceSearch"], function() {
         var placeSearch = new AMap.PlaceSearch({ //构造地点查询类
             pageSize: 5,
-            type: '餐饮服务',
+            type: '',
             pageIndex: 1,
             city: "010", //城市
             map: map,

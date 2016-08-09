@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>内勤打卡</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <!-- basic styles -->
+    <link href="../static/apidoc/JYUI/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/font-awesome.min.css"/>
+
+    <!-- page specific plugin styles -->
+    <!-- fonts -->
+    <!-- ace styles -->
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace-skins.min.css"/>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace-ie.min.css"/>
+    <![endif]-->
+    <!-- inline styles related to this page -->
+    <!-- ace settings handler -->
+    <script src="../static/apidoc/JYUI/assets/js/ace-extra.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../static/apidoc/JYUI/assets/js/html5shiv.js"></script>
+    <script src="../static/apidoc/JYUI/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="css/index.css"/>
+</head>
+
+<body>
+<div class="control-wrap">
+    <div class="top-wrap-timeline">
+        <img onclick="timelineBackUp()" class="notice-back-timeline" src="img/back.png"/>
+        <p class="history" ><a style="color: #ffffff" href="timeline.html?type=0">历史</a></p>
+    </div>
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+    <div class="main-container-inner">
+        <div class="main-content">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="timeline-1">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                                    <div class="timeline-container">
+                                        <div class="timeline-label">
+											<span class="label label-primary arrowed-in-right label-lg">
+												<b id="today"></b>
+											</span>
+                                        </div>
+                                        <div id="timeline-morning" class="timeline-items">
+                                            <div class="timeline-item clearfix">
+                                                <div class="timeline-info">
+                                                    <img alt="Susan't Avatar"
+                                                         src="../static/images/system/user/hpic0.jpg"/>
+                                                    <span id="morning-time" class="label label-info label-sm">未打卡</span>
+                                                </div>
+                                                <div class="widget-box transparent">
+                                                    <div class="widget-header widget-header-small">
+                                                        <h5 class="smaller">
+                                                            <a href="#" class="blue">上班打卡</a>
+                                                            <span class="grey"></span>
+                                                        </h5>
+                                                        <span class="widget-toolbar">
+																	<a href="#" data-action="collapse">
+																		<i class="icon-chevron-up"></i>
+																	</a>
+														</span>
+                                                    </div>
+
+                                                    <div class="widget-body">
+                                                        <div class="widget-main">
+                                                            <div class="widget-toolbox clearfix">
+                                                                <div class="pull-left">
+                                                                    美好的一天开始了,加油!
+                                                                </div>
+                                                                <div class="pull-right action-buttons">
+                                                                    <button id="click1" class="btn btn-sm btn-primary"
+                                                                            onclick="insertOrUpdate(1)">打卡
+                                                                    </button>
+                                                                    <button onclick="patch(1)" class="btn btn-sm btn-primary">补卡</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div id="timeline-night" class="timeline-items">
+                                            <div class="timeline-item clearfix">
+                                                <div class="timeline-info">
+                                                    <img alt="Susan't Avatar"
+                                                         src="../static/images/system/user/hpic0.jpg"/>
+                                                    <span id="night-time" class="label label-info label-sm">未打卡</span>
+                                                </div>
+                                                <div class="widget-box transparent">
+                                                    <div class="widget-header widget-header-small">
+                                                        <h5 class="smaller">
+                                                            <a href="#" class="blue">下班打卡</a>
+                                                            <span class="grey"></span>
+                                                        </h5>
+                                                        <span class="widget-toolbar">
+																	<a href="#" data-action="collapse">
+																		<i class="icon-chevron-up"></i>
+																	</a>
+														</span>
+                                                    </div>
+
+                                                    <div class="widget-body">
+                                                        <div class="widget-main">
+                                                            <div class="widget-toolbox clearfix">
+                                                                <div class="pull-left">
+                                                                    工作一天辛苦了,好好休息!
+                                                                </div>
+                                                                <div class="pull-right action-buttons">
+                                                                    <button id="click2" class="btn btn-sm btn-primary"
+                                                                            onclick="insertOrUpdate(4)">打卡
+                                                                    </button>
+                                                                    <button onclick="patch(4)" class="btn btn-sm btn-primary">补卡</button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div><!-- /.main-content -->
+    </div>
+</div>
+<!-- basic scripts -->
+<!--[if !IE]> -->
+<!-- <![endif]-->
+<!--[if IE]>
+<![endif]-->
+<!--[if !IE]> -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../static/apidoc/JYUI/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+</script>
+<!-- <![endif]-->
+
+<script type="text/javascript">
+    if ("ontouchend" in document) document.write("<script src='../static/apidoc/JYUI/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+<script src="../static/apidoc/JYUI/assets/js/bootstrap.min.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/typeahead-bs2.min.js"></script>
+<!-- page specific plugin scripts -->
+<!-- ace scripts -->
+<script src="../static/apidoc/JYUI/assets/js/ace-elements.min.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/ace.min.js"></script>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('[data-toggle="buttons"] .btn').on('click', function (e) {
+            var target = $(this).find('input[type=radio]');
+            var which = parseInt(target.val());
+            $('[id*="timeline-"]').addClass('hide');
+            $('#timeline-' + which).removeClass('hide');
+        });
+    });
+</script>
+<script src="js/global.js"></script>
+<script src="js/data/signInside.js"></script>
+</body>
+</html>

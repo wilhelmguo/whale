@@ -15,8 +15,20 @@ function GetQueryString(name) {
 }
 
 function formatDate(date) {
+    if (date == null || date == "") {
+        return "";
+    }
     var d = new Date(date);
+
     return d.Format("yyyy-MM-dd  hh:mm:ss");
+}
+
+function formatDateWithPatten(date, patten) {
+    if (date == null || date == "") {
+        return "";
+    }
+    var d = new Date(date);
+    return d.Format(patten);
 }
 
 /*
@@ -43,6 +55,14 @@ Date.prototype.Format = function (fmt) { //author: meizz
     }
     return fmt;
 };
+
+function isEmpty(obj) {
+   return !isNotEmpty(obj);
+}
+
+function isNotEmpty(obj) {
+    if (obj === null)return false; else if (obj === undefined)return false; else if (obj === "undefined")return false; else if (obj === "")return false; else if (obj === "[]")return false; else if (obj === "{}")return false; else return true;
+}
 
 function notEmpty(obj) {
     if (obj === null)return ""; else if (obj === undefined)return ""; else if (obj === "undefined")return ""; else if (obj === "")return ""; else if (obj === "[]")return ""; else if (obj === "{}")return ""; else return obj;

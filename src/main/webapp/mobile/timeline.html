@@ -1,115 +1,105 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-	<meta charset="utf-8" />
-	<title>时间轴</title>
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta name="viewport"
-		  content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
-	<!-- basic styles -->
-	<link href="../static/apidoc/JYUI/assets/css/bootstrap.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/font-awesome.min.css" />
+    <meta charset="utf-8"/>
+    <title>时间轴</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <!-- basic styles -->
+    <link href="../static/apidoc/JYUI/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/font-awesome.min.css"/>
 
-	<!-- page specific plugin styles -->
-	<!-- fonts -->
-	<!-- ace styles -->
-	<link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace.min.css" />
-	<link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace-rtl.min.css" />
-	<link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace-skins.min.css" />
-	<!--[if lte IE 8]>
-	<link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace-ie.min.css" />
-	<![endif]-->
-	<!-- inline styles related to this page -->
-	<!-- ace settings handler -->
-	<script src="../static/apidoc/JYUI/assets/js/ace-extra.min.js"></script>
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="../static/apidoc/JYUI/assets/js/html5shiv.js"></script>
-	<script src="../static/apidoc/JYUI/assets/js/respond.min.js"></script>
-	<![endif]-->
-	<link type="text/css" rel="stylesheet" href="css/index.css"/>
+    <!-- page specific plugin styles -->
+    <!-- fonts -->
+    <!-- ace styles -->
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace-skins.min.css"/>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace-ie.min.css"/>
+    <![endif]-->
+    <!-- inline styles related to this page -->
+    <!-- ace settings handler -->
+    <script src="../static/apidoc/JYUI/assets/js/ace-extra.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../static/apidoc/JYUI/assets/js/html5shiv.js"></script>
+    <script src="../static/apidoc/JYUI/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="css/index.css"/>
 </head>
 
 <body>
 <div class="control-wrap">
-	<div class="top-wrap-timeline">
-		<img onclick="timelineBackUp()" class="notice-back-timeline" src="img/back.png"/>
-	</div>
+    <div class="top-wrap-timeline">
+        <img onclick="timelineBackUp()" class="notice-back-timeline" src="img/back.png"/>
+    </div>
 </div>
 
 <div class="main-container" id="main-container">
-	<script type="text/javascript">
-		try{ace.settings.check('main-container' , 'fixed')}catch(e){}
-	</script>
-	<div class="main-container-inner">
-		<div class="main-content">
-			<div class="page-content">
-				<div class="row">
-					<div class="col-xs-12">
-						<!-- PAGE CONTENT BEGINS -->
-						<div class="align-right">
-							<span class="green middle bolder">选择日期: &nbsp;</span>
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+    <div class="main-container-inner">
+        <div class="main-content">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="timeline-1">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                                    <div class="timeline-container">
+                                        <div class="timeline-label">
+											<span class="label label-primary arrowed-in-right label-lg">
+												<b>当月考勤记录</b>
+											</span>
+                                        </div>
+                                        <div id="timeline-items" class="timeline-items">
+                                            <!--<div class="timeline-item clearfix">-->
+                                                <!--<div class="timeline-info">-->
+                                                    <!--<img alt="Susan't Avatar"-->
+                                                         <!--src="../static/images/system/user/hpic0.jpg"/>-->
+                                                    <!--<span class="label label-info label-sm">07.08</span>-->
+                                                <!--</div>-->
+                                                <!--<div class="widget-box transparent">-->
+                                                    <!--<div class="widget-header widget-header-small">-->
+                                                        <!--<h5 class="smaller">-->
+                                                            <!--<span class="grey">2016-07-08</span>-->
+                                                        <!--</h5>-->
+                                                        <!--<span class="widget-toolbar">-->
+																	<!--<a href="#" data-action="collapse">-->
+																		<!--<i class="icon-chevron-up"></i>-->
+																	<!--</a>-->
+														<!--</span>-->
+                                                    <!--</div>-->
 
-							<div class="btn-toolbar inline middle no-margin">
-								<div data-toggle="buttons" class="btn-group no-margin">
-									<label class="btn btn-sm btn-yellow active">
-										<span class="bigger-110">1</span>
+                                                    <!--<div class="widget-body">-->
+                                                        <!--<div class="widget-main">-->
+                                                            <!--上班时间:09:00-->
+                                                            <!--下班时间:18:00-->
+                                                        <!--</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
 
-										<input type="radio" value="1" />
-									</label>
-								</div>
-							</div>
-						</div>
-						<div id="timeline-1">
-							<div class="row">
-								<div class="col-xs-12 col-sm-10 col-sm-offset-1">
-									<div class="timeline-container">
-										<div class="timeline-label">
-													<span class="label label-primary arrowed-in-right label-lg">
-														<b>打卡时间轴</b>
-													</span>
-										</div>
-										<div class="timeline-items">
-											<div class="timeline-item clearfix">
-												<div class="timeline-info">
-													<img alt="Susan't Avatar" src="../static/apidoc/JYUI/assets/avatars/avatar1.png" />
-													<span class="label label-info label-sm">07.08</span>
-												</div>
-												<div class="widget-box transparent">
-													<div class="widget-header widget-header-small">
-														<h5 class="smaller">
-															<span class="grey">2016-07-08</span>
-														</h5>
-														<span class="widget-toolbar">
-																	<a href="#" data-action="collapse">
-																		<i class="icon-chevron-up"></i>
-																	</a>
-																</span>
-													</div>
 
-													<div class="widget-body">
-														<div class="widget-main">
-															Anim pariatur cliche reprehenderit, enim eiusmod
-															accusamus terry richardson ad squid &hellip;
-														</div>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- PAGE CONTENT ENDS -->
-					</div><!-- /.col -->
-				</div><!-- /.row -->
-			</div><!-- /.page-content -->
-		</div><!-- /.main-content -->
-	</div><!-- /.main-container-inner -->
-</div><!-- /.main-container -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div><!-- /.main-content -->
+    </div>
+</div>
 <!-- basic scripts -->
 <!--[if !IE]> -->
 <!-- <![endif]-->
@@ -117,12 +107,12 @@
 <![endif]-->
 <!--[if !IE]> -->
 <script type="text/javascript">
-	window.jQuery || document.write("<script src='../static/apidoc/JYUI/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+    window.jQuery || document.write("<script src='../static/apidoc/JYUI/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
 </script>
 <!-- <![endif]-->
 
 <script type="text/javascript">
-	if("ontouchend" in document) document.write("<script src='../static/apidoc/JYUI/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+    if ("ontouchend" in document) document.write("<script src='../static/apidoc/JYUI/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
 </script>
 <script src="../static/apidoc/JYUI/assets/js/bootstrap.min.js"></script>
 <script src="../static/apidoc/JYUI/assets/js/typeahead-bs2.min.js"></script>
@@ -132,14 +122,14 @@
 <script src="../static/apidoc/JYUI/assets/js/ace.min.js"></script>
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-	jQuery(function($) {
-		$('[data-toggle="buttons"] .btn').on('click', function(e){
-			var target = $(this).find('input[type=radio]');
-			var which = parseInt(target.val());
-			$('[id*="timeline-"]').addClass('hide');
-			$('#timeline-'+which).removeClass('hide');
-		});
-	});
+    jQuery(function ($) {
+        $('[data-toggle="buttons"] .btn').on('click', function (e) {
+            var target = $(this).find('input[type=radio]');
+            var which = parseInt(target.val());
+            $('[id*="timeline-"]').addClass('hide');
+            $('#timeline-' + which).removeClass('hide');
+        });
+    });
 </script>
 <script src="js/global.js"></script>
 <script src="js/data/timeline.js"></script>

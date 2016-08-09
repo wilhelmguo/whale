@@ -35,7 +35,7 @@ $("#notice").click(function(){
 });
 
 $("#office-sign").click(function(){
-  window.location.href='officeSign.html';
+  window.location.href='signInside.html';
 });
 
 $("#loc-sign").click(function(){
@@ -155,11 +155,15 @@ $(".initiate-back").click(function(){
 });
 
 $("#initiate").click(function(){
-   window.location.href='initiate.html';
+   window.location.href='mystart.html';
 });
 
 $("#wait").click(function(){
   window.location.href='wait.html';
+})
+
+$("#finish").click(function(){
+  window.location.href='finish.html';
 })
 
 $("#reviewFile").click(function(){

@@ -70,8 +70,9 @@ function upDataInfo(arr) {
     $(".f-name").text(infoArr[0].name);
     $(".f-desc").text(infoArr[0].name);
     for (var i = 0; i < infoArr.length; i++) {
+        // + (i + 1) + "."
         var ch = "<div class='tip-wrap hide'>" +
-            "<p class='loc-name'>" + (i + 1) + "." + infoArr[i].name + "</p>" +
+            "<p class='loc-name'>" + infoArr[i].name + "</p>" +
             "<p class='loc-address'>" + infoArr[i].address + "</p>" +
             "<img class='is hide' src='img/is_this.png' />" +
             "</div>";

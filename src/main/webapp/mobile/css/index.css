@@ -89,6 +89,10 @@ a:hover {
     margin-top: 20px;
 }
 
+.item-wrap-workflow {
+    margin-top: 0px;
+}
+
 .item {
     float: left;
     width: 33.3%;
@@ -170,7 +174,7 @@ a:hover {
 .control-wrap {
     background-color: #56ABE4;
     overflow: hidden;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 
 .control-div {
@@ -420,13 +424,22 @@ a:hover {
     margin-top: 7px;
 }
 
+.initiate-item-workflow {
+    position: relative;
+    width: 100%;
+    border-top: 1px solid #dedede;
+    /*border-bottom: 1px solid #dedede;*/
+    background-color: #fff;
+    padding: 18px 0;
+}
+
 .initiate-item {
     position: relative;
     width: 100%;
     border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
     background-color: #fff;
-    padding: 7px 0;
+    padding: 10px 0;
 }
 
 .init-title {

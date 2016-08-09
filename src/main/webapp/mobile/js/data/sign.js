@@ -23,11 +23,11 @@ function signClick() {
     var location=$("#signlocation").text();
     var bz=$("#loc-desc").val();
     var pic="";
-    var signtype=$("#signtype").val();
+    var type=$("#signtype").val();
     $.ajax({
         type: 'GET',
         url: "/whale/moblie/api/v1/signs",
-        data: {location: location, bz: bz, pic: pic,type:signtype},
+        data: {location: location, bz: bz, pic: pic,type:type,signtype:"1"},
         dataType: 'json',
         success: function (data, textStatus) {
             if (data.res == 1) {

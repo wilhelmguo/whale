@@ -28,7 +28,7 @@ public class MSignController extends BaseController<WorkRecord> {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public AjaxRes sign(String location, String bz, String pic, String type) {
+    public AjaxRes sign(String location, String bz, String pic, String type,String signtype) {
         AjaxRes ar = getAjaxRes();
         try {
             Date now = new Date();
@@ -41,11 +41,18 @@ public class MSignController extends BaseController<WorkRecord> {
             if (list == null || list.size() == 0) {
                 o.setId(get32UUID());
                 o.setEmployeeName(curentuser.getName());
-                o.setType("1");
+                o.setType(signtype);
                 o.setWeek(DateUtils.getWeekOfDate(now));
-                o.setLocation(location);
-                o.setDesc(bz);
-                o.setPicture(pic);
+                if (org.apache.commons.lang3.StringUtils.isNotBlank(location)) {
+                    o.setLocation(location);
+                }
+                if (org.apache.commons.lang3.StringUtils.isNotBlank(bz)) {
+                    o.setDesc(bz);
+                }
+                if (org.apache.commons.lang3.StringUtils.isNotBlank(pic)) {
+                    o.setPicture(pic);
+                }
+
                 if ("1".equals(type)) {
                     o.setMorning(DateUtils.formatDate(now, "HH:mm"));
                 }
@@ -73,13 +80,13 @@ public class MSignController extends BaseController<WorkRecord> {
                 if ("4".equals(type)) {
                     wr.setNight(DateUtils.formatDate(now, "HH:mm"));
                 }
-                if (org.apache.commons.lang3.StringUtils.isNotBlank(location)){
+                if (org.apache.commons.lang3.StringUtils.isNotBlank(location)) {
                     wr.setLocation(location);
                 }
-                if (org.apache.commons.lang3.StringUtils.isNotBlank(bz)){
+                if (org.apache.commons.lang3.StringUtils.isNotBlank(bz)) {
                     wr.setDesc(bz);
                 }
-                if (org.apache.commons.lang3.StringUtils.isNotBlank(pic)){
+                if (org.apache.commons.lang3.StringUtils.isNotBlank(pic)) {
                     wr.setPicture(pic);
                 }
                 service.update(wr);
@@ -107,7 +114,31 @@ public class MSignController extends BaseController<WorkRecord> {
             List<WorkRecord> list = service.find(o);
             if (list != null && list.size() != 0) {
                 ar.setSucceed(list.get(0));
-            }else {
+            } else {
+                ar.setFailMsg("获取失败");
+            }
+        } catch (Exception e) {
+            logger.error(e.toString(), e);
+            ar.setFailMsg("获取失败");
+        }
+        return ar;
+    }
+
+    @RequestMapping(value = "list", method = RequestMethod.GET)
+    @ResponseBody
+    public AjaxRes list() {
+        AjaxRes ar = getAjaxRes();
+        try {
+            Account curentuser = AccountShiroUtil.getCurrentUser();
+            WorkRecord o = new WorkRecord();
+            o.setCompany(getCompany());
+            o.setStarttime(DateUtils.getMonthFirstDay());
+            o.setEndtime(DateUtils.getMonthLastDay());
+            o.setEmployee(curentuser.getAccountId());
+            List<WorkRecord> list = service.findByDate(o);
+            if (list != null && list.size() != 0) {
+                ar.setSucceed(list);
+            } else {
                 ar.setFailMsg("获取失败");
             }
         } catch (Exception e) {
