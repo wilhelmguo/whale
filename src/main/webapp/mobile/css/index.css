@@ -344,7 +344,14 @@ a:hover {
     margin: 10px;
     color: #444;
     font-size: 1em;
+
 }
+
+.btn-lable-text{
+    vertical-align: middle;
+    padding-top:4px;
+}
+
 
 .btn-right {
     position: relative;
@@ -358,6 +365,14 @@ a:hover {
     border: 0;
     font-size: 1em;
     width: 60%;
+}
+
+.btn-textarea {
+    vertical-align: middle;
+    border: 0;
+    font-size: 1em;
+    width: 60%;
+    height: 100px;
 }
 
 .arrow-right {
@@ -594,7 +609,7 @@ a:hover {
 .inputCamera {
     margin-top: 130px;
     margin-left: 10px;
-    height: 70px;
     width: 70px;
-    background-image: url("../img/camera_meitu_3.jpg");
+    height: 70px;
+    background-image: url("../img/camera.png");
 }

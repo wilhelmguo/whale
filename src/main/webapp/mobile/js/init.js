@@ -103,42 +103,46 @@ $(".tip-img-wrap, .tip-text-wrap").click(function(){
 });
 
 $(".forLeave").click(function(){
-  $(".detailed-item-wrap").addClass("hide");
-  $(".detailed-item-wrap").eq(0).removeClass("hide");
-  thatKey = 0;
+  window.location.href="leave.html";
+  // $(".detailed-item-wrap").addClass("hide");
+  // $(".detailed-item-wrap").eq(0).removeClass("hide");
+  // thatKey = 0;
 });
 
 $(".wiped").click(function(){
-  $(".detailed-item-wrap").addClass("hide");
-  $(".detailed-item-wrap").eq(1).removeClass("hide");
-  thatKey = 1;
+  window.location.href="claim.html";
+  // $(".detailed-item-wrap").addClass("hide");
+  // $(".detailed-item-wrap").eq(1).removeClass("hide");
+  // thatKey = 1;
 });
 
 $(".busTra").click(function(){
-  $(".detailed-item-wrap").addClass("hide");
-  $(".detailed-item-wrap").eq(2).removeClass("hide");
-  thatKey = 2;
+  window.location.href="overtime.html";
+  // $(".detailed-item-wrap").addClass("hide");
+  // $(".detailed-item-wrap").eq(2).removeClass("hide");
+  // thatKey = 2;
 });
 
 $(".fillCard").click(function(){
-  $(".detailed-item-wrap").addClass("hide");
-  $(".detailed-item-wrap").eq(3).removeClass("hide");
-  thatKey = 3;
+  window.location.href="patch.html";
+  // $(".detailed-item-wrap").addClass("hide");
+  // $(".detailed-item-wrap").eq(3).removeClass("hide");
+  // thatKey = 3;
 });
 
 
 //work-flow
 
 $(".wf-back").click(function(){
-  if (!($(".detailed-item-wrap").eq(thatKey).hasClass("hide"))) {
-
-    $(".detailed-item-wrap").addClass("hide");
-
-  }else{
+  // if (!($(".detailed-item-wrap").eq(thatKey).hasClass("hide"))) {
+  //
+  //   $(".detailed-item-wrap").addClass("hide");
+  //
+  // }else{
 
     window.location.href='index.html';
 
-  };
+  // };
 });
 
 

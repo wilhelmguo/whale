@@ -21,6 +21,16 @@
 	text-align: center;
 	overflow: hidden;
 }
+
+.mt_leave_type{
+	float: left;
+	width: 33.33%;
+	height: 50%;
+	vertical-align: top;
+	text-align: center;
+	overflow: hidden;
+}
+
 .mt_body ul li{
 	height: 40px;
 	line-height: 40px;
