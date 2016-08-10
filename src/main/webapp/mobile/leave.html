@@ -70,7 +70,7 @@
     <!--<input class="btn-input" type="file"/>-->
     <!--</div>-->
     <div class="wf-item-wrap">
-        <p class="btn-lable">审批人:</p>
+        <p class="btn-lable">审批人:<span style="font-size: 0.8em">(点击头像可删除)</span></p>
         <div class="list-manage">
 
         </div>
@@ -81,54 +81,43 @@
     </form>
 </div>
 
-</div>
     <div class="manager-choose hide">
         <div class="top-wrap">
             <img class="choose-back" src="img/back.png"/>
         </div>
         <div class="div-list-man">
-            <div class="lable-manager">客服部<img class="arrow-lb-man" src="img/arrow.png" /></div>
-            <div class="lable-manager">运营部<img class="arrow-lb-man" src="img/arrow.png" /></div>
-            <div class="lable-manager">技术部<img class="arrow-lb-man" src="img/arrow.png" /></div>
-            <div class="lable-manager">人力资源部<img class="arrow-lb-man" src="img/arrow.png" /></div>
-            <div class="lable-manager">销售部<img class="arrow-lb-man" src="img/arrow.png" /></div>
-            <div class="lable-manager"><div class="f-manager">Wi</div><span>郭少巍</span></div>
+            <div class="lable-manager"  data-value="111">客服部<img class="arrow-lb-man" src="img/arrow.png" /></div>
+            <div class="lable-manager" data-value="222">运营部<img class="arrow-lb-man" src="img/arrow.png" /></div>
+            <!--<div class="lable-manager">技术部<img class="arrow-lb-man" src="img/arrow.png" /></div>-->
+            <!--<div class="lable-manager">人力资源部<img class="arrow-lb-man" src="img/arrow.png" /></div>-->
+            <!--<div class="lable-manager">销售部<img class="arrow-lb-man" src="img/arrow.png" /></div>-->
+            <!--<div class="lable-manager"><div class="f-manager">Wi</div><span>郭少巍</span></div>-->
         </div>
-        <div class="ch-div-manager hide">
-            <div class="ch-manager">阿萨德</div>
+        <div id="111" class="ch-div-manager hide">
+            <div class="ch-manager">客服部</div>
             <div class="ch-manager">水电费</div>
-            <div class="ch-manager">阿萨德</div>
-            <div class="ch-manager">啥的</div>
-            <div class="ch-manager">是否</div>
+
         </div>
-        <div class="ch-div-manager hide">
-            <div class="ch-manager">阿萨德</div>
+        <div id="222" class="ch-div-manager hide">
+            <div class="ch-manager">运营部</div>
             <div class="ch-manager">水电费</div>
-            <div class="ch-manager">阿萨德</div>
-            <div class="ch-manager">啥的</div>
-            <div class="ch-manager">是否</div>
+
         </div>
-        <div class="ch-div-manager hide">
-            <div class="ch-manager">阿萨德</div>
-            <div class="ch-manager">水电费</div>
-            <div class="ch-manager">阿萨德</div>
-            <div class="ch-manager">啥的</div>
-            <div class="ch-manager">是否</div>
-        </div>
-        <div class="ch-div-manager hide">
-            <div class="ch-manager">阿萨德</div>
-            <div class="ch-manager">水电费</div>
-            <div class="ch-manager">阿萨德</div>
-            <div class="ch-manager">啥的</div>
-            <div class="ch-manager">是否</div>
-        </div>
-        <div class="ch-div-manager hide">
-            <div class="ch-manager">阿萨德</div>
-            <div class="ch-manager">水电费</div>
-            <div class="ch-manager">阿萨德</div>
-            <div class="ch-manager">啥的</div>
-            <div class="ch-manager">是否</div>
-        </div>
+        <!--<div class="ch-div-manager hide">-->
+            <!--<div class="ch-manager">技术部</div>-->
+            <!--<div class="ch-manager">水电费</div>-->
+
+        <!--</div>-->
+        <!--<div class="ch-div-manager hide">-->
+            <!--<div class="ch-manager">人力资源部</div>-->
+            <!--<div class="ch-manager">水电费</div>-->
+
+        <!--</div>-->
+        <!--<div class="ch-div-manager hide">-->
+            <!--<div class="ch-manager">销售部</div>-->
+            <!--<div class="ch-manager">水电费</div>-->
+
+        <!--</div>-->
     </div>
 </body>
 <script src="js/zepto.min.js"></script>
@@ -160,22 +149,24 @@
         });
 
         $(".lable-manager").click(function(){
+            var id=$(this).attr('data-value');
             var index = $(this).index();
             var choose = $(".ch-div-manager");
-            if (index != 5) {
+//            if (index != 5) {
                 $(".div-list-man").addClass("hide");
                 choose.addClass("hide");
-                choose.eq(index).removeClass("hide");
-            }else{
-                $(".manager-choose").addClass("hide");
-                $(".detailed-item-wrap").removeClass("hide");
-                var name = $(".lable-manager").eq(index).find('span').text();
-                $(".list-manage").append(
-                    "<div class='peo-manage'>"+
-                        "<p>"+name[0]+"</p>"+
-                        "<p class='name-manage'>"+name+"</p>"+
-                    "</div>");
-            };
+            $("#"+id).removeClass("hide");
+//                choose.eq(index).removeClass("hide");
+//            }else{
+//                $(".manager-choose").addClass("hide");
+//                $(".detailed-item-wrap").removeClass("hide");
+//                var name = $(".lable-manager").eq(index).find('span').text();
+//                $(".list-manage").append(
+//                    "<div class='peo-manage'>"+
+//                        "<p>"+name[0]+"</p>"+
+//                        "<p class='name-manage'>"+name+"</p>"+
+//                    "</div>");
+//            };
             
             
         });
