@@ -18,15 +18,15 @@
     </div>
 </div>
 <div class="detailed-item-wrap">
-    <form id="auForm" method="POST" onsubmit="return false;">
+    <form id="auForm" method="POST" action="" onsubmit="return false;">
         <div class="wf-item-wrap">
             <span class="btn-lable">请假类型:</span>
 
             <span class="btn-right">
 <div style="border:solid 0px #ffcc00; width:95px; height:20px;overflow:hidden;">
-    <select name="type"
+    <select name="type" required
             style="font-size:1em;background-color: #ffffff;width:105px; height:25px; margin-left:-1px; margin-top:-1px;">
-       <option value="0">请选择(必填)</option>
+       <option value="">请选择(必填)</option>
         <option value="nj">年假</option>
         <option value="gsj">工伤假</option>
         <option value="bj">病假</option>
@@ -46,19 +46,19 @@
 
         <div class="wf-item-wrap">
             <span class="btn-lable">开始时间:</span>
-            <input name="beginTime" type="text" class="date" id="picktime1-1" readonly>
+            <input required name="beginTime" type="text" class="date" id="picktime1-1" >
             <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
         </div>
 
         <div class="wf-item-wrap time-div">
             <span class="btn-lable">结束时间:</span>
-            <input name="endTime" type="text" class="date" id="picktime1-2" readonly>
+            <input required name="endTime" type="text" class="date" id="picktime1-2" >
             <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
         </div>
 
         <div class="wf-item-wrap">
             <span class="btn-lable">请假天数:</span>
-            <input name="leaveDay" class="btn-input" type="text" placeholder="请输入请假天数(必填)"/>
+            <input name="leaveDay" class="btn-input" type="text" placeholder="请输入请假天数(必填)" required/>
         </div>
 
         <div class="wf-item-wrap">
@@ -79,7 +79,8 @@
         </div>
         <img class="plus-peo" src="img/item_5.png"/>
     </div>
-    <div onclick="signClick()" class="tip-sub">提交</div>
+    <!--<div onclick="submitClick()" class="tip-sub">提交</div>-->
+        <input type="submit" class="tip-sub-button" value="提交">
     </form>
 </div>
 <!-- 2 -->

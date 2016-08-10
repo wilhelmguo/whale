@@ -128,7 +128,9 @@ html, body {
 }
 .user-lable{
     margin-left: 30px;
-	margin-top: 6px;
+	margin-top: 12px;
+	padding-top: 5px;
+	/*padding-bottom: 8px;*/
 }
 .user-de{
 	color: #999;
