@@ -228,8 +228,8 @@ html, body {
 }
 .loc-uploadImg{
     position: relative;
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     background-size: cover;
     background-image: url(../img/2.jpeg);
     float: left;

@@ -16,7 +16,8 @@ function getTolist() {
                 var l = data.obj;
                 var html = "";
                 for (var i = 0; i < l.length; i++) {
-                    html += '<div class="item-wrap-workflow" data="1"> <div class="initiate-item-workflow"> <p class="init-title">' + l[i].presentationSubject + '</p> <p class="init-de">待审批</p> <p class="init-time"></p> </div> </div>';
+                    var clickFunc = "todoTask(&apos;" + l[i].id + "&apos;,&apos;" + l[i].processInstanceId + "&apos;,&apos;" + l[i].processName + "&apos;,&apos;" + l[i].presentationSubject + "&apos;)";
+                    html += '<div class="item-wrap-workflow" data="1" onclick="' + clickFunc + '"> <div class="initiate-item-workflow"> <p class="init-title">' + l[i].presentationSubject + '</p> <p class="init-de">待审批</p> <p class="init-time"></p> </div> </div>';
                 }
                 $("#toList").html(html);
             }
@@ -29,4 +30,19 @@ function getTolist() {
         complete: function () {
         }
     });
+}
+
+function todoTask(id, pId, name, title) {
+    window.location.href = "approval.html?id=" + id + "&pId=" + pId + "&name=" + name + "&title=" + title;
+    // if (name == '请假流程') {
+    //     leave(id, pId);
+    // } else if (name == '报销流程') {
+    //     claim(id, pId);
+    // } else if (name == '加班流程') {
+    //     overtime(id, pId);
+    // } else if (name == '补卡流程') {
+    //     patch(id, pId);
+    // } else {
+    //     usrdef(id, pId)
+    // }
 }

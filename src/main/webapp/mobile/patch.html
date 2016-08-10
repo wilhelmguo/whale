@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="css/ztree.css"/>
     <!-- basic styles -->
     <link href="../static/apidoc/JYUI/assets/css/bootstrap.min.css" rel="stylesheet"/>
-
+    <link rel="stylesheet" type="text/css" href="css/timedropper.min.css">
 </head>
 
 <body class="wf">
-<div class="control-wrap">
+<div class="control-wrap-new">
     <div class="top-wrap">
         <img class="initiate-back" src="img/back.png"/>
     </div>
@@ -30,12 +30,12 @@
 
         <div class="wf-item-wrap">
             <span class="btn-lable">上班时间:</span>
-            <input name="morning" class="btn-input" type="text" placeholder="格式hh:mm例如:09:00"/>
+            <input readonly id="picktime" name="morning" class="btn-input" type="text" placeholder="上班时间"/>
         </div>
 
         <div class="wf-item-wrap">
             <span class="btn-lable">下班时间:</span>
-            <input name="night" class="btn-input" type="text" placeholder="格式hh:mm例如:18:00"/>
+            <input readonly id="picktime1" name="night" class="btn-input" type="text" placeholder="下班时间"/>
         </div>
 
         <div class="wf-item-wrap">
@@ -90,6 +90,15 @@
 <script type="text/javascript" src="../static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
 <script type="text/javascript" src="../static/plugins/zTree/3.5/jquery.ztree.excheck-3.5.js"></script>
 <script src="js/data/treeView.js"></script>
+<script src="js/timedropper.min.js"></script>
+<script>
 
+    $("#picktime,#picktime1").timeDropper({
+        meridians: false,
+        format: 'HH:mm',
+        init_animation: 'dropDown',
+        setCurrentTime:false
+    });
+</script>
 </body>
 </html>

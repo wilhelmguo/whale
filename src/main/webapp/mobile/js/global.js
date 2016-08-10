@@ -14,6 +14,35 @@ function GetQueryString(name) {
     return null;
 }
 
+
+function GetChineseQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+        var re = r[2];
+        return decodeURI(re);
+    }
+    return null;
+}
+
+function comVar (variables) {
+    var keys = "", values = "", types = "", vars = {};
+    if (variables) {
+        $.each(variables, function () {
+            if (keys != "") {
+                keys += ",";
+                values += ",";
+                types += ",";
+            }
+            keys += this.key;
+            values += this.value;
+            types += this.type;
+        });
+    }
+    vars = {keys: keys, values: values, types: types};
+    return vars;
+}
+
 function formatDate(date) {
     if (date == null || date == "") {
         return "";
@@ -55,7 +84,7 @@ function doPostRequest(form, url, param, fn) {
                     fn.call(this, data);
                 }
             } else {
-                if (JY.Object.notNull(data.resMsg))JY.Model.error(data.resMsg);
+                alert(data.resMsg);
             }
         }, error: function () {
             return;
@@ -102,15 +131,6 @@ function notEmpty(obj) {
     if (obj === null)return ""; else if (obj === undefined)return ""; else if (obj === "undefined")return ""; else if (obj === "")return ""; else if (obj === "[]")return ""; else if (obj === "{}")return ""; else return obj;
 }
 
-function GetChineseQueryString(name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-    var r = window.location.search.substr(1).match(reg);
-    if (r != null) {
-        var re = r[2];
-        return decodeURI(re);
-    }
-    return null;
-}
 
 function backPre() {
     history.back(-1);

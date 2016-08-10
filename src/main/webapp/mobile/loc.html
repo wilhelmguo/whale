@@ -7,8 +7,7 @@
     <title>浏览器定位</title>
     <link rel="stylesheet" href="css/loc.css"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
-    <script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
-    <script src="js/data/loc.js"></script>
+
     <script type="text/javascript">
         function signClick() {
             var place = $(".f-name").text();
@@ -25,8 +24,8 @@
     </div>
 </div>
 <div class="user-info">
-    <div class="loc-img">萨</div>
-    <p class="user-lable">萨尔</p>
+    <div id="shortname" class="loc-img"></div>
+    <p id="fullname" class="user-lable"></p>
     <!--<p class="user-lable">上班时间:09:00</p>-->
     <br>
     <p id="morning-time" class="user-de">上班时间:09:00</p>
@@ -70,4 +69,6 @@
 <script src="js/fastclick.js"></script>
 <script src="js/get_loc.js"></script>
 <script src="js/global.js"></script>
+<script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
+<script src="js/data/loc.js"></script>
 </html>

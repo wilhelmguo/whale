@@ -185,7 +185,15 @@ a:hover {
 
 }
 
+.control-wrap-new {
+    height: 50px;
+    background-color: #56ABE4;
+    overflow: hidden;
+    /*margin-bottom: 20px;*/
+}
+
 .control-wrap {
+    /*height: 50px;*/
     background-color: #56ABE4;
     overflow: hidden;
     /*margin-bottom: 20px;*/
