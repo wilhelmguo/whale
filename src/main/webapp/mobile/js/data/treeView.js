@@ -2,6 +2,24 @@
  * Created by gsw on 16-8-10.
  */
 $(function () {
+
+
+    $(".plus-peo").click(function () {
+        $(".detailed-item-wrap").addClass("hide");
+        $(".widget-box").removeClass("hide");
+    });
+    $(".list-manage").delegate('div', "click", function () {
+        $(this).remove();
+    });
+
+    $(".lable-manager").click(function () {
+        var id = $(this).attr('data-value');
+        var choose = $(".ch-div-manager");
+        $(".div-list-man").addClass("hide");
+        choose.addClass("hide");
+        $("#" + id).removeClass("hide");
+    });
+
     $.ajax({
         type: 'GET',
         url: "/whale/moblie/api/v1/orgs/trees",
@@ -15,13 +33,13 @@ $(function () {
                 curMenu = zTree_Menu.getNodes()[0].children[0];
                 zTree_Menu.selectNode(curMenu);
 
-                treeObj.hover(function () {
-                    if (!treeObj.hasClass("showIcon")) {
-                        treeObj.addClass("showIcon");
-                    }
-                }, function() {
-                    treeObj.removeClass("showIcon");
-                });
+                // treeObj.hover(function () {
+                //     if (!treeObj.hasClass("showIcon")) {
+                //         treeObj.addClass("showIcon");
+                //     }
+                // }, function() {
+                //     treeObj.removeClass("showIcon");
+                // });
 
             }
         },
@@ -63,13 +81,13 @@ function addDiyDom(treeId, treeNode) {
     icoObj.before(switchObj);
 
     if (treeNode.level > 1) {
-        var spaceStr = "<span style='display: inline-block;width:" + (spaceWidth * treeNode.level)+ "px'></span>";
+        var spaceStr = "<span style='display: inline-block;width:" + (spaceWidth * treeNode.level) + "px'></span>";
         switchObj.before(spaceStr);
     }
 }
 
 function beforeClick(treeId, treeNode) {
-    if (treeNode.level == 0 ) {
+    if (treeNode.level == 0) {
         var zTree = $.fn.zTree.getZTreeObj("treeDemo");
         zTree.expandNode(treeNode);
         return false;
@@ -91,7 +109,13 @@ function clickPreOrg(e, treeId, treeNode) {
     if (o != 'r') {
         zTree.expandNode(treeNode);
         return false;
-    }else {
-
+    } else {
+        $(".detailed-item-wrap").removeClass("hide")
+        $(".widget-box").addClass("hide")
+        $(".list-manage").append(
+            "<div class='peo-manage'>" +
+            "<p>" + v + "</p>" +
+            "<p class='name-manage hide'>" + n + "</p>" +
+            "</div>");
     }
 }

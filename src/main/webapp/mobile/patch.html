@@ -1,16 +1,18 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta http-equiv="cache-control" content="no-cache">
+    <meta charset="utf-8"/>
+    <title>补卡</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
     <link rel="stylesheet" href="css/zepto.mdatetimer.css">
-    <title>补卡申请</title>
+    <link rel="stylesheet" href="../static/plugins/zTree/3.5/zTreeStyle.css"/>
+    <link rel="stylesheet" href="css/ztree.css"/>
+    <!-- basic styles -->
+    <link href="../static/apidoc/JYUI/assets/css/bootstrap.min.css" rel="stylesheet"/>
+
 </head>
+
 <body class="wf">
 <div class="control-wrap">
     <div class="top-wrap">
@@ -18,59 +20,76 @@
     </div>
 </div>
 <div class="detailed-item-wrap">
-
-    <div class="wf-item-wrap">
-        <span class="btn-lable">补卡日期:</span>
-        <input type="text" class="date" id="picktime1-1" readonly>
-        <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
-    </div>
-
-
-
-    <div class="wf-item-wrap">
-        <span class="btn-lable">上班时间:</span>
-        <input class="btn-input" type="text" placeholder="格式hh:mm例如:09:00"/>
-    </div>
-
-    <div class="wf-item-wrap">
-        <span class="btn-lable">下班时间:</span>
-        <input class="btn-input" type="text" placeholder="格式hh:mm例如:18:00"/>
-    </div>
+    <form id="auForm" method="POST" action="" onsubmit="return false;">
+        <div class="wf-item-wrap">
+            <span class="btn-lable">补卡日期:</span>
+            <input required name="date" type="text" class="date" id="picktime1-1" readonly/>
+            <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
+        </div>
 
 
-    <!--<div class="wf-item-wrap">-->
-    <!--<span class="btn-lable">图片:</span>-->
-    <!--<input class="btn-input" type="file"/>-->
-    <!--</div>-->
-    <div class="wf-item-wrap">
-        <p class="btn-lable">审批人:</p>
-        <img class="plus-peo" src="img/item_5.png"/>
-    </div>
-    <div onclick="signClick()" class="tip-sub">提交</div>
+        <div class="wf-item-wrap">
+            <span class="btn-lable">上班时间:</span>
+            <input name="morning" class="btn-input" type="text" placeholder="格式hh:mm例如:09:00"/>
+        </div>
+
+        <div class="wf-item-wrap">
+            <span class="btn-lable">下班时间:</span>
+            <input name="night" class="btn-input" type="text" placeholder="格式hh:mm例如:18:00"/>
+        </div>
+
+        <div class="wf-item-wrap">
+            <p class="btn-lable">审批人:<span style="font-size: 0.8em">(点击头像可删除)</span></p>
+            <div class="list-manage">
+
+            </div>
+            <img class="plus-peo" src="img/item_5.png"/>
+        </div>
+        <input type="submit" onclick="submitClick()" class="tip-sub-button" value="提交">
+
+    </form>
 </div>
+<div class="widget-box hide">
+    <div id='preOrgContent' class="widget-main padding-10 center">
+        <ul id="preOrgTree" class="ztree"></ul>
+    </div>
 </div>
-</body>
+<!-- basic scripts -->
+<!--[if !IE]> -->
+
 <script src="js/zepto.min.js"></script>
 <script src='js/swiper.min.js'></script>
 <script src="js/zepto.mdatetimer.js"></script>
 <script src="js/fastclick.js"></script>
 <script src='js/init.js'></script>
-<script>
-    $(function () {
-        $('#picktime1-1,#picktime1-2,#picktime3-1, #picktime3-2').mdatetimer({
-            mode: 1, //时间选择器模式：1：年月日，2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒。默认：1
-            format: 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
-            years: [2013, 2014, 2015, 2016, 2017], //年份数组
-            nowbtn: false, //是否显示现在按钮
-            onOk: function () {
-                console.log(this);
-            },
-            onCancel: function () {
+<script src="js/data/patch.js"></script>
+<script src="js/global.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/ace-extra.min.js"></script>
 
-            },
-        });
-
-
-    });
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../static/apidoc/JYUI/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
 </script>
+
+<script type="text/javascript">
+    if ("ontouchend" in document) document.write("<script src='../static/apidoc/JYUI/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+<script src="../static/apidoc/JYUI/assets/js/bootstrap.min.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/typeahead-bs2.min.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<script src="../static/apidoc/JYUI/assets/js/fuelux/data/fuelux.tree-sampledata.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/fuelux/fuelux.tree.min.js"></script>
+
+<!-- ace scripts -->
+
+<script src="../static/apidoc/JYUI/assets/js/ace-elements.min.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/ace.min.js"></script>
+
+
+<script type="text/javascript" src="../static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
+<script type="text/javascript" src="../static/plugins/zTree/3.5/jquery.ztree.excheck-3.5.js"></script>
+<script src="js/data/treeView.js"></script>
+
+</body>
 </html>

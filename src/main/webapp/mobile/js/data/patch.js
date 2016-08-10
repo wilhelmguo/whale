@@ -2,7 +2,7 @@
  * Created by gsw on 16-8-9.
  */
 $(function () {
-    Zepto('#picktime1-1,#picktime1-2').mdatetimer({
+    Zepto('#picktime1-1').mdatetimer({
         mode: 1, //时间选择器模式：1：年月日，2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒。默认：1
         format: 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
         years: [2013, 2014, 2015, 2016, 2017], //年份数组
@@ -29,7 +29,7 @@ function submitClick() {
         alert("审批人不能为空!");
         return false;
     }
-    doPostRequest("auForm", "/whale/backstage/workflow/online/apply/start", {approver: approver}, function (data) {
+    doPostRequest("auForm", "/whale/backstage/workflow/online/patch/start", {approver: approver}, function (data) {
         alert(data.resMsg);
     });
 }

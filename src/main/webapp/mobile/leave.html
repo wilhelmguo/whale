@@ -1,16 +1,25 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta http-equiv="cache-control" content="no-cache">
+    <meta charset="utf-8"/>
+    <title>请假</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
     <link rel="stylesheet" href="css/zepto.mdatetimer.css">
-    <title>请假申请</title>
+    <link rel="stylesheet" href="../static/plugins/zTree/3.5/zTreeStyle.css"/>
+    <link rel="stylesheet" href="css/ztree.css"/>
+    <!-- basic styles -->
+    <link href="../static/apidoc/JYUI/assets/css/bootstrap.min.css" rel="stylesheet"/>
+
+
+    <!-- page specific plugin styles -->
+    <!-- fonts -->
+    <!-- ace styles -->
+    <!--<link rel="stylesheet" href="../static/apidoc/JYUI/assets/css/ace.min.css"/>-->
+
+
 </head>
+
 <body class="wf">
 <div class="control-wrap">
     <div class="top-wrap">
@@ -36,158 +45,84 @@
         <option value="sj">丧假</option>
     </select>
 </div>
-                <!--<select class="select-right"  id="signtype">-->
-                <!--<option value="1">请选择(必填)</option>-->
-                <!--<option value="1">上班签到</option>-->
-                <!--<option value="4">下班签退</option>-->
-                <!--</select>-->
+
             <i class="arrow-right"></i></span>
         </div>
 
         <div class="wf-item-wrap">
             <span class="btn-lable">开始时间:</span>
-            <input required name="beginTime" type="text" class="date" id="picktime1-1" >
+            <input required name="beginTime" type="text" class="date" id="picktime1-1">
             <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
         </div>
 
         <div class="wf-item-wrap time-div">
             <span class="btn-lable">结束时间:</span>
-            <input required name="endTime" type="text" class="date" id="picktime1-2" >
+            <input required name="endTime" type="text" class="date" id="picktime1-2">
             <span class="btn-right">请选择(必填)<i class="arrow-right"></i></span>
         </div>
 
         <div class="wf-item-wrap">
             <span class="btn-lable">请假天数:</span>
-            <input name="leaveDay" class="btn-input" type="text" placeholder="请输入请假天数(必填)" required/>
+            <input name="leaveDay" class="btn-input" type="number" placeholder="请输入请假天数(必填)" required/>
         </div>
 
         <div class="wf-item-wrap">
             <span class="btn-lable"><label>请假事由:</label></span>
             <textarea name="description" class="btn-textarea" type="text" placeholder="请输入请假事由(必填)"></textarea>
         </div>
-    <!--<div class="wf-item-wrap">-->
-    <!--<span class="btn-lable">图片:</span>-->
-    <!--<input class="btn-input" type="file"/>-->
-    <!--</div>-->
-    <div class="wf-item-wrap">
-        <p class="btn-lable">审批人:<span style="font-size: 0.8em">(点击头像可删除)</span></p>
-        <div class="list-manage">
 
+        <div class="wf-item-wrap">
+            <p class="btn-lable">审批人:<span style="font-size: 0.8em">(点击头像可删除)</span></p>
+            <div class="list-manage">
+
+            </div>
+            <img class="plus-peo" src="img/item_5.png"/>
         </div>
-        <img class="plus-peo" src="img/item_5.png"/>
-    </div>
-    <!--<div onclick="submitClick()" class="tip-sub">提交</div>-->
-        <input type="submit" class="tip-sub-button" value="提交">
+        <!--<div onclick="submitClick()" class="tip-sub">提交</div>-->
+        <input type="submit" onclick="submitClick()" class="tip-sub-button" value="提交">
     </form>
 </div>
-
-    <div class="manager-choose hide">
-        <div class="top-wrap">
-            <img class="choose-back" src="img/back.png"/>
-        </div>
-        <div class="div-list-man">
-            <div class="lable-manager"  data-value="111">客服部<img class="arrow-lb-man" src="img/arrow.png" /></div>
-            <div class="lable-manager" data-value="222">运营部<img class="arrow-lb-man" src="img/arrow.png" /></div>
-            <!--<div class="lable-manager">技术部<img class="arrow-lb-man" src="img/arrow.png" /></div>-->
-            <!--<div class="lable-manager">人力资源部<img class="arrow-lb-man" src="img/arrow.png" /></div>-->
-            <!--<div class="lable-manager">销售部<img class="arrow-lb-man" src="img/arrow.png" /></div>-->
-            <!--<div class="lable-manager"><div class="f-manager">Wi</div><span>郭少巍</span></div>-->
-        </div>
-        <div id="111" class="ch-div-manager hide">
-            <div class="ch-manager">客服部</div>
-            <div class="ch-manager">水电费</div>
-
-        </div>
-        <div id="222" class="ch-div-manager hide">
-            <div class="ch-manager">运营部</div>
-            <div class="ch-manager">水电费</div>
-
-        </div>
-        <!--<div class="ch-div-manager hide">-->
-            <!--<div class="ch-manager">技术部</div>-->
-            <!--<div class="ch-manager">水电费</div>-->
-
-        <!--</div>-->
-        <!--<div class="ch-div-manager hide">-->
-            <!--<div class="ch-manager">人力资源部</div>-->
-            <!--<div class="ch-manager">水电费</div>-->
-
-        <!--</div>-->
-        <!--<div class="ch-div-manager hide">-->
-            <!--<div class="ch-manager">销售部</div>-->
-            <!--<div class="ch-manager">水电费</div>-->
-
-        <!--</div>-->
+<div class="widget-box hide">
+    <div id='preOrgContent' class="widget-main padding-10 center">
+        <ul id="preOrgTree" class="ztree"></ul>
     </div>
-</body>
+</div>
+<!-- basic scripts -->
+<!--[if !IE]> -->
+
 <script src="js/zepto.min.js"></script>
 <script src='js/swiper.min.js'></script>
 <script src="js/zepto.mdatetimer.js"></script>
 <script src="js/fastclick.js"></script>
 <script src='js/init.js'></script>
-<script>
-    $(function () {
-        $('#picktime1-1,#picktime1-2,#picktime3-1, #picktime3-2').mdatetimer({
-            mode: 1, //时间选择器模式：1：年月日，2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒。默认：1
-            format: 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
-            years: [2013, 2014, 2015, 2016, 2017], //年份数组
-            nowbtn: false, //是否显示现在按钮
-            onOk: function () {
-                console.log(this);
-            },
-            onCancel: function () {
+<script src="js/data/leave.js"></script>
+<script src="js/global.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/ace-extra.min.js"></script>
 
-            },
-        });
-
-        $(".plus-peo").click(function(){
-            $(".detailed-item-wrap").addClass("hide");
-            $(".manager-choose").removeClass("hide");
-        });
-        $(".list-manage").delegate('div',"click",function(){
-            $(this).remove();
-        });
-
-        $(".lable-manager").click(function(){
-            var id=$(this).attr('data-value');
-            var index = $(this).index();
-            var choose = $(".ch-div-manager");
-//            if (index != 5) {
-                $(".div-list-man").addClass("hide");
-                choose.addClass("hide");
-            $("#"+id).removeClass("hide");
-//                choose.eq(index).removeClass("hide");
-//            }else{
-//                $(".manager-choose").addClass("hide");
-//                $(".detailed-item-wrap").removeClass("hide");
-//                var name = $(".lable-manager").eq(index).find('span').text();
-//                $(".list-manage").append(
-//                    "<div class='peo-manage'>"+
-//                        "<p>"+name[0]+"</p>"+
-//                        "<p class='name-manage'>"+name+"</p>"+
-//                    "</div>");
-//            };
-            
-            
-        });
-
-        $(".ch-manager").click(function(){
-            $(".ch-div-manager, .manager-choose").addClass("hide");
-            $(".detailed-item-wrap").removeClass("hide");
-            $(".div-list-man").removeClass("hide");
-            var name = $(this).text();
-            $(".list-manage").append(
-                "<div class='peo-manage'>"+
-                    "<p>"+name[0]+"</p>"+
-                    "<p class='name-manage'>"+name+"</p>"+
-                "</div>");
-        });
-
-        $(".choose-back").click(function(){
-            $(".ch-div-manager, .manager-choose").addClass("hide");
-            $(".detailed-item-wrap, .div-list-man").removeClass("hide");
-        });
-
-    });
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../static/apidoc/JYUI/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
 </script>
+
+<script type="text/javascript">
+    if ("ontouchend" in document) document.write("<script src='../static/apidoc/JYUI/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+<script src="../static/apidoc/JYUI/assets/js/bootstrap.min.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/typeahead-bs2.min.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<script src="../static/apidoc/JYUI/assets/js/fuelux/data/fuelux.tree-sampledata.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/fuelux/fuelux.tree.min.js"></script>
+
+<!-- ace scripts -->
+
+<script src="../static/apidoc/JYUI/assets/js/ace-elements.min.js"></script>
+<script src="../static/apidoc/JYUI/assets/js/ace.min.js"></script>
+
+
+<script type="text/javascript" src="../static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
+<script type="text/javascript" src="../static/plugins/zTree/3.5/jquery.ztree.excheck-3.5.js"></script>
+<script src="js/data/treeView.js"></script>
+
+</body>
 </html>

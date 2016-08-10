@@ -29,7 +29,7 @@ function submitClick() {
         alert("审批人不能为空!");
         return false;
     }
-    doPostRequest("auForm", "/whale/backstage/workflow/online/apply/start", {approver: approver}, function (data) {
+    doPostRequest("auForm", "/whale/backstage/workflow/online/overtime/start", {approver: approver}, function (data) {
         alert(data.resMsg);
     });
 }

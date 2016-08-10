@@ -28,9 +28,9 @@ public class Leave extends OaBase {
 	
 	private String typeName;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")  
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date beginTime;
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")  
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date endTime;
 	
 	private String description;

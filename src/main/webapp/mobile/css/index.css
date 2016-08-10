@@ -62,6 +62,17 @@ a:hover {
     align-items: center;
 }
 
+.date-new {
+    width: 44%;
+    border: none;
+    z-index: 0;
+    background: transparent;
+    padding-right: 25px;
+    font-size: 1em;
+    text-align: right;
+
+}
+
 .date {
     width: 74%;
     border: 0;
@@ -374,7 +385,7 @@ a:hover {
     border: 0;
     font-size: 1em;
     width: 60%;
-    height: 100px;
+    height: 80px;
 }
 
 .arrow-right {

@@ -20,9 +20,9 @@ public class Overtime extends OaBase {
     private String copyto;
 
     private String approver;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date starttime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endtime;
 
     private String duration;

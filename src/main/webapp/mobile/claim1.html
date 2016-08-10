@@ -1,0 +1,82 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="cache-control" content="no-cache">
+    <link type="text/css" rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/zepto.mdatetimer.css">
+    <title>报销申请</title>
+</head>
+<body class="wf">
+<div class="control-wrap">
+    <div class="top-wrap">
+        <img class="initiate-back" src="img/back.png"/>
+    </div>
+</div>
+<div class="detailed-item-wrap">
+    <div class="wf-item-wrap">
+        <span class="btn-lable">报销金额(元):</span>
+        <input class="btn-input" type="text" placeholder="请输入请数字(必填)"/>
+    </div>
+
+    <div class="wf-item-wrap">
+        <span class="btn-lable">报销类别:</span>
+        <input class="btn-input" type="text" placeholder="如:采购经费、活动经费(必填)"/>
+    </div>
+
+    <div class="wf-item-wrap">
+        <label class="btn-lable">费用明细:</label>
+        <!--<span class="btn-lable"></span>-->
+        <textarea class="btn-textarea" type="text" placeholder="请输入费用明细描述"></textarea>
+    </div>
+
+    <!--<div class="wf-item-wrap">-->
+        <!--<span class="btn-lable text-center">+增加报销明细</span>-->
+    <!--</div>-->
+
+    <!--<div class="wf-item-wrap">-->
+        <!--<span class="btn-lable">图片:</span>-->
+        <!--<input class="btn-input" type="file"/>-->
+    <!--</div>-->
+
+    <!--<div class="wf-item-wrap">-->
+        <!--<span class="btn-lable">附件:</span>-->
+        <!--<input class="btn-input" type="file"/>-->
+    <!--</div>-->
+
+    <div class="wf-item-wrap">
+        <p class="btn-lable">审批人:</p>
+        <img class="plus-peo" src="img/item_5.png"/>
+    </div>
+    <div onclick="signClick()" class="tip-sub">提交</div>
+</div>
+</div>
+</body>
+<script src="js/zepto.min.js"></script>
+<script src='js/swiper.min.js'></script>
+<script src="js/zepto.mdatetimer.js"></script>
+<script src="js/fastclick.js"></script>
+<script src='js/init.js'></script>
+<script>
+    $(function () {
+        $('#picktime1-1,#picktime1-2,#picktime3-1, #picktime3-2').mdatetimer({
+            mode: 1, //时间选择器模式：1：年月日，2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒。默认：1
+            format: 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
+            years: [2013, 2014, 2015, 2016, 2017], //年份数组
+            nowbtn: false, //是否显示现在按钮
+            onOk: function () {
+                console.log(this);
+            },
+            onCancel: function () {
+
+            },
+        });
+
+
+    });
+</script>
+</html>
