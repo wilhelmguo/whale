@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>浏览器定位</title>
+    <link rel="stylesheet" href="css/loc.css"/>
+    <link type="text/css" rel="stylesheet" href="css/index.css"/>
+    <script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
+<body>
+<div class="control-wrap">
+    <div class="top-wrap">
+        <img onclick="signBackClick()" class="loc-back" src="img/back.png"/>
+        <p class="history">历史</p>
+    </div>
+</div>
+
+<div id="tips-sing-wrap" class="tips-w">
+    <div class="tip-info">
+        <p>打卡类型:<span  >
+            <select id="signtype">
+                <option value="1">上班签到</option>
+                <!--<option value="2">上午签退</option>-->
+                <!--<option value="3">下午签到</option>-->
+                <option value="4">下班签退</option>
+            </select>
+        </span></p>
+        <p>签到时间:<span id="signtime" class="loc-time"></span></p>
+        <p>签到地点:<span id="signlocation" class="loc-op"></span></p>
+    </div>
+    <div class="loc-con">
+        <form>
+            
+            <textarea id="loc-desc" type="text" placeholder="签到备注"></textarea>
+            <div class="loc-img-list">
+                <div class="loc-uploadImg">
+                    <img src="img/close.png" class="close-img" />
+                </div>
+                <div class="loc-uploadImg">
+                    <img src="img/close.png" class="close-img" />
+                </div>
+                <div class="loc-uploadImg">
+                    <img src="img/close.png" class="close-img" />
+                </div>
+            </div>
+            <input class="inputCamera" accept="image/*" type="file">
+            <div onclick="signClick()" class="tip-sub">提交</div>
+        </form>
+
+    </div>
+
+
+</div>
+</body>
+<script src="js/zepto.min.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/data/sign.js"></script>
+<script src="js/global.js"></script>
+<script>
+    
+$(".close-img").click(function(){
+    $(this).parent().remove();
+});
+
+</script>
+</html>

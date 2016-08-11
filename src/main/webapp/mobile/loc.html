@@ -8,13 +8,7 @@
     <link rel="stylesheet" href="css/loc.css"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
 
-    <script type="text/javascript">
-        function signClick() {
-            var place = $(".f-name").text();
-            var addr = $(".f-desc").text();
-            window.location.href = "sign.html?location=" + place + "<" + addr + ">";
-        }
-    </script>
+
 <body>
 <!--timelineBackUp()-->
 <div class="control-wrap">
@@ -71,4 +65,11 @@
 <script src="js/global.js"></script>
 <script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
 <script src="js/data/loc.js"></script>
+<script type="text/javascript">
+    function signClick() {
+        var place = $(".f-name").text();
+        var addr = $(".f-desc").text();
+        window.location.href = "sign.html?location=" + place + "<" + addr + ">";
+    }
+</script>
 </html>

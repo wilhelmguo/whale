@@ -7,8 +7,8 @@ jQuery(function () {
         // 优化retina, 在retina下这个值是2
         ratio = window.devicePixelRatio || 1,
         // 缩略图大小
-        thumbnailWidth = 100 * ratio,
-        thumbnailHeight = 100 * ratio,
+        thumbnailWidth = 40 * ratio,
+        thumbnailHeight = 40 * ratio,
         // Web Uploader实例
         uploader;
     // 初始化Web Uploader
@@ -21,7 +21,10 @@ jQuery(function () {
         server: '/whale/backstage/tool/webuploader/uploadPic',
         // 选择文件的按钮。可选。
         // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-        pick: '#filePicker',
+        pick: {
+            id: '#myfilePicker',
+            multiple: true
+        },
         // 只允许选择文件，可选。
         accept: {
             title: 'Images',
@@ -29,12 +32,34 @@ jQuery(function () {
             mimeTypes: 'image/*'
         },
         //不压缩文件
-        compress: null
+        compress: {
+            width: 100,
+            height: 100,
+
+            // 图片质量，只有type为`image/jpeg`的时候才有效。
+            quality: 90,
+
+            // 是否允许放大，如果想要生成小图的时候不失真，此选项应该设置为false.
+            allowMagnify: false,
+
+            // 是否允许裁剪。
+            crop: false,
+
+            // 是否保留头部meta信息。
+            preserveHeaders: true,
+
+            // 如果发现压缩后文件大小比原来还大，则使用原来图片
+            // 此属性可能会影响图片自动纠正功能
+            noCompressIfLarger: false,
+
+            // 单位字节，如果图片大小小于此值，不会采用压缩。
+            compressSize: 0
+        }
     });
 
     // 当有文件添加进来的时候
     uploader.on('fileQueued', function (file) {
-        var $li = $('<div id="' + file.id + '" class="file-item thumbnail">' + '<img></div>'),
+        var $li = $('<div id="' + file.id + '" style="float:right;padding-right: 10px" >' + '<img ></div>'),
             $img = $li.find('img');
         $list.append($li);
         // 创建缩略图
@@ -44,7 +69,7 @@ jQuery(function () {
                 return;
             }
             $img.attr('src', src);
-        }, thumbnailWidth, thumbnailHeight);
+        }, 75, 75);
     });
     // 文件上传过程中创建进度条实时显示。
     uploader.on('uploadProgress', function (file, percentage) {

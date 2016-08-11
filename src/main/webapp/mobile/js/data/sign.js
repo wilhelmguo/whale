@@ -22,7 +22,7 @@ function initSign(location) {
 function signClick() {
     var location=$("#signlocation").text();
     var bz=$("#loc-desc").val();
-    var pic="";
+    var pic=$("#savePath").val();
     var type=$("#signtype").val();
     $.ajax({
         type: 'GET',

@@ -1,13 +1,64 @@
-<!doctype html>
+<!DOCTYPE html >
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <meta charset="UTF-8">
+    <script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+        if("ontouchend" in document) {
+            //手机适应;
+            document.write("<script src='/whale/static/js/jquery/jquery.mobile.custom.min.js'><"+"/script>");
+            //document.write("<script src='"+jypath+"/static/js/jquery/jquery.mobile-1.4.5.min.js'><"+"/script>");
+        }
+    </script>
+    <!--提示组件start-->
+    <script type="text/javascript" src="../static/js/jquery/jquery.tips.js"></script>
+    <!--提示组件end-->
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="bookmark" href="../favicon.ico" type="image/x-icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"/>
+    <!--bootstrap styles  -->
+    <!--<link rel="stylesheet" href="../static/css/system/bootstrap/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" href="../static/css/system/bootstrap/bootstrap-responsive.min.css"/>-->
+
+    <link rel="stylesheet" href="../static/css/system/ace/font-awesome.min.css"/>
+    <!--<link rel="stylesheet" href="../static/css/system/jquery/jquery-ui-1.10.3.full.min.css"/>-->
+    <!--<link rel="stylesheet" href="../static/css/system/ace/chosen.css"/>-->
+    <!-- ace styles -->
+    <!--<link rel="stylesheet" href="../static/css/system/ace/ace.min.css"/>-->
+
+
+    <!--<link rel="stylesheet" href="../static/css/system/ace/ace-responsive.min.css"/>-->
+    <!--<link rel="stylesheet" href="../static/css/system/ace/ace-skins.min.css"/>-->
+    <!-- ace styles end -->
+
+    <!--<link rel="stylesheet" href="../static/css/system/jquery/ui.jqgrid.css"/>-->
+    <!-- ace basic end -->
+    <!--<link rel="stylesheet" href="../static/css/system/system/basic.css"/>-->
+
+
+    <script src="../static/js/ace/ace-extra.min.js"></script>
+    <script src="../static/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../static/js/ace/typeahead-bs2.min.js"></script>
+    <script src="../static/js/ace/ace-elements.min.js"></script>
+    <script src="../static/js/ace/ace.min.js"></script>
+    <script src="../static/js/jquery/jquery-ui-1.10.3.full.min.js"></script>
+    <!--弹窗组件end-->
+    <script src="../static/js/system/jy/jy.main.js"></script>
+    <!--表单插件-->
+    <script src="../static/js/jquery/jquery-form.js"></script>
+
+    <!--<link rel="import" href="../base/includeBaseSet.html"/>-->
+    <!--<link rel="import" href="../base/includeSystemSet.html"/>-->
+    <link rel="stylesheet" href="../static/plugins/webuploader/css/webuploader.css"/>
+    <script src="../static/plugins/webuploader/js/webuploader.js"></script>
+    <script src="../static/plugins/webuploader/js/webuploader.nolog.min.js"></script>
     <title>浏览器定位</title>
     <link rel="stylesheet" href="css/loc.css"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
-    <script src="../static/js/jquery/jquery-2.0.3.min.js"></script>
+
+</head>
 <body>
 <div class="control-wrap">
     <div class="top-wrap">
@@ -18,8 +69,8 @@
 
 <div id="tips-sing-wrap" class="tips-w">
     <div class="tip-info">
-        <p>打卡类型:<span  >
-            <select id="signtype">
+        <p>打卡类型:<span>
+            <select style="" id="signtype">
                 <option value="1">上班签到</option>
                 <!--<option value="2">上午签退</option>-->
                 <!--<option value="3">下午签到</option>-->
@@ -31,20 +82,27 @@
     </div>
     <div class="loc-con">
         <form>
-            
-            <textarea id="loc-desc" type="text" placeholder="签到备注"></textarea>
-            <div class="loc-img-list">
-                <div class="loc-uploadImg">
-                    <img src="img/close.png" class="close-img" />
-                </div>
-                <div class="loc-uploadImg">
-                    <img src="img/close.png" class="close-img" />
-                </div>
-                <div class="loc-uploadImg">
-                    <img src="img/close.png" class="close-img" />
-                </div>
+
+            <textarea id="loc-desc" style="margin-bottom: 60px" type="text" placeholder="签到备注"></textarea>
+            <!--<div class="loc-img-list">-->
+                <!--<div class="loc-uploadImg">-->
+                    <!--<img src="img/close.png" class="close-img" />-->
+                <!--</div>-->
+                <!--<div class="loc-uploadImg">-->
+                    <!--<img src="img/close.png" class="close-img" />-->
+                <!--</div>-->
+                <!--<div class="loc-uploadImg">-->
+                    <!--<img src="img/close.png" class="close-img" />-->
+                <!--</div>-->
+            <!--</div>-->
+            <div style="margin-left: 20px;margin-top: 40px">
+                <div id="fileList" class="uploader-list"></div>
+                <!--<input id="myfilePicker" class="inputCamera" accept="image/*" type="file"/>-->
+                <div id="myfilePicker" style="width: 66px;height:75px;">选择图片</div>
+                <div hidden>存放位置:<input style="width:100%" id="savePath" readonly="readonly" type="text" name="savePath" ></div>
+
             </div>
-            <input class="inputCamera" accept="image/*" type="file">
+
             <div onclick="signClick()" class="tip-sub">提交</div>
         </form>
 
@@ -52,16 +110,29 @@
 
 
 </div>
+
+<div class="page-content">
+    <div class="page-content">
+        <div id="uploader-demo">
+            <!--用来存放item-->
+
+            <!--<div id="filePicker">选择图片</div>-->
+            <!--<input id="filePicker" type="file" name="image" accept="image/*">-->
+            <!-- style只为显示效果，真正用请去掉 -->
+        </div>
+    </div>
+</div>
 </body>
+<script src="js/img.js"></script>
 <script src="js/zepto.min.js"></script>
 <script src="js/fastclick.js"></script>
 <script src="js/data/sign.js"></script>
 <script src="js/global.js"></script>
 <script>
-    
-$(".close-img").click(function(){
-    $(this).parent().remove();
-});
+
+    $(".close-img").click(function(){
+        $(this).parent().remove();
+    });
 
 </script>
 </html>
