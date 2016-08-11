@@ -9,6 +9,8 @@
     <script src="${jypath}/static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
     <script src="${jypath}/static/plugins/ueditor/ueditor.config.js"></script>
     <script src="${jypath}/static/plugins/ueditor/ueditor.all.min.js"></script>
+    <link rel="stylesheet" href="${jypath}/static/plugins/webuploader/css/webuploader.css"/>
+    <script src="${jypath}/static/plugins/webuploader/js/webuploader.js"></script>
     <script type="text/javascript" charset="utf-8" src="${jypath}/static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
@@ -40,8 +42,8 @@
                     <th style="width:5%" class="center hidden-480">序号</th>
                     <th style="width:10%" class="center">标题</th>
                     <th style="width:10%" class="center hidden-480">发布人</th>
-                    <th style="width:8%" class="center "><i class="icon-time bigger-110 hidden-480"></i>发布时间</th>
-                    <th style="width:15%" class="center hidden-480"><i class="icon-time bigger-110 hidden-480"></i>修改时间
+                    <th style="width:12%" class="center "><i class="icon-time bigger-110 hidden-480"></i>发布时间</th>
+                    <th style="width:12%" class="center hidden-480"><i class="icon-time bigger-110 hidden-480"></i>修改时间
                     </th>
                     <%--<th style="width:5%"  class="center hidden-480">发布IP</th>--%>
                     <%--<th style="width:15%" class="center hidden-480">状态</th>--%>
@@ -94,9 +96,11 @@
                     <form id="mailform" class="form-horizontal message-form col-xs-12" method="POST"
                           onsubmit="return false;">
                         <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right"><font color="red">*</font>标题：</label>
+
                             <div class="col-sm-11 col-xs-12">
                                 <input type="hidden" name="id">
-                                <input jyValidate="required" type="text" style="width:100%;" name="title" id="title" value="${pd.title }"
+                                 <input jyValidate="required" type="text" style="width:100%;" name="title" id="title" value="${pd.title }"
                                            placeholder="这里输入标题" title="标题"/>
                                 <%--<input type="title" maxlength="5000" class="col-xs-12" name="toList">--%>
                                 <%--<h3 style="align-content: center" id="cmstitle">标题</h3>--%>
@@ -109,6 +113,26 @@
 
                         <div class="hr hr-18 dotted"></div>
                         <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right"><font
+                                    color="red">*</font>公告封面：</label>
+                            <div class="col-sm-11 col-xs-12">
+                                <!--用来存放item-->
+                                <div id="fileList" class="uploader-list"></div>
+                                <%--<div>   <label style="color: red">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
+                                <%--</div>float: left--%>
+
+                                <div  id="filePicker">请选择公告封面图片</div>
+                                <%--<label style="color: red;">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
+
+                                <!-- style只为显示效果，真正用请去掉 -->
+                                <input  id="cover" hidden jyValidate="required" readonly="readonly"
+                                        type="text"
+                                        name="cover">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right"><font color="red">*</font>内容：</label>
                             <div class="col-sm-11 col-xs-12">
                                 <script id="editor" style="width:100%;height:300px;" type="text/plain"></script>
                                 <input type="hidden" name="content" id="content">
@@ -163,6 +187,14 @@
                         <p>
                             <span style="color:gray;" id="cmsaddtime">发布时间</span>
                             <span style="color:gray;" id="cmspublisher">发布人</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-11 col-xs-12">
+                        <p>
+                            <span style="color:gray;" id="cmscover">封面</span>
                         </p>
                     </div>
                 </div>

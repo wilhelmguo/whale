@@ -22,7 +22,7 @@ $(function () {
         UE.getEditor('editor').setContent("");
         $("#row-fluid").hide();
         $("#auDiv").show();
-        initPic();
+
 
     });
     //批量删除
@@ -45,7 +45,7 @@ $(function () {
             });
         }
     });
-
+    initPic();
 });
 
 function initPic() {
@@ -191,11 +191,12 @@ function add() {
 
 function edit(id) {
     cleanForm();
+    // location.reload();
     JY.Ajax.doRequest(null, jypath + '/backstage/ads/find', {id: id}, function (data) {
         $("#row-fluid").hide();
         $("#auDiv").show();
         setForm(data);
-        initPic();
+        // initPic();
         // loadRoleTree();
 
         // JY.Model.wideedit("800", "auDiv", "修改", function () {

@@ -121,7 +121,7 @@
                                 <%--<div>   <label style="color: red">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
                                 <%--</div>float: left--%>
 
-                                <div style="width: 15%;" id="filePicker">请选择封面图片</div>
+                                <div  id="filePicker">请选择封面图片</div>
                                 <label style="color: red;">封面图片像素要求700*400,否则可能无法正常显示</label>
 
                                 <!-- style只为显示效果，真正用请去掉 -->
