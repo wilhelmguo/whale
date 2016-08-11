@@ -171,11 +171,11 @@ $("#finish").click(function(){
 })
 
 $("#reviewFile").click(function(){
-  window.location.href='reviewFile.html';
+  window.location.href='wait.html';
 });
 
 $("#readedFile").click(function(){
-  window.location.href='readedFile.html';
+  window.location.href='finish.html';
 });
 
 

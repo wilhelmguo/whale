@@ -50,12 +50,12 @@ $(function () {
 
 function initPic() {
     var $ = jQuery, $list = $('#fileList'),
-    // 优化retina, 在retina下这个值是2
+        // 优化retina, 在retina下这个值是2
         ratio = window.devicePixelRatio || 1,
-    // 缩略图大小
+        // 缩略图大小
         thumbnailWidth = 100 * ratio,
         thumbnailHeight = 100 * ratio,
-    // Web Uploader实例
+        // Web Uploader实例
         uploader;
     // 初始化Web Uploader
     uploader = WebUploader.create({
@@ -82,6 +82,7 @@ function initPic() {
 
     // 当有文件添加进来的时候
     uploader.on('fileQueued', function (file) {
+        // $list.html("");
         var $li = $('<div id="' + file.id + '" class="file-item thumbnail">' + '<img></div>'),
             $img = $li.find('img');
         $list.html($li);
@@ -92,7 +93,7 @@ function initPic() {
                 return;
             }
             $img.attr('src', src);
-        }, thumbnailWidth, thumbnailHeight);
+        }, 140, 80);
     });
     // 文件上传过程中创建进度条实时显示。
     uploader.on('uploadProgress', function (file, percentage) {
@@ -105,7 +106,7 @@ function initPic() {
     uploader.on('uploadSuccess', function (file, json) {
 
         if ("1" == json.res) {
-            $('#' + file.id).addClass('upload-state-done');
+            // $('#' + file.id).addClass('upload-state-done');
             var cover = $("#cover").val();
             if (JY.Object.notNull(cover)) {
                 cover += "," + json.saveUrl;
@@ -133,6 +134,9 @@ function initPic() {
     });
     // 完成上传完了，成功或者失败，先删除进度条。
     uploader.on('uploadComplete', function (file) {
+        $('#' + file.id).find('.progress').remove();
+    });
+    uploader.on('reset', function () {
         $('#' + file.id).find('.progress').remove();
     });
 }
@@ -291,9 +295,9 @@ function setDetailForm(data) {
     $("#cmsaddtime").text("发布时间:" + JY.Date.Default(l.addtime));
     $("#cmspublisher").text("发布人:" + JY.Object.notEmpty(l.publisher));
     var covers = "封面图片:<img style='max-width: 300px' src='" + jypath + JY.Object.notEmpty(l.cover) + "'/>"
-    if (JY.Object.notNull(l.cover)){
+    if (JY.Object.notNull(l.cover)) {
         $("#cmscover").html(covers);
-    }else {
+    } else {
         $("#cmscover").html("封面图片:无");
     }
 
@@ -323,6 +327,7 @@ function del(id) {
 
 
 function cleanForm() {
+    $('#fileList').html("");
     JY.Tags.isValid("auForm", "1");
     JY.Tags.cleanForm("auForm");
 
@@ -335,5 +340,9 @@ function setForm(data) {
     $("#auForm input[name$='content']").val(JY.Object.notEmpty(l.content));
     ue.setContent(l.content);
     $("#auForm select[name$='status']").val(JY.Object.notEmpty(l.status));//状态
+    var img = '<div class="file-item thumbnail"><img style="height: 100px" src="/whale' + l.cover + '"></div>';
+    $('#fileList').html(img);
+    // 创建缩略图
+
 
 }

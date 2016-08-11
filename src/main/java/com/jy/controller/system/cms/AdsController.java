@@ -114,6 +114,7 @@ public class AdsController extends BaseController<Ads> {
         news.setUptime(new Date());
         news.setTitle(o.getTitle());
         news.setContent(o.getContent());
+        news.setCover(o.getCover());
         service.update(news);
         ar.setSucceedMsg(Const.UPDATE_SUCCEED);
       } catch (Exception e) {

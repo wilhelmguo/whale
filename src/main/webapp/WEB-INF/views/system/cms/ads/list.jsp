@@ -125,7 +125,7 @@
                                 <label style="color: red;">封面图片像素要求700*400,否则可能无法正常显示</label>
 
                                 <!-- style只为显示效果，真正用请去掉 -->
-                                <input  id="cover" jyValidate="required" readonly="readonly"
+                                <input  id="cover" hidden jyValidate="required" readonly="readonly"
                                        type="text"
                                        name="cover">
                             </div>
