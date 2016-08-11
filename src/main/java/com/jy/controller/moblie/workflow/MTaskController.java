@@ -45,7 +45,7 @@ public class MTaskController extends BaseController<Object> {
         AjaxRes ar = getAjaxRes();
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, TODO_SECURITY_URL))) {
             try {
-                int pageNum = 1;
+                int pageNum = 0;
                 int pageSize = 50;
                 List<TaskVo> taskVos = new ArrayList<TaskVo>();
                 String currentUserId = AccountShiroUtil.getCurrentUser().getAccountId();
