@@ -67,6 +67,10 @@ function getSignTime() {
     });
 }
 
+function patch(type) {
+    window.location.href="patch.html?type=0";
+}
+
 function timelineBackUp() {
     window.location.href = 'index.html';
 }

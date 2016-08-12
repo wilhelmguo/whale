@@ -60,25 +60,7 @@
 </body>
 <script src="js/zepto.min.js"></script>
 <script src='js/swiper.min.js'></script>
-<script src="js/zepto.mdatetimer.js"></script>
 <script src="js/fastclick.js"></script>
 <script src='js/init.js'></script>
-<script>
-$(function(){
-	$('#picktime1-1,#picktime1-2,#picktime3-1, #picktime3-2').mdatetimer({
-		mode : 1, //时间选择器模式：1：年月日，2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒。默认：1
-		format : 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
-		years : [2013, 2014, 2015, 2016, 2017], //年份数组
-		nowbtn : false, //是否显示现在按钮
-		onOk : function(){
-			console.log(this);
-		},  
-		onCancel : function(){
-			
-		}, 
-	});	
 
-
-});
-</script>
 </html>

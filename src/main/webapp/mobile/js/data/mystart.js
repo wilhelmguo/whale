@@ -35,3 +35,12 @@ function todoTask(id, pId, name, title) {
     window.location.href = "approvalMystart.html?id=" + id + "&pId=" + pId + "&name=" + name + "&title=" + title;
 
 }
+
+function waitBack() {
+    var type = GetQueryString("type");
+    if (type == 0) {
+        window.location.href = "workFlow.html";
+    } else {
+        window.location.href = "setUp.html";
+    }
+}

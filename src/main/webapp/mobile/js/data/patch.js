@@ -34,3 +34,13 @@ function submitClick() {
     });
 }
 
+function patchBack() {
+    var type = GetQueryString("type");
+    if (type == 0) {
+        window.location.href = "signInside.html";
+    }else {
+        window.location.href = "workFlow.html";
+    }
+
+}
+

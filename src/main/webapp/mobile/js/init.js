@@ -154,28 +154,32 @@ $("#setup-s").click(function(){
 
 
 //initiate
-$(".initiate-back").click(function(){
-  window.location.href='workFlow.html';
-});
+// $(".initiate-back").click(function(){
+//   window.location.href='workFlow.html';
+// });
 
 $("#initiate").click(function(){
-   window.location.href='mystart.html';
+   window.location.href='mystart.html?type=0';
 });
 
 $("#wait").click(function(){
-  window.location.href='wait.html';
+  window.location.href='wait.html?type=0';
 })
 
 $("#finish").click(function(){
-  window.location.href='finish.html';
+  window.location.href='finish.html?type=0';
 })
 
+$("#initiate1").click(function(){
+  window.location.href='mystart.html?type=1';
+});
+
 $("#reviewFile").click(function(){
-  window.location.href='wait.html';
+  window.location.href='wait.html?type=1';
 });
 
 $("#readedFile").click(function(){
-  window.location.href='finish.html';
+  window.location.href='finish.html?type=1';
 });
 
 

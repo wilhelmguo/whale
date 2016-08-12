@@ -46,3 +46,12 @@ function todoTask(id, pId, name, title) {
     //     usrdef(id, pId)
     // }
 }
+
+function waitBack() {
+    var type = GetQueryString("type");
+    if (type == 0) {
+        window.location.href = "workFlow.html";
+    } else {
+        window.location.href = "setUp.html";
+    }
+}
