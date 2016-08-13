@@ -236,7 +236,7 @@ function clickOrg(event,treeId,treeNode) {
 function getbaseList(init){
 	if(init==1)$("#baseForm .pageNum").val(1);	
 	JY.Model.loading();
-	JY.Ajax.doRequest("baseForm",jypath +'/backstage/org/role/findByPage',null,function(data){
+	JY.Ajax.doRequest("baseForm",jypath +'/backstage/account/findByPage',null,function(data){
 		 $("#baseTable tbody").empty();
     		 var obj=data.obj;
         	 var list=obj.list;
@@ -244,31 +244,32 @@ function getbaseList(init){
          	 var pageNum=list.pageNum,pageSize=list.pageSize,totalRecord=list.totalRecord;
          	 var permitBtn=obj.permitBtn;
         	 var html="";
-    		 if(results!=null&&results.length>0){			
-        		 var leng=(pageNum-1)*pageSize;//计算序号
-        		 for(var i = 0;i<results.length;i++){
-            		 var l=results[i];
-            		 html+="<tr>";
-            		 html+="<td class='center'><label> <input type='checkbox' name='ids' value='"+l.id+"' class='ace' /> <span class='lbl'></span></label></td>";
-            		 html+="<td class='center hidden-480'>"+(i+leng+1)+"</td>";
-            		 html+="<td class='center'>"+JY.Object.notEmpty(l.name)+"</td>";
-            		 if(l.isValid==1){
-            			 html+="<td class='center hidden-480'><span class='label label-sm label-success'>有效</span></td>";
-            		 }else{
-            			 html+="<td class='center hidden-480'><span class='label label-sm arrowed-in'>无效</span></td>";
-            		 } 
-            		 html+="<td class='center hidden-480'>"+JY.Object.notEmpty(l.description)+"</td>";
-            		 html+=JY.Tags.setFunction(l.id,permitBtn);
-            		 html+="</tr>";		 
-            	 } 
-        		 $("#baseTable tbody").append(html);
-        		 JY.Page.setPage("baseForm","pageing",pageSize,pageNum,totalRecord,"getbaseList");
-        	 }else{
-        		html+="<tr><td colspan='6' class='center'>没有相关数据</td></tr>";
-        		$("#baseTable tbody").append(html);
-        		$("#pageing ul").empty();//清空分页
-        	 }	 	        	 
-    	 JY.Model.loadingClose();	
+		if(results!=null&&results.length>0){
+			var leng=(pageNum-1)*pageSize;//计算序号
+			for(var i = 0;i<results.length;i++){
+				var l=results[i];
+				html+="<tr>";
+				html+="<td class='center'><label> <input type='checkbox' name='ids' value='"+l.accountId+"' class='ace' /> <span class='lbl'></span></label></td>";
+				html+="<td class='center hidden-480'>"+(i+leng+1)+"</td>";
+				html+="<td class='center'>"+JY.Object.notEmpty(l.loginName)+"</td>";
+				html+="<td class='center hidden-480' >"+JY.Object.notEmpty(l.name)+"</td>";
+				html+="<td class='center '>"+JY.Object.notEmpty(l.roleName)+"</td>";
+				html+="<td class='center hidden-480'>"+JY.Object.notEmpty(l.email)+"</td>";
+				if(l.isValid==1) html+="<td class='center hidden-480'><span class='label label-sm label-success'>有效</span></td>";
+				else             html+="<td class='center hidden-480'><span class='label label-sm arrowed-in'>无效</span></td>";
+				html+="<td class='center hidden-480'>"+JY.Date.Default(l.loginLog.loginTime)+"</td>";
+				html+="<td class='center hidden-480'>"+JY.Object.notEmpty(l.loginLog.loginIP)+"</td>";
+				html+=JY.Tags.setFunction(l.accountId,permitBtn);
+				html+="</tr>";
+			}
+			$("#baseTable tbody").append(html);
+			JY.Page.setPage("baseForm","pageing",pageSize,pageNum,totalRecord,"getbaseList");
+		}else{
+			html+="<tr><td colspan='10' class='center'>没有相关数据</td></tr>";
+			$("#baseTable tbody").append(html);
+			$("#pageing ul").empty();//清空分页
+		}
+		JY.Model.loadingClose();
 	});
 }
 function authorized(id){

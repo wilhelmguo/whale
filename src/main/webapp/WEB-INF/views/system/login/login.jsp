@@ -22,8 +22,8 @@
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="login-container">
                     <div class="center">
-                        <h1><i class="icon-leaf green"></i> <span class="red">鲸鱼</span>&nbsp;<span
-                                class="white">自动化办公</span></h1>
+                        <h1><i class="icon-leaf green"></i> <span class="red">零距OA</span>&nbsp;<span
+                                class="white" style="font-size: 0.5em">自动化办公系统</span></h1>
                         <%--<h4 class="blue">&copy; base</h4>--%>
                     </div>
                     <div class="space-6"></div>

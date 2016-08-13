@@ -38,6 +38,9 @@
       <if test="param.orgId!= null and param.orgId!=''">
         	AND t.orgId=#{param.orgId}
       </if>
+		<if test="param.company!= null and param.company!=''">
+			AND t.cid=#{param.company}
+		</if>
       <if test="param.keyWord!= null">
         	AND (t.name like CONCAT('%',#{param.keyWord},'%') )
       </if>

@@ -17,7 +17,7 @@
 					<div class="col-sm-3">
 						<ul id="orgTree" class="ztree orgTree"></ul>
 						<div class="dataTables_info customBtn">
-							<a class="lrspace3" id="authOrgBtn" title="授权组织权限" href="#"><i class="icon-key color-dark-green bigger-240"></i></a>
+							<%--<a class="lrspace3" id="authOrgBtn" title="授权组织权限" href="#"><i class="icon-key color-dark-green bigger-240"></i></a>--%>
 							<a class="lrspace3" id="addOrgBtn" title="增加组织" href="#"><i class="icon-plus-sign color-green bigger-240"></i></a>
 							<a class="lrspace3" id="editOrgBtn" title="修改组织" href="#"><i class="icon-edit color-blue bigger-240"></i></a>
 							<a class="lrspace3" id="delOrgBtn" title="删除组织" href="#"><i class="icon-remove-sign color-red bigger-240"></i></a>
@@ -40,16 +40,20 @@
 						</form>
 						<table id="baseTable" class="table table-striped table-bordered table-hover" >
 							<thead>
-								<tr>
-									<th style="width:3%" class="center">
-										<label><input type="checkbox" class="ace" ><span class="lbl"></span></label>
-									</th>
-									<th style="width:7%"  class="center hidden-480">序号</th>
-									<th style="width:30%" class="center">角色名字</th>
-									<th style="width:10%"  class="center hidden-480">状态</th>
-									<th style="width:33%" class="center hidden-480">角色描述</th>
-									<th style="width:20%" class="center">操作</th>
-								</tr>
+							<tr>
+								<th style="width:3%" class="center">
+									<label><input type="checkbox" class="ace" ><span class="lbl"></span></label>
+								</th>
+								<th style="width:5%"  class="center hidden-480">序号</th>
+								<th style="width:10%" class="center">登录名</th>
+								<th style="width:10%" class="center hidden-480">用户名</th>
+								<th style="width:8%"  class="center ">职务</th>
+								<th style="width:12%" class="center hidden-480"><i class="icon-envelope-alt  bigger-110 hidden-480"></i>电子邮箱</th>
+								<th style="width:5%"  class="center hidden-480">状态</th>
+								<th style="width:10%" class="center hidden-480"><i class="icon-time bigger-110 hidden-480"></i>最近登录</th>
+								<th style="width:10%" class="center hidden-480">最近登录IP</th>
+								<th style="width:10%" class="center">操作</th>
+							</tr>
 							</thead>
 							<tbody></tbody>
 						</table>

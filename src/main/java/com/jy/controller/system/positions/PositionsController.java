@@ -1,15 +1,18 @@
-package com.jy.controller.system.org;
+package com.jy.controller.system.positions;
 
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import com.jy.common.ajax.AjaxRes;
+import com.jy.common.mybatis.Page;
+import com.jy.common.utils.base.Const;
 import com.jy.common.utils.security.AccountShiroUtil;
+import com.jy.common.utils.tree.entity.ZNodes;
+import com.jy.common.utils.webpage.PageData;
+import com.jy.controller.base.BaseController;
 import com.jy.entity.system.company.Company;
+import com.jy.entity.system.org.Org;
+import com.jy.entity.system.org.Role;
 import com.jy.service.company.CompanyService;
+import com.jy.service.system.org.OrgService;
+import com.jy.service.system.org.RoleService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,23 +21,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jy.common.ajax.AjaxRes;
-import com.jy.common.mybatis.Page;
-import com.jy.common.utils.base.Const;
-import com.jy.common.utils.tree.entity.ZNodes;
-import com.jy.common.utils.webpage.PageData;
-import com.jy.controller.base.BaseController;
-import com.jy.entity.system.org.Org;
-import com.jy.entity.system.org.Role;
-import com.jy.service.system.org.OrgService;
-import com.jy.service.system.org.RoleService;
+import java.io.UnsupportedEncodingException;
+import java.util.*;
 
 /*
  * 角色管理
  */
 @Controller
-@RequestMapping("/backstage/org/role/")
-public class RoleController extends BaseController<Role> {
+@RequestMapping("/backstage/org/positions/")
+public class PositionsController extends BaseController<Role> {
 
     @Autowired
     public OrgService orgService;
@@ -54,7 +49,7 @@ public class RoleController extends BaseController<Role> {
     public String index(Model model) throws UnsupportedEncodingException {
         if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
             model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
-            return "/system/org/role/list";
+            return "/system/org/positions/list";
         }
         return Const.NO_AUTHORIZED_URL;
     }
@@ -84,7 +79,8 @@ public class RoleController extends BaseController<Role> {
         AjaxRes ar = getAjaxRes();
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
             try {
-                Page<Role> roles = roleService.findAllRoleByPage(o, page);
+                o.setCompany(getCompany());
+                Page<Role> roles = roleService.findByPage(o, page);
                 Map<String, Object> p = new HashMap<String, Object>();
                 p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
                 p.put("list", roles);
@@ -134,22 +130,11 @@ public class RoleController extends BaseController<Role> {
         AjaxRes ar = getAjaxRes();
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
             try {
-                Org org = new Org();
-                if (StringUtils.isNotBlank(o.getOrgId())) {
-                    org.setId(o.getOrgId());
-                    List<Org> orgs = orgService.find(org);
-                    if (orgs.size() > 0) {
-                        Org pOrg = orgs.get(0);
-                        String pId = pOrg.getpId();
-                        if (StringUtils.isNotBlank(pId)) {
-                            o.setId(get32UUID());
-                            o.setCreateTime(new Date());
-                            o.setCompany(pOrg.getCompany());
-                            roleService.insert(o);
-                            ar.setSucceedMsg(Const.SAVE_SUCCEED);
-                        }
-                    }
-                }
+                o.setId(get32UUID());
+                o.setCreateTime(new Date());
+                o.setCompany(getCompany());
+                roleService.insert(o);
+                ar.setSucceedMsg(Const.SAVE_SUCCEED);
             } catch (Exception e) {
                 logger.error(e.toString(), e);
                 ar.setFailMsg(Const.SAVE_FAIL);
@@ -242,30 +227,6 @@ public class RoleController extends BaseController<Role> {
                 String layer = pd.getString("layer");
                 List<ZNodes> r = roleService.listCompanyAuthorized(roleId, layer);
                 ar.setSucceed(r);
-            } catch (Exception e) {
-                logger.error(e.toString(), e);
-                ar.setFailMsg(Const.DATA_FAIL);
-            }
-        }
-        return ar;
-    }
-
-    @RequestMapping(value = "listPositionAuthorized", method = RequestMethod.POST)
-    @ResponseBody
-    public AjaxRes listPositionAuthorized() {
-        AjaxRes ar = getAjaxRes();
-        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
-            try {
-                PageData pd = this.getPageData();
-                String roleId = pd.getString("id");
-                String layer = pd.getString("layer");
-                List<ZNodes> r = roleService.listCompanyAuthorized(roleId, layer);
-                List<ZNodes> result = new ArrayList<ZNodes>();
-                for (ZNodes z : r) {
-                    z.setChkDisabled("false");
-                    result.add(z);
-                }
-                ar.setSucceed(result);
             } catch (Exception e) {
                 logger.error(e.toString(), e);
                 ar.setFailMsg(Const.DATA_FAIL);

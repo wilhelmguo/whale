@@ -1,6 +1,6 @@
 ﻿<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<title>WHALE OA</title>
+<title>零距OA</title>
 <c:set var="jypath" value="${pageContext.request.contextPath}"/>
 <script>
     var jypath = '${jypath}';

@@ -15,6 +15,8 @@
 </head>
 <body>
 <div class="page-content">
+    <div class="edui-colorpicker-nocolor edui-default" unselectable="on" style="height: 20px">清空颜色</div>
+
     <div id="row-fluid" class="row-fluid">
         <div class="col-xs-12">
             <form id="baseForm" class="form-inline" method="POST" onsubmit="return false;">
@@ -22,8 +24,8 @@
                     <div class="widget-main">
                         <input type="text" name="keyWord" placeholder="这里输入标题" class="input-large">
                         <%--&nbsp;&nbsp;<span id="selectisValid"><label></label>：<select data-placeholder="状态"--%>
-                                                                                     <%--name="isValid"--%>
-                                                                                     <%--class="chosen-select isSelect75"></select></span>--%>
+                        <%--name="isValid"--%>
+                        <%--class="chosen-select isSelect75"></select></span>--%>
                         &nbsp;&nbsp;
                         <button id='searchBtn' class="btn btn-warning  btn-xs" title="过滤" type="button"
                                 onclick="getbaseList(1)"><i class="icon-search bigger-110 icon-only"></i></button>
@@ -100,8 +102,9 @@
 
                             <div class="col-sm-11 col-xs-12">
                                 <input type="hidden" name="id">
-                                 <input jyValidate="required" type="text" style="width:100%;" name="title" id="title" value="${pd.title }"
-                                           placeholder="这里输入标题" title="标题"/>
+                                <input jyValidate="required" type="text" style="width:100%;" name="title" id="title"
+                                       value="${pd.title }"
+                                       placeholder="这里输入标题" title="标题"/>
                                 <%--<input type="title" maxlength="5000" class="col-xs-12" name="toList">--%>
                                 <%--<h3 style="align-content: center" id="cmstitle">标题</h3>--%>
                                 <%--<p>--%>
@@ -121,13 +124,13 @@
                                 <%--<div>   <label style="color: red">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
                                 <%--</div>float: left--%>
 
-                                <div  id="filePicker">请选择公告封面图片</div>
+                                <div id="filePicker">请选择公告封面图片</div>
                                 <%--<label style="color: red;">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
 
                                 <!-- style只为显示效果，真正用请去掉 -->
-                                <input  id="cover" hidden jyValidate="required" readonly="readonly"
-                                        type="text"
-                                        name="cover">
+                                <input id="cover" hidden jyValidate="required" readonly="readonly"
+                                       type="text"
+                                       name="cover">
                             </div>
                         </div>
 
