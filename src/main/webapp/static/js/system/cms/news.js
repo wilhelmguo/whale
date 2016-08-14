@@ -1,5 +1,4 @@
 $(function () {
-
     //下拉框
     JY.Dict.setSelect("selectisValid", "isPublished", 2, "全部");
     getbaseList();
@@ -19,8 +18,12 @@ $(function () {
         UE.getEditor('editor').setContent("");
         $("#row-fluid").hide();
         $("#auDiv").show();
+        initPic();
+        removeFile();
 
-
+    });
+    $(".webuploader-element-invisible").on('onchange', function (e){
+        alert($(this).val());
     });
     //批量删除
     $('#delBatchBtn').on('click', function (e) {
@@ -42,46 +45,59 @@ $(function () {
             });
         }
     });
-    // initPic();
-
 });
 
+var uploader;
+function removeFile() {
+    if (uploader){
+        if (uploader.getFiles()&&uploader.getFiles()>0){
+            uploader.removeFile(uploader.getFiles()[0]);
+        }
+        $("#auForm input[name$='cover']").val("");
+        $('#fileList').html("");
+        // WebUploader.destory();
+    }
+
+}
+
 function initPic() {
+
     var $ = jQuery, $list = $('#fileList'),
         // 优化retina, 在retina下这个值是2
         ratio = window.devicePixelRatio || 1,
         // 缩略图大小
         thumbnailWidth = 100 * ratio,
-        thumbnailHeight = 100 * ratio,
-        // Web Uploader实例
-        uploader;
-    // 初始化Web Uploader
-    uploader = WebUploader.create({
-        allowMagnify: true,
-        fileNumLimit: 1,
-        // 自动上传。
-        auto: true,
-        // swf文件路径
-        swf: jypath + '/static/plugins/webuploader/js/Uploader.swf',
-        // 文件接收服务端。
-        server: jypath + '/backstage/tool/webuploader/uploadPic',
-        // 选择文件的按钮。可选。
-        // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-        pick: '#filePicker',
-        // 只允许选择文件，可选。
-        accept: {
-            title: 'Images',
-            extensions: 'gif,jpg,jpeg,bmp,png',
-            mimeTypes: 'image/*'
-        },
-        //不压缩文件
-        compress: null
-    });
+        thumbnailHeight = 100 * ratio;
 
+    if(!uploader){
+        // uploader.destory();
+        // 初始化Web Uploader
+        uploader = WebUploader.create({
+            allowMagnify: true,
+            fileNumLimit: 1,
+            // 自动上传。
+            auto: true,
+            // swf文件路径
+            swf: jypath + '/static/plugins/webuploader/js/Uploader.swf',
+            // 文件接收服务端。
+            server: jypath + '/backstage/tool/webuploader/uploadPic',
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#filePicker',
+            // 只允许选择文件，可选。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            },
+            //不压缩文件
+            compress: null
+        });
+    }
     // 当有文件添加进来的时候
     uploader.on('fileQueued', function (file) {
         // $list.html("");
-        var $li = $('<div id="' + file.id + '" class="file-item thumbnail">' + '<img></div>'),
+        var $li = $('<div id="' + file.id + '" class="file-item thumbnail">' + '<img><button onclick="removeFile()" style="background-color: #00a0e9;color: #ffffff">删除图片</button></div>'),
             $img = $li.find('img');
         $list.html($li);
         // 创建缩略图
@@ -104,15 +120,8 @@ function initPic() {
     uploader.on('uploadSuccess', function (file, json) {
 
         if ("1" == json.res) {
-            // $('#' + file.id).addClass('upload-state-done');
-            var cover = $("#cover").val();
-            if (JY.Object.notNull(cover)) {
-                cover += "," + json.saveUrl;
-            } else {
-                cover = json.saveUrl;
-                // JY.Model.info(json.resMsg);
-            }
-            $("#cover").val(cover);
+            $('#' + file.id).addClass('upload-state-done');
+            $("#cover").val(json.saveUrl);
             // $("#filePicker").hide();
 
         } else {
@@ -189,42 +198,14 @@ function add() {
 
 function edit(id) {
     cleanForm();
+
     JY.Ajax.doRequest(null, jypath + '/backstage/cms/find', {id: id}, function (data) {
         $("#row-fluid").hide();
         $("#auDiv").show();
+        removeFile();
+        initPic();
+        //
         setForm(data);
-        // loadRoleTree();
-
-        // JY.Model.wideedit("800", "auDiv", "修改", function () {
-        //
-        // if (JY.Validate.form("auForm")) {
-        //     var that = $(this);
-        //
-        //     // var titile=$("#auForm input[name$='title']");
-        //     // if (!JY.Object.notNull(titile)){
-        //     // 	titile.tips({side:1,msg:"请填写标题",bg:'#FF2D2D',time:1});
-        //     // 	titile.focus();
-        //     // 	return false;
-        //     // }
-        //     // if (!JY.Object.notNull(ue.getContent())){
-        //     // 	titile.tips({side:1,msg:"请输入内容",bg:'#FF2D2D',time:1});
-        //     // 	titile.focus();
-        //     // 	return false;
-        //     // }else {
-        //     // 	$("#auForm input[name$='content']").val(ue.getContent());
-        //     // }
-        //
-        //     JY.Ajax.doRequest("auForm", jypath + '/backstage/cms/update', null, function (data) {
-        //         if (data.res == 1) {
-        //             that.dialog("close");
-        //             JY.Model.info(data.resMsg, function () {
-        //                 search();
-        //             });
-        //         } else {
-        //             JY.Model.error(data.resMsg);
-        //         }
-        //     });
-        // }
     });
     // });
 }
@@ -334,9 +315,10 @@ function setForm(data) {
     // JY.Tags.isValid("auForm",(JY.Object.notNull(l.isValid)?l.isValid:"0"));
     $("#auForm input[name$='title']").val(JY.Object.notEmpty(l.title));
     $("#auForm input[name$='content']").val(JY.Object.notEmpty(l.content));
+    $("#auForm input[name$='cover']").val(JY.Object.notEmpty(l.cover));
     ue.setContent(l.content);
     $("#auForm select[name$='status']").val(JY.Object.notEmpty(l.status));//状态
-    var img = '<div class="file-item thumbnail"><img style="height: 100px" src="/whale' + l.cover + '"></div>';
+    var img = '<div class="file-item thumbnail" ><img style="height: 100px" src="/whale' + l.cover + '"><button onclick="removeFile()" style="background-color: #00a0e9;color: #ffffff">删除图片</button></div>';
     $('#fileList').html(img);
     // 创建缩略图
 

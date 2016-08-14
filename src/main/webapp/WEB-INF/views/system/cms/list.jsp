@@ -3,6 +3,7 @@
 <!DOCTYPE html >
 <html lang="en">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <%@include file="../common/includeBaseSet.jsp" %>
     <%@include file="../common/includeSystemSet.jsp" %>
     <link rel="stylesheet" href="${jypath}/static/plugins/zTree/3.5/zTreeStyle.css"/>
@@ -122,10 +123,11 @@
                                 <%--</div>float: left--%>
 
                                 <div id="filePicker">请选择公告封面图片</div>
+
                                 <%--<label style="color: red;">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
 
                                 <!-- style只为显示效果，真正用请去掉 -->
-                                <input id="cover" hidden jyValidate="required" readonly="readonly"
+                                <input id="cover"  jyValidate="required" readonly="readonly"
                                        type="text"
                                        name="cover">
                             </div>
