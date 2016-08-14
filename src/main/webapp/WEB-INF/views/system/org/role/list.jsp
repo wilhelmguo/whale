@@ -31,12 +31,13 @@
 						<form id="baseForm" class="form-inline" method="POST" onsubmit="return false;">
 							<div class="widget-main customBtn">	
 								<input  type="text"  name="keyWord" placeholder="这里输入关键词" class="input-large">
-								&nbsp;&nbsp;<span id="selectisValid"><label></label>：<select  data-placeholder="状态" name="isValid" class="chosen-select isSelect75"></select></span>														
+								&nbsp;&nbsp;<span id="selectisValid"><label></label>：<select  data-placeholder="状态" name="isValid" class="chosen-select isSelect75"></select></span>
 								&nbsp;&nbsp;<button id='searchBtn' class="btn btn-warning  btn-xs" title="过滤" type="button" onclick="getbaseList(1)"><i class="icon-search bigger-110 icon-only"></i></button>		
 							</div>			
 						<input type='hidden' class='pageNum' name='pageNum' value='1'/>
 						<input type='hidden' class='pageSize'  name='pageSize' value='5'/>
-						<input type='hidden' name='orgId' />
+						<input type='hidden' name='orgId'/>
+						<input type='hidden' name='orgName'/>
 						</form>
 						<table id="baseTable" class="table table-striped table-bordered table-hover" >
 							<thead>

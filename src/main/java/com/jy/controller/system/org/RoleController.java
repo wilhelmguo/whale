@@ -78,6 +78,26 @@ public class RoleController extends BaseController<Role> {
         return ar;
     }
 
+    @RequestMapping(value = "findAllRoles", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes findAllRoles(Role o) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
+            try {
+                Page<Role> page=new Page<Role>();
+                page.setPageNum(1);
+                page.setPageSize(100);
+                o.setCompany(getCompany());
+                Page<Role> roles = roleService.findByPage(o, page);
+                ar.setSucceed(roles.getResults());
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
+            }
+        }
+        return ar;
+    }
+
     @RequestMapping(value = "findByPage", method = RequestMethod.POST)
     @ResponseBody
     public AjaxRes findByPage(Page<Role> page, Role o) {

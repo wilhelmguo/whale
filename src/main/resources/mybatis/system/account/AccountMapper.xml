@@ -219,6 +219,15 @@
 		'r' as other
 		FROM JY_BASE_ROLE jbr where jbr.cid=#{company}
 	</select>
+
+    <select id="getSingleRoles" resultMap="ZNodes" parameterType="string">
+        SELECT CONCAT('role',jbr.id) as id,
+        jbr.orgId as pId,
+        jbr.name,
+        '/whale/static/plugins/zTree/3.5/img/diy/user.png' as icon,
+        'r' as other
+        FROM JY_BASE_ROLE jbr where jbr.cid=#{company}
+    </select>
     <select id="findCountByLoginName" resultType="int">
        SELECT COUNT(*)
        		  FROM JY_BASE_ACCOUNT t 

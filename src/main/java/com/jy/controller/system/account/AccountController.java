@@ -46,6 +46,22 @@ public class AccountController extends BaseController<Account> {
     return Const.NO_AUTHORIZED_URL;
   }
 
+  @RequestMapping(value = "singleRoleTree", method = RequestMethod.POST)
+  @ResponseBody
+  public AjaxRes singleRoleTree() {
+    AjaxRes ar = getAjaxRes();
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/account/index"))) {
+      try {
+        List<ZNodes> list = service.getSingleRoles(getCompany());
+        ar.setSucceed(list);
+      } catch (Exception e) {
+        logger.error(e.toString(), e);
+        ar.setFailMsg(Const.DATA_FAIL);
+      }
+    }
+    return ar;
+  }
+
   @RequestMapping(value = "roleTree", method = RequestMethod.POST)
   @ResponseBody
   public AjaxRes roleTree() {
@@ -88,22 +104,8 @@ public class AccountController extends BaseController<Account> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
       try {
-        Role role = new Role();
-        role.setId(o.getRoleId());
-        List<Role> roleList = roleService.find(role);
-        if (roleList == null || roleList.size() < 0) {
-          ar.setFailMsg("未找到相应角色,请检查!");
-          return ar;
-        }
-        Org org = new Org();
-        org.setId(roleList.get(0).getOrgId());
-        List<Org> orgList = orgService.find(org);
-        if (orgList == null || orgList.size() < 0) {
-          ar.setFailMsg("未找到相应部门,请检查!");
-          return ar;
-        }
-        o.setOrgid(orgList.get(0).getId());
-        o.setDepartment(orgList.get(0).getName());
+//        o.setOrgid(orgList.get(0).getId());
+//        o.setDepartment(orgList.get(0).getName());
         o.setAccountId(get32UUID());
         o.setCompany(getCompany());
         int res = service.insertAccount(o);
@@ -157,22 +159,8 @@ public class AccountController extends BaseController<Account> {
     AjaxRes ar = getAjaxRes();
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
       try {
-        Role role = new Role();
-        role.setId(o.getRoleId());
-        List<Role> roleList = roleService.find(role);
-        if (roleList == null || roleList.size() < 0) {
-          ar.setFailMsg("未找到相应角色,请检查!");
-          return ar;
-        }
-        Org org = new Org();
-        org.setId(roleList.get(0).getOrgId());
-        List<Org> orgList = orgService.find(org);
-        if (orgList == null || orgList.size() < 0) {
-          ar.setFailMsg("未找到相应部门,请检查!");
-          return ar;
-        }
-        o.setOrgid(orgList.get(0).getId());
-        o.setDepartment(orgList.get(0).getName());
+//        o.setOrgid(orgList.get(0).getId());
+//        o.setDepartment(orgList.get(0).getName());
         o.setUpdateTime(new Date());
         service.update(o);
         ar.setSucceedMsg(Const.UPDATE_SUCCEED);

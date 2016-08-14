@@ -1,0 +1,191 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="flashlizi - www.riaidea.com">
+<meta name="Description" content="HTML5 experiment">
+
+<title>头像上传组件 - HTML5版</title>
+
+<style>
+body
+{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background-color: #eee;
+	font-size: 12px;
+	color: #666;
+}
+
+a
+{
+	text-decoration: none;
+	color: #333;
+}
+
+a:hover
+{
+	text-decoration: none;
+	color: #f00;
+}
+
+#container
+{
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+
+#wrapper
+{
+	position: absolute;
+	left: 0px;
+	top: 40px;
+}
+
+#cropper
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	border: 1px solid #ccc;
+}
+
+#previewContainer
+{
+	position: absolute;
+	left: 350px;
+}
+
+.preview
+{
+	border: 1px solid #ccc;
+}
+
+#selectBtn
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 119px;
+	height: 27px;
+	background: url(img/select.png);
+}
+
+#saveBtn
+{
+	position: absolute;
+	left: 150px;
+	top: 0px;
+	width: 67px;
+	height: 27px;
+	background: url(img/save.png);
+}
+
+#rotateLeftBtn
+{
+	position: absolute;
+	left: 0px;
+	top: 315px;
+	width: 100px;
+	height: 22px;
+	padding-left: 25px;
+	padding-top: 2px;
+	background: url(img/left.png) no-repeat;
+}
+
+#rotateRightBtn
+{
+	position: absolute;
+	left: 205px;
+	top: 315px;
+	width: 62px;
+	height: 22px;
+	padding-right: 25px;
+	padding-top: 2px;
+	background: url(img/right.png) no-repeat right;
+}
+
+</style>
+
+<script type="text/javascript" src="js/ImageCropper.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+
+var cropper;
+
+function init()
+{
+	cropper = new ImageCropper(280, 160, 70, 40);
+	cropper.setCanvas("cropper");
+	cropper.addPreview("preview160");
+//	cropper.addPreview("preview50");
+
+	if(!cropper.isAvaiable())
+	{
+		alert("Sorry, your browser doesn't support FileReader, please use Firefox3.6+ or Chrome10+ to run it.");
+	}
+}
+
+function selectImage(fileList)
+{
+	cropper.loadImage(fileList[0]);
+}
+
+function rotateImage(e)
+{
+	switch(e.target.id)
+	{
+		case "rotateLeftBtn":
+			cropper.rotate(-90);
+			break;
+		case "rotateRightBtn":
+			cropper.rotate(90);
+			break;
+	}
+}
+
+function saveImage()
+{
+	var file160 = document.getElementById("preview160");
+//	var file50 = document.getElementById("preview50");
+	$.post('avatar/upfile.jsp',{
+	    	"file160": file160.toDataURL(),
+//	    	"file50": file50.toDataURL()
+	    },
+	    function(data){
+	    	alert(data.picUrl);
+	    },"json"
+	)
+}
+
+function trace()
+{
+	if(typeof(console) != "undefined") console.log(Array.prototype.slice.apply(arguments).join(" "));
+};
+
+</script>
+
+<body onload="init();" ginger_software_stylesheet="true" ginger_software_doc="true">
+	<div id="container">
+		<a id="selectBtn" href="javascript:void(0);" onclick="document.getElementById(&#39;input&#39;).click();"></a>
+		<a id="saveBtn" href="javascript:void(0);" onclick="saveImage();"></a>
+		<input type="file" id="input" size="10" style="visibility:hidden;" onchange="selectImage(this.files)" accept="image/*">
+
+		<div id="wrapper">
+			<canvas id="cropper" width="700" height="400"></canvas>
+			<a id="rotateLeftBtn" href="javascript:void(0);" onclick="rotateImage(event);">LeftRotate</a>
+			<a id="rotateRightBtn" href="javascript:void(0);" onclick="rotateImage(event);">RightRotate</a>
+
+			<div id="previewContainer">
+				<canvas id="preview160" width="140" height="80" class="preview"></canvas>
+				<span style="display:block;width:100%;padding-top:5px;text-align:center;">large:700x400</span>
+
+				<!--<canvas id="preview50" width="50" height="50" style="position:absolute;left:50px;top:220px;" class="preview"></canvas>-->
+				<!--<span style="position:absolute;left:45px;top:280px;width:70px;text-align:center;">small:50x50</span>-->
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

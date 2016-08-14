@@ -28,12 +28,13 @@
 					<tr class="FormData">
 						<td class="CaptionTD"><font color="red">*</font>用户角色：</td>
 						<td class="DataTD">&nbsp;
-							<input id="roleName" jyValidate="required" type="text" readonly value="" class="FormElement ui-widget-content ui-corner-all" onclick="showRole(); return false;"/>
+							<input id="roleName" name="roleName" jyValidate="required" type="text" readonly value="" class="FormElement ui-widget-content ui-corner-all" onclick="showRole(); return false;"/>
 							<input type="hidden" name="roleId" value="0" >
 							<a href="#" title="清空" onclick="emptyRole(); return false;" class="lrspace3 aBtnNoTD" data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>
 							<div id='roleContent' class="menuContent ztreeMC" style="display: none; position: absolute;">
 								<ul id="roleTree" class="ztree accountRoleTree"></ul>
 							</div>
+						</td>
 					</tr>	
 					<tr class="FormData">
 						<td class="CaptionTD">用户名：</td>

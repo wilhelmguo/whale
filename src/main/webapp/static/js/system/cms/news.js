@@ -42,7 +42,7 @@ $(function () {
             });
         }
     });
-    initPic();
+    // initPic();
 
 });
 
@@ -256,8 +256,8 @@ function getbaseList(init) {
                 html += "<td class='center '>" + JY.Date.Default(l.addtime) + "</td>";
                 html += "<td class='center '>" + JY.Date.Default(l.uptime) + "</td>";
                 // html+="<td class='center hidden-480'>"+JY.Object.notEmpty(l.pip)+"</td>";
-                // if(l.status==1) html+="<td class='center hidden-480'><span class='label label-sm label-success'>已发布</span></td>";
-                // else             html+="<td class='center hidden-480'><span class='label label-sm arrowed-in'>未发布</span></td>";
+                if(l.status==1) html+="<td class='center hidden-480'><span class='label label-sm label-success'>已发布</span></td>";
+                else             html+="<td class='center hidden-480'><span class='label label-sm arrowed-in'>未发布</span></td>";
                 // html+="<td class='center hidden-480'>"+JY.Date.Default(l.loginLog.loginTime)+"</td>";
                 // html+="<td class='center hidden-480'>"+JY.Object.notEmpty(l.loginLog.loginIP)+"</td>";
                 html += JY.Tags.setFunction(l.id, permitBtn);

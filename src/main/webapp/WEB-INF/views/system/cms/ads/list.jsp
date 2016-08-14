@@ -22,9 +22,9 @@
                 <div class="row">
                     <div class="widget-main">
                         <input type="text" name="keyWord" placeholder="这里输入标题" class="input-large">
-                        <%--&nbsp;&nbsp;<span id="selectisValid"><label></label>：<select data-placeholder="状态"--%>
-                        <%--name="isValid"--%>
-                        <%--class="chosen-select isSelect75"></select></span>--%>
+                        &nbsp;&nbsp;<span id="selectisValid"><label></label>：<select data-placeholder="状态"
+                        name="isValid"
+                        class="chosen-select isSelect75"></select></span>
                         &nbsp;&nbsp;
                         <button id='searchBtn' class="btn btn-warning  btn-xs" title="过滤" type="button"
                                 onclick="getbaseList(1)"><i class="icon-search bigger-110 icon-only"></i></button>
@@ -47,7 +47,7 @@
                     <th style="width:15%" class="center hidden-480"><i class="icon-time bigger-110 hidden-480"></i>修改时间
                     </th>
                     <%--<th style="width:5%"  class="center hidden-480">发布IP</th>--%>
-                    <%--<th style="width:15%" class="center hidden-480">状态</th>--%>
+                    <th style="width:15%" class="center hidden-480">状态</th>
                     <th style="width:15%" class="center">操作</th>
                 </tr>
                 </thead>
