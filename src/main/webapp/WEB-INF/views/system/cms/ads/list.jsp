@@ -204,8 +204,6 @@
             </div>
 
 
-            <div id="zhongxin2" class="center" style="display:none"><br/><br/><br/><br/><br/><img
-                    src="static/images/jiazai.gif"/><br/><h4 class="lighter block green">提交中...</h4></div>
 
         </form>
     </div>

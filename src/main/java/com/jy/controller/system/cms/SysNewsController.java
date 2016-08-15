@@ -117,6 +117,7 @@ public class SysNewsController extends BaseController<SysNews> {
         news.setUptime(new Date());
         news.setTitle(o.getTitle());
         news.setCover(o.getCover());
+        news.setStatus(o.getStatus());
         news.setContent(o.getContent());
         service.update(news);
         ar.setSucceedMsg(Const.UPDATE_SUCCEED);
