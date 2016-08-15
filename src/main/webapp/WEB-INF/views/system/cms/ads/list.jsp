@@ -9,9 +9,37 @@
     <script src="${jypath}/static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
     <script src="${jypath}/static/plugins/ueditor/ueditor.config.js"></script>
     <script src="${jypath}/static/plugins/ueditor/ueditor.all.min.js"></script>
-    <link rel="stylesheet" href="${jypath}/static/plugins/webuploader/css/webuploader.css"/>
-    <script src="${jypath}/static/plugins/webuploader/js/webuploader.js"></script>
     <script type="text/javascript" charset="utf-8" src="${jypath}/static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <%--<link rel="stylesheet" type="text/css" href="${jypath}/static/plugins/cropper/css/normalize.css"/>--%>
+    <%--<link rel="stylesheet" type="text/css" href="${jypath}/static/plugins/cropper/css/default.css">--%>
+    <style>
+        #clipArea {
+            /*margin: 20px;*/
+            height: 250px;
+            width: 400px;
+        }
+
+        #file {
+            margin: 20px;
+        }
+
+        #clipBtn {
+            margin: 20px;
+        }
+
+        #view {
+            margin-left: 100px;
+            width: 210px;
+            height: 120px;
+            position: absolute;
+            left: 380px;
+            top:0px;
+
+        }
+    </style>
+    <!--[if IE]>
+    <script src="http://libs.useso.com/js/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 
@@ -23,8 +51,8 @@
                     <div class="widget-main">
                         <input type="text" name="keyWord" placeholder="这里输入标题" class="input-large">
                         &nbsp;&nbsp;<span id="selectisValid"><label></label>：<select data-placeholder="状态"
-                        name="isValid"
-                        class="chosen-select isSelect75"></select></span>
+                                                                                     name="isValid"
+                                                                                     class="chosen-select isSelect75"></select></span>
                         &nbsp;&nbsp;
                         <button id='searchBtn' class="btn btn-warning  btn-xs" title="过滤" type="button"
                                 onclick="getbaseList(1)"><i class="icon-search bigger-110 icon-only"></i></button>
@@ -114,24 +142,30 @@
                         <br>
                         <div class="form-group">
                             <label class="col-sm-1 control-label no-padding-right"><font
-                                    color="red">*</font>广告封面：</label>
+                                    color="red">*</font>封面：</label>
                             <div class="col-sm-11 col-xs-12">
+                                <div id="clipArea"></div>
+                                <div id="view" ><img width="210" src="/whale/upload/img/20160815a5b5232e188f497a9bb42e77db4344ac.png"></div>
+                                <input style="float: left" type="file" id="file">
+                                <button id="clipBtn"class="btn btn-primary btn-xs ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text"><i
+                                        class="icon-ok bigger-110"></i>&nbsp;截取并上传</span></button>
                                 <!--用来存放item-->
-                                <div id="fileList" class="uploader-list"></div>
-                                <%--<div>   <label style="color: red">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
-                                <%--</div>float: left--%>
+                                <%--<div id="fileList" class="uploader-list"></div>--%>
+                                <%--&lt;%&ndash;<div>   <label style="color: red">封面图片像素要求700*400,否则可能无法正常显示</label>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;</div>float: left&ndash;%&gt;--%>
 
-                                <div  id="filePicker">请选择封面图片</div>
-                                <label style="color: red;">封面图片像素要求700*400,否则可能无法正常显示</label>
+                                <%--<div  id="filePicker">请选择封面图片</div>--%>
+                                <%--<label style="color: red;">封面图片像素要求700*400,否则可能无法正常显示</label>--%>
 
                                 <!-- style只为显示效果，真正用请去掉 -->
-                                <input  id="cover" hidden jyValidate="required" readonly="readonly"
+                                <input id="cover" hidden jyValidate="required" readonly="readonly"
                                        type="text"
                                        name="cover">
                             </div>
                         </div>
                         <div class="hr hr-18 dotted"></div>
                         <br>
+
                         <div class="form-group">
                             <label class="col-sm-1 control-label no-padding-right"><font color="red">*</font>内容：</label>
                             <div class="col-sm-11 col-xs-12">
@@ -139,6 +173,18 @@
                                 <input type="hidden" name="content" id="content">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label no-padding-right"><font
+                                    color="red">*</font>状态：</label>
+                            <div class="col-sm-11 col-xs-12">
+                                <select name="status">
+                                    <option value="0">未发布</option>
+                                    <option value="1">已发布</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="hr hr-18 dotted"></div>
+                        <br>
                         <div class="form-group">
 
                             <div class="col-sm-11 col-xs-12">
@@ -212,12 +258,17 @@
     <!-- #addorUpdateFrom -->
     <%@include file="form.jsp" %>
     <!-- #dialog-confirm -->
+    <%--<%@include file="../../common/dialog.jsp" %>--%>
 
 </div>
-<script src="${jypath}/static/js/system/cms/ads.js"></script>
+
 <script src="${jypath}/static/plugins/tabs/js/tab-control.min.js"></script>
 <script type="text/javascript">
     UE.getEditor('editor');
 </script>
+<script src="${jypath}/static/plugins/cropper/js/iscroll-zoom.js"></script>
+<script src="${jypath}/static/plugins/cropper/js/hammer.js"></script>
+<script src="${jypath}/static/plugins/cropper/js/jquery.photoClip.js"></script>
+<script src="${jypath}/static/js/system/cms/ads.js"></script>
 </body>
 </html>
