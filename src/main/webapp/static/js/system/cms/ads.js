@@ -23,7 +23,6 @@ $(function () {
         $("#row-fluid").hide();
         $("#auDiv").show();
         cleanForm();
-        initClip();
 
     });
     //批量删除
@@ -46,9 +45,7 @@ $(function () {
             });
         }
     });
-});
 
-function initClip() {
     $("#clipArea").photoClip({
         width: 350,
         height: 200,
@@ -87,7 +84,8 @@ function initClip() {
             });
         }
     });
-}
+});
+
 
 function add() {
     if (JY.Validate.form("auForm")) {
@@ -139,7 +137,6 @@ function add() {
 
 function edit(id) {
     cleanForm();
-    initClip();
     // location.reload();
     JY.Ajax.doRequest(null, jypath + '/backstage/ads/find', {id: id}, function (data) {
         $("#row-fluid").hide();
@@ -243,10 +240,11 @@ function del(id) {
 
 
 function cleanForm() {
-    $("#clipArea").html("");
+    // $("#clipArea").html("");
+    $(".photo-clip-rotateLayer").html("");
     $("#file").val("");
     $('#view').html("");
-    $('#view').attr("style","");
+    $('#view').attr("style", "");
     JY.Tags.isValid("auForm", "1");
     JY.Tags.cleanForm("auForm");
 

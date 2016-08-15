@@ -10,7 +10,7 @@
     <script src="${jypath}/static/plugins/ueditor/ueditor.config.js"></script>
     <script src="${jypath}/static/plugins/ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="${jypath}/static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
-    <%--<link rel="stylesheet" type="text/css" href="${jypath}/static/plugins/cropper/css/normalize.css"/>--%>
+    <link rel="stylesheet" type="text/css" href="${jypath}/static/plugins/cropper/css/normalize.css"/>
     <%--<link rel="stylesheet" type="text/css" href="${jypath}/static/plugins/cropper/css/default.css">--%>
     <style>
         #clipArea {
@@ -145,7 +145,7 @@
                                     color="red">*</font>封面：</label>
                             <div class="col-sm-11 col-xs-12">
                                 <div id="clipArea"></div>
-                                <div id="view" ><img width="210" src="/whale/upload/img/20160815a5b5232e188f497a9bb42e77db4344ac.png"></div>
+                                <div id="view" ></div>
                                 <input style="float: left" type="file" id="file">
                                 <button id="clipBtn"class="btn btn-primary btn-xs ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text"><i
                                         class="icon-ok bigger-110"></i>&nbsp;截取并上传</span></button>
