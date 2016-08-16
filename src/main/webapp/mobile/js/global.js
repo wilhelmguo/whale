@@ -72,6 +72,28 @@ function formSerialize(form) {
     return o;
 }
 
+function doGetRequest(form, url, param, fn) {
+    var params = form || param || {};
+    if (typeof form == 'string') {
+        params = $.extend(param || {}, formSerialize($("#" + form)));
+    }
+    $.ajax({
+        type: 'GET', url: url, data: params, dataType: 'json', success: function (data, textStatus) {
+            if (data.res == 1) {
+                if (typeof(fn) == 'function') {
+                    fn.call(this, data);
+                }
+            } else {
+                alert(data.resMsg);
+            }
+        }, error: function () {
+            return;
+        }, beforeSend: function () {
+        }, complete: function () {
+        }
+    });
+}
+
 function doPostRequest(form, url, param, fn) {
     var params = form || param || {};
     if (typeof form == 'string') {

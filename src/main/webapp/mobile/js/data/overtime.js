@@ -14,7 +14,19 @@ $(function () {
 
         },
     });
+    loadDefaultApprover();
 });
+function loadDefaultApprover() {
+    doGetRequest(null, '/whale/backstage/workflow/approver/find', "", function (data) {
+        var r = data.obj;
+        $(".list-manage").append(
+            "<div class='peo-manage' data-value='false'>" +
+            "<p>" + r.name + "</p>" +
+            "<p class='name-manage hide'>" + r.accountId + "</p>" +
+            "</div>");
+
+    });
+}
 function submitClick() {
 
     var approver = "";

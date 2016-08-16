@@ -9,6 +9,9 @@ $(function () {
         $(".widget-box").removeClass("hide");
     });
     $(".list-manage").delegate('div', "click", function () {
+        if($(this).attr("data-value")){
+            return false;
+        }
         $(this).remove();
     });
 
