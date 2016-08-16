@@ -84,7 +84,7 @@ public class RoleController extends BaseController<Role> {
         AjaxRes ar = getAjaxRes();
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
             try {
-                Page<Role> page=new Page<Role>();
+                Page<Role> page = new Page<Role>();
                 page.setPageNum(1);
                 page.setPageSize(100);
                 o.setCompany(getCompany());
@@ -162,6 +162,9 @@ public class RoleController extends BaseController<Role> {
                         Org pOrg = orgs.get(0);
                         String pId = pOrg.getpId();
                         if (StringUtils.isNotBlank(pId)) {
+                            if (StringUtils.isBlank(o.getPid())){
+                                o.setPid("0");
+                            }
                             o.setId(get32UUID());
                             o.setCreateTime(new Date());
                             o.setCompany(pOrg.getCompany());
@@ -420,6 +423,22 @@ public class RoleController extends BaseController<Role> {
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
             try {
                 List<ZNodes> r = orgService.getPreOrgTree();
+                ar.setSucceed(r);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
+            }
+        }
+        return ar;
+    }
+
+    @RequestMapping(value = "getRoleTree", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes getRoleTree() {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
+            try {
+                List<ZNodes> r = roleService.getRoleTree(getCompany());
                 ar.setSucceed(r);
             } catch (Exception e) {
                 logger.error(e.toString(), e);

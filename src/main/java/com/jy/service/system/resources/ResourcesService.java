@@ -30,6 +30,7 @@ public interface ResourcesService extends BaseService<Resources>{
      * @return
      */
 	public List<ZNodes> listResources(Resources r);
+	public List<ZNodes> findAllBaseResource(Resources r);
 	 /**
      * 用户权限资源列表
      * @param userId

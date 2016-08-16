@@ -1,97 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jy.repository.system.org.RoleDao">
-	<!-- com.jy.entity.system.org.Role -->
+    <!-- com.jy.entity.system.org.Role -->
     <resultMap id="base" type="BaseRole"></resultMap>
     <resultMap id="ZNodes" type="com.jy.common.utils.tree.entity.ZNodes"></resultMap>
-    <select id="find"  resultMap="base" parameterType="BaseRole">
-       SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1 
-       <if test="name != null and name!='' ">
-        	and t.name=#{name}
-       </if>
-       <if test="id != null and id!='' ">
-        	and t.id=#{id}
-       </if>
-  	   <if test="isValid!= null">
-        	and t.isValid=#{isValid}
-       </if>
-       ORDER BY t.createTime
-    </select>
-
-	<select id="findSuperUserRole"  resultMap="base" parameterType="BaseRole">
-		SELECT t.* FROM JY_BASE_ROLE t ,JY_BASE_ORG o WHERE 1=1
-		<if test="param.orgId!= null and param.orgId!=''">
-			AND t.orgId=#{param.orgId}
-		</if>
-		<if test="param.keyWord!= null">
-			AND (t.name like CONCAT('%',#{param.keyWord},'%') )
-		</if>
-		<if test="param.isValid!= null">
-			AND t.isValid=#{param.isValid}
-		</if>
-		AND t.orgId=o.id AND o.pId = 0
-		ORDER BY t.createTime
-	</select>
-
-    <select id="findByPage"  resultMap="base" parameterType="BaseRole">
-       SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1
-      <if test="param.orgId!= null and param.orgId!=''">
-        	AND t.orgId=#{param.orgId}
-      </if>
-		<if test="param.company!= null and param.company!=''">
-			AND t.cid=#{param.company}
-		</if>
-      <if test="param.keyWord!= null">
-        	AND (t.name like CONCAT('%',#{param.keyWord},'%') )
-      </if>
-      <if test="param.isValid!= null">
-        	AND t.isValid=#{param.isValid}
-      </if>
+    <select id="find" resultMap="base" parameterType="BaseRole">
+        SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1
+        <if test="name != null and name!='' ">
+            and t.name=#{name}
+        </if>
+        <if test="id != null and id!='' ">
+            and t.id=#{id}
+        </if>
+        <if test="isValid!= null">
+            and t.isValid=#{isValid}
+        </if>
         ORDER BY t.createTime
     </select>
-    <select id="findAllRoleByPage"  resultMap="base" parameterType="BaseRole">
-       SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1
-      <if test="param.allOrgIds!= null and param.allOrgIds!=''">
-        	AND t.orgId IN (${param.allOrgIds})
-      </if>
-      <if test="param.keyWord!= null and param.keyWord!=''">
-        	AND (t.name like CONCAT('%',#{param.keyWord},'%') )
-      </if>
-      <if test="param.isValid!= null">
-        	AND t.isValid=#{param.isValid}
-      </if>
+
+    <select id="findSuperUserRole" resultMap="base" parameterType="BaseRole">
+        SELECT t.* FROM JY_BASE_ROLE t ,JY_BASE_ORG o WHERE 1=1
+        <if test="param.orgId!= null and param.orgId!=''">
+            AND t.orgId=#{param.orgId}
+        </if>
+        <if test="param.keyWord!= null">
+            AND (t.name like CONCAT('%',#{param.keyWord},'%') )
+        </if>
+        <if test="param.isValid!= null">
+            AND t.isValid=#{param.isValid}
+        </if>
+        AND t.orgId=o.id AND o.pId = 0
         ORDER BY t.createTime
-    </select>    
-    <select id="count"  resultType="int" parameterType="BaseRole">
+    </select>
+
+    <select id="findByPage" resultMap="base" parameterType="BaseRole">
+        SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1
+        <if test="param.orgId!= null and param.orgId!=''">
+            AND t.orgId=#{param.orgId}
+        </if>
+        <if test="param.company!= null and param.company!=''">
+            AND t.cid=#{param.company}
+        </if>
+        <if test="param.keyWord!= null">
+            AND (t.name like CONCAT('%',#{param.keyWord},'%') )
+        </if>
+        <if test="param.isValid!= null">
+            AND t.isValid=#{param.isValid}
+        </if>
+        ORDER BY t.createTime
+    </select>
+    <select id="findAllRoleByPage" resultMap="base" parameterType="BaseRole">
+        SELECT t.* FROM JY_BASE_ROLE t WHERE 1=1
+        <if test="param.allOrgIds!= null and param.allOrgIds!=''">
+            AND t.orgId IN (${param.allOrgIds})
+        </if>
+        <if test="param.keyWord!= null and param.keyWord!=''">
+            AND (t.name like CONCAT('%',#{param.keyWord},'%') )
+        </if>
+        <if test="param.isValid!= null">
+            AND t.isValid=#{param.isValid}
+        </if>
+        ORDER BY t.createTime
+    </select>
+    <select id="count" resultType="int" parameterType="BaseRole">
        SELECT count(*) FROM JY_BASE_ROLE t WHERE 1=1 
-    </select>      
-    	<insert id="insert"  parameterType="BaseRole">	
+    </select>
+    <insert id="insert" parameterType="BaseRole">
  	<![CDATA[
-	INSERT INTO JY_BASE_ROLE(id,orgId,name,isValid,description,createTime,cid)
-	VALUES (#{id},#{orgId},#{name},#{isValid},#{description},#{createTime},#{company})
-	]]>  
+
+	INSERT INTO JY_BASE_ROLE(id,orgId,name,isValid,description,createTime,cid,pid)
+	VALUES (#{id},#{orgId},#{name},#{isValid},#{description},#{createTime},#{company},#{pid})
+
+        ]]>
 	</insert>
-	<delete id="delete" parameterType="BaseRole">
+
+    <select id="getRoleTree" resultMap="ZNodes" parameterType="String">
+        SELECT t.id as id,
+        t.name as name,
+        t.pid as pId
+        FROM JY_BASE_ROLE t where 1=1
+        <if test="company != null and company!='' ">
+            and t.cid=#{company}
+        </if>
+        ORDER BY t.id,t.name
+    </select>
+
+    <delete id="delete" parameterType="BaseRole">
 	DELETE FROM JY_BASE_ROLE  
 	WHERE id=#{id} 
 	</delete>
-	<delete id="deleteBatch" parameterType="java.util.List">
-	DELETE FROM JY_BASE_ROLE 
-	WHERE id in(
-		<foreach item="o" collection="list" open="" separator="," close="" >
-			#{o.id}
-		</foreach>
-		)
-	</delete>
-	<update id="update" parameterType="BaseRole">
+    <delete id="deleteBatch" parameterType="java.util.List">
+        DELETE FROM JY_BASE_ROLE
+        WHERE id in(
+        <foreach item="o" collection="list" open="" separator="," close="">
+            #{o.id}
+        </foreach>
+        )
+    </delete>
+    <update id="update" parameterType="BaseRole">
 		UPDATE JY_BASE_ROLE 
 		SET name =#{name},
+		pid=#{pid},
+		orgId=#{orgId},
 			isValid=#{isValid},
 			description=#{description},
 			updateTime =#{updateTime}
 		WHERE id=#{id}
-	</update>	
-	<!-- 权限列表包含按钮 -->
+	</update>
+    <!-- 权限列表包含按钮 -->
     <select id="listAuthorized" resultMap="ZNodes" parameterType="String">    		
  	SELECT jbre.id as id,
 	   		jbre.name as name,
@@ -115,8 +131,19 @@
      ORDER BY jbre.parentId,jbre.type,jbre.sort
     </select>
 
-	<!-- 公司权限列表包含按钮 -->
-	<select id="listCompanyAuthorized" resultMap="ZNodes" parameterType="String">
+    <!-- 新职务角色权限 -->
+    <select id="listPositionAuthorized" resultMap="ZNodes" parameterType="String">
+SELECT
+    jbr.id AS id, jbr.name, jbr.parentId AS pId
+FROM
+    JY_BASE_ROLE_RESOURCES jbrr
+        INNER JOIN
+    JY_BASE_RESOURCES jbr ON jbr.id = jbrr.resources_id
+        AND jbrr.role_id = #{roleId}
+		ORDER BY jbr.parentId
+	</select>
+    <!-- 公司权限列表包含按钮 -->
+    <select id="listCompanyAuthorized" resultMap="ZNodes" parameterType="String">
 		SELECT jbre.id as id,
 		jbre.name as name,
 		jbre.parentId as pId,
@@ -142,31 +169,31 @@
 		DELETE from JY_BASE_ROLE_RESOURCES 
 		WHERE role_id=#{roleId} 
 	</delete>
-	<delete id="delAuthorizedByRoleIdAndLayer" parameterType="String">
+    <delete id="delAuthorizedByRoleIdAndLayer" parameterType="String">
 		DELETE from JY_BASE_ROLE_RESOURCES 
 		WHERE role_id=#{roleId} AND EXISTS (SELECT jbr.id FROM JY_BASE_RESOURCES jbr 
 										  WHERE resources_id=jbr.id AND jbr.layer=#{layer})
 	</delete>
-	<delete id="deleteBatchAuthorizedByRoleId" parameterType="java.util.List">
-	DELETE from JY_BASE_ROLE_RESOURCES 
-	WHERE role_id in(
-		<foreach item="o" collection="list" open="" separator="," close="" >
-			#{o.id}
-		</foreach>
-		)
-	</delete>
-	<insert id="insertAuthorizedByRoleId" parameterType="java.util.List">
-		INSERT INTO JY_BASE_ROLE_RESOURCES(role_id,resources_id)  
-		VALUES 
-		<foreach item="o" collection="list"  separator="," >
-			(#{o.roleId},#{o.resourcesId})
-		</foreach>
-	</insert>
-	 <select id="getRole"  resultMap="base" parameterType="String">
-       SELECT t.* FROM JY_BASE_ROLE t 
-       WHERE 1=1 
-       <if test="id != null and id!='' ">
-        	and t.id=#{id}
-       </if>
-    </select> 
+    <delete id="deleteBatchAuthorizedByRoleId" parameterType="java.util.List">
+        DELETE from JY_BASE_ROLE_RESOURCES
+        WHERE role_id in(
+        <foreach item="o" collection="list" open="" separator="," close="">
+            #{o.id}
+        </foreach>
+        )
+    </delete>
+    <insert id="insertAuthorizedByRoleId" parameterType="java.util.List">
+        INSERT INTO JY_BASE_ROLE_RESOURCES(role_id,resources_id)
+        VALUES
+        <foreach item="o" collection="list" separator=",">
+            (#{o.roleId},#{o.resourcesId})
+        </foreach>
+    </insert>
+    <select id="getRole" resultMap="base" parameterType="String">
+        SELECT t.* FROM JY_BASE_ROLE t
+        WHERE 1=1
+        <if test="id != null and id!='' ">
+            and t.id=#{id}
+        </if>
+    </select>
 </mapper>

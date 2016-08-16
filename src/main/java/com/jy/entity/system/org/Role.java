@@ -14,8 +14,11 @@ public class Role extends BaseEntity{
 	private static final long serialVersionUID = 1L;
 	/**ID*/
 	private String id;
+	private String pid;
+	private String pName;
 	/**机构Id*/
-	private String orgId;	
+	private String orgId;
+	private String orgName;
 	/**名称*/
 	private String name;	
 	/**状态*/
@@ -27,7 +30,31 @@ public class Role extends BaseEntity{
 	/**修改时间*/
 	private Date updateTime;	
 	private String keyWord;
-	
+
+	public String getpName() {
+		return pName;
+	}
+
+	public void setpName(String pName) {
+		this.pName = pName;
+	}
+
+	public String getOrgName() {
+		return orgName;
+	}
+
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
+	}
+
+	public String getPid() {
+		return pid;
+	}
+
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+
 	public String getId() {
 		return id;
 	}

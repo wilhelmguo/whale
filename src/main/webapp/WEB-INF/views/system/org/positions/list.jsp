@@ -33,9 +33,11 @@
                         <label><input type="checkbox" class="ace"><span class="lbl"></span></label>
                     </th>
                     <th style="width:7%" class="center hidden-480">序号</th>
-                    <th style="width:30%" class="center">职务名称</th>
+                    <th style="width:10%" class="center">职务名称</th>
                     <th style="width:10%" class="center hidden-480">状态</th>
-                    <th style="width:33%" class="center hidden-480">职务描述</th>
+                    <th style="width:10%" class="center hidden-480">所属部门</th>
+                    <th style="width:10%" class="center hidden-480">上级职务</th>
+                    <th style="width:10%" class="center hidden-480">职务描述</th>
                     <th style="width:20%" class="center">操作</th>
                 </tr>
                 </thead>

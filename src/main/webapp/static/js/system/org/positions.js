@@ -156,22 +156,25 @@ $(function () {
         });
     });
 
-    //新加角色
+    //新增职务
     $('#addBtn').on('click', function (e) {
         //通知浏览器不要执行与事件关联的默认动作
         e.preventDefault();
         cleanForm();
+        loadPreOrgTree();
+        loadPreOrgTree1();
         var orgId = $("#baseForm input[name$='orgId']").val();
         // if(JY.Object.notNull(orgId)){
         /* var treeObj = $.fn.zTree.getZTreeObj("orgTree");
          var ptreeNode=treeObj.getNodeByParam("id",orgId,null);*/
-        JY.Model.edit("auDiv", "新增职务", function () {
+        JY.Model.resizeedit("350","450","auDiv", "新增职务", function () {
             if (JY.Validate.form("auForm")) {
                 var that = $(this);
                 JY.Ajax.doRequest("auForm", jypath + '/backstage/org/positions/add', null, function (data) {
                     that.dialog("close");
                     JY.Model.info(data.resMsg, function () {
                         search();
+                        // refreshOrgTree();
                     });
                 });
             }
@@ -191,7 +194,7 @@ $(function () {
         if (chks.length == 0) {
             JY.Model.info("您没有选择任何内容!");
         } else {
-            JY.Model.confirm("确认要删除选中的角色吗?", function () {
+            JY.Model.confirm("确认要删除选中的职务吗?", function () {
                 JY.Ajax.doRequest(null, jypath + '/backstage/org/role/delBatch', {chks: chks.toString()}, function (data) {
                     JY.Model.info(data.resMsg, function () {
                         search();
@@ -234,6 +237,16 @@ function refreshOrgTree() {
         JY.Model.loadingClose();
     });
 }
+function loadPreOrgTree1() {
+    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/getRoleTree', null, function (data) {
+        //设置
+        $.fn.zTree.init($("#preOrgTree1"), {
+            view: {dblClickExpand: false, selectedMulti: false, nameIsHTML: true},
+            data: {simpleData: {enable: true}},
+            callback: {onClick: clickPreOrg1}
+        }, data.obj);
+    });
+}
 function loadPreOrgTree() {
     JY.Ajax.doRequest(null, jypath + '/backstage/org/role/getCompanyPreOrgTree', null, function (data) {
         //设置
@@ -246,7 +259,11 @@ function loadPreOrgTree() {
 }
 function emptyPreOrg() {
     $("#preOrg").prop("value", "");
-    $("#auOrgForm input[name$='pId']").prop("value", "0");
+    $("#auOrgForm input[name$='orgId']").prop("value", "0");
+}
+function emptyPreOrg1() {
+    $("#preOrg1").prop("value", "");
+    $("#auOrgForm input[name$='pid']").prop("value", "0");
 }
 var preisShow = false;//窗口是否显示
 function showPreOrg() {
@@ -259,6 +276,31 @@ function showPreOrg() {
         preisShow = true;
     }
 }
+var preisShow1 = false;//窗口是否显示
+function showPreOrg1() {
+    if (preisShow1) {
+        hidePreOrg1();
+    } else {
+        var obj = $("#preOrg1");
+        var offpos = $("#preOrg1").position();
+        $("#preOrgContent1").css({left: offpos.left + "px", top: offpos.top + obj.heith + "px"}).slideDown("fast");
+        preisShow1 = true;
+    }
+}
+function clickPreOrg1(e, treeId, treeNode) {
+    var zTree = $.fn.zTree.getZTreeObj("preOrgTree1"),
+        nodes = zTree.getSelectedNodes(), v = "", n = "";
+    for (var i = 0, l = nodes.length; i < l; i++) {
+        v += nodes[i].name + ",";//获取name值
+        n += nodes[i].id + ",";	//获取id值
+    }
+    if (v.length > 0) v = v.substring(0, v.length - 1);
+    if (n.length > 0) n = n.substring(0, n.length - 1);
+    $("#preOrg1").prop("value", v);
+    $("#auForm input[name$='pid']").val(n);
+    //因为单选选择后直接关闭，如果多选请另外写关闭方法
+    hidePreOrg1();
+}
 function clickPreOrg(e, treeId, treeNode) {
     var zTree = $.fn.zTree.getZTreeObj("preOrgTree"),
         nodes = zTree.getSelectedNodes(), v = "", n = "";
@@ -269,7 +311,7 @@ function clickPreOrg(e, treeId, treeNode) {
     if (v.length > 0) v = v.substring(0, v.length - 1);
     if (n.length > 0) n = n.substring(0, n.length - 1);
     $("#preOrg").prop("value", v);
-    $("#auOrgForm input[name$='pId']").prop("value", n);
+    $("#auForm input[name$='orgId']").prop("value", n);
     //因为单选选择后直接关闭，如果多选请另外写关闭方法
     hidePreOrg();
 }
@@ -277,10 +319,14 @@ function hidePreOrg() {
     $("#preOrgContent").fadeOut("fast");
     preisShow = false;
 }
+function hidePreOrg1() {
+    $("#preOrgContent1").fadeOut("fast");
+    preisShow1 = false;
+}
 function clickOrg(event, treeId, treeNode) {
     $("#baseForm input[name$='orgId']").val(treeNode.id);
-    $("#orgName1").html("");
-    $("#orgName2").html("");
+    // $("#orgName1").html("");
+    // $("#orgName2").html("");
     if (JY.Object.notNull(treeNode.pId)) {
         var treeObj = $.fn.zTree.getZTreeObj("orgTree");
         var ptreeNode = treeObj.getNodeByParam("id", treeNode.pId, null);
@@ -315,6 +361,8 @@ function getbaseList(init) {
                 } else {
                     html += "<td class='center hidden-480'><span class='label label-sm arrowed-in'>无效</span></td>";
                 }
+                html += "<td class='center'>" + JY.Object.notEmpty(l.orgName) + "</td>";
+                html += "<td class='center'>" + JY.Object.notEmpty(l.pName) + "</td>";
                 html += "<td class='center hidden-480'>" + JY.Object.notEmpty(l.description) + "</td>";
                 html += JY.Tags.setFunction(l.id, permitBtn);
                 html += "</tr>";
@@ -334,7 +382,7 @@ function authorized(id) {
     $("#authorityDiv input[name$='roleId']").val(id);
     $("#authorityDiv input[name$='auth']").val("role");
     var layer = $("#authorityDiv input[name$='layer']").val();
-    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/listPositionAuthorized', {
+    JY.Ajax.doRequest(null, jypath + '/backstage/org/positions/listPositionAuthorized', {
         id: id,
         layer: layer
     }, function (data) {
@@ -355,7 +403,7 @@ function authorized(id) {
             if (aus.length > 0) aus = aus.substring(0, aus.length - 1);
             var that = $(this);
             layer = $("#authorityDiv input[name$='layer']").val();
-            JY.Ajax.doRequest(null, jypath + '/backstage/org/role/saveAuthorized', {
+            JY.Ajax.doRequest(null, jypath + '/backstage/org/positions/saveAuthorized', {
                 id: id,
                 aus: aus,
                 layer: layer
@@ -371,7 +419,9 @@ function authorized(id) {
 function check(id) {
     //清空表单
     cleanForm();
-    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/find', {id: id}, function (data) {
+    loadPreOrgTree();
+    loadPreOrgTree1();
+    JY.Ajax.doRequest(null, jypath + '/backstage/org/positions/find', {id: id}, function (data) {
         setForm(data);
         JY.Model.check("auDiv");
     });
@@ -379,12 +429,14 @@ function check(id) {
 function edit(id) {
     //清空表单
     cleanForm();
-    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/find', {id: id}, function (data) {
+    JY.Ajax.doRequest(null, jypath + '/backstage/org/positions/find', {id: id}, function (data) {
         setForm(data);
-        JY.Model.edit("auDiv", "修改角色", function () {
+        loadPreOrgTree();
+        loadPreOrgTree1();
+        JY.Model.resizeedit("350","450","auDiv", "修改职务", function () {
             if (JY.Validate.form("auForm")) {
                 var that = $(this);
-                JY.Ajax.doRequest("auForm", jypath + '/backstage/org/role/update', null, function (data) {
+                JY.Ajax.doRequest("auForm", jypath + '/backstage/org/positions/update', null, function (data) {
                     that.dialog("close");
                     JY.Model.info(data.resMsg, function () {
                         search();
@@ -404,29 +456,35 @@ function del(id) {
     });
 }
 function cleanOrgForm() {
-    JY.Tags.cleanForm("auOrgForm");
-    $("#auOrgForm input[name$='pId']").val('0');//上级资源
+    JY.Tags.cleanForm("auForm");
+    $("#auForm input[name$='pid']").val('0');//上级资源
     $("#preOrgTR").removeClass('hide');
     hidePreOrg();
 }
 function cleanForm() {
     JY.Tags.cleanForm("auForm");
     JY.Tags.isValid("auForm", "1");
+    hidePreOrg();
+    hidePreOrg1();
 }
 
 function setOrgForm(data) {
     var l = data.obj;
-    $("#auOrgForm input[name$='id']").val(JY.Object.notEmpty(l.id));
-    $("#auOrgForm input[name$='name']").val(JY.Object.notEmpty(l.name));
-    $("#auOrgForm textarea[name$='description']").val(JY.Object.notEmpty(l.description));//描述
+    $("#auForm input[name$='id']").val(JY.Object.notEmpty(l.id));
+    $("#auForm input[name$='name']").val(JY.Object.notEmpty(l.name));
+    $("#auForm textarea[name$='description']").val(JY.Object.notEmpty(l.description));//描述
     $("#preOrg").val(JY.Object.notEmpty(l.pName));
-    $("#auForm input[name$='pId']").val(JY.Object.notEmpty(l.pId));//上级资源
+    $("#auForm input[name$='pid']").val(JY.Object.notEmpty(l.pid));//上级资源
 };
 function setForm(data) {
     var l = data.obj;
     $("#auForm input[name$='id']").val(JY.Object.notEmpty(l.id));
+    $("#auForm input[name$='pid']").val(JY.Object.notEmpty(l.pid));
+    $("#auForm input[name$='orgId']").val(JY.Object.notEmpty(l.orgId));
     JY.Tags.isValid("auForm", (JY.Object.notNull(l.isValid) ? l.isValid : "0"));
     $("#auForm input[name$='name']").val(JY.Object.notEmpty(l.name));
+    $("#preOrg").val(JY.Object.notEmpty(l.orgName));
+    $("#preOrg1").val(JY.Object.notEmpty(l.pName));
     $("#auForm textarea[name$='description']").val(JY.Object.notEmpty(l.description));//描述
 }
 function cleanAuthForm() {

@@ -19,6 +19,10 @@ public class ResourcesServiceImp extends BaseServiceImp<Resources> implements Re
 
 
 	@Override
+	public List<ZNodes> findAllBaseResource(Resources r){
+		return ((ResourcesDao) baseDao).findAllBaseResource(r);
+	}
+	@Override
 	public List<Resources> findMenuTree(String userId,String layer) {			
 		return ((ResourcesDao) baseDao).findMenuTree(userId,layer);
 	}

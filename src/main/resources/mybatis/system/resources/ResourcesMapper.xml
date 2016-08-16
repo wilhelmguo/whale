@@ -6,18 +6,18 @@
     <resultMap id="ZNodes" type="com.jy.common.utils.tree.entity.ZNodes"></resultMap>
     <resultMap id="baseAndson" type="BaseResources">
    		<id column="ID" jdbcType="VARCHAR" property="id"/>
-     	<collection property="nodes" column="id" ofType="baseAndson" select="getSon"/> 
+     	<collection property="nodes" column="id" ofType="baseAndson" select="getSon"/>
     </resultMap>
     <select id="findAndson"  resultMap="baseAndson" parameterType="BaseResources">
        SELECT t.* FROM JY_BASE_RESOURCES t 
        WHERE t.id=#{id}
        ORDER BY t.parentId,t.type,t.sort
-    </select> 
+    </select>
     <select id="find"  resultMap="base" parameterType="BaseResources">
-       SELECT t.*,jbr.name as parentName FROM JY_BASE_RESOURCES t 
-       LEFT JOIN JY_BASE_RESOURCES jbr 
+       SELECT t.*,jbr.name as parentName FROM JY_BASE_RESOURCES t
+       LEFT JOIN JY_BASE_RESOURCES jbr
        ON jbr.id=t.parentId
-       WHERE 1=1 
+       WHERE 1=1
        <if test="name != null and name!='' ">
         	AND t.name=#{name}
        </if>
@@ -31,11 +31,16 @@
         	AND t.id=#{id}
        </if>
        ORDER BY t.parentId,t.type,t.sort
-    </select> 
-    <select id="findByPage"  resultMap="base" parameterType="BaseResources">
-       SELECT t.* FROM JY_BASE_RESOURCES t WHERE 1=1 
+    </select>
+	<select id="findAllBaseResource"  resultMap="ZNodes" parameterType="BaseResources">
+		SELECT t.id as id,t.name as name ,t.parentId as pId FROM JY_BASE_RESOURCES t
+		WHERE 1=1 AND t.cid!='-1' and t.isValid=1
+		ORDER BY t.parentId,t.type,t.sort
+	</select>
+	<select id="findByPage"  resultMap="base" parameterType="BaseResources">
+       SELECT t.* FROM JY_BASE_RESOURCES t WHERE 1=1
      <if test="param.keyWord!= null">
-        	AND (t.name like CONCAT('%',#{param.keyWord},'%')    
+        	AND (t.name like CONCAT('%',#{param.keyWord},'%')
         	OR   t.resUrl like CONCAT('%',#{param.keyWord},'%')
         	OR   t.description like CONCAT('%',#{param.keyWord},'%')
         	)
@@ -44,18 +49,18 @@
         	AND t.isValid=#{param.isValid}
        </if>
         ORDER BY t.parentId,t.type,t.sort
-    </select>  
+    </select>
     <select id="count"  resultType="int" parameterType="BaseResources">
        SELECT count(*) FROM JY_BASE_RESOURCES t WHERE 1=1 
-    </select>      
-    <insert id="insert"  parameterType="BaseResources">	
+    </select>
+    <insert id="insert"  parameterType="BaseResources">
  	<![CDATA[
 	INSERT INTO JY_BASE_RESOURCES(
 	id,name,parentId,layer,type,resUrl,btnId,btnFun,icon,sort,isValid,description,createTime,cid
 	) VALUES (
 	#{id},#{name},#{parentId},#{layer},#{type},#{resUrl},#{btnId},#{btnFun},#{icon},#{sort},#{isValid},#{description},#{createTime},#{company}
 	)
-	]]>  
+	]]>
 	</insert>
 	<delete id="delete" parameterType="BaseResources">
 	DELETE FROM JY_BASE_RESOURCES 
@@ -70,7 +75,7 @@
 		WHERE resources_id=#{resourcesId} 
 	</delete>
 	<delete id="deleteBatch" parameterType="java.util.List">
-	DELETE FROM JY_BASE_RESOURCES 
+	DELETE FROM JY_BASE_RESOURCES
 	WHERE id in(
 		<foreach item="o" collection="list" open="" separator="," close="" >
 			#{o.id}
@@ -78,7 +83,7 @@
 		)
 	</delete>
 	<delete id="delBatchRoleAuthByResId" parameterType="java.util.List">
-	DELETE from JY_BASE_ROLE_RESOURCES 
+	DELETE from JY_BASE_ROLE_RESOURCES
 	WHERE resources_id IN(
 		<foreach item="o" collection="list" open="" separator="," close="" >
 			#{o.id}
@@ -86,7 +91,7 @@
 		)
 	</delete>
 		<delete id="delBatchOrgAuthByResId" parameterType="java.util.List">
-	DELETE from JY_BASE_ORG_RESOURCES 
+	DELETE from JY_BASE_ORG_RESOURCES
 	WHERE resources_id IN(
 		<foreach item="o" collection="list" open="" separator="," close="" >
 			#{o.id}
@@ -109,9 +114,9 @@
 			updateTime =#{updateTime}
 		WHERE 
 			id=#{id}
-	</update>	
+	</update>
 	<!-- 菜单树-->
-    <select id="findMenuTree"  resultMap="base" parameterType="String">    		
+    <select id="findMenuTree"  resultMap="base" parameterType="String">
 		SELECT  jbm.id,jbm.name,jbm.parentId,jbm.type,jbm.resUrl,jbm.icon,jbm.sort,jbm.isValid
 		FROM JY_BASE_RESOURCES jbm
 		RIGHT JOIN(select jbrm.* from JY_BASE_ROLE jbr,JY_BASE_ROLE_RESOURCES jbrm WHERE jbr.id=jbrm.role_id AND jbr.isValid=1) t
@@ -131,7 +136,7 @@
 		ORDER BY jbm.parentId,jbm.sort
 	</select>
 	<!-- 按钮列 -->
-    <select id="findBtn"  resultMap="base" parameterType="java.util.Map">    		
+    <select id="findBtn"  resultMap="base" parameterType="java.util.Map">
 		SELECT jbm.name,jbm.parentId,jbm.type,jbm.resUrl,jbm.btnId,jbm.btnFun,jbm.icon,jbm.sort,jbm.isValid,jbm.layer
 		FROM JY_BASE_RESOURCES jbm
 		RIGHT JOIN(select jbrm.* from JY_BASE_ROLE jbr,JY_BASE_ROLE_RESOURCES jbrm WHERE jbr.id=jbrm.role_id AND jbr.isValid=1) t
@@ -140,12 +145,13 @@
 		WHERE jbm.isValid=1 AND jbm.type=#{type}
        	AND jbm.parentId=#{menuId}
 		ORDER BY jbm.sort
-    </select> 
+    </select>
   <!-- 资源列表只含菜单不含按钮 -->
     <select id="listResources" resultMap="ZNodes" parameterType="BaseResources">    		
 	   SELECT t.id as id,
 	   		  t.name as name,
-	   		  t.parentId as pId 
+	   		  t.parentId as pId ,
+	   		  'false' checked
 	   FROM JY_BASE_RESOURCES t WHERE t.type=1 AND t.layer=#{layer}
        ORDER BY t.parentId,t.sort
     </select>
@@ -166,19 +172,19 @@
 			#{o.id}
 		</foreach>
 		)
-    </select>         
+    </select>
     <select id="getSon"  parameterType="String" resultMap="baseAndson" >
 	  SELECT jbr.* FROM JY_BASE_RESOURCES jbr 
 	  WHERE jbr.parentId=#{id}      
 	  ORDER BY jbr.parentId,jbr.type,jbr.sort
     </select>
-    <update id="updateBatchLayer" parameterType="Map">  
-        UPDATE JY_BASE_RESOURCES SET   
-            layer=#{layer} 
-        WHERE id IN(  
+    <update id="updateBatchLayer" parameterType="Map">
+        UPDATE JY_BASE_RESOURCES SET
+            layer=#{layer}
+        WHERE id IN(
       	<foreach item="o" collection="list" open="" separator="," close="" >
 			#{o}
 		</foreach>
-		) 
+		)
 	</update>
 </mapper>

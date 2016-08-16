@@ -10,9 +10,12 @@ import com.jy.controller.base.BaseController;
 import com.jy.entity.system.company.Company;
 import com.jy.entity.system.org.Org;
 import com.jy.entity.system.org.Role;
+import com.jy.entity.system.resources.Resources;
 import com.jy.service.company.CompanyService;
 import com.jy.service.system.org.OrgService;
 import com.jy.service.system.org.RoleService;
+import com.jy.service.system.resources.ResourcesService;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +39,8 @@ public class PositionsController extends BaseController<Role> {
 
     @Autowired
     public RoleService roleService;
+    @Autowired
+    public ResourcesService resourcesService;
 
     @Autowired
     public CompanyService companyService;
@@ -81,6 +86,27 @@ public class PositionsController extends BaseController<Role> {
             try {
                 o.setCompany(getCompany());
                 Page<Role> roles = roleService.findByPage(o, page);
+                List<Role> result = new ArrayList<Role>();
+                for (Role r : roles.getResults()) {
+                    if (StringUtils.isNotBlank(r.getOrgId())) {
+                        Org org = new Org();
+                        org.setId(r.getOrgId());
+                        List<Org> los = orgService.find(org);
+                        if (CollectionUtils.isNotEmpty(los)) {
+                            r.setOrgName(los.get(0).getName());
+                        }
+                    }
+                    if (StringUtils.isNotBlank(r.getPid())) {
+                        Role role = new Role();
+                        role.setId(r.getPid());
+                        List<Role> los = roleService.find(role);
+                        if (CollectionUtils.isNotEmpty(los)) {
+                            r.setpName(los.get(0).getName());
+                        }
+                    }
+                    result.add(r);
+                }
+                roles.setResults(result);
                 Map<String, Object> p = new HashMap<String, Object>();
                 p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
                 p.put("list", roles);
@@ -130,6 +156,9 @@ public class PositionsController extends BaseController<Role> {
         AjaxRes ar = getAjaxRes();
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
             try {
+                if (StringUtils.isBlank(o.getPid())) {
+                    o.setPid("0");
+                }
                 o.setId(get32UUID());
                 o.setCreateTime(new Date());
                 o.setCompany(getCompany());
@@ -173,8 +202,26 @@ public class PositionsController extends BaseController<Role> {
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
             try {
                 List<Role> list = roleService.find(o);
-                Role role = list.get(0);
-                ar.setSucceed(role);
+                if (CollectionUtils.isNotEmpty(list)) {
+                    Role r = list.get(0);
+                    if (StringUtils.isNotBlank(r.getOrgId())) {
+                        Org org = new Org();
+                        org.setId(r.getOrgId());
+                        List<Org> los = orgService.find(org);
+                        if (CollectionUtils.isNotEmpty(los)) {
+                            r.setOrgName(los.get(0).getName());
+                        }
+                    }
+                    if (StringUtils.isNotBlank(r.getPid())) {
+                        Role role = new Role();
+                        role.setId(r.getPid());
+                        List<Role> los = roleService.find(role);
+                        if (CollectionUtils.isNotEmpty(los)) {
+                            r.setpName(los.get(0).getName());
+                        }
+                    }
+                    ar.setSucceed(r);
+                }
             } catch (Exception e) {
                 logger.error(e.toString(), e);
                 ar.setFailMsg(Const.DATA_FAIL);
@@ -269,6 +316,34 @@ public class PositionsController extends BaseController<Role> {
             } catch (Exception e) {
                 logger.error(e.toString(), e);
                 ar.setFailMsg(Const.UPDATE_FAIL);
+            }
+        }
+        return ar;
+    }
+
+    @RequestMapping(value = "listPositionAuthorized", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes listPositionAuthorized() {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
+            try {
+                PageData pd = this.getPageData();
+                String roleId = pd.getString("id");
+                List<ZNodes> all=resourcesService.findAllBaseResource(new Resources());
+                List<ZNodes> r = roleService.listPositionAuthorized(roleId);
+                List<ZNodes> result = new ArrayList<ZNodes>();
+                for (ZNodes zNode:all){
+                    for (ZNodes z:r){
+                        if (z.getId().equals(zNode.getId())){
+                            zNode.setChecked("true");
+                        }
+                    }
+                    result.add(zNode);
+                }
+                ar.setSucceed(result);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
             }
         }
         return ar;

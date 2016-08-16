@@ -26,12 +26,12 @@
 					<tr id="preOrgTR" class="FormData">
 						<td  class="CaptionTD"><font color="red">*</font>上级组织：</td>
 						<td class="DataTD">&nbsp;
-							<input id="preOrg" type="text" jyValidate="required" readonly value="" class="FormElement ui-widget-content ui-corner-all" onclick="showPreOrg(); return false;"/>
-							<input  type="hidden" name="pId" value="0" >
-							<a href="#" title="清空" onclick="emptyPreOrg(); return false;" class="lrspace3 aBtnNoTD" data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>
-							<div id='preOrgContent' class="menuContent ztreeMC" style="display: none; position: absolute;">
-								<ul id="preOrgTree" class="ztree preOrgTree"></ul>
-							</div>
+							<%--<input id="preOrg" type="text" jyValidate="required" readonly value="" class="FormElement ui-widget-content ui-corner-all" onclick="showPreOrg(); return false;"/>--%>
+							<%--<input  type="hidden" name="pId" value="0" >--%>
+							<%--<a href="#" title="清空" onclick="emptyPreOrg(); return false;" class="lrspace3 aBtnNoTD" data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>--%>
+							<%--<div id='preOrgContent' class="menuContent ztreeMC" style="display: none; position: absolute;">--%>
+								<%--<ul id="preOrgTree" class="ztree preOrgTree"></ul>--%>
+							<%--</div>--%>
 						</td>
 					</tr>
 					<tr class="FormData">
@@ -68,7 +68,33 @@
 						<td class="CaptionTD"><font color="red">*</font>职务名称：</td>
 						<td class="DataTD">&nbsp;
 						<input type="text" jyValidate="required"  maxlength="25" name="name" class="FormElement ui-widget-content ui-corner-all"></td>
-					</tr>		
+					</tr>
+					<tr class="FormData">
+						<td class="CaptionTD"><font color="red">*</font>所属部门：</td>
+						<td class="DataTD">&nbsp;
+							<input id="preOrg" type="text" jyValidate="required" readonly value=""
+								   class="FormElement ui-widget-content ui-corner-all" onclick="showPreOrg(); return false;"/>
+							<input type="hidden" name="orgId" value="0">
+							<a href="#" title="清空" onclick="emptyPreOrg(); return false;" class="lrspace3 aBtnNoTD"
+							   data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>
+							<div id='preOrgContent' class="menuContent ztreeMC" style="display: none; position: absolute;">
+								<ul id="preOrgTree" class="ztree preOrgTree"></ul>
+							</div>
+						</td>
+					</tr>
+					<tr class="FormData">
+						<td class="CaptionTD">上级职务：</td>
+						<td class="DataTD">&nbsp;
+							<input id="preOrg1" type="text" readonly value=""
+								   class="FormElement ui-widget-content ui-corner-all" onclick="showPreOrg1(); return false;"/>
+							<input type="hidden" name="pid" value="0">
+							<a href="#" title="清空" onclick="emptyPreOrg1(); return false;" class="lrspace3 aBtnNoTD"
+							   data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>
+							<div id='preOrgContent1' class="menuContent ztreeMC" style="display: none; position: absolute;">
+								<ul id="preOrgTree1" class="ztree preOrgTree"></ul>
+							</div>
+						</td>
+					</tr>
 					<tr class="FormData">
 						<td class="CaptionTD">职务描述：</td>
 						<td class="DataTD">&nbsp;

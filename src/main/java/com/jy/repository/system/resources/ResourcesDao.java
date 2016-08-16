@@ -42,6 +42,7 @@ public interface ResourcesDao extends BaseDao<Resources> {
    */
   public List<ZNodes> listResources(Resources r);
 
+  public List<ZNodes> findAllBaseResource(Resources r);
   /**
    * 权限列表包含按钮
    *

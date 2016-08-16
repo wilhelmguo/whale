@@ -503,6 +503,31 @@ JY = {
                 }]
             });
         },
+        resizeedit: function (width, height, id, title, savefn, cancelfn) {
+            $("#" + id).removeClass('hide').dialog({
+                width: width, height: height, resizable: true, modal: true,
+                title: "<div class='widget-header'><h4 class='smaller'>"
+                + (JY.Object.notNull(title) ? title : "修改") + "</h4></div>",
+                title_html: true, buttons: [{
+                    html: "<i class='icon-ok bigger-110'>" +
+                    "</i>&nbsp;保存", "class": "btn btn-primary btn-xs",
+                    click: function () {
+                        if (typeof(savefn) == 'function') {
+                            // $('.ui-dialog-buttonpane').find('button:first').attr('disabled', 'true');
+                            savefn.call(this);
+                        }
+                    }
+                }, {
+                    html: "<i class='icon-remove bigger-110'>" +
+                    "</i>&nbsp;取消", "class": "btn btn-xs", click: function () {
+                        $(this).dialog("close");
+                        if (typeof(cancelfn) == 'function') {
+                            cancelfn.call(this);
+                        }
+                    }
+                }]
+            });
+        },
         //审核
         audit: function (id, title, savefn, rejectfn, cancelfn) {
             $("#" + id).removeClass('hide').dialog({
