@@ -16,7 +16,7 @@ function getUser() {
                 var fullname=data.obj.name;
                 var shortName=fullname.substring(fullname.length-1,fullname.length);
                 $("#fullname").text(fullname);
-                $("#shortname").text(shortName);
+                $("#shortname").text(fullname);
             }
         },
         error: function () {

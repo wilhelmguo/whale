@@ -119,7 +119,7 @@ $(function () {
         cleanOrgForm();
         $("#preOrgTR").addClass('hide');
         loadPreOrgTree();
-        var orgId = $("#baseForm input[name$='orgId']").val();
+        var orgId = $("#baseForm input[name$='orgid']").val();
         JY.Ajax.doRequest(null, jypath + '/backstage/org/role/findOrg', {id: orgId}, function (data) {
             if (data.res == 1) {
                 setOrgForm(data);
@@ -162,10 +162,10 @@ $(function () {
         e.preventDefault();
         cleanForm();
         loadRoleTree();
-        var orgId = $("#baseForm input[name$='orgId']").val();
+        var orgId = $("#baseForm input[name$='orgid']").val();
         if (JY.Object.notNull(orgId)) {
             $('#auDiv input[name="department"]').val($("#baseForm input[name$='orgName']").val());
-            $('#auDiv input[name="orgid"]').val($("#baseForm input[name$='orgId']").val());
+            $('#auDiv input[name="orgid"]').val($("#baseForm input[name$='orgid']").val());
             // JY.Dict.setSelect("roles","roleId",2,'全部');
             // getRoleSelect();
             /* var treeObj = $.fn.zTree.getZTreeObj("orgTree");
@@ -339,7 +339,7 @@ function hidePreOrg() {
     preisShow = false;
 }
 function clickOrg(event, treeId, treeNode) {
-    $("#baseForm input[name$='orgId']").val(treeNode.id);
+    $("#baseForm input[name$='orgid']").val(treeNode.id);
     $("#baseForm input[name$='orgName']").val(treeNode.name);
     $("#orgName1").html("");
     $("#orgName2").html("");

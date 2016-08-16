@@ -36,7 +36,7 @@
 							</div>			
 						<input type='hidden' class='pageNum' name='pageNum' value='1'/>
 						<input type='hidden' class='pageSize'  name='pageSize' value='5'/>
-						<input type='hidden' name='orgId'/>
+						<input type='hidden' name='orgid'/>
 						<input type='hidden' name='orgName'/>
 						</form>
 						<table id="baseTable" class="table table-striped table-bordered table-hover" >

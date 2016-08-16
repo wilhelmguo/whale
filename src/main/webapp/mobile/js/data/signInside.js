@@ -49,11 +49,11 @@ function getSignTime() {
                 var result = data.obj;
                 if (!isEmpty(result.morning)) {
                     $("#morning-time").text(result.morning);
-                    // $("#click1").hide();
+                    $("#click1").hide();
                 }
                 if (!isEmpty(result.night)) {
                     $("#night-time").text(result.night);
-                    // $("#click2").hide();
+                    $("#click2").hide();
                 }
             }
         },

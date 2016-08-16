@@ -62,7 +62,7 @@
         <if test="param.loginName != null and param.loginName!='' ">
             AND t.loginName LIKE CONCAT('%',#{param.loginName},'%')
         </if>
-        <if test="param.keyWord!= null">
+        <if test="param.keyWord!= null and param.keyWord!= ''" >
             AND (
             t.loginName LIKE CONCAT('%',#{param.keyWord},'%')
             OR t.name LIKE CONCAT('%',#{param.keyWord},'%')
@@ -71,6 +71,9 @@
         </if>
         <if test="param.roleId != null ">
             AND t.roleId=#{param.roleId}
+        </if>
+        <if test="param.orgid != null ">
+            AND t.orgid=#{param.orgid}
         </if>
         <if test="param.company != null and param.company!=''">
             AND t.cid=#{param.company}
