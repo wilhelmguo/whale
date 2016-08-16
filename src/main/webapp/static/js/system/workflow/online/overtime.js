@@ -27,7 +27,17 @@ $(function () {
         $("input[name='endtime']").datetimepicker('setEndDate', endTime);
     });
     loadPreOrgTree();
+    loadDefaultApprover();
 });
+
+function loadDefaultApprover() {
+    JY.Ajax.doGetRequest(null, jypath + '/backstage/workflow/approver/find', "", function (data) {
+        var r = data.obj;
+        $("#preOrg").val(r.accountId);
+        $("#preOrgName").val(r.name);
+    });
+
+}
 function submitApply() {
     if (JY.Validate.form("leaveFrom")) {
         JY.Model.confirm("确认提交申请吗?", function () {
@@ -139,7 +149,16 @@ function emptyPreOrg1() {
 }
 
 function emptyPreOrg() {
-    $("#preOrg").prop("value", "");
-    $("#preOrgName").prop("value", "");
-    $("#leaveFrom input[name$='pId']").prop("value", "0");
+    var aid = $("#preOrg").val();
+    var aName = $("#preOrgName").val();
+    var length = 0;
+    if (JY.Object.notNull(aid)) {
+        length = aid.split(",").length;
+    }
+    if (length >= 2) {
+        $("#preOrg").prop("value", aid.split(",")[0]);
+        $("#preOrgName").prop("value", aName.split(",")[0]);
+        $("#leaveFrom input[name$='pId']").prop("value", "0");
+    }
+
 }

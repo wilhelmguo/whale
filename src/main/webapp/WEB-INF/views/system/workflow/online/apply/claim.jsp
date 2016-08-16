@@ -19,7 +19,7 @@
         <h1>
             报销申请表
             <small><i class="icon-double-angle-right"></i>&nbsp;员工-直属领导-财务（核对（比如发票）并审批）
-                &nbsp;&nbsp;&nbsp;多级审批按顺序选择多个审批人即可
+                &nbsp;&nbsp;&nbsp;多级审批按顺序选择多个审批人即可(直属领导无法删除)
             </small>
         </h1>
     </div>

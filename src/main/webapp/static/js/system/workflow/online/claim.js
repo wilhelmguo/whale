@@ -1,12 +1,20 @@
 $(function () {
     // JY.Dict.setSelect("selectLeaveType", "leaveType", "1");
-
     loadPreOrgTree();
+    loadDefaultApprover();
 });
+function loadDefaultApprover() {
+    JY.Ajax.doGetRequest(null, jypath + '/backstage/workflow/approver/find', "", function (data) {
+        var r = data.obj;
+        $("#preOrg").val(r.accountId);
+        $("#preOrgName").val(r.name);
+    });
+
+}
 function submitApply() {
     if (JY.Validate.form("leaveFrom")) {
         JY.Model.confirm("确认提交申请吗?", function () {
-           var ueContent= UE.getEditor('editor').getContent();
+            var ueContent = UE.getEditor('editor').getContent();
             $("#leaveFrom").find("input[name$='attach']").val(ueContent);
             JY.Ajax.doRequest("leaveFrom", jypath + '/backstage/workflow/online/claim/start', "", function (data) {
                 JY.Model.info(data.resMsg);
@@ -116,7 +124,15 @@ function emptyPreOrg1() {
 }
 
 function emptyPreOrg() {
-    $("#preOrg").prop("value", "");
-    $("#preOrgName").prop("value", "");
-    $("#leaveFrom input[name$='pId']").prop("value", "0");
+    var aid = $("#preOrg").val();
+    var aName = $("#preOrgName").val();
+    var length = 0;
+    if (JY.Object.notNull(aid)) {
+        length = aid.split(",").length;
+    }
+    if (length >= 2) {
+        $("#preOrg").prop("value", aid.split(",")[0]);
+        $("#preOrgName").prop("value", aName.split(",")[0]);
+        $("#leaveFrom input[name$='pId']").prop("value", "0");
+    }
 }

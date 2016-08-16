@@ -33,6 +33,9 @@
         <if test="loginName != null and loginName!='' ">
             and t.loginName=#{loginName}
         </if>
+        <if test="roleId != null and roleId!='' ">
+            and t.roleId=#{roleId}
+        </if>
         <if test="accountId != null ">
             and t.id=#{accountId}
         </if>

@@ -17,7 +17,7 @@
         <h1>
             请假申请表
             <small><i class="icon-double-angle-right"></i>&nbsp;三天以内：员工-直属领导
-                三天以上：员工-直属领导-总经理  &nbsp;&nbsp;&nbsp;多级审批按顺序选择多个审批人即可
+                三天以上：员工-直属领导-总经理  &nbsp;&nbsp;&nbsp;多级审批按顺序选择多个审批人即可(直属领导无法删除)
             </small>
         </h1>
     </div>

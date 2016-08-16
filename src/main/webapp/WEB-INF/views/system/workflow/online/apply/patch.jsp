@@ -16,7 +16,7 @@
     <div class="page-header">
         <h1>
             补卡申请表表
-            <small><i class="icon-double-angle-right"></i>&nbsp;员工-直属领导
+            <small><i class="icon-double-angle-right"></i>&nbsp;员工-直属领导(直属领导无法删除)
                 &nbsp;&nbsp;&nbsp;
             </small>
         </h1>
