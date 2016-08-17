@@ -38,6 +38,7 @@ public class MSysNewsController extends BaseController<SysNews> {
                 page.setPageNum(1);
                 page.setPageSize(100);
                 SysNews o = new SysNews();
+                o.setIsValid(1);
                 o.setCompany(getCompany());
                 Page<SysNews> news = service.findByPage(o, page);
                 ar.setSucceed(getTimeList(news.getResults()));

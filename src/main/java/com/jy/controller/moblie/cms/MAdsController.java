@@ -35,6 +35,7 @@ public class MAdsController extends BaseController<Ads> {
                 page.setPageNum(1);
                 page.setPageSize(3);
                 Ads o = new Ads();
+                o.setIsValid(1);
                 o.setCompany(getCompany());
                 Page<Ads> news = service.findByPage(o, page);
                 ar.setSucceed(news);
