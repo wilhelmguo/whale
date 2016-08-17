@@ -9,6 +9,8 @@ import com.jy.entity.system.org.Org;
 import com.jy.entity.system.org.Role;
 import com.jy.service.system.org.OrgService;
 import com.jy.service.system.org.RoleService;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.shiro.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,254 +30,265 @@ import com.jy.service.system.account.AccountService;
 @RequestMapping("/backstage/account/")
 public class AccountController extends BaseController<Account> {
 
-  @Autowired
-  private AccountService service;
+    @Autowired
+    private AccountService service;
 
-  @Autowired
-  private RoleService roleService;
+    @Autowired
+    private RoleService roleService;
 
-  @Autowired
-  private OrgService orgService;
+    @Autowired
+    private OrgService orgService;
 
-  @RequestMapping("index")
-  public String index(Model model) {
-    if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
-      model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
-      return "/system/account/list";
+    @RequestMapping("index")
+    public String index(Model model) {
+        if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
+            model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
+            return "/system/account/list";
+        }
+        return Const.NO_AUTHORIZED_URL;
     }
-    return Const.NO_AUTHORIZED_URL;
-  }
 
-  @RequestMapping(value = "singleRoleTree", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes singleRoleTree() {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/account/index"))) {
-      try {
-        List<ZNodes> list = service.getSingleRoles(getCompany());
-        ar.setSucceed(list);
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg(Const.DATA_FAIL);
-      }
+    @RequestMapping(value = "singleRoleTree", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes singleRoleTree() {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/account/index"))) {
+            try {
+                List<ZNodes> list = service.getSingleRoles(getCompany());
+                ar.setSucceed(list);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
+            }
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "roleTree", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes roleTree() {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/account/index"))) {
-      try {
-        List<ZNodes> list = service.getRoles(getCompany());
-        ar.setSucceed(list);
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg(Const.DATA_FAIL);
-      }
+    @RequestMapping(value = "roleTree", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes roleTree() {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/account/index"))) {
+            try {
+                List<ZNodes> list = service.getRoles(getCompany());
+                ar.setSucceed(list);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
+            }
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "findByPage", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes findByPage(Page<Account> page, Account o) {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/account/index"))) {
-      try {
-        o.setCompany(getCompany());
-        Page<Account> accounts = service.findByPage(o, page);
-        Map<String, Object> p = new HashMap<String, Object>();
-        p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
-        p.put("list", accounts);
-        ar.setSucceed(p);
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg(Const.DATA_FAIL);
-      }
+    @RequestMapping(value = "findByPage", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes findByPage(Page<Account> page, Account o) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/account/index"))) {
+            try {
+                if (org.apache.commons.lang3.StringUtils.isNotBlank(o.getOrgid())) {
+                    Org org = new Org();
+                    org.setId(o.getOrgid());
+                    List<Org> list = orgService.find(org);
+                    if (CollectionUtils.isNotEmpty(list)) {
+                        Org org1 = list.get(0);
+                        if ("0".equals(org1.getpId())) {
+                            o.setOrgid(null);
+                        }
+                    }
+                }
+                o.setCompany(getCompany());
+                Page<Account> accounts = service.findByPage(o, page);
+                Map<String, Object> p = new HashMap<String, Object>();
+                p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
+                p.put("list", accounts);
+                ar.setSucceed(p);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
+            }
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "add", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes add(Account o) {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
-      try {
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes add(Account o) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
+            try {
 //        o.setOrgid(orgList.get(0).getId());
 //        o.setDepartment(orgList.get(0).getName());
-        o.setAccountId(get32UUID());
-        o.setCompany(getCompany());
-        int res = service.insertAccount(o);
-        if (res == 1) ar.setSucceedMsg(Const.SAVE_SUCCEED);
-        else ar.setFailMsg("登录名已存在");
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg(Const.SAVE_FAIL);
-      }
+                o.setAccountId(get32UUID());
+                o.setCompany(getCompany());
+                int res = service.insertAccount(o);
+                if (res == 1) ar.setSucceedMsg(Const.SAVE_SUCCEED);
+                else ar.setFailMsg("登录名已存在");
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.SAVE_FAIL);
+            }
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "delBatch", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes delBatch(String chks) {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
-      try {
-        service.deleteBatchAccount(chks);
-        ar.setSucceedMsg(Const.DEL_SUCCEED);
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg(Const.DEL_FAIL);
-      }
+    @RequestMapping(value = "delBatch", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes delBatch(String chks) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
+            try {
+                service.deleteBatchAccount(chks);
+                ar.setSucceedMsg(Const.DEL_SUCCEED);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DEL_FAIL);
+            }
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "find", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes find(Account o) {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
-      try {
-        o.setCompany(getCompany());
-        List<Account> list = service.find(o);
-        Account acount = list.get(0);
-        ar.setSucceed(acount);
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg(Const.DATA_FAIL);
-      }
+    @RequestMapping(value = "find", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes find(Account o) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
+            try {
+                o.setCompany(getCompany());
+                List<Account> list = service.find(o);
+                Account acount = list.get(0);
+                ar.setSucceed(acount);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
+            }
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "update", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes update(Account o) {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
-      try {
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes update(Account o) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
+            try {
 //        o.setOrgid(orgList.get(0).getId());
 //        o.setDepartment(orgList.get(0).getName());
-        o.setUpdateTime(new Date());
-        service.update(o);
-        ar.setSucceedMsg(Const.UPDATE_SUCCEED);
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg(Const.UPDATE_FAIL);
-      }
+                o.setUpdateTime(new Date());
+                service.update(o);
+                ar.setSucceedMsg(Const.UPDATE_SUCCEED);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.UPDATE_FAIL);
+            }
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "del", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes del(Account o) {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
-      try {
-        service.deleteAccount(o);
-        ar.setSucceedMsg(Const.DEL_SUCCEED);
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg(Const.DEL_FAIL);
-      }
+    @RequestMapping(value = "del", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes del(Account o) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
+            try {
+                service.deleteAccount(o);
+                ar.setSucceedMsg(Const.DEL_SUCCEED);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DEL_FAIL);
+            }
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "resetPwd", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes resetPwd(Account o) {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
-      try {
-        o.setPassword(getPageData().getString("pwd"));
-        int res = service.sysResetPwd(o);
-        if (res == 1) ar.setSucceedMsg(Const.UPDATE_SUCCEED);
-        else ar.setFailMsg(Const.UPDATE_FAIL);
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg(Const.UPDATE_FAIL);
-      }
+    @RequestMapping(value = "resetPwd", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes resetPwd(Account o) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
+            try {
+                o.setPassword(getPageData().getString("pwd"));
+                int res = service.sysResetPwd(o);
+                if (res == 1) ar.setSucceedMsg(Const.UPDATE_SUCCEED);
+                else ar.setFailMsg(Const.UPDATE_FAIL);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.UPDATE_FAIL);
+            }
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "setSetting", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes setSetting(String skin) {
-    AjaxRes ar = getAjaxRes();
-    try {
-      service.setSetting(skin);
-      ar.setSucceedMsg(Const.UPDATE_SUCCEED);
-    } catch (Exception e) {
-      logger.error(e.toString(), e);
-      ar.setFailMsg(Const.UPDATE_FAIL);
+    @RequestMapping(value = "setSetting", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes setSetting(String skin) {
+        AjaxRes ar = getAjaxRes();
+        try {
+            service.setSetting(skin);
+            ar.setSucceedMsg(Const.UPDATE_SUCCEED);
+        } catch (Exception e) {
+            logger.error(e.toString(), e);
+            ar.setFailMsg(Const.UPDATE_FAIL);
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "getPerData", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes getPerData() {
-    AjaxRes ar = getAjaxRes();
-    try {
-      Account account = service.getPerData();
-      ar.setSucceed(account);
-    } catch (Exception e) {
-      logger.error(e.toString(), e);
-      ar.setFailMsg(Const.DATA_FAIL);
+    @RequestMapping(value = "getPerData", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes getPerData() {
+        AjaxRes ar = getAjaxRes();
+        try {
+            Account account = service.getPerData();
+            ar.setSucceed(account);
+        } catch (Exception e) {
+            logger.error(e.toString(), e);
+            ar.setFailMsg(Const.DATA_FAIL);
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "setHeadpic", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes setHeadpic(Account o) {
-    AjaxRes ar = getAjaxRes();
-    try {
-      service.setHeadpic(o);
-      ar.setSucceedMsg(Const.UPDATE_SUCCEED);
-    } catch (Exception e) {
-      logger.error(e.toString(), e);
-      ar.setFailMsg(Const.UPDATE_FAIL);
+    @RequestMapping(value = "setHeadpic", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes setHeadpic(Account o) {
+        AjaxRes ar = getAjaxRes();
+        try {
+            service.setHeadpic(o);
+            ar.setSucceedMsg(Const.UPDATE_SUCCEED);
+        } catch (Exception e) {
+            logger.error(e.toString(), e);
+            ar.setFailMsg(Const.UPDATE_FAIL);
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "setPerData", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes setPerData(Account o) {
-    AjaxRes ar = getAjaxRes();
-    try {
-      service.setPerData(o);
-      ar.setSucceedMsg(Const.UPDATE_SUCCEED);
-    } catch (Exception e) {
-      logger.error(e.toString(), e);
-      ar.setFailMsg(Const.UPDATE_FAIL);
+    @RequestMapping(value = "setPerData", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes setPerData(Account o) {
+        AjaxRes ar = getAjaxRes();
+        try {
+            service.setPerData(o);
+            ar.setSucceedMsg(Const.UPDATE_SUCCEED);
+        } catch (Exception e) {
+            logger.error(e.toString(), e);
+            ar.setFailMsg(Const.UPDATE_FAIL);
+        }
+        return ar;
     }
-    return ar;
-  }
 
-  @RequestMapping(value = "preResetPWD", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes resetPWD(String opwd, String npwd, String qpwd) {
-    AjaxRes ar = getAjaxRes();
-    try {
-      int res = service.preResetPwd(opwd, npwd, qpwd);
-      if (res == 1) ar.setSucceedMsg(Const.UPDATE_SUCCEED);
-      else if (res == 2) ar.setFailMsg("密码不正确");
-      else if (res == 3) ar.setFailMsg("两次密码不一致");
-    } catch (Exception e) {
-      logger.error(e.toString(), e);
-      ar.setFailMsg(Const.UPDATE_FAIL);
+    @RequestMapping(value = "preResetPWD", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes resetPWD(String opwd, String npwd, String qpwd) {
+        AjaxRes ar = getAjaxRes();
+        try {
+            int res = service.preResetPwd(opwd, npwd, qpwd);
+            if (res == 1) ar.setSucceedMsg(Const.UPDATE_SUCCEED);
+            else if (res == 2) ar.setFailMsg("密码不正确");
+            else if (res == 3) ar.setFailMsg("两次密码不一致");
+        } catch (Exception e) {
+            logger.error(e.toString(), e);
+            ar.setFailMsg(Const.UPDATE_FAIL);
+        }
+        return ar;
     }
-    return ar;
-  }
 
 }
