@@ -66,6 +66,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="${jypath}/static/plugins/tabs/js/tab-control.min.js"></script>
 <script src="${jypath}/static/js/system/attendance/workRecord.js"></script>
 </body>
 </html>

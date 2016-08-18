@@ -139,7 +139,12 @@ function getbaseList(init) {
                 html += "<td class='center'>" + JY.Object.notEmpty(l.beforenoon) + "</td>";
                 html += "<td class='center'>" + JY.Object.notEmpty(l.afternoon) + "</td>";
                 html += "<td class='center'>" + JY.Object.notEmpty(l.night) + "</td>";
-                html += JY.Tags.setFunction(l.id, permitBtn);
+                if (l.normal) {
+                    html += "<td class='center'></td>";
+                } else {
+                    html += JY.Tags.setFunction(l.id, permitBtn);
+                }
+
                 html += "</tr>";
             }
             $("#baseTable tbody").append(html);
@@ -169,25 +174,27 @@ function del(id) {
     });
 }
 function edit(id) {
-    cleanForm();
-    JY.Ajax.doRequest(null, jypath + '/backstage/workRecord/find', {id: id}, function (data) {
-        setForm(data);
-        JY.Model.edit("auDiv", "修改", function () {
-            if (JY.Validate.form("auForm")) {
-                var that = $(this);
-                JY.Ajax.doRequest("auForm", jypath + '/backstage/workRecord/update', null, function (data) {
-                    if (data.res == 1) {
-                        that.dialog("close");
-                        JY.Model.info(data.resMsg, function () {
-                            search();
-                        });
-                    } else {
-                        JY.Model.error(data.resMsg);
-                    }
-                });
-            }
-        });
-    });
+    parent.TabControlAppend("menuef4c0289d9b7465aacb405daa7a871ec", "补卡申请",
+        "/whale/backstage/workflow/online/patch/index?menu=menuef4c0289d9b7465aacb405daa7a871ec");
+    // cleanForm();
+    // JY.Ajax.doRequest(null, jypath + '/backstage/workRecord/find', {id: id}, function (data) {
+    //     setForm(data);
+    //     JY.Model.edit("auDiv", "修改", function () {
+    //         if (JY.Validate.form("auForm")) {
+    //             var that = $(this);
+    //             JY.Ajax.doRequest("auForm", jypath + '/backstage/workRecord/update', null, function (data) {
+    //                 if (data.res == 1) {
+    //                     that.dialog("close");
+    //                     JY.Model.info(data.resMsg, function () {
+    //                         search();
+    //                     });
+    //                 } else {
+    //                     JY.Model.error(data.resMsg);
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
 }
 function cleanForm() {
     JY.Tags.isValid("auForm", "1");
