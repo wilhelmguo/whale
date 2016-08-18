@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>公告列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- basic styles -->
+    <link href="../../../../../static/apidoc/JYUI/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../../../static/apidoc/JYUI/assets/css/font-awesome.min.css"/>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="../../../../../static/apidoc/JYUI/assets/css/font-awesome-ie7.min.css"/>
+    <![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <!-- fonts -->
+
+
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="../../../../../static/apidoc/JYUI/assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="../../../../../static/apidoc/JYUI/assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="../../../../../static/apidoc/JYUI/assets/css/ace-skins.min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="../../../../../static/apidoc/JYUI/assets/css/ace-ie.min.css"/>
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    <script src="../../../../../static/apidoc/JYUI/assets/js/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+    <script src="../../../../../static/apidoc/JYUI/assets/js/html5shiv.js"></script>
+    <script src="../../../../../static/apidoc/JYUI/assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+
+
+        <div class="main-content">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        公告列表
+                        <small>
+                            <i class="icon-double-angle-right"></i>
+                        </small>
+                    </h1>
+                </div><!-- /.page-header -->
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="tabbable">
+
+                                    <div class="tab-content no-border no-padding">
+                                        <div class="tab-pane in active">
+                                            <div class="message-container">
+                                                <div id="id-message-list-navbar"
+                                                     class="message-navbar align-center clearfix">
+                                                    <div class="message-bar">
+                                                        <div class="message-infobar" id="id-message-infobar">
+                                                            <span class="blue bigger-150"></span>
+                                                            <span class="grey bigger-110"></span>
+                                                        </div>
+
+
+                                                    </div>
+
+
+                                                    <div class="messagebar-item-left">
+                                                        <form class="form-search">
+                                                            <div class="row"
+                                                                 style="padding-top: 50px;padding-left: 20px">
+                                                                <input type="text" name="keyWord"
+                                                                       placeholder="搜索标题" class="input-large">
+                                                                &nbsp;&nbsp;
+                                                                <button id='searchBtn'
+                                                                        class="btn btn-warning  btn-xs"
+                                                                        title="过滤" type="button"
+                                                                        onclick="getbaseList(1)"><i
+                                                                        class="icon-search bigger-110 icon-only"></i>
+                                                                </button>
+
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                                <div id="id-message-item-navbar"
+                                                     class="hide message-navbar align-center clearfix">
+                                                    <div class="message-bar">
+                                                        <div class="message-toolbar">
+                                                        </div>
+                                                    </div>
+
+                                                    <div>
+                                                        <div class="messagebar-item-left">
+                                                            <a href="#" class="btn-back-message-list">
+                                                                <i class="icon-arrow-left blue bigger-110 middle"></i>
+                                                                <b class="bigger-110 middle">返回</b>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="messagebar-item-right">
+                                                            <i class="icon-time bigger-110 orange middle"></i>
+                                                            <span class="time grey">Today, 7:15 pm</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div id="id-message-new-navbar"
+                                                     class="hide message-navbar align-center clearfix">
+                                                    <div class="message-bar">
+                                                        <div class="message-toolbar">
+                                                            <a href="#" class="btn btn-xs btn-message">
+                                                                <i class="icon-save bigger-125"></i>
+                                                                <span class="bigger-110">Save Draft</span>
+                                                            </a>
+
+                                                            <a href="#" class="btn btn-xs btn-message">
+                                                                <i class="icon-remove bigger-125"></i>
+                                                                <span class="bigger-110">Discard</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="message-item-bar">
+                                                        <div class="messagebar-item-left">
+                                                            <a href="#"
+                                                               class="btn-back-message-list no-hover-underline">
+                                                                <i class="icon-arrow-left blue bigger-110 middle"></i>
+                                                                <b class="middle bigger-110">Back</b>
+                                                            </a>
+                                                        </div>
+
+                                                        <div class="messagebar-item-right">
+																	<span class="inline btn-send-message">
+																		<button type="button"
+                                                                                class="btn btn-sm btn-primary no-border">
+																			<span class="bigger-110">Send</span>
+
+																			<i class="icon-arrow-right icon-on-right"></i>
+																		</button>
+																	</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="message-list-container">
+                                                    <div class="message-list" id="message-list">
+                                                        <div class="message-item message-unread">
+                                                            <img width="80px"
+                                                                 src="../../../../../static/apidoc/JYUI/assets/avatars/avatar.png"
+                                                                 alt="John's Avatar" class="middle">
+                                                            <span class="sender" title="Alex John Red Smith">云峰李</span>
+																	<span class="summary">
+																		<span class="text">
+																			天天想的发生多亏了放假快三点了方式打开就疯狂了;按说
+																		</span>
+																	</span>
+                                                            <span class="time" style="margin-top: 30px">1:33 pm</span>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.message-list-container -->
+
+                                                <div class="message-footer clearfix">
+                                                    <div class="pull-left"> 共151条记录</div>
+
+                                                    <div class="pull-right">
+                                                        <div class="inline middle"> 第1页,共16页</div>
+
+                                                        &nbsp; &nbsp;
+                                                        <ul class="pagination middle">
+                                                            <li class="disabled">
+																		<span>
+																			<i class="icon-step-backward middle"></i>
+																		</span>
+                                                            </li>
+
+                                                            <li class="disabled">
+																		<span>
+																			<i class="icon-caret-left bigger-140 middle"></i>
+																		</span>
+                                                            </li>
+
+                                                            <li>
+																		<span>
+																			<input value="1" maxlength="3" type="text"/>
+																		</span>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="icon-caret-right bigger-140 middle"></i>
+                                                                </a>
+                                                            </li>
+
+                                                            <li>
+                                                                <a href="#">
+                                                                    <i class="icon-step-forward middle"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div><!-- /.message-container -->
+                                        </div><!-- /.tab-pane -->
+                                    </div><!-- /.tab-content -->
+                                </div><!-- /.tabbable -->
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+
+                        <form id="id-message-form" class="hide form-horizontal message-form  col-xs-12">
+                            <div class="">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-recipient">Recipient:</label>
+
+                                    <div class="col-sm-9">
+												<span class="input-icon">
+													<input type="email" name="recipient" id="form-field-recipient"
+                                                           data-value="alex@doe.com" value="alex@doe.com"
+                                                           placeholder="Recipient(s)"/>
+													<i class="icon-user"></i>
+												</span>
+                                    </div>
+                                </div>
+
+                                <div class="hr hr-18 dotted"></div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right" for="form-field-subject">Subject:</label>
+
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="input-icon block col-xs-12 no-padding">
+                                            <input maxlength="100" type="text" class="col-xs-12" name="subject"
+                                                   id="form-field-subject" placeholder="Subject"/>
+                                            <i class="icon-comment-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="hr hr-18 dotted"></div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label no-padding-right">
+                                        <span class="inline space-24 hidden-480"></span>
+                                        Message:
+                                    </label>
+
+                                    <div class="col-sm-9">
+                                        <div class="wysiwyg-editor"></div>
+                                    </div>
+                                </div>
+
+                                <div class="hr hr-18 dotted"></div>
+
+                                <div class="form-group no-margin-bottom">
+                                    <label class="col-sm-3 control-label no-padding-right">Attachments:</label>
+
+                                    <div class="col-sm-9">
+                                        <div id="form-attachments">
+                                            <input type="file" name="attachment[]"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="align-right">
+                                    <button id="id-add-attachment" type="button" class="btn btn-sm btn-danger">
+                                        <i class="icon-paper-clip bigger-140"></i>
+                                        Add Attachment
+                                    </button>
+                                </div>
+
+                                <div class="space"></div>
+                            </div>
+                        </form>
+
+                        <div class="hide message-content" id="id-message-content">
+                            <div class="message-header clearfix">
+                                <div class="pull-left">
+                                    <span class="blue bigger-125"> Clik to open this message </span>
+
+                                    <div class="space-4"></div>
+
+                                    <i class="icon-star orange2 mark-star"></i>
+
+                                    &nbsp;
+                                    <img class="middle" alt="John's Avatar"
+                                         src="../../../../../static/apidoc/JYUI/assets/avatars/avatar.png" width="32"/>
+                                    &nbsp;
+                                    <a href="#" class="sender">John Doe</a>
+
+                                    &nbsp;
+                                    <i class="icon-time bigger-110 orange middle"></i>
+                                    <span class="time">Today, 7:15 pm</span>
+                                </div>
+
+
+                            </div>
+
+                            <div class="hr hr-double"></div>
+
+                            <div class="message-body">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna aliqua.
+                                </p>
+
+
+                            </div>
+
+                        </div><!-- /.message-content -->
+
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+
+</div><!-- /.main-container -->
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<![endif]-->
+
+<!--[if !IE]> -->
+
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../../../../../static/apidoc/JYUI/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+</script>
+
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../../../../../static/apidoc/JYUI/assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+    if ("ontouchend" in document) document.write("<script src='../../../../../static/apidoc/JYUI/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+</script>
+<script src="../../../../../static/apidoc/JYUI/assets/js/bootstrap.min.js"></script>
+<script src="../../../../../static/apidoc/JYUI/assets/js/typeahead-bs2.min.js"></script>
+
+<!-- page specific plugin scripts -->
+
+<script src="../../../../../static/apidoc/JYUI/assets/js/bootstrap-tag.min.js"></script>
+<script src="../../../../../static/apidoc/JYUI/assets/js/jquery.hotkeys.min.js"></script>
+<script src="../../../../../static/apidoc/JYUI/assets/js/bootstrap-wysiwyg.min.js"></script>
+<script src="../../../../../static/apidoc/JYUI/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="../../../../../static/apidoc/JYUI/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="../../../../../static/apidoc/JYUI/assets/js/jquery.slimscroll.min.js"></script>
+
+<!-- ace scripts -->
+
+<script src="../../../../../static/apidoc/JYUI/assets/js/ace-elements.min.js"></script>
+<script src="../../../../../static/apidoc/JYUI/assets/js/ace.min.js"></script>
+
+<!-- inline scripts related to this page -->
+
+
+</body>
+</html>

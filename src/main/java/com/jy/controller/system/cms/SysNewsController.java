@@ -36,6 +36,15 @@ public class SysNewsController extends BaseController<SysNews> {
     return Const.NO_AUTHORIZED_URL;
   }
 
+  @RequestMapping("list")
+  public String list(Model model) {
+    if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
+      model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
+      return "/system/cms/check/list";
+    }
+    return Const.NO_AUTHORIZED_URL;
+  }
+
   @RequestMapping(value = "findByPage", method = RequestMethod.POST)
   @ResponseBody
   public AjaxRes findByPage(Page<SysNews> page, SysNews o) {
