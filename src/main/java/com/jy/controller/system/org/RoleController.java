@@ -514,6 +514,8 @@ public class RoleController extends BaseController<Role> {
             return;
         }
         String[] deps = chks.split(",");
+        //总经理的id
+        String zjlID=get32UUID();
         for (String dep : deps) {
             String orgId = get32UUID();
             Org org = new Org();
@@ -536,19 +538,29 @@ public class RoleController extends BaseController<Role> {
                 role.setIsValid(1);
                 role.setCreateTime(new Date());
                 role.setCompany(pId);
-                roleService.insert(role);
-                String aus;
+                String aus="";
                 if ("总经办".equals(dep) && Const.MANAGE.equals(roleName)) {
                     aus = Const.DEFAULT_ZJB_MANAGER;
+                    role.setPid("0");
+                    role.setName("总经理");
+                    role.setId(zjlID);
                 } else if ("人力资源部".equals(dep) && Const.MANAGE.equals(roleName)) {
                     aus = Const.DEFAULT_HR_MANAGER;
+                    role.setPid(zjlID);
+                    role.setName(dep+"经理");
                 } else if ("市场部".equals(dep) && Const.MANAGE.equals(roleName)) {
                     aus = Const.DEFAULT_SCB_MANAGER;
+                    role.setPid(zjlID);
+                    role.setName(dep+"经理");
                 } else if (Const.MANAGE.equals(roleName)) {
                     aus = Const.DEFAULT_NOMAL_MANAGER;
-                } else {
-                    aus = Const.DEFAULT_NOMAL_EMPLOYEE;
+                    role.setPid(zjlID);
+                    role.setName(dep+"经理");
                 }
+//                else {
+//                    aus = Const.DEFAULT_NOMAL_EMPLOYEE;
+//                }
+                roleService.insert(role);
                 String layer = "1";
                 roleService.saveAuthorized(roleId, aus, layer);
             }

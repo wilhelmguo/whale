@@ -11,7 +11,7 @@ $(function () {
         }
     });
 
-    $((function($){
+    $((function ($) {
         $.datepicker.regional['zh-CN'] = {
             clearText: '清除',
             clearStatus: '清除已选日期',
@@ -27,34 +27,35 @@ $(function () {
             nextBigStatus: '显示下一年',
             currentText: '今天',
             currentStatus: '显示本月',
-            monthNames: ['一月','二月','三月','四月','五月','六月', '七月','八月','九月','十月','十一月','十二月'],
-            monthNamesShort: ['一','二','三','四','五','六', '七','八','九','十','十一','十二'],
+            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            monthNamesShort: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
             monthStatus: '选择月份',
             yearStatus: '选择年份',
             weekHeader: '周',
             weekStatus: '年内周次',
-            dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
-            dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],
-            dayNamesMin: ['日','一','二','三','四','五','六'],
+            dayNames: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+            dayNamesShort: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+            dayNamesMin: ['日', '一', '二', '三', '四', '五', '六'],
             dayStatus: '设置 DD 为一周起始',
             dateStatus: '选择 m月 d日, DD',
             dateFormat: 'yyyy-mm-dd',
             firstDay: 1,
             initStatus: '请选择日期',
-            isRTL: false};
+            isRTL: false
+        };
         $.datepicker.setDefaults($.datepicker.regional['zh-CN']);
     })(jQuery));
 
     $("#endtime").datepicker({
         dateFormat: 'yy-mm-dd',
-        regional:'zh-CN',
+        regional: 'zh-CN',
         showOtherMonths: true,
         selectOtherMonths: false,
     });
 
     $("#starttime").datepicker({
         dateFormat: 'yy-mm-dd',
-        regional:'zh-CN',
+        regional: 'zh-CN',
         showOtherMonths: true,
         selectOtherMonths: false,
     });
@@ -119,22 +120,26 @@ function getbaseList(init) {
             var leng = (pageNum - 1) * pageSize;//计算序号
             for (var i = 0; i < results.length; i++) {
                 var l = results[i];
-                html += "<tr>";
+                if (l.normal) {
+                    html += "<tr>";
+                } else {
+                    html += "<tr class='danger'>";
+                }
                 html += "<td class='center'><label> <input type='checkbox' name='ids' value='" + l.id + "' class='ace' /> <span class='lbl'></span></label></td>";
                 html += "<td class='center hidden-480'>" + (i + leng + 1) + "</td>";
-                html += "<td class='center'>" + JY.Object.notEmpty(l.department) + "</td>";
+                // html += "<td class='center'>" + JY.Object.notEmpty(l.department) + "</td>";
                 if (JY.Object.notEmpty(l.type) == 0) {
                     html += "<td class='center'>内勤</td>";
                 } else {
                     html += "<td class='center'>外勤</td>";
                 }
-                html += "<td class='center hidden-480' >" + JY.Date.Format(l.date, "yyyy-MM-dd")+"("
-                    + JY.Object.notEmpty(l.week)+")</td>";
+                html += "<td class='center hidden-480' >" + JY.Date.Format(l.date, "yyyy-MM-dd") + "("
+                    + JY.Object.notEmpty(l.week) + ")</td>";
                 html += "<td class='center'>" + JY.Object.notEmpty(l.morning) + "</td>";
                 html += "<td class='center'>" + JY.Object.notEmpty(l.beforenoon) + "</td>";
                 html += "<td class='center'>" + JY.Object.notEmpty(l.afternoon) + "</td>";
                 html += "<td class='center'>" + JY.Object.notEmpty(l.night) + "</td>";
-                // html += JY.Tags.setFunction(l.id, permitBtn);
+                html += JY.Tags.setFunction(l.id, permitBtn);
                 html += "</tr>";
             }
             $("#baseTable tbody").append(html);

@@ -30,7 +30,7 @@
 								<label><input type="checkbox" class="ace" ><span class="lbl"></span></label>
 							</th>
 							<th style="width:5%" class="center hidden-480">序号</th>
-							<th style="width:10%" class="center">部门</th>
+							<%--<th style="width:10%" class="center">部门</th>--%>
 							<th style="width:10%" class="center">考勤类型</th>
 
 							<%--<th style="width:10%" class="center hidden-480">所属员工</th>--%>
@@ -39,7 +39,7 @@
 							<th style="width:10%" class="center"><i class="icon-time bigger-110 hidden-480"></i>中午签退时间</th>
 							<th style="width:10%" class="center"><i class="icon-time bigger-110 hidden-480"></i>中午签到时间</th>
 							<th style="width:10%" class="center"><i class="icon-time bigger-110 hidden-480"></i>下班时间</th>
-							<%--<th style="width:10%" class="center">操作</th>--%>
+							<th style="width:10%" class="center">操作</th>
 						</tr>
 					</thead>
 					<tbody></tbody>

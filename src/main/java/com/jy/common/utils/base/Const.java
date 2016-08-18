@@ -120,7 +120,8 @@ public class Const {
 
 	public static final String NOMAL_EMPLOYEE="普通员工";
 
-	public static final String[] DEFAULT_ROLES={"管理者","普通员工"};
+	//,"普通员工"
+	public static final String[] DEFAULT_ROLES={"管理者"};
 
 	/**
 	 * 总经办管理者

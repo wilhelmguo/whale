@@ -40,6 +40,16 @@ public class WorkRecord extends BaseEntity {
   private String afternoon;
 
   private String night;
+  //考勤记录是否正常
+  private boolean isNormal;
+
+  public boolean isNormal() {
+    return isNormal;
+  }
+
+  public void setNormal(boolean normal) {
+    isNormal = normal;
+  }
 
   public String getDesc() {
     return desc;
