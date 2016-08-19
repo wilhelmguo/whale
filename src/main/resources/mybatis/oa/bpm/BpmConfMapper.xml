@@ -27,8 +27,10 @@
     </select>
     <insert id="insert" parameterType="BpmConf">
  	<![CDATA[
- insert into OA_BPM_CONF (id, `code`, `key`,pname,dname, users, pid)
-    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR},#{pname,jdbcType=VARCHAR},#{dname,jdbcType=VARCHAR}, #{users,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR})
+ insert into OA_BPM_CONF (id, `code`, `key`,pname,dname, users, pid,usertype,username)
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR},
+    #{pname,jdbcType=VARCHAR},#{dname,jdbcType=VARCHAR}, #{users,jdbcType=VARCHAR},
+     #{pid,jdbcType=VARCHAR},#{usertype},#{username})
         ]]>
 	</insert>
     <delete id="delete" parameterType="BpmConf">
@@ -51,7 +53,9 @@
       pname = #{pname,jdbcType=VARCHAR},
       dname = #{dname,jdbcType=VARCHAR},
       users = #{users,jdbcType=VARCHAR},
-      pid = #{pid,jdbcType=VARCHAR}
+      pid = #{pid,jdbcType=VARCHAR},
+      usertype = #{usertype},
+      username = #{username}
 		WHERE 
 			id=#{id}
 	</update>

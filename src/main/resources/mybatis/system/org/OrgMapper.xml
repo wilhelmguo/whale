@@ -123,6 +123,33 @@
 		</if>
 -- 		ORDER BY t.id,t.name
 	</select>
+
+	<!-- 角色用户树 -->
+	<select id="getRoleUserPreOrgTree" resultMap="ZNodes" parameterType="String">
+		SELECT
+		t.id AS id, t.name AS name, t.pid AS pId,
+		'/whale/static/plugins/zTree/3.5/img/diy/group.png' as icon,'o' as other
+		FROM
+		JY_BASE_ROLE t
+		WHERE
+		1 = 1
+		<if test="company != null and company!='' ">
+			and t.cid=#{company}
+		</if>
+		UNION ALL
+		SELECT
+		t.id AS id, t.name AS name, t.roleId AS pId,
+		'/whale/static/plugins/zTree/3.5/img/diy/user.png' as icon,'r' as other
+		FROM
+		JY_BASE_ACCOUNT t
+		WHERE
+		1 = 1
+		<if test="company != null and company!='' ">
+			and t.cid=#{company}
+		</if>
+		-- 		ORDER BY t.id,t.name
+	</select>
+
     <!-- 权限列表包含按钮 -->
     <select id="listAuthorized" resultMap="ZNodes" parameterType="String">    		
       SELECT jbre.id as id,

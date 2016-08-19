@@ -20,6 +20,26 @@ public class BpmConf extends OaBase {
     private String users;
 
     private String pid;
+    //审批人类型 0.角色1.用户
+    private Integer usertype;
+    //审批人名称
+    private String username;
+
+    public Integer getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(Integer usertype) {
+        this.usertype = usertype;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getPname() {
         return pname;
@@ -60,7 +80,6 @@ public class BpmConf extends OaBase {
     public void setKey(String key) {
         this.key = key == null ? null : key.trim();
     }
-
 
 
     public String getUsers() {

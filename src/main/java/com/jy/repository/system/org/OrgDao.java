@@ -56,6 +56,11 @@ public interface OrgDao extends BaseDao<Org>{
 	 */
 	public List<ZNodes> getCompanyUserPreOrgTree(@Param("company")String company);
 	/**
+	 * 获取role user树
+	 * @return
+	 */
+	public List<ZNodes> getRoleUserPreOrgTree(@Param("company")String company);
+	/**
      * 权限列表包含按钮
      * @param orgId 组织Id
      * @return

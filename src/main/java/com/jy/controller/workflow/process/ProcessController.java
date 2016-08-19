@@ -116,10 +116,10 @@ public class ProcessController extends BaseController<Object> {
                 List<ProcessDefinitionVo> pdvoList = new ArrayList<ProcessDefinitionVo>();
                 if (StringUtils.isNotBlank(keyWord)) {
                     processDefinitionList = query.processDefinitionNameLike("%" + keyWord + "%")
-                            .orderByDeploymentId().desc()
+                            .latestVersion().orderByDeploymentId().desc()
                             .listPage(pageNum, pageSize);
                 } else {
-                    processDefinitionList = query.orderByDeploymentId().desc()
+                    processDefinitionList = query.latestVersion().orderByDeploymentId().desc()
                             .listPage(pageNum, pageSize);
                 }
                 for (ProcessDefinition pd : processDefinitionList) {

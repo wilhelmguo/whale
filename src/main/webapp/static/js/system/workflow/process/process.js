@@ -56,7 +56,7 @@ $(function () {
 });
 
 function loadPreOrgTree() {
-    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/getCompanyPreOrgTree', null, function (data) {
+    JY.Ajax.doRequest(null, jypath + '/backstage/org/role/getRoleUserPreOrgTree', null, function (data) {
         //设置
         $.fn.zTree.init($("#preOrgTree"), {
             view: {dblClickExpand: false, selectedMulti: false, nameIsHTML: true},
@@ -68,7 +68,7 @@ function loadPreOrgTree() {
 
 function emptyPreOrg() {
     $("#preOrg").prop("value", "");
-    $("#auOrgForm input[name$='pId']").prop("value", "0");
+    $("#auForm input[name$='users']").prop("value", "0");
 }
 
 var preisShow = false;//窗口是否显示
@@ -85,15 +85,22 @@ function showPreOrg() {
 
 function clickPreOrg(e, treeId, treeNode) {
     var zTree = $.fn.zTree.getZTreeObj("preOrgTree"),
-        nodes = zTree.getSelectedNodes(), v = "", n = "";
+        nodes = zTree.getSelectedNodes(), v = "", n = "", o = "";
     for (var i = 0, l = nodes.length; i < l; i++) {
         v += nodes[i].name + ",";//获取name值
         n += nodes[i].id + ",";	//获取id值
+        o += nodes[i].other + ",";
     }
     if (v.length > 0) v = v.substring(0, v.length - 1);
     if (n.length > 0) n = n.substring(0, n.length - 1);
+    if (o.length > 0) o = o.substring(0, o.length - 1);
     $("#preOrg").prop("value", v);
-    $("#auOrgForm input[name$='pId']").prop("value", n);
+    $("#auForm input[name$='users']").prop("value", n);
+    var type = 0;
+    if (o != "o") {
+        type=1
+    }
+    $("#auForm input[name$='usertype']").prop("value", type);
     //因为单选选择后直接关闭，如果多选请另外写关闭方法
     hidePreOrg();
 }
@@ -168,6 +175,7 @@ function configWorkflow(processDefinitionId) {
     JY.Ajax.doRequest(null, jypath + '/backstage/workflow/bpmconf/findByPage', {processDefinitionId: processDefinitionId}, function (data) {
         getbaseList1(data);
     });
+    $("#processDefinitionId").val(processDefinitionId);
     $("#baseTable0").hide();
     $("#baseTable1").show();
 }
@@ -190,7 +198,7 @@ function getbaseList1(data) {
             html += "<td class='center hidden-480' hidden>" + JY.Object.notEmpty(l.id) + "</td>";
             html += "<td class='center hidden-480'>" + JY.Object.notEmpty(l.dname) + "</td>";
             html += "<td class='center hidden-480'>" + JY.Object.notEmpty(l.pname) + "</td>";
-            html += "<td class='center '>" + JY.Object.notEmpty(l.uers) + "</td>";
+            html += "<td class='center '>" + JY.Object.notEmpty(l.username) + "</td>";
             html += "<td class='center'>" +
                 "<a title='分配审批人' class='aBtnNoTD' " +
                 "onclick='currentNode(&apos;" + l.id + "&apos;" + ")' >" +
@@ -209,18 +217,29 @@ function getbaseList1(data) {
 
 function currentNode(id) {
     // e.preventDefault();
-    // cleanForm();
-    JY.Model.resizeedit("300","350","auDiv", "设置审批人", function () {
+    cleanForm();
+    JY.Model.resizeedit("300", "350", "auDiv", "设置审批人", function () {
         if (JY.Validate.form("auForm")) {
+            $("#auForm input[name$='id']").val(id);
             var that = $(this);
-            // JY.Ajax.doRequest("auForm", jypath + '/backstage/workDevice/add', null, function (data) {
-            //     that.dialog("close");
-            //     JY.Model.info(data.resMsg, function () {
-            //         search();
-            //     });
-            // });
+            JY.Ajax.doRequest("auForm", jypath + '/backstage/workflow/bpmconf/update', null, function (data) {
+                that.dialog("close");
+                JY.Model.info(data.resMsg, function () {
+                    var processDefinitionId = $("#processDefinitionId").val();
+                    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/bpmconf/findByPage', {"processDefinitionId": processDefinitionId}, function (data) {
+                        getbaseList1(data);
+                    });
+                });
+            });
         }
     });
+}
+
+function cleanForm() {
+    JY.Tags.cleanForm("auForm");
+    $("#preOrg").val("");//上级资源
+    $("#auForm select[name$='users']").prop("value", "");
+    hidePreOrg();
 }
 
 function insertClose() {

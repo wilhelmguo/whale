@@ -190,6 +190,7 @@ public class ModelController extends BaseController<Object> {
                             bConf.setCode(e.getId());
                             bConf.setPname(e.getName());
                             bConf.setPid(p.getId());
+
                             System.out.println("flowelement id:" + e.getId() + "  name:" + e.getName() + "   class:" + e.getClass().toString());
                             bpmConfService.insert(bConf);
                         }

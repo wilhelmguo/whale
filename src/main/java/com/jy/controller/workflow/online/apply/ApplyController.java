@@ -128,12 +128,12 @@ public class ApplyController extends BaseController<Object> {
         for (int i = 0; i < approvers.length; i++) {
           variables.put("approver" + i, approvers[i]);
         }
-        String key = "leave" + approvers.length;
-        activitiDeployService.buildDeployment(key, "请假流程", approvers.length);
+//        String key = "leave" + approvers.length;
+//        activitiDeployService.buildDeployment(key, "请假流程", approvers.length);
 
         identityService.setAuthenticatedUserId(currentUserId);
         Date now = new Date();
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(key, variables);
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("leave", variables);
         String pId = processInstance.getId();
         String leaveID = get32UUID();
         leave.setpId(pId);
@@ -146,7 +146,7 @@ public class ApplyController extends BaseController<Object> {
         leaveService.insert(leave);
         List<Task> tasks = taskService.createTaskQuery().processInstanceId(pId).list();
         for (Task task : tasks) {
-          taskService.complete(task.getId(), variables);
+//          taskService.complete(task.getId(), variables);
           TaskInfo taskInfo = new TaskInfo();
           taskInfo.setId(get32UUID());
           taskInfo.setBusinesskey(leaveID);
@@ -168,28 +168,28 @@ public class ApplyController extends BaseController<Object> {
           taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
           taskInfoService.insert(taskInfo);
         }
-        List<Task> tasksNext = taskService.createTaskQuery().processInstanceId(pId).list();
-        for (Task task : tasksNext) {
-          TaskInfo taskInfo = new TaskInfo();
-          taskInfo.setId(get32UUID());
-          taskInfo.setBusinesskey(leaveID);
-          taskInfo.setCode(task.getTaskDefinitionKey());
-          taskInfo.setName(task.getName());
-          taskInfo.setStatus(1);
-          String processDefinitionName = ((ExecutionEntity) processInstance).getProcessInstance().getProcessDefinition().getName();
-          taskInfo.setAttr1(processDefinitionName);
-          String subkect = processDefinitionName + "-"
-                  + AccountShiroUtil.getCurrentUser().getName() + "-" + DateUtils.formatDate(now, "yyyy-MM-dd HH:mm");
-          taskInfo.setPresentationsubject(subkect);
-          taskInfo.setCreatetime(now);
-          taskInfo.setCreator(currentUserId);
-          taskInfo.setAssignee(approvers[0]);
-          taskInfo.setTaskid(task.getId());
-          taskInfo.setExecutionid(task.getExecutionId());
-          taskInfo.setProcessinstanceid(processInstance.getId());
-          taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
-          taskInfoService.insert(taskInfo);
-        }
+//        List<Task> tasksNext = taskService.createTaskQuery().processInstanceId(pId).list();
+//        for (Task task : tasksNext) {
+//          TaskInfo taskInfo = new TaskInfo();
+//          taskInfo.setId(get32UUID());
+//          taskInfo.setBusinesskey(leaveID);
+//          taskInfo.setCode(task.getTaskDefinitionKey());
+//          taskInfo.setName(task.getName());
+//          taskInfo.setStatus(1);
+//          String processDefinitionName = ((ExecutionEntity) processInstance).getProcessInstance().getProcessDefinition().getName();
+//          taskInfo.setAttr1(processDefinitionName);
+//          String subkect = processDefinitionName + "-"
+//                  + AccountShiroUtil.getCurrentUser().getName() + "-" + DateUtils.formatDate(now, "yyyy-MM-dd HH:mm");
+//          taskInfo.setPresentationsubject(subkect);
+//          taskInfo.setCreatetime(now);
+//          taskInfo.setCreator(currentUserId);
+//          taskInfo.setAssignee(approvers[0]);
+//          taskInfo.setTaskid(task.getId());
+//          taskInfo.setExecutionid(task.getExecutionId());
+//          taskInfo.setProcessinstanceid(processInstance.getId());
+//          taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
+//          taskInfoService.insert(taskInfo);
+//        }
         ar.setSucceedMsg("发起请假申请成功!");
       } catch (Exception e) {
         logger.error(e.toString(), e);

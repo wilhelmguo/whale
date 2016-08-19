@@ -464,6 +464,22 @@ public class RoleController extends BaseController<Role> {
         return ar;
     }
 
+    @RequestMapping(value = "getRoleUserPreOrgTree", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes getRoleUserPreOrgTree() {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
+            try {
+                List<ZNodes> r = orgService.getRoleUserPreOrgTree(getCompany());
+                ar.setSucceed(r);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
+            }
+        }
+        return ar;
+    }
+
     @RequestMapping(value = "getCompanyUserPreOrgTree", method = RequestMethod.POST)
     @ResponseBody
     public AjaxRes getCompanyUserPreOrgTree() {

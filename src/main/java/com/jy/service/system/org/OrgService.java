@@ -26,6 +26,8 @@ public interface OrgService extends BaseService<Org>{
 	 * @return
 	 */
 	public List<ZNodes> getCompanyPreOrgTree(String company);
+
+	public List<ZNodes> getRoleUserPreOrgTree(String company);
 	/**
 	 * 获取上级用户机构树
 	 * @return

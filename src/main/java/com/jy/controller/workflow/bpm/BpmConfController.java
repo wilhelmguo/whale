@@ -6,6 +6,8 @@ import com.jy.common.utils.base.Const;
 import com.jy.controller.base.BaseController;
 import com.jy.entity.oa.bpm.BpmConf;
 import com.jy.service.oa.bpm.BpmConfService;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -98,9 +100,21 @@ public class BpmConfController extends BaseController<BpmConf> {
         AjaxRes ar = getAjaxRes();
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
             try {
+                if (StringUtils.isNotBlank(o.getId())) {
+                    BpmConf b = new BpmConf();
+                    b.setId(o.getId());
+                    List<BpmConf> blist = service.find(b);
+                    if (CollectionUtils.isNotEmpty(blist)) {
+                        BpmConf newConf = blist.get(0);
+                        newConf.setUsers(o.getUsers());
+                        newConf.setUsertype(o.getUsertype());
+                        newConf.setUsername(o.getUsername());
+                        service.update(newConf);
+                        ar.setSucceedMsg(Const.UPDATE_SUCCEED);
+                    }
+
+                }
 //				o.setUpdateTime(new Date());
-                service.update(o);
-                ar.setSucceedMsg(Const.UPDATE_SUCCEED);
             } catch (Exception e) {
                 logger.error(e.toString(), e);
                 ar.setFailMsg(Const.UPDATE_FAIL);
