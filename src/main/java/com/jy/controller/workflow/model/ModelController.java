@@ -1,22 +1,24 @@
 package com.jy.controller.workflow.model;
 
 import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jy.entity.oa.bpm.BpmConf;
+import com.jy.service.oa.bpm.BpmConfService;
 import org.activiti.bpmn.converter.BpmnXMLConverter;
 import org.activiti.bpmn.model.BpmnModel;
+import org.activiti.bpmn.model.FlowElement;
 import org.activiti.editor.constants.ModelDataJsonConstants;
 import org.activiti.editor.language.json.converter.BpmnJsonConverter;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.Model;
 import org.activiti.engine.repository.ModelQuery;
+import org.activiti.engine.repository.ProcessDefinition;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,8 @@ public class ModelController extends BaseController<Object> {
 
     @Autowired
     private RepositoryService repositoryService;
+    @Autowired
+    private BpmConfService bpmConfService;
 
     /**
      * 模型列表
@@ -167,6 +171,32 @@ public class ModelController extends BaseController<Object> {
                 String processName = modelData.getName() + ".bpmn20.xml";
                 Deployment deployment = repositoryService.createDeployment().tenantId(getCompany())
                         .name(modelData.getName()).addString(processName, new String(bpmnBytes, "UTF-8")).deploy();
+                if (model != null) {
+                    BpmConf bpmConf = new BpmConf();
+                    String key = model.getProcesses().get(0).getId();
+                    bpmConf.setKey(key);
+                    List<BpmConf> blist = bpmConfService.find(bpmConf);
+                    if (CollectionUtils.isNotEmpty(blist)) {
+                        bpmConfService.deleteBatch(blist);
+                    }
+                    ProcessDefinition p = repositoryService.createProcessDefinitionQuery().deploymentId(deployment.getId()).singleResult();
+                    Collection<FlowElement> flowElements = model.getMainProcess().getFlowElements();
+                    for (FlowElement e : flowElements) {
+                        if ("org.activiti.bpmn.model.UserTask".equals(e.getClass().getName())) {
+                            BpmConf bConf = new BpmConf();
+                            bConf.setId(get32UUID());
+                            bConf.setKey(key);
+                            bConf.setDname(p.getName());
+                            bConf.setCode(e.getId());
+                            bConf.setPname(e.getName());
+                            bConf.setPid(p.getId());
+                            System.out.println("flowelement id:" + e.getId() + "  name:" + e.getName() + "   class:" + e.getClass().toString());
+                            bpmConfService.insert(bConf);
+                        }
+
+                    }
+                }
+
                 ar.setSucceedMsg("模型部署流程成功");
                 logger.info("模型部署流程成功，部署ID=" + deployment.getId());
             } catch (Exception e) {

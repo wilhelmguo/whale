@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jy.repository.oa.bpm.BpmConfDao">
+    <!-- com.jy.entity.oa.bpm.BpmConf  -->
+    <resultMap id="base" type="BpmConf"></resultMap>
+    <select id="find" resultMap="base" parameterType="BpmConf">
+        SELECT t.* FROM OA_BPM_CONF t WHERE 1=1
+        <if test="id != null and id!='' ">
+            AND t.id=#{id}
+        </if>
+        <if test="pid != null and pid!='' ">
+            AND t.pid=#{pid}
+        </if>
+        <if test="key != null and key!='' ">
+            AND t.key=#{key}
+        </if>
+
+    </select>
+    <select id="findByPage" resultMap="base" parameterType="BpmConf">
+        SELECT t.* FROM OA_BPM_CONF t WHERE 1=1
+        <if test="param.id!= null and param.id!='' ">
+            AND t.id=#{param.id}
+        </if>
+    </select>
+    <select id="count" resultType="int" parameterType="BpmConf">
+       SELECT count(*) FROM OA_BPM_CONF t WHERE 1=1 
+    </select>
+    <insert id="insert" parameterType="BpmConf">
+ 	<![CDATA[
+ insert into OA_BPM_CONF (id, `code`, `key`,pname,dname, users, pid)
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR},#{pname,jdbcType=VARCHAR},#{dname,jdbcType=VARCHAR}, #{users,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR})
+        ]]>
+	</insert>
+    <delete id="delete" parameterType="BpmConf">
+	DELETE FROM OA_BPM_CONF  WHERE 1=1 
+	AND id=#{id} 
+	</delete>
+    <delete id="deleteBatch" parameterType="java.util.List">
+        DELETE FROM OA_BPM_CONF
+        WHERE id IN(
+        <foreach item="o" collection="list" open="" separator="," close="">
+            #{o.id}
+        </foreach>
+        )
+    </delete>
+    <update id="update" parameterType="BpmConf">
+		UPDATE OA_BPM_CONF 
+		SET 
+			 code = #{code,jdbcType=VARCHAR},
+      `key` = #{key,jdbcType=VARCHAR},
+      pname = #{pname,jdbcType=VARCHAR},
+      dname = #{dname,jdbcType=VARCHAR},
+      users = #{users,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=VARCHAR}
+		WHERE 
+			id=#{id}
+	</update>
+</mapper>

@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BPMNEditorStateService">
-    <stateFile url="file://$PROJECT_DIR$/deployments/process01.bpmn">
+    <stateFile url="file://$PROJECT_DIR$/src/main/resources/bpmn/leave.bpmn">
+      <view grid="false" />
+    </stateFile>
+    <stateFile url="file://$PROJECT_DIR$/src/main/resources/bpmn/a.xml">
+      <view grid="false" />
+    </stateFile>
+    <stateFile url="file://$PROJECT_DIR$/deployments/leave.bpmn">
       <view grid="false" />
     </stateFile>
   </component>

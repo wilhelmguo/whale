@@ -1,19 +1,17 @@
 package com.jy.controller.workflow.process;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.zip.ZipInputStream;
-
-import javax.servlet.http.HttpServletResponse;
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamReader;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.jy.common.ajax.AjaxRes;
+import com.jy.common.mybatis.Page;
+import com.jy.common.utils.base.Const;
+import com.jy.controller.base.BaseController;
+import com.jy.entity.oa.bpm.BpmConf;
+import com.jy.entity.workflow.process.ProcessDefinitionVo;
+import com.jy.service.oa.bpm.BpmConfService;
 import org.activiti.bpmn.converter.BpmnXMLConverter;
 import org.activiti.bpmn.model.BpmnModel;
+import org.activiti.bpmn.model.FlowElement;
 import org.activiti.editor.constants.ModelDataJsonConstants;
 import org.activiti.editor.language.json.converter.BpmnJsonConverter;
 import org.activiti.engine.RepositoryService;
@@ -21,6 +19,7 @@ import org.activiti.engine.repository.Deployment;
 import org.activiti.engine.repository.Model;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.repository.ProcessDefinitionQuery;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +30,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.jy.common.ajax.AjaxRes;
-import com.jy.common.mybatis.Page;
-import com.jy.common.utils.base.Const;
-import com.jy.controller.base.BaseController;
-import com.jy.entity.workflow.process.ProcessDefinitionVo;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.*;
+import java.util.zip.ZipInputStream;
 
 /**
  * 流程定义管理
@@ -45,7 +44,8 @@ import com.jy.entity.workflow.process.ProcessDefinitionVo;
 @Controller
 @RequestMapping(value = "/backstage/workflow/process/")
 public class ProcessController extends BaseController<Object> {
-
+    @Autowired
+    private BpmConfService bpmConfService;
     @Autowired
     private RepositoryService repositoryService;
 
@@ -185,6 +185,32 @@ public class ProcessController extends BaseController<Object> {
                 }
                 if (deployment != null) {
                     ar.setSucceedMsg("上传成功");
+                }
+                ProcessDefinition p= repositoryService.createProcessDefinitionQuery().deploymentId(deployment.getId()).singleResult();
+                BpmnModel model= repositoryService.getBpmnModel(p.getId());
+                if (model != null) {
+                    BpmConf bpmConf = new BpmConf();
+                    String key = model.getProcesses().get(0).getId();
+                    bpmConf.setKey(key);
+                    List<BpmConf> blist = bpmConfService.find(bpmConf);
+                    if (CollectionUtils.isNotEmpty(blist)) {
+                        bpmConfService.deleteBatch(blist);
+                    }
+                    Collection<FlowElement> flowElements = model.getMainProcess().getFlowElements();
+                    for (FlowElement e : flowElements) {
+                        if ("org.activiti.bpmn.model.UserTask".equals(e.getClass().getName())) {
+                            BpmConf bConf = new BpmConf();
+                            bConf.setId(get32UUID());
+                            bConf.setKey(key);
+                            bConf.setDname(p.getName());
+                            bConf.setCode(e.getId());
+                            bConf.setPname(e.getName());
+                            bConf.setPid(p.getId());
+                            System.out.println("flowelement id:" + e.getId() + "  name:" + e.getName() + "   class:" + e.getClass().toString());
+                            bpmConfService.insert(bConf);
+                        }
+
+                    }
                 }
             } catch (Exception e) {
                 logger.error("error on deploy process, because of file input stream", e);
