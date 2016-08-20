@@ -7,7 +7,7 @@
     <title>审批详情</title>
     <link rel="stylesheet" href="css/loc.css"/>
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
-
+    <link rel="stylesheet" type="text/css" href="css/styletimeline.css">
 <body>
 <!--timelineBackUp()-->
 <div class="control-wrap">
@@ -23,7 +23,7 @@
     <p id="morning-time" class="user-de">我已审批</p>
 </div>
 <hr style="width: 90%;margin-left: 5%">
-<div id="approval-detail" style="height: 65%">
+<div id="approval-detail" style="height: auto">
     <!--<div style="padding-top: 8px">-->
         <!--<label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">审批标题:</label>-->
         <!--<span>补卡流程-管理员-2016-08-06 14:23</span>-->
@@ -33,6 +33,12 @@
         <!--<span>管理员</span>-->
     <!--</div>-->
 
+</div>
+<div style="margin-left: 20px" class="timeline">
+    <div class="timeline-date">
+        <ul id="timeline">
+        </ul>
+    </div>
 </div>
 <!--<button onclick="approvalPass()" class="tip-sub-button-approval float-left" >通过</button>-->
 <!--<button onclick="approvalReject()" class="tip-sub-button-approval float-right" >拒绝</button>-->

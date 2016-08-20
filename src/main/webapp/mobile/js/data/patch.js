@@ -43,6 +43,7 @@ function submitClick() {
     }
     doPostRequest("auForm", "/whale/backstage/workflow/online/patch/start", {approver: approver}, function (data) {
         alert(data.resMsg);
+        window.location.href="workFlow.html";
     });
 }
 

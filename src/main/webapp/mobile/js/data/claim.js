@@ -30,6 +30,7 @@ function submitClick() {
     }
     doPostRequest("auForm", "/whale/backstage/workflow/online/claim/start", {approver: approver}, function (data) {
         alert(data.resMsg);
+        window.location.href="workFlow.html";
     });
 }
 

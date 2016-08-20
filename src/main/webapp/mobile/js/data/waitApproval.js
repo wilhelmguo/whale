@@ -7,18 +7,40 @@ $(function () {
     var pkey = GetChineseQueryString("pkey");
     var title = GetChineseQueryString("title");
     todoTask(id, pId, pkey, title);
+    getbaseList();
 });
 
+function getbaseList() {
+    doPostRequest("baseForm", '/whale/backstage/workflow/online/taskInfo/findAll', {"processinstanceid": GetQueryString("pId")}, function (data) {
+        var results = data.obj;
+        var html = "";
+        if (results != null && results.length > 0) {
+            for (var i = 0; i < results.length; i++) {
+                var l = results[i];
+                var detail = "";
+                if (isNotEmpty(l.attr2)) {
+                    detail = "(" + l.attr2 + ")";
+                }
+                html += '<li style="height: 100px"> <h3 style="margin-top: 8px;width: 50px">' + l.description + '<span></span></h3> <dl class="right"> <span> <font style="font-size: 0.6em">' + formatDate(l.createtime) + '</font> <br> <font style="font-size: 0.8em">' + l.name + detail+'</font> </span> </dl></li>';
+            }
+            $("#timeline").append(html);
+        } else {
+
+        }
+        JY.Model.loadingClose();
+    });
+}
+
 function back() {
-    window.location.href = "wait.html?type="+GetQueryString("type");
+    window.location.href = "wait.html?type=" + GetQueryString("type");
 }
 
 function backFinish() {
-    window.location.href = "finish.html?type="+GetQueryString("type");
+    window.location.href = "finish.html?type=" + GetQueryString("type");
 }
 
 function backMystart() {
-    window.location.href = "mystart.html?type="+GetQueryString("type");
+    window.location.href = "mystart.html?type=" + GetQueryString("type");
 }
 
 function approvalPass() {
@@ -26,9 +48,9 @@ function approvalPass() {
     var pId = GetQueryString("pId");
     var vars = [{key: 'approval', value: true, type: 'B'},
         {key: 'processInstanceId', value: pId, type: 'S'}];
-    doPostRequest("",  '/whale/backstage/workflow/online/myTask/complete/' + id, comVar(vars), function (data) {
+    doPostRequest("", '/whale/backstage/workflow/online/myTask/complete/' + id, comVar(vars), function (data) {
         alert(data.resMsg);
-        window.location.href="wait.html";
+        window.location.href = "wait.html";
 
     });
 }
@@ -42,7 +64,7 @@ function approvalReject() {
     ovar.pId = pId;
     doPostRequest("", '/whale/backstage/workflow/online/myTask/reject/' + id, ovar, function (data) {
         alert(data.resMsg);
-        window.location.href="wait.html";
+        window.location.href = "wait.html";
     });
 }
 
@@ -60,11 +82,11 @@ function todoTask(id, pId, pkey, title) {
             $("#short-name").text(shortName);
             $("#long-name").text(fullname);
             html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">申请人:</label><span>' + notEmpty(l.name) + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假天数:</label><span>' + notEmpty(l.leaveDay)  + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假类型:</label><span>' + notEmpty(l.typeName)  + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假天数:</label><span>' + notEmpty(l.leaveDay) + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假类型:</label><span>' + notEmpty(l.typeName) + '</span></div>';
             html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">开始时间:</label><span>' + formatDate(l.beginTime) + '</span></div>';
             html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">结束时间:</label><span>' + formatDate(l.endTime) + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假事由:</label><span>' + notEmpty(l.description)  + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假事由:</label><span>' + notEmpty(l.description) + '</span></div>';
             $("#approval-detail").html(html);
         });
     } else if (pkey == 'claim') {
