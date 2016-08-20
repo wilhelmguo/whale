@@ -52,6 +52,26 @@ public class SysNewsController extends BaseController<SysNews> {
     if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/cms/index"))) {
       try {
         o.setCompany(getCompany());
+        o.setIsValid(1);
+        Page<SysNews> news = service.findByPage(o, page);
+        Map<String, Object> p = new HashMap<String, Object>();
+        p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
+        p.put("list", news);
+        ar.setSucceed(p);
+      } catch (Exception e) {
+        logger.error(e.toString(), e);
+        ar.setFailMsg(Const.DATA_FAIL);
+      }
+    }
+    return ar;
+  }
+  @RequestMapping(value = "findAllByPage", method = RequestMethod.POST)
+  @ResponseBody
+  public AjaxRes findAllByPage(Page<SysNews> page, SysNews o) {
+    AjaxRes ar = getAjaxRes();
+    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/cms/index"))) {
+      try {
+        o.setCompany(getCompany());
         Page<SysNews> news = service.findByPage(o, page);
         Map<String, Object> p = new HashMap<String, Object>();
         p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));

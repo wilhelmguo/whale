@@ -150,7 +150,7 @@ function search() {
 function getbaseList(init) {
     if (init == 1)$("#baseForm .pageNum").val(1);
     JY.Model.loading();
-    JY.Ajax.doRequest("baseForm", jypath + '/backstage/cms/findByPage', null, function (data) {
+    JY.Ajax.doRequest("baseForm", jypath + '/backstage/cms/findAllByPage', null, function (data) {
         $("#baseTable tbody").empty();
         var obj = data.obj;
         var list = obj.list;

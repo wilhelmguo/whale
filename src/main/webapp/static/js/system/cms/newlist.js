@@ -1,7 +1,7 @@
 $(function () {
     //下拉框
     // JY.Dict.setSelect("selectisValid", "isPublished", 2, "全部");
-    // getbaseList();
+    getbaseList();
     //增加回车事件
     $("#baseForm").keydown(function (e) {
         keycode = e.which || e.keyCode;
@@ -20,7 +20,7 @@ function getbaseList(init) {
     if (init == 1)$("#baseForm .pageNum").val(1);
     JY.Model.loading();
     JY.Ajax.doRequest("baseForm", jypath + '/backstage/cms/findByPage', null, function (data) {
-        $("#baseTable tbody").empty();
+        // $("#baseTable tbody").empty();
         var obj = data.obj;
         var list = obj.list;
         var results = list.results;
@@ -31,24 +31,24 @@ function getbaseList(init) {
             var leng = (pageNum - 1) * pageSize;//计算序号
             for (var i = 0; i < results.length; i++) {
                 var l = results[i];
-                html += "<tr>";
-                html += "<td class='center'><label> <input type='checkbox' name='ids' value='" + l.id + "' class='ace' /> <span class='lbl'></span></label></td>";
-                html += "<td class='center hidden-480'>" + (i + leng + 1) + "</td>";
-                html += "<td class='center'>" + JY.Object.notEmpty(l.title) + "</td>";
-                html += "<td class='center hidden-480' >" + JY.Object.notEmpty(l.publisher) + "</td>";
-                html += "<td class='center '>" + JY.Date.Default(l.addtime) + "</td>";
-                html += "<td class='center '>" + JY.Date.Default(l.uptime) + "</td>";
-                // html+="<td class='center hidden-480'>"+JY.Object.notEmpty(l.pip)+"</td>";
-                if(l.status==1) html+="<td class='center hidden-480'><span class='label label-sm label-success'>已发布</span></td>";
-                else             html+="<td class='center hidden-480'><span class='label label-sm arrowed-in'>未发布</span></td>";
-                // html+="<td class='center hidden-480'>"+JY.Date.Default(l.loginLog.loginTime)+"</td>";
-                // html+="<td class='center hidden-480'>"+JY.Object.notEmpty(l.loginLog.loginIP)+"</td>";
-                html += JY.Tags.setFunction(l.id, permitBtn);
-                html += "</tr>";
+                html += '<div class="message-item message-unread">'
+                html += '<img width="150px"'
+                html += 'src="'+ jypath + JY.Object.notEmpty(l.cover) +'"'
+                html += 'alt="Johns Avatar" class="middle">'
+                html += '<span class="sender" title="Alex John Red Smith">'+JY.Object.notEmpty(l.publisher)+'</span>'
+                html += '<span class="summary">'
+                html += '<span class="text" onclick="titleClick(&quot;'+l.id+'&quot;)">'
+                html += JY.Object.notEmpty(l.title)
+                html += '</span>'
+                html += '</span>'
+                html += ' <span class="time" style="width: 150px;margin-top: 30px">'+JY.Date.Default(l.addtime)+'</span>'
+                html += '</div>'
             }
-            $("#baseTable tbody").append(html);
+            $("#message-list").html("");
+            $("#message-list").append(html);
             JY.Page.setPage("baseForm", "pageing", pageSize, pageNum, totalRecord, "getbaseList");
         } else {
+            // JY.Page.setPage("baseForm", "pageing", pageSize, pageNum, totalRecord, "getbaseList");
             html += "<tr><td colspan='10' class='center'>没有相关数据</td></tr>";
             $("#baseTable tbody").append(html);
             $("#pageing ul").empty();//清空分页
@@ -57,6 +57,17 @@ function getbaseList(init) {
         JY.Model.loadingClose();
     });
 }
+
+function titleClick(id) {
+    // alert(id);
+    JY.Ajax.doRequest(null, jypath + '/backstage/cms/find', {id: id}, function (data) {
+        $("#row-fluid").hide();
+        $("#writeDiv").show();
+        setDetailForm(data);
+        // JY.Model.widthcheck("90%","auDiv");
+    });
+}
+
 function check(id) {
     cleanForm();
 
@@ -93,7 +104,6 @@ function insertClose() {
     $("#row-fluid").show();
     $("#auDiv").hide();
 }
-
 
 
 function cleanForm() {

@@ -13,20 +13,23 @@ function insertClose() {
 }
 
 function patch(type) {
-    $("#patchForm").hide();
-    $("#applyForm").show();
-    cleanForm();
-    var d = new Date();
-    $("#leaveFrom input[name$='date']").val(JY.Date.Format(d,"yyyy-MM-dd"));
-    if (type==1){
-        $("#leaveFrom input[name$='morning']").val(JY.Date.Format(d,"hh:mm"));
-    }else if(type==2){
-        $("#leaveFrom input[name$='beforenoon']").val(JY.Date.Format(d,"hh:mm"));
-    }else if(type==3){
-        $("#leaveFrom input[name$='afternoon']").val(JY.Date.Format(d,"hh:mm"));
-    }else if(type==4){
-        $("#leaveFrom input[name$='night']").val(JY.Date.Format(d,"hh:mm"));
-    }
+    parent.TabControlAppend("menuef4c0289d9b7465aacb405daa7a871ec", "补卡申请",
+        "/whale/backstage/workflow/online/patch/index?menu=menuef4c0289d9b7465aacb405daa7a871ec");
+
+    // $("#patchForm").hide();
+    // $("#applyForm").show();
+    // cleanForm();
+    // var d = new Date();
+    // $("#leaveFrom input[name$='date']").val(JY.Date.Format(d,"yyyy-MM-dd"));
+    // if (type==1){
+    //     $("#leaveFrom input[name$='morning']").val(JY.Date.Format(d,"hh:mm"));
+    // }else if(type==2){
+    //     $("#leaveFrom input[name$='beforenoon']").val(JY.Date.Format(d,"hh:mm"));
+    // }else if(type==3){
+    //     $("#leaveFrom input[name$='afternoon']").val(JY.Date.Format(d,"hh:mm"));
+    // }else if(type==4){
+    //     $("#leaveFrom input[name$='night']").val(JY.Date.Format(d,"hh:mm"));
+    // }
 
 }
 
