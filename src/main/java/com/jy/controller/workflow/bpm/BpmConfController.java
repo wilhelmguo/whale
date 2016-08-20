@@ -64,7 +64,7 @@ public class BpmConfController extends BaseController<BpmConf> {
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_FUNCTION))) {
             try {
                 o.setCompany(getCompany());
-                o.setId(get32UUID());
+//                o.setId(get32UUID());
 //				o.setCreateTime(new Date());	
                 service.insert(o);
                 ar.setSucceedMsg(Const.SAVE_SUCCEED);
@@ -100,7 +100,7 @@ public class BpmConfController extends BaseController<BpmConf> {
         AjaxRes ar = getAjaxRes();
         if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
             try {
-                if (StringUtils.isNotBlank(o.getId())) {
+                if (o.getId() != null) {
                     BpmConf b = new BpmConf();
                     b.setId(o.getId());
                     List<BpmConf> blist = service.find(b);
@@ -149,7 +149,7 @@ public class BpmConfController extends BaseController<BpmConf> {
                 List<BpmConf> list = new ArrayList<BpmConf>();
                 for (String s : chk) {
                     BpmConf sd = new BpmConf();
-                    sd.setId(s);
+                    sd.setId(Integer.valueOf(s));
                     list.add(sd);
                 }
                 service.deleteBatch(list);

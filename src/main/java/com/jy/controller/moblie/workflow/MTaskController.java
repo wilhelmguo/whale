@@ -65,6 +65,7 @@ public class MTaskController extends BaseController<Object> {
                     TaskInfo tInfo = list.get(0);
                     taskVo.setPresentationSubject(tInfo.getPresentationsubject());
                     taskVo.setProcessName(tInfo.getAttr1());
+                    taskVo.setPkey(tInfo.getPkey());
                     taskVos.add(taskVo);
 
                 }

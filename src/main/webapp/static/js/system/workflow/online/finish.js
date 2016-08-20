@@ -35,7 +35,7 @@ function getbaseList(init) {
                 html += "<td class='center'>" + JY.Object.notEmpty(l.attr2) + "</td>";
                 html += "<td class='center'>" +
                     "<a title='办理详情' class='aBtnNoTD' " +
-                    "onclick='todoTask(&apos;" + l.processinstanceid + "&apos;,&apos;" + l.attr1 + "&apos;)' >" +
+                    "onclick='todoTask(&apos;" + l.processinstanceid + "&apos;,&apos;" + l.pkey + "&apos;)' >" +
                     "<i class='icon-edit color-blue bigger-140' ></i></a>" +
                     "<a title='流程详情' class='aBtnNoTD' " +
                     "onclick='currentNode(&apos;" + l.processdefinitionid + "&apos;,&apos;" + l.processinstanceid + "&apos;)' >" +
@@ -144,13 +144,13 @@ function setOvertimeForm(l) {
 }
 
 function todoTask(pId, name) {
-    if (name == '请假流程') {
+    if (name == 'leave') {
         leave(pId);
-    } else if (name == '报销流程') {
+    } else if (name == 'claim') {
         claim(pId);
-    }else if (name == '加班流程') {
+    }else if (name == 'overtime') {
         overtime(pId);
-    }else if (name == '补卡流程') {
+    }else if (name == 'patch') {
         patch(pId);
     }else{
         userdef(pId);

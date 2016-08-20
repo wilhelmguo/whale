@@ -16,7 +16,7 @@ function getTolist() {
                 var l = data.obj;
                 var html = "";
                 for (var i = 0; i < l.length; i++) {
-                    var clickFunc = "todoTask(&apos;" + l[i].id + "&apos;,&apos;" + l[i].processInstanceId + "&apos;,&apos;" + l[i].processName + "&apos;,&apos;" + l[i].presentationSubject + "&apos;)";
+                    var clickFunc = "todoTask(&apos;" + l[i].id + "&apos;,&apos;" + l[i].processInstanceId + "&apos;,&apos;" + l[i].pkey + "&apos;,&apos;" + l[i].presentationSubject + "&apos;)";
                     html += '<div class="item-wrap-workflow" data="1" onclick="' + clickFunc + '"> <div class="initiate-item-workflow"> <p class="init-title">' + l[i].presentationSubject + '</p> <p class="init-de">待审批</p> <p class="init-time"></p> </div> </div>';
                 }
                 $("#toList").html(html);
@@ -32,8 +32,8 @@ function getTolist() {
     });
 }
 
-function todoTask(id, pId, name, title) {
-    window.location.href = "approval.html?id=" + id + "&pId=" + pId + "&name=" + name + "&title=" + title;
+function todoTask(id, pId, pkey, title) {
+    window.location.href = "approval.html?id=" + id + "&pId=" + pId + "&pkey=" + pkey + "&title=" + title+ "&type="+GetQueryString("type");
     // if (name == '请假流程') {
     //     leave(id, pId);
     // } else if (name == '报销流程') {

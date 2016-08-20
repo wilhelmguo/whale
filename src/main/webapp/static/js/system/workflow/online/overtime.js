@@ -38,6 +38,39 @@ function loadDefaultApprover() {
     });
 
 }
+function loadAllApprover() {
+    JY.Ajax.doGetRequest(null, jypath + '/backstage/workflow/approver/findAllApprover', {"key": "overtime"}, function (data) {
+        if (data.res) {
+            var r = data.obj;
+            var accountId = "", name = "";
+            for (var i = 0; i < r.length; i++) {
+                accountId += r[i].accountId + ",";
+                name += r[i].name + ",";
+            }
+            if (accountId.length > 0) accountId = accountId.substring(0, accountId.length - 1);
+            if (name.length > 0) name = name.substring(0, name.length - 1);
+            $("#preOrg").val(accountId);
+            $("#preOrgName").val(name);
+        } else {
+            JY.Model.error(date.resMsg);
+        }
+
+    });
+
+}
+function changeEvent(obj) {
+    var day = $(obj).val();
+    var acid = $("#preOrg").val();
+    if (isNaN(day)) {
+        JY.Model.info("请假天数必须为数字");
+    } else {
+        if (day > 3) {
+            loadAllApprover();
+        } else {
+            loadDefaultApprover();
+        }
+    }
+}
 function submitApply() {
     if (JY.Validate.form("leaveFrom")) {
         JY.Model.confirm("确认提交申请吗?", function () {

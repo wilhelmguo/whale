@@ -5,7 +5,7 @@ import org.apache.ibatis.type.Alias;
 
 @Alias("BpmConf")
 public class BpmConf extends OaBase {
-    private String id;
+    private Integer id;
 
     private String code;
 
@@ -57,12 +57,12 @@ public class BpmConf extends OaBase {
         this.dname = dname;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCode() {

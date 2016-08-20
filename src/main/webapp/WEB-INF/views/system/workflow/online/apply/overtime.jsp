@@ -18,7 +18,7 @@
             加班申请表
             <small><i class="icon-double-angle-right"></i>&nbsp;三天以下：员工-直属领导
                 三天以上：员工-直属领导-总经办
-                &nbsp;&nbsp;&nbsp;多级审批按顺序选择多个审批人即可(直属领导无法删除)
+
             </small>
         </h1>
     </div>
@@ -32,11 +32,11 @@
                         <input type="hidden" name="pId" value="0">
                         <input id="preOrgName" type="text" style="float: left" name="approverName" jyValidate="required"
                                readonly
-                               onclick="showPreOrg(); return false;">
+                               >
                         <input id="preOrg" hidden type="text" name="approver" jyValidate="required" readonly
                                class="col-xs-10 col-sm-10">
-                        <a href="#" title="清空" onclick="emptyPreOrg(); return false;" class="col-xs-1 col-sm-1"
-                           data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>
+                        <%--<a href="#" title="清空" onclick="emptyPreOrg(); return false;" class="col-xs-1 col-sm-1"--%>
+                           <%--data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>--%>
                         <div id='preOrgContent'
                              class="datetimepicker datetimepicker-dropdown-bottom-right dropdown-menu"
                              style="display: none; position: absolute;z-index: 10000">
@@ -62,7 +62,7 @@
 
                     <label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>加班天数</label>
                     <div class="col-sm-2">
-                        <input placeholder="加班天数,数字" name="duration" onchange="" jyValidate="required,number"
+                        <input placeholder="加班天数,数字" onchange="changeEvent(this)" name="duration" onchange="" jyValidate="required,number"
                                type="text">
                     </div>
                     <%--<label class="col-sm-2 control-label no-padding-right"><font color="red">*</font>报销类别</label>--%>

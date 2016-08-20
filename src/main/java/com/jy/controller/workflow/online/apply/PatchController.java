@@ -79,14 +79,13 @@ public class PatchController extends BaseController<Object> {
         String[] approvers = o.getApprover().split(",");
         Map<String, Object> variables = new HashMap<String, Object>();
         for (int i = 0; i < approvers.length; i++) {
-          variables.put("approver" + i, approvers[i]);
+          variables.put("approver" + (i + 1), approvers[i]);
         }
-        String key = "patch" + approvers.length;
-        activitiDeployService.buildDeployment(key, "补卡流程", approvers.length);
+        String workflowKey = "patch";
 
         identityService.setAuthenticatedUserId(currentUserId);
         Date now = new Date();
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(key, variables);
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKeyAndTenantId(workflowKey, variables, getCompany());
         String pId = processInstance.getId();
         String leaveID = get32UUID();
         o.setPid(pId);
@@ -97,52 +96,41 @@ public class PatchController extends BaseController<Object> {
         o.setId(leaveID);
 
         patchService.insert(o);
-        List<Task> tasks = taskService.createTaskQuery().processInstanceId(pId).list();
-        for (Task task : tasks) {
-          taskService.complete(task.getId(), variables);
-          TaskInfo taskInfo = new TaskInfo();
-          taskInfo.setId(get32UUID());
-          taskInfo.setBusinesskey(leaveID);
-          taskInfo.setCode(processInstance.getActivityId());
-          String processDefinitionName = ((ExecutionEntity) processInstance).getProcessInstance().getProcessDefinition().getName();
-          taskInfo.setName(task.getName());
-          taskInfo.setStatus(0);
-          String subkect = processDefinitionName + "-"
-                  + AccountShiroUtil.getCurrentUser().getName() + "-" + DateUtils.formatDate(now, "yyyy-MM-dd HH:mm");
-          taskInfo.setPresentationsubject(subkect);
-          taskInfo.setAttr1(processDefinitionName);
-          taskInfo.setCreatetime(now);
-          taskInfo.setCompletetime(now);
-          taskInfo.setCreator(currentUserId);
-          taskInfo.setAssignee(currentUserId);
-          taskInfo.setTaskid(task.getId());
-          taskInfo.setExecutionid(task.getExecutionId());
-          taskInfo.setProcessinstanceid(processInstance.getId());
-          taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
-          taskInfoService.insert(taskInfo);
-        }
-        List<Task> tasksNext = taskService.createTaskQuery().processInstanceId(pId).list();
-        for (Task task : tasksNext) {
-          TaskInfo taskInfo = new TaskInfo();
-          taskInfo.setId(get32UUID());
-          taskInfo.setBusinesskey(leaveID);
-          taskInfo.setCode(task.getTaskDefinitionKey());
-          taskInfo.setName(task.getName());
-          taskInfo.setStatus(1);
-          String processDefinitionName = ((ExecutionEntity) processInstance).getProcessInstance().getProcessDefinition().getName();
-          taskInfo.setAttr1(processDefinitionName);
-          String subkect = processDefinitionName + "-"
-                  + AccountShiroUtil.getCurrentUser().getName() + "-" + DateUtils.formatDate(now, "yyyy-MM-dd HH:mm");
-          taskInfo.setPresentationsubject(subkect);
-          taskInfo.setCreatetime(now);
-          taskInfo.setCreator(currentUserId);
-          taskInfo.setAssignee(approvers[0]);
-          taskInfo.setTaskid(task.getId());
-          taskInfo.setExecutionid(task.getExecutionId());
-          taskInfo.setProcessinstanceid(processInstance.getId());
-          taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
-          taskInfoService.insert(taskInfo);
-        }
+        Task task = taskService.createTaskQuery().processInstanceId(pId).singleResult();
+        String processDefinitionName = ((ExecutionEntity) processInstance).getProcessInstance().getProcessDefinition().getName();
+        String subkect = processDefinitionName + "-"
+                + AccountShiroUtil.getCurrentUser().getName() + "-" + DateUtils.formatDate(now, "yyyy-MM-dd HH:mm");
+
+        //开始流程
+        TaskInfo taskInfo = new TaskInfo();
+        taskInfo.setId(get32UUID());
+        taskInfo.setBusinesskey(leaveID);
+        taskInfo.setCode("start");
+        taskInfo.setName("发起申请");
+        taskInfo.setStatus(0);
+        taskInfo.setPresentationsubject(subkect);
+        taskInfo.setAttr1(processDefinitionName);
+        taskInfo.setCreatetime(DateUtils.addSeconds(now, -1));
+        taskInfo.setCompletetime(DateUtils.addSeconds(now, -1));
+        taskInfo.setCreator(currentUserId);
+        taskInfo.setAssignee(currentUserId);
+        taskInfo.setTaskid("0");
+        taskInfo.setPkey(workflowKey);
+        taskInfo.setExecutionid("0");
+        taskInfo.setProcessinstanceid(processInstance.getId());
+        taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
+        taskInfoService.insert(taskInfo);
+
+        //第一级审批流程
+        taskInfo.setId(get32UUID());
+        taskInfo.setCode(processInstance.getActivityId());
+        taskInfo.setName(task.getName());
+        taskInfo.setStatus(1);
+        taskInfo.setTaskid(task.getId());
+        taskInfo.setCreatetime(now);
+        taskInfo.setCompletetime(null);
+        taskInfo.setAssignee(approvers[0]);
+        taskInfoService.insert(taskInfo);
         ar.setSucceedMsg("发起补卡申请成功!");
       } catch (Exception e) {
         logger.error(e.toString(), e);

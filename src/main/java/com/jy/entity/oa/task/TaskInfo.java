@@ -45,6 +45,17 @@ public class TaskInfo extends BaseEntity {
 
   private String attr3;
 
+  //流程key
+  private String pkey;
+
+  public String getPkey() {
+    return pkey;
+  }
+
+  public void setPkey(String pkey) {
+    this.pkey = pkey;
+  }
+
   public String getId() {
     return id;
   }

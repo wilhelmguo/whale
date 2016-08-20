@@ -31,11 +31,11 @@
                         <input type="hidden" name="pId" value="0">
                         <input id="preOrgName" type="text" style="float: left" name="approverName" jyValidate="required"
                                readonly
-                               onclick="showPreOrg(); return false;">
+                              >
                         <input id="preOrg" hidden type="text" name="approver" jyValidate="required" readonly
                                class="col-xs-10 col-sm-10">
-                        <a href="#" title="清空" onclick="emptyPreOrg(); return false;" class="col-xs-1 col-sm-1"
-                           data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>
+                        <%--<a href="#" title="清空" onclick="emptyPreOrg(); return false;" class="col-xs-1 col-sm-1"--%>
+                           <%--data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>--%>
                         <div id='preOrgContent'
                              class="datetimepicker datetimepicker-dropdown-bottom-right dropdown-menu"
                              style="display: none; position: absolute;z-index: 10000">

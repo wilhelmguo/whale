@@ -19,7 +19,7 @@
         <h1>
             报销申请表
             <small><i class="icon-double-angle-right"></i>&nbsp;员工-直属领导-财务（核对（比如发票）并审批）
-                &nbsp;&nbsp;&nbsp;多级审批按顺序选择多个审批人即可(直属领导无法删除)
+
             </small>
         </h1>
     </div>
@@ -32,11 +32,11 @@
                     <div class="col-sm-3">
                         <input type="hidden" name="pId" value="0">
                         <input id="preOrgName" type="text" style="float: left" name="approverName" jyValidate="required" readonly
-                               onclick="showPreOrg(); return false;" >
+                                >
                         <input id="preOrg" hidden type="text" name="approver" jyValidate="required" readonly
                                class="col-xs-10 col-sm-10">
-                        <a href="#" title="清空" onclick="emptyPreOrg(); return false;"  class="col-xs-1 col-sm-1"
-                        data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>
+                        <%--<a href="#" title="清空" onclick="emptyPreOrg(); return false;"  class="col-xs-1 col-sm-1"--%>
+                        <%--data-toggle="modal"><i class='icon-remove bigger-120 red'></i></a>--%>
                         <div id='preOrgContent'
                              class="datetimepicker datetimepicker-dropdown-bottom-right dropdown-menu"
                              style="display: none; position: absolute;z-index: 10000">

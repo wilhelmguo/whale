@@ -14,7 +14,10 @@
         <if test="businesskey != null and businesskey!='' ">
             AND t.businessKey=#{businesskey}
         </if>
-
+        <if test="processinstanceid != null and processinstanceid!='' ">
+            AND t.processInstanceid=#{processinstanceid}
+        </if>
+        ORDER BY t.createTime
     </select>
     <select id="findByPage" resultMap="base" parameterType="TaskInfo">
         SELECT t.* FROM TASK_INFO t WHERE 1=1
@@ -45,7 +48,7 @@
 
     <select id="findMystartByPage" resultMap="base" parameterType="TaskInfo">
         select distinct businessKey,presentationSubject,createTime,attr1,
-        processInstanceid,processDefinitionid from TASK_INFO t where 1=1
+        processInstanceid,processDefinitionid,pkey from TASK_INFO t where 1=1
         <if test="param.creator!= null and param.creator!='' ">
             AND t.creator=#{param.creator}
         </if>
@@ -64,14 +67,14 @@ insert into TASK_INFO (id, businessKey, code,
       expirationTime, creator, assignee,
       taskId, executionId, processInstanceid,
       processDefinitionid, attr1, attr2,
-      attr3)
+      attr3,pkey)
     values (#{id,jdbcType=VARCHAR}, #{businesskey,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
       #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},
       #{presentationsubject,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{completetime,jdbcType=TIMESTAMP},
       #{expirationtime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, #{assignee,jdbcType=VARCHAR},
       #{taskid,jdbcType=VARCHAR}, #{executionid,jdbcType=VARCHAR}, #{processinstanceid,jdbcType=VARCHAR},
       #{processdefinitionid,jdbcType=VARCHAR}, #{attr1,jdbcType=VARCHAR}, #{attr2,jdbcType=VARCHAR},
-      #{attr3,jdbcType=VARCHAR})
+      #{attr3,jdbcType=VARCHAR},#{pkey})
 
         ]]>
 	</insert>
@@ -107,7 +110,8 @@ insert into TASK_INFO (id, businessKey, code,
       processDefinitionid = #{processdefinitionid,jdbcType=VARCHAR},
       attr1 = #{attr1,jdbcType=VARCHAR},
       attr2 = #{attr2,jdbcType=VARCHAR},
-      attr3 = #{attr3,jdbcType=VARCHAR}
+      attr3 = #{attr3,jdbcType=VARCHAR},
+      pkey = #{pkey}
 		WHERE 
 			id=#{id}
 	</update>

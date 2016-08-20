@@ -2,6 +2,7 @@ package com.jy.controller.workflow.online.myTask;
 
 import com.jy.common.ajax.AjaxRes;
 import com.jy.common.mybatis.Page;
+import com.jy.common.utils.DateUtils;
 import com.jy.common.utils.Variable;
 import com.jy.common.utils.base.Const;
 import com.jy.common.utils.security.AccountShiroUtil;
@@ -12,6 +13,7 @@ import com.jy.entity.oa.overtime.Overtime;
 import com.jy.entity.oa.patch.Patch;
 import com.jy.entity.oa.task.TaskInfo;
 import com.jy.entity.oa.userdef.Userdef;
+import com.jy.entity.system.account.Account;
 import com.jy.entity.workflow.online.TaskVo;
 import com.jy.service.oa.activiti.ActivitiDeployService;
 import com.jy.service.oa.claim.ClaimService;
@@ -136,10 +138,31 @@ public class MyTaskController extends BaseController<Object> {
                 int pageNum = page.getPageNum() - 1;
                 int pageSize = page.getPageSize();
                 List<TaskVo> taskVos = new ArrayList<TaskVo>();
-                String currentUserId = AccountShiroUtil.getCurrentUser().getAccountId();
+                Account account = AccountShiroUtil.getCurrentUser();
+                String currentUserId = account.getAccountId();
                 // 根据当前人的ID查询
-                TaskQuery taskQuery = taskService.createTaskQuery().taskCandidateOrAssigned(currentUserId).orderByTaskCreateTime().desc();
-                List<Task> tasks = taskQuery.listPage(pageNum, pageSize);
+                //或者当前人的角色id
+//                List<Task> tasksTotal = new ArrayList<Task>();
+//                List<Task> tasks = new ArrayList<Task>();
+//                TaskQuery taskQuery = taskService.createTaskQuery().taskCandidateUser(currentUserId).orderByTaskCreateTime().desc();
+//                TaskQuery taskQueryRole = taskService.createTaskQuery().taskCandidateUser(account.getRoleId()).orderByTaskCreateTime().desc();
+//                List<Task> tasksuset = taskQuery.list();
+//                List<Task> tasksRole = taskQueryRole.list();
+//                tasksTotal.addAll(tasksuset);
+//                tasksTotal.addAll(tasksRole);
+//                int start = pageNum * pageSize;
+//                int end = (pageNum + 1) * pageSize;
+//                if (start > tasksTotal.size()) {
+//                    tasks.addAll(tasksTotal);
+//                } else {
+//                    if (end > tasksTotal.size()) {
+//                        tasks.addAll(tasksTotal.subList(start, tasksTotal.size() - 1));
+//                    } else {
+//                        tasks.addAll(tasksTotal.subList(start, end));
+//                    }
+//                }
+                TaskQuery taskQuery = taskService.createTaskQuery().taskCandidateUser(currentUserId).orderByTaskCreateTime().desc();
+                List<Task> tasks = taskQuery.list();
                 for (Task t : tasks) {
                     TaskVo taskVo = new TaskVo(t.getId(), t.getTaskDefinitionKey(), t.getName(), t.getProcessDefinitionId()
                             , t.getProcessInstanceId(), t.getPriority(), t.getCreateTime(), t.getDueDate()
@@ -153,6 +176,7 @@ public class MyTaskController extends BaseController<Object> {
                     TaskInfo tInfo = list.get(0);
                     taskVo.setPresentationSubject(tInfo.getPresentationsubject());
                     taskVo.setProcessName(tInfo.getAttr1());
+                    taskVo.setPkey(tInfo.getPkey());
                     taskVos.add(taskVo);
 
                 }
@@ -219,34 +243,58 @@ public class MyTaskController extends BaseController<Object> {
                     ProcessInstance pi = runtimeService.createProcessInstanceQuery()//
                             .processInstanceId(pId)//使用流程实例ID查询
                             .singleResult();
+
                     if (pi != null) {
-                        List<Task> tasksNext = taskService.createTaskQuery().processInstanceId(pId).list();
-                        for (Task task : tasksNext) {
-                            TaskInfo tInfo = new TaskInfo();
-                            tInfo.setId(get32UUID());
-                            tInfo.setBusinesskey(ti.getBusinesskey());
-                            tInfo.setCode(task.getTaskDefinitionKey());
-                            tInfo.setName(task.getName());
-                            tInfo.setStatus(1);
-                            tInfo.setPresentationsubject(ti.getPresentationsubject());
-                            tInfo.setCreatetime(now);
-                            tInfo.setCreator(ti.getCreator());
-                            TaskInfo tQuery = new TaskInfo();
-                            tQuery.setBusinesskey(ti.getBusinesskey());
-                            List<TaskInfo> ts = taskInfoService.find(tQuery);
-                            int approverNext = 0;
-                            if (ts != null) {
-                                approverNext = ts.size() - 1;
-                            }
-                            String assignee = (String) taskService.getVariable(task.getId(), "approver" + approverNext);
-                            tInfo.setAssignee(assignee);
-                            tInfo.setTaskid(task.getId());
-                            tInfo.setExecutionid(task.getExecutionId());
-                            tInfo.setProcessinstanceid(pi.getId());
-                            tInfo.setProcessdefinitionid(pi.getProcessDefinitionId());
-                            taskInfoService.insert(tInfo);
+                        Task task = taskService.createTaskQuery().processInstanceId(pId).singleResult();
+                        TaskInfo tInfo = new TaskInfo();
+                        tInfo.setId(get32UUID());
+                        tInfo.setBusinesskey(ti.getBusinesskey());
+                        tInfo.setCode(task.getTaskDefinitionKey());
+                        tInfo.setName(task.getName());
+                        tInfo.setStatus(1);
+                        tInfo.setPresentationsubject(ti.getPresentationsubject());
+                        tInfo.setCreatetime(now);
+                        tInfo.setCreator(ti.getCreator());
+                        TaskInfo tQuery = new TaskInfo();
+                        tQuery.setBusinesskey(ti.getBusinesskey());
+                        List<TaskInfo> ts = taskInfoService.find(tQuery);
+                        int approverNext = 1;
+                        if (ts != null) {
+                            tInfo.setPkey(ts.get(0).getPkey());
+                            approverNext = ts.size() - 1;
                         }
+
+                        String assignee = (String) taskService.getVariable(task.getId(), "approver" + approverNext);
+                        tInfo.setAssignee(assignee);
+                        tInfo.setTaskid(task.getId());
+                        tInfo.setExecutionid(task.getExecutionId());
+                        tInfo.setProcessinstanceid(pi.getId());
+                        tInfo.setProcessdefinitionid(pi.getProcessDefinitionId());
+                        tInfo.setAttr1(ti.getAttr1());
+                        tInfo.setAttr2(ti.getAttr2());
+                        tInfo.setPkey(ti.getPkey());
+                        taskInfoService.insert(tInfo);
+                    } else {
+                        TaskInfo tInfo = new TaskInfo();
+                        tInfo.setId(get32UUID());
+                        tInfo.setBusinesskey(ti.getBusinesskey());
+                        tInfo.setCode("end");
+                        tInfo.setName("结束");
+                        tInfo.setStatus(0);
+                        tInfo.setPresentationsubject(ti.getPresentationsubject());
+                        tInfo.setCreatetime(now);
+                        tInfo.setCompletetime(now);
+                        tInfo.setCreator(ti.getCreator());
+                        tInfo.setTaskid("0");
+                        tInfo.setExecutionid("0");
+                        tInfo.setProcessinstanceid(ti.getProcessinstanceid());
+                        tInfo.setProcessdefinitionid(ti.getProcessdefinitionid());
+                        tInfo.setAttr1(ti.getAttr1());
+                        tInfo.setAttr2(ti.getAttr2());
+                        tInfo.setPkey(ti.getPkey());
+                        taskInfoService.insert(tInfo);
                     }
+
                 }
                 ar.setSucceedMsg("办理成功");
             } catch (Exception e) {
@@ -374,6 +422,14 @@ public class MyTaskController extends BaseController<Object> {
                     t.setStatus(0);
                     t.setCompletetime(now);
                     taskInfoService.update(t);
+                    t.setId(get32UUID());
+                    t.setCode("end");
+                    t.setName("结束");
+                    t.setCreatetime(DateUtils.addSeconds(now, 1));
+                    t.setCompletetime(DateUtils.addSeconds(now, 1));
+                    t.setTaskid("0");
+                    t.setExecutionid("0");
+                    taskInfoService.insert(t);
 //          leaveService.updateRejectReason(pId, rejectReason);
                     taskService.complete(taskId, variables);
                     while (true) {

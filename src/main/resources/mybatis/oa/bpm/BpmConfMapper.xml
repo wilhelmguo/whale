@@ -14,6 +14,10 @@
         <if test="key != null and key!='' ">
             AND t.key=#{key}
         </if>
+        <if test="company != null and company!='' ">
+            AND t.cid=#{company}
+        </if>
+        ORDER  BY t.id
 
     </select>
     <select id="findByPage" resultMap="base" parameterType="BpmConf">
@@ -21,16 +25,23 @@
         <if test="param.id!= null and param.id!='' ">
             AND t.id=#{param.id}
         </if>
+        <if test="param.pid != null and param.pid!='' ">
+            AND t.pid=#{param.pid}
+        </if>
+        <if test="param.company != null and param.company!='' ">
+            AND t.cid=#{param.company}
+        </if>
+        ORDER  BY t.id
     </select>
     <select id="count" resultType="int" parameterType="BpmConf">
        SELECT count(*) FROM OA_BPM_CONF t WHERE 1=1 
     </select>
     <insert id="insert" parameterType="BpmConf">
  	<![CDATA[
- insert into OA_BPM_CONF (id, `code`, `key`,pname,dname, users, pid,usertype,username)
-    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR},
+ insert into OA_BPM_CONF ( `code`, `key`,pname,dname, users, pid,usertype,username,cid)
+    values ( #{code,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR},
     #{pname,jdbcType=VARCHAR},#{dname,jdbcType=VARCHAR}, #{users,jdbcType=VARCHAR},
-     #{pid,jdbcType=VARCHAR},#{usertype},#{username})
+     #{pid,jdbcType=VARCHAR},#{usertype},#{username},#{company})
         ]]>
 	</insert>
     <delete id="delete" parameterType="BpmConf">

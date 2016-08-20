@@ -63,7 +63,7 @@
 
         <div class="wf-item-wrap">
             <span class="btn-lable">请假天数:</span>
-            <input name="leaveDay" class="btn-input" type="number" placeholder="请输入请假天数(必填)" required/>
+            <input id="leaveDay" name="leaveDay" onchange="changeEvent(this)" class="btn-input" type="number" placeholder="请输入请假天数(必填)" required/>
         </div>
 
         <div class="wf-item-wrap">
@@ -72,11 +72,11 @@
         </div>
 
         <div class="wf-item-wrap">
-            <p class="btn-lable">审批人:<span style="font-size: 0.8em">(点击头像可删除,直属领导不可删除)</span></p>
-            <div class="list-manage">
+            <p class="btn-lable">审批人:<span style="font-size: 0.8em"></span></p>
+            <div style="height: 50px" class="list-manage">
 
             </div>
-            <img class="plus-peo" src="img/item_5.png"/>
+            <!--<img class="plus-peo" src="img/item_5.png"/>-->
         </div>
         <!--<div onclick="submitClick()" class="tip-sub">提交</div>-->
         <input type="submit" onclick="submitClick()" class="tip-sub-button" value="提交">

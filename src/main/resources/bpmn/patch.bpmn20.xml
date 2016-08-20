@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="patch" name="补卡流程" isExecutable="true">
+    <startEvent id="start" name="开始"/>
+    <endEvent id="end" name="结束"/>
+    <userTask id="usertask1" name="部门领导审批" activiti:candidateUsers="${approver1}"/>
+    <sequenceFlow id="sid-24A67E47-B3BB-40FD-9611-3DE0742A1111" sourceRef="start" targetRef="usertask1"/>
+    <sequenceFlow id="sid-BF6582E0-D2F7-4054-AD15-64223FFAD813" sourceRef="usertask1" targetRef="end"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_patch">
+    <bpmndi:BPMNPlane bpmnElement="patch" id="BPMNPlane_patch">
+      <bpmndi:BPMNShape bpmnElement="start" id="BPMNShape_start">
+        <omgdc:Bounds height="30.0" width="30.0" x="132.5" y="99.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="end" id="BPMNShape_end">
+        <omgdc:Bounds height="28.0" width="28.0" x="510.0" y="100.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="usertask1" id="BPMNShape_usertask1">
+        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="74.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-BF6582E0-D2F7-4054-AD15-64223FFAD813" id="BPMNEdge_sid-BF6582E0-D2F7-4054-AD15-64223FFAD813">
+        <omgdi:waypoint x="370.0" y="114.0"/>
+        <omgdi:waypoint x="510.0" y="114.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-24A67E47-B3BB-40FD-9611-3DE0742A1111" id="BPMNEdge_sid-24A67E47-B3BB-40FD-9611-3DE0742A1111">
+        <omgdi:waypoint x="162.5" y="114.0"/>
+        <omgdi:waypoint x="270.0" y="114.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

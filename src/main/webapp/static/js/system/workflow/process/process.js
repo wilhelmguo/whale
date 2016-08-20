@@ -172,7 +172,7 @@ function convertToModel(processDefinitionId) {
 }
 
 function configWorkflow(processDefinitionId) {
-    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/bpmconf/findByPage', {processDefinitionId: processDefinitionId}, function (data) {
+    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/bpmconf/findByPage', {"pid": processDefinitionId}, function (data) {
         getbaseList1(data);
     });
     $("#processDefinitionId").val(processDefinitionId);
@@ -226,7 +226,7 @@ function currentNode(id) {
                 that.dialog("close");
                 JY.Model.info(data.resMsg, function () {
                     var processDefinitionId = $("#processDefinitionId").val();
-                    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/bpmconf/findByPage', {"processDefinitionId": processDefinitionId}, function (data) {
+                    JY.Ajax.doRequest(null, jypath + '/backstage/workflow/bpmconf/findByPage', {"pid": processDefinitionId}, function (data) {
                         getbaseList1(data);
                     });
                 });

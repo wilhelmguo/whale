@@ -40,7 +40,7 @@ function getbaseList(init) {
                 // if('deptAudit'==taskDKey||'hrAudit'==taskDKey){
                 html += "<td class='center'>" +
                     "<a title='办理' class='aBtnNoTD' " +
-                    "onclick='todoTask(&apos;" + l.id + "&apos;,&apos;" + l.processInstanceId + "&apos;,&apos;" + l.processName + "&apos;)' >" +
+                    "onclick='todoTask(&apos;" + l.id + "&apos;,&apos;" + l.processInstanceId + "&apos;,&apos;" + l.pkey + "&apos;)' >" +
                     "<i class='icon-edit color-blue bigger-140' ></i></a>" +
                     "<a title='详情' class='aBtnNoTD' " +
                     "onclick='currentNode(&apos;" + l.processDefinitionId + "&apos;,&apos;" + l.processInstanceId + "&apos;)' >" +
@@ -77,13 +77,13 @@ function currentNode(pdId, pIId) {
 
 
 function todoTask(id, pId, name) {
-    if (name == '请假流程') {
+    if (name == 'leave') {
         leave(id, pId);
-    } else if (name == '报销流程') {
+    } else if (name == 'claim') {
         claim(id, pId);
-    } else if (name == '加班流程') {
+    } else if (name == 'overtime') {
         overtime(id, pId);
-    } else if (name == '补卡流程') {
+    } else if (name == 'patch') {
         patch(id, pId);
     } else {
         usrdef(id, pId)

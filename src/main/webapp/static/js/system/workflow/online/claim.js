@@ -1,13 +1,33 @@
 $(function () {
     // JY.Dict.setSelect("selectLeaveType", "leaveType", "1");
     loadPreOrgTree();
-    loadDefaultApprover();
+    loadAllApprover();
 });
 function loadDefaultApprover() {
     JY.Ajax.doGetRequest(null, jypath + '/backstage/workflow/approver/find', "", function (data) {
         var r = data.obj;
         $("#preOrg").val(r.accountId);
         $("#preOrgName").val(r.name);
+    });
+
+}
+function loadAllApprover() {
+    JY.Ajax.doGetRequest(null, jypath + '/backstage/workflow/approver/findAllApprover', {"key": "claim"}, function (data) {
+        if (data.res) {
+            var r = data.obj;
+            var accountId = "", name = "";
+            for (var i = 0; i < r.length; i++) {
+                accountId += r[i].accountId + ",";
+                name += r[i].name + ",";
+            }
+            if (accountId.length > 0) accountId = accountId.substring(0, accountId.length - 1);
+            if (name.length > 0) name = name.substring(0, name.length - 1);
+            $("#preOrg").val(accountId);
+            $("#preOrgName").val(name);
+        } else {
+            JY.Model.error(date.resMsg);
+        }
+
     });
 
 }

@@ -33,6 +33,16 @@ public class TaskVo extends BaseEntity{
 	private String presentationSubject;
 	//流程名称
 	private String processName;
+	//流程key
+	private String pkey;
+
+	public String getPkey() {
+		return pkey;
+	}
+
+	public void setPkey(String pkey) {
+		this.pkey = pkey;
+	}
 
 	public String getPresentationSubject() {
 		return presentationSubject;

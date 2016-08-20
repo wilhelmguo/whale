@@ -36,169 +36,159 @@ import java.util.Map;
 @RequestMapping(value = "/backstage/workflow/online/apply/")
 public class ApplyController extends BaseController<Object> {
 
-  private static final String SECURITY_URL = "/backstage/workflow/online/apply/index";
+    private static final String SECURITY_URL = "/backstage/workflow/online/apply/index";
 
-  @Autowired
-  private RuntimeService runtimeService;
-  @Autowired
-  private TaskService taskService;
-  @Autowired
-  private TaskInfoService taskInfoService;
-  @Autowired
-  private IdentityService identityService;
-  @Autowired
-  private LeaveService leaveService;
-  @Autowired
-  private ActivitiDeployService activitiDeployService;
+    @Autowired
+    private RuntimeService runtimeService;
+    @Autowired
+    private TaskService taskService;
+    @Autowired
+    private TaskInfoService taskInfoService;
+    @Autowired
+    private IdentityService identityService;
+    @Autowired
+    private LeaveService leaveService;
+    @Autowired
+    private ActivitiDeployService activitiDeployService;
 
-  /**
-   * 请假列表
-   */
-  @RequestMapping("indexList")
-  public String indexList(Model model) {
-    if(doSecurityIntercept(Const.RESOURCES_TYPE_MENU)){
-      model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
-      return "/system/attendance/leave/list";
-    }
-    return Const.NO_AUTHORIZED_URL;
-  }
-
-  @RequestMapping(value="findByPage", method=RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes findByPage(Page<Leave> page, Leave o){
-    AjaxRes ar=getAjaxRes();
-    if(ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU,"/backstage/sysDict/index"))){
-      try {
-        o.setIsapprove(1);
-        Page<Leave> result=leaveService.findByPage(o,page);
-        Map<String, Object> p=new HashMap<String, Object>();
-        p.put("permitBtn",getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
-        p.put("list",result);
-        ar.setSucceed(p);
-      } catch (Exception e) {
-        logger.error(e.toString(),e);
-        ar.setFailMsg(Const.DATA_FAIL);
-      }
-    }
-    return ar;
-  }
-
-  @RequestMapping(value="find", method=RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes find(Leave o){
-    AjaxRes ar=getAjaxRes();
-    if(ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))){
-      try {
-        List<Leave> list=leaveService.find(o);
-        Leave obj=list.get(0);
-        ar.setSucceed(obj);
-      } catch (Exception e) {
-        logger.error(e.toString(),e);
-        ar.setFailMsg(Const.DATA_FAIL);
-      }
-    }
-    return ar;
-  }
-  
-  /**
-   * 申请列表
-   */
-  @RequestMapping(value = "index")
-  public String index(org.springframework.ui.Model model) {
-    if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
-      model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
-      return "/system/workflow/online/apply/list";
-    }
-    return Const.NO_AUTHORIZED_URL;
-  }
-
-
-  /**
-   * 启动流程
-   */
-  @RequestMapping(value = "start", method = RequestMethod.POST)
-  @ResponseBody
-  public AjaxRes startWorkflow(Leave leave) {
-    AjaxRes ar = getAjaxRes();
-    if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
-      try {
-        String currentUserId = AccountShiroUtil.getCurrentUser().getAccountId();
-        String[] approvers = leave.getApprover().split(",");
-        Map<String, Object> variables = new HashMap<String, Object>();
-        for (int i = 0; i < approvers.length; i++) {
-          variables.put("approver" + i, approvers[i]);
+    /**
+     * 请假列表
+     */
+    @RequestMapping("indexList")
+    public String indexList(Model model) {
+        if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
+            model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
+            return "/system/attendance/leave/list";
         }
-//        String key = "leave" + approvers.length;
-//        activitiDeployService.buildDeployment(key, "请假流程", approvers.length);
-
-        identityService.setAuthenticatedUserId(currentUserId);
-        Date now = new Date();
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("leave", variables);
-        String pId = processInstance.getId();
-        String leaveID = get32UUID();
-        leave.setpId(pId);
-        leave.setAccount_id(currentUserId);
-        leave.setCreateTime(now);
-        leave.setName(AccountShiroUtil.getCurrentUser().getName());
-        leave.setId(leaveID);
-        leave.setOrg(AccountShiroUtil.getCurrentUser().getDepartment());
-
-        leaveService.insert(leave);
-        List<Task> tasks = taskService.createTaskQuery().processInstanceId(pId).list();
-        for (Task task : tasks) {
-//          taskService.complete(task.getId(), variables);
-          TaskInfo taskInfo = new TaskInfo();
-          taskInfo.setId(get32UUID());
-          taskInfo.setBusinesskey(leaveID);
-          taskInfo.setCode(processInstance.getActivityId());
-          String processDefinitionName = ((ExecutionEntity) processInstance).getProcessInstance().getProcessDefinition().getName();
-          taskInfo.setName(task.getName());
-          taskInfo.setStatus(0);
-          String subkect = processDefinitionName + "-"
-                  + AccountShiroUtil.getCurrentUser().getName() + "-" + DateUtils.formatDate(now, "yyyy-MM-dd HH:mm");
-          taskInfo.setPresentationsubject(subkect);
-          taskInfo.setAttr1(processDefinitionName);
-          taskInfo.setCreatetime(now);
-          taskInfo.setCompletetime(now);
-          taskInfo.setCreator(currentUserId);
-          taskInfo.setAssignee(currentUserId);
-          taskInfo.setTaskid(task.getId());
-          taskInfo.setExecutionid(task.getExecutionId());
-          taskInfo.setProcessinstanceid(processInstance.getId());
-          taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
-          taskInfoService.insert(taskInfo);
-        }
-//        List<Task> tasksNext = taskService.createTaskQuery().processInstanceId(pId).list();
-//        for (Task task : tasksNext) {
-//          TaskInfo taskInfo = new TaskInfo();
-//          taskInfo.setId(get32UUID());
-//          taskInfo.setBusinesskey(leaveID);
-//          taskInfo.setCode(task.getTaskDefinitionKey());
-//          taskInfo.setName(task.getName());
-//          taskInfo.setStatus(1);
-//          String processDefinitionName = ((ExecutionEntity) processInstance).getProcessInstance().getProcessDefinition().getName();
-//          taskInfo.setAttr1(processDefinitionName);
-//          String subkect = processDefinitionName + "-"
-//                  + AccountShiroUtil.getCurrentUser().getName() + "-" + DateUtils.formatDate(now, "yyyy-MM-dd HH:mm");
-//          taskInfo.setPresentationsubject(subkect);
-//          taskInfo.setCreatetime(now);
-//          taskInfo.setCreator(currentUserId);
-//          taskInfo.setAssignee(approvers[0]);
-//          taskInfo.setTaskid(task.getId());
-//          taskInfo.setExecutionid(task.getExecutionId());
-//          taskInfo.setProcessinstanceid(processInstance.getId());
-//          taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
-//          taskInfoService.insert(taskInfo);
-//        }
-        ar.setSucceedMsg("发起请假申请成功!");
-      } catch (Exception e) {
-        logger.error(e.toString(), e);
-        ar.setFailMsg("启动流程失败");
-      } finally {
-        identityService.setAuthenticatedUserId(null);
-      }
+        return Const.NO_AUTHORIZED_URL;
     }
-    return ar;
-  }
+
+    @RequestMapping(value = "findByPage", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes findByPage(Page<Leave> page, Leave o) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, "/backstage/sysDict/index"))) {
+            try {
+                o.setIsapprove(1);
+                Page<Leave> result = leaveService.findByPage(o, page);
+                Map<String, Object> p = new HashMap<String, Object>();
+                p.put("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_BUTTON));
+                p.put("list", result);
+                ar.setSucceed(p);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
+            }
+        }
+        return ar;
+    }
+
+    @RequestMapping(value = "find", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes find(Leave o) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_BUTTON))) {
+            try {
+                List<Leave> list = leaveService.find(o);
+                Leave obj = list.get(0);
+                ar.setSucceed(obj);
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg(Const.DATA_FAIL);
+            }
+        }
+        return ar;
+    }
+
+    /**
+     * 申请列表
+     */
+    @RequestMapping(value = "index")
+    public String index(org.springframework.ui.Model model) {
+        if (doSecurityIntercept(Const.RESOURCES_TYPE_MENU)) {
+            model.addAttribute("permitBtn", getPermitBtn(Const.RESOURCES_TYPE_FUNCTION));
+            return "/system/workflow/online/apply/list";
+        }
+        return Const.NO_AUTHORIZED_URL;
+    }
+
+
+    /**
+     * 启动流程
+     */
+    @RequestMapping(value = "start", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxRes startWorkflow(Leave leave) {
+        AjaxRes ar = getAjaxRes();
+        if (ar.setNoAuth(doSecurityIntercept(Const.RESOURCES_TYPE_MENU, SECURITY_URL))) {
+            try {
+                String currentUserId = AccountShiroUtil.getCurrentUser().getAccountId();
+                String[] approvers = leave.getApprover().split(",");
+                Map<String, Object> variables = new HashMap<String, Object>();
+                for (int i = 0; i < approvers.length; i++) {
+                    variables.put("approver" + (i + 1), approvers[i]);
+                    variables.put("day", leave.getLeaveDay());
+                }
+                identityService.setAuthenticatedUserId(currentUserId);
+                Date now = new Date();
+                String workflowKey="leave";
+                ProcessInstance processInstance = runtimeService.startProcessInstanceByKeyAndTenantId(workflowKey, variables, getCompany());
+                String pId = processInstance.getId();
+                String leaveID = get32UUID();
+                leave.setpId(pId);
+                leave.setAccount_id(currentUserId);
+                leave.setCreateTime(now);
+                leave.setName(AccountShiroUtil.getCurrentUser().getName());
+                leave.setId(leaveID);
+                leave.setOrg(AccountShiroUtil.getCurrentUser().getDepartment());
+
+                leaveService.insert(leave);
+                Task task = taskService.createTaskQuery().processInstanceId(pId).singleResult();
+                String processDefinitionName = ((ExecutionEntity) processInstance).getProcessInstance().getProcessDefinition().getName();
+                String subkect = processDefinitionName + "-"
+                        + AccountShiroUtil.getCurrentUser().getName() + "-" + DateUtils.formatDate(now, "yyyy-MM-dd HH:mm");
+
+                //开始流程
+                TaskInfo taskInfo = new TaskInfo();
+                taskInfo.setId(get32UUID());
+                taskInfo.setBusinesskey(leaveID);
+                taskInfo.setCode("start");
+                taskInfo.setName("发起申请");
+                taskInfo.setStatus(0);
+                taskInfo.setPresentationsubject(subkect);
+                taskInfo.setAttr1(processDefinitionName);
+                taskInfo.setCreatetime(DateUtils.addSeconds(now, -1));
+                taskInfo.setCompletetime(DateUtils.addSeconds(now, -1));
+                taskInfo.setCreator(currentUserId);
+                taskInfo.setAssignee(currentUserId);
+                taskInfo.setTaskid("0");
+                taskInfo.setPkey(workflowKey);
+                taskInfo.setExecutionid("0");
+                taskInfo.setProcessinstanceid(processInstance.getId());
+                taskInfo.setProcessdefinitionid(processInstance.getProcessDefinitionId());
+                taskInfoService.insert(taskInfo);
+
+                //第一级审批流程
+                taskInfo.setId(get32UUID());
+                taskInfo.setCode(processInstance.getActivityId());
+                taskInfo.setName(task.getName());
+                taskInfo.setStatus(1);
+                taskInfo.setTaskid(task.getId());
+                taskInfo.setCreatetime(now);
+                taskInfo.setCompletetime(null);
+                taskInfo.setAssignee(approvers[0]);
+                taskInfoService.insert(taskInfo);
+                ar.setSucceedMsg("发起请假申请成功!");
+            } catch (Exception e) {
+                logger.error(e.toString(), e);
+                ar.setFailMsg("启动流程失败");
+            } finally {
+                identityService.setAuthenticatedUserId(null);
+            }
+        }
+        return ar;
+    }
 
 }
+
+

@@ -4,21 +4,21 @@
 $(function () {
     var id = GetQueryString("id");
     var pId = GetQueryString("pId");
-    var name = GetChineseQueryString("name");
+    var pkey = GetChineseQueryString("pkey");
     var title = GetChineseQueryString("title");
-    todoTask(id, pId, name, title);
+    todoTask(id, pId, pkey, title);
 });
 
 function back() {
-    window.location.href = "wait.html";
+    window.location.href = "wait.html?type="+GetQueryString("type");
 }
 
 function backFinish() {
-    window.location.href = "finish.html";
+    window.location.href = "finish.html?type="+GetQueryString("type");
 }
 
 function backMystart() {
-    window.location.href = "mystart.html";
+    window.location.href = "mystart.html?type="+GetQueryString("type");
 }
 
 function approvalPass() {
@@ -46,10 +46,10 @@ function approvalReject() {
     });
 }
 
-function todoTask(id, pId, name, title) {
+function todoTask(id, pId, pkey, title) {
     var html = "";
     html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">审批标题:</label><span>' + title + '</span></div>';
-    if (name == '请假流程') {
+    if (pkey == 'leave') {
         doPostRequest(null, '/whale/backstage/workflow/online/myTask/findTaskByName', {
             pId: pId,
             name: '请假流程'
@@ -59,15 +59,15 @@ function todoTask(id, pId, name, title) {
             var shortName = fullname.substring(fullname.length - 1, fullname.length);
             $("#short-name").text(shortName);
             $("#long-name").text(fullname);
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">申请人:</label><span>' + l.name + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假天数:</label><span>' + l.leaveDay + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假类型:</label><span>' + l.typeName + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">申请人:</label><span>' + notEmpty(l.name) + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假天数:</label><span>' + notEmpty(l.leaveDay)  + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假类型:</label><span>' + notEmpty(l.typeName)  + '</span></div>';
             html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">开始时间:</label><span>' + formatDate(l.beginTime) + '</span></div>';
             html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">结束时间:</label><span>' + formatDate(l.endTime) + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假事由:</label><span>' + l.description + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">请假事由:</label><span>' + notEmpty(l.description)  + '</span></div>';
             $("#approval-detail").html(html);
         });
-    } else if (name == '报销流程') {
+    } else if (pkey == 'claim') {
         doPostRequest(null, '/whale/backstage/workflow/online/myTask/findTaskByName', {
             pId: pId,
             name: '报销流程'
@@ -77,13 +77,13 @@ function todoTask(id, pId, name, title) {
             var shortName = fullname.substring(fullname.length - 1, fullname.length);
             $("#short-name").text(shortName);
             $("#long-name").text(fullname);
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">申请人:</label><span>' + l.name + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">报销金额:</label><span>' + l.amount + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">报销类别:</label><span>' + l.type + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">费用明细:</label><span>' + l.detail + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">申请人:</label><span>' + notEmpty(l.name) + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">报销金额:</label><span>' + notEmpty(l.amount) + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">报销类别:</label><span>' + notEmpty(l.type) + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">费用明细:</label><span>' + notEmpty(l.detail) + '</span></div>';
             $("#approval-detail").html(html);
         });
-    } else if (name == '加班流程') {
+    } else if (pkey == 'overtime') {
         doPostRequest(null, '/whale/backstage/workflow/online/myTask/findTaskByName', {
             pId: pId,
             name: '加班流程'
@@ -93,14 +93,14 @@ function todoTask(id, pId, name, title) {
             var shortName = fullname.substring(fullname.length - 1, fullname.length);
             $("#short-name").text(shortName);
             $("#long-name").text(fullname);
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">申请人:</label><span>' + l.name + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">加班天数:</label><span>' + l.duration + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">申请人:</label><span>' + notEmpty(l.name) + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">加班天数:</label><span>' + notEmpty(l.duration) + '</span></div>';
             html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">开始时间:</label><span>' + formatDate(l.starttime) + '</span></div>';
             html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">结束时间:</label><span>' + formatDate(l.endtime) + '</span></div>';
-            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">加班原因:</label><span>' + l.reason + '</span></div>';
+            html += '<div style="padding-top: 8px"> <label style="padding-left: 20px;font-size: 0.9em;color: #00a2d4">加班原因:</label><span>' + notEmpty(l.reason) + '</span></div>';
             $("#approval-detail").html(html);
         });
-    } else if (name == '补卡流程') {
+    } else if (pkey == 'patch') {
         doPostRequest(null, '/whale/backstage/workflow/online/myTask/findTaskByName', {
             pId: pId,
             name: '补卡流程'

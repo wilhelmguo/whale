@@ -200,12 +200,13 @@ public class ProcessController extends BaseController<Object> {
                     for (FlowElement e : flowElements) {
                         if ("org.activiti.bpmn.model.UserTask".equals(e.getClass().getName())) {
                             BpmConf bConf = new BpmConf();
-                            bConf.setId(get32UUID());
+//                            bConf.setId(get32UUID());
                             bConf.setKey(key);
                             bConf.setDname(p.getName());
                             bConf.setCode(e.getId());
                             bConf.setPname(e.getName());
                             bConf.setPid(p.getId());
+                            bConf.setCompany(getCompany());
                             System.out.println("flowelement id:" + e.getId() + "  name:" + e.getName() + "   class:" + e.getClass().toString());
                             bpmConfService.insert(bConf);
                         }
