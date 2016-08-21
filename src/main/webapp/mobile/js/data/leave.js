@@ -30,7 +30,7 @@ function loadAllApprover() {
                     "</div>");
             }
         } else {
-            JY.Model.error(date.resMsg);
+            alert(date.resMsg);
         }
 
     });
@@ -62,6 +62,19 @@ function loadDefaultApprover() {
     });
 }
 function submitClick() {
+    var starttime = $("#auForm input[name$='beginTime']").val();
+    var endtime = $("#auForm input[name$='endTime']").val();
+    if (starttime > endtime) {
+        alert("开始时间不能大于结束时间!");
+        return false;
+    }
+    var timeSub = (new  Date(endtime)).getTime() - (new  Date(starttime)).getTime();
+    var duration = $("#auForm input[name$='leaveDay']").val();
+    var iDays = parseInt(Math.floor(timeSub) / 1000 / 60 / 60 / 24);
+    if (iDays != duration) {
+        alert("时间区间与天数不符,请检查!");
+        return false;
+    }
 
     var approver = "";
     $("p.name-manage").each(function () {

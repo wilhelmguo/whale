@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8"/>
     <title>报销</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
     <link rel="stylesheet" href="css/zepto.mdatetimer.css">
-    <link rel="stylesheet" href="../static/plugins/zTree/3.5/zTreeStyle.css"/>
-    <link rel="stylesheet" href="css/ztree.css"/>
-    <!-- basic styles -->
-    <link href="../static/apidoc/JYUI/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <!--<link rel="stylesheet" href="../static/plugins/zTree/3.5/zTreeStyle.css"/>-->
+    <!--<link rel="stylesheet" href="css/ztree.css"/>-->
+    <!--&lt;!&ndash; basic styles &ndash;&gt;-->
+    <!--<link href="../static/apidoc/JYUI/assets/css/bootstrap.min.css" rel="stylesheet"/>-->
 
 </head>
 
@@ -20,7 +21,7 @@
     </div>
 </div>
 <div class="detailed-item-wrap">
-    <form id="auForm" method="POST" action="" onsubmit="return false;">
+    <form id="auForm" method="POST" action="" onsubmit="if(!submitClick())return false;">
         <div class="wf-item-wrap">
             <span class="btn-lable">报销金额(元):</span>
             <input required name="amount" class="btn-input" type="number" placeholder="请输入数字(必填)"/>
@@ -28,7 +29,7 @@
 
         <div class="wf-item-wrap">
             <span class="btn-lable">报销类别:</span>
-            <input name="type" class="btn-input" type="text" placeholder="如:采购经费、活动经费(必填)"/>
+            <input required name="type" class="btn-input" type="text" placeholder="如:采购经费、活动经费(必填)"/>
         </div>
 
         <div class="wf-item-wrap">
@@ -38,13 +39,13 @@
         </div>
 
         <div class="wf-item-wrap">
-            <p class="btn-lable">审批人:<span style="font-size: 0.8em">(点击头像可删除)</span></p>
-            <div class="list-manage">
+            <p class="btn-lable">审批人:<span style="font-size: 0.8em"></span></p>
+            <div style="height: 50px" class="list-manage">
 
             </div>
-            <img class="plus-peo" src="img/item_5.png"/>
+            <!--<img class="plus-peo" src="img/item_5.png"/>-->
         </div>
-        <button type="submit" onclick="submitClick()" class="tip-sub-button">提交</button>
+        <button type="submit"  class="tip-sub-button">提交</button>
     </form>
 </div>
 <div class="widget-box hide">
@@ -62,32 +63,7 @@
 <script src='js/init.js'></script>
 <script src="js/data/claim.js"></script>
 <script src="js/global.js"></script>
-<script src="../static/apidoc/JYUI/assets/js/ace-extra.min.js"></script>
 
-<script type="text/javascript">
-    window.jQuery || document.write("<script src='../static/apidoc/JYUI/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
-</script>
-
-<script type="text/javascript">
-    if ("ontouchend" in document) document.write("<script src='../static/apidoc/JYUI/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
-</script>
-<script src="../static/apidoc/JYUI/assets/js/bootstrap.min.js"></script>
-<script src="../static/apidoc/JYUI/assets/js/typeahead-bs2.min.js"></script>
-
-<!-- page specific plugin scripts -->
-
-<script src="../static/apidoc/JYUI/assets/js/fuelux/data/fuelux.tree-sampledata.js"></script>
-<script src="../static/apidoc/JYUI/assets/js/fuelux/fuelux.tree.min.js"></script>
-
-<!-- ace scripts -->
-
-<script src="../static/apidoc/JYUI/assets/js/ace-elements.min.js"></script>
-<script src="../static/apidoc/JYUI/assets/js/ace.min.js"></script>
-
-
-<script type="text/javascript" src="../static/plugins/zTree/3.5/jquery.ztree.core-3.5.min.js"></script>
-<script type="text/javascript" src="../static/plugins/zTree/3.5/jquery.ztree.excheck-3.5.js"></script>
-<script src="js/data/treeView.js"></script>
 
 </body>
 </html>

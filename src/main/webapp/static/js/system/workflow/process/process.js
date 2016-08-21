@@ -47,7 +47,7 @@ $(function () {
         droppable: false,
         onchange: null,
         thumbnail: false, //| true | large
-        whitelist: 'zip|bar|bpmn|bpmn20.xml',
+        whitelist: 'zip|bar|bpmn|bpmn20.xml|xml',
         blacklist: 'gif|png|jpg|jpeg|xls'
         //onchange:''
         //

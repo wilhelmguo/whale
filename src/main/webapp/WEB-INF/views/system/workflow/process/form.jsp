@@ -7,7 +7,7 @@
                 <td class="CaptionTD"><!-- <font color="red">*</font>参数名： --></td>
                 <td class="DataTD">&nbsp;
                     <input type="file" id="uploadModelFile" name="modelFile"
-                           onchange="JY.File.fileType(this,'zip|bar|bpmn|bpmn20.xml')"/>
+                           onchange="JY.File.fileType(this,'zip|bar|bpmn|bpmn20.xml|xml')"/>
                 </td>
             </tr>
             </tbody>

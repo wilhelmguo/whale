@@ -14,18 +14,26 @@ $(function () {
 
         },
     });
-    loadDefaultApprover();
+    loadAllApprover();
 });
-function loadDefaultApprover() {
-    doGetRequest(null, '/whale/backstage/workflow/approver/find', "", function (data) {
-        var r = data.obj;
-        $(".list-manage").append(
-            "<div class='peo-manage' data-value='false'>" +
-            "<p>" + r.name + "</p>" +
-            "<p class='name-manage hide'>" + r.accountId + "</p>" +
-            "</div>");
+function loadAllApprover() {
+    doGetRequest(null, '/whale/backstage/workflow/approver/findAllApprover', {"key": "patch"}, function (data) {
+        if (data.res) {
+            $(".list-manage").html("");
+            var r = data.obj;
+            for (var i = 0; i < r.length; i++) {
+                $(".list-manage").append(
+                    "<div class='peo-manage' data-value='false'>" +
+                    "<p>" + r[i].name + "</p>" +
+                    "<p class='name-manage hide'>" + r[i].accountId + "</p>" +
+                    "</div>");
+            }
+        } else {
+            alert(date.resMsg);
+        }
 
     });
+
 }
 function submitClick() {
 

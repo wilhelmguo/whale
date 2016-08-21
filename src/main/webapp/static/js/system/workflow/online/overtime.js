@@ -10,8 +10,8 @@ $(function () {
         startView: 2,
         minView: 0,
     }).on('changeDate', function (ev) {
-        var beginTime = $("input[name='starttime']").val();
-        $("input[name='starttime']").datetimepicker('setStartDate', beginTime);
+        // var beginTime = $("input[name='starttime']").val();
+        // $("input[name='starttime']").datetimepicker('setStartDate', beginTime);
     });
     $("input[name='endtime']").datetimepicker({
         format: 'yyyy-mm-dd hh:ii:00',
@@ -23,8 +23,8 @@ $(function () {
         startView: 2,
         minView: 0,
     }).on('changeDate', function (ev) {
-        var endTime = $("input[name='endtime']").val();
-        $("input[name='endtime']").datetimepicker('setEndDate', endTime);
+        // var endTime = $("input[name='endtime']").val();
+        // $("input[name='endtime']").datetimepicker('setEndDate', endTime);
     });
     loadPreOrgTree();
     loadDefaultApprover();
@@ -73,7 +73,22 @@ function changeEvent(obj) {
 }
 function submitApply() {
     if (JY.Validate.form("leaveFrom")) {
+        var starttime = $("#leaveFrom input[name$='starttime']").val();
+        var endtime = $("#leaveFrom input[name$='endtime']").val();
+        if (starttime > endtime) {
+            JY.Model.info("开始时间不能大于结束时间!");
+            return false;
+        }
+        var timeSub = (new  Date(endtime)).getTime() - (new  Date(starttime)).getTime();
+        var duration = $("#leaveFrom input[name$='duration']").val();
+        var iDays = parseInt(Math.floor(timeSub) / 1000 / 60 / 60 / 24);
+        if (iDays != duration) {
+            JY.Model.info("时间区间与天数不符,请检查!");
+            return false;
+        }
         JY.Model.confirm("确认提交申请吗?", function () {
+
+
             JY.Ajax.doRequest("leaveFrom", jypath + '/backstage/workflow/online/overtime/start', "", function (data) {
                 JY.Model.info(data.resMsg);
             });

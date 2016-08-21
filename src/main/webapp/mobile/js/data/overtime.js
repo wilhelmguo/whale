@@ -19,6 +19,7 @@ $(function () {
 function loadDefaultApprover() {
     doGetRequest(null, '/whale/backstage/workflow/approver/find', "", function (data) {
         var r = data.obj;
+        $(".list-manage").html("");
         $(".list-manage").append(
             "<div class='peo-manage' data-value='false'>" +
             "<p>" + r.name + "</p>" +
@@ -27,7 +28,54 @@ function loadDefaultApprover() {
 
     });
 }
+
+function loadAllApprover() {
+    doGetRequest(null, '/whale/backstage/workflow/approver/findAllApprover', {"key": "overtime"}, function (data) {
+        if (data.res) {
+            $(".list-manage").html("");
+            var r = data.obj;
+            for (var i = 0; i < r.length; i++) {
+                $(".list-manage").append(
+                    "<div class='peo-manage' data-value='false'>" +
+                    "<p>" + r[i].name + "</p>" +
+                    "<p class='name-manage hide'>" + r[i].accountId + "</p>" +
+                    "</div>");
+            }
+        } else {
+            alert(date.resMsg);
+        }
+
+    });
+
+}
+function changeEvent(obj) {
+    var day = $(obj).val();
+    if (isNaN(day)) {
+        alert("请假天数必须为数字");
+    } else {
+        if (day > 3) {
+            loadAllApprover();
+        } else {
+            loadDefaultApprover();
+        }
+    }
+}
+
 function submitClick() {
+    var starttime = $("#auForm input[name$='starttime']").val();
+    var endtime = $("#auForm input[name$='endtime']").val();
+    if (starttime > endtime) {
+        alert("开始时间不能大于结束时间!");
+        return false;
+    }
+    var timeSub = (new  Date(endtime)).getTime() - (new  Date(starttime)).getTime();
+    var duration = $("#auForm input[name$='duration']").val();
+    var iDays = parseInt(Math.floor(timeSub) / 1000 / 60 / 60 / 24);
+    if (iDays != duration) {
+        alert("时间区间与天数不符,请检查!");
+        return false;
+    }
+
 
     var approver = "";
     $("p.name-manage").each(function () {

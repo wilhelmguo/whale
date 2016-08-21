@@ -7,6 +7,9 @@
     <stateFile url="file://$PROJECT_DIR$/src/main/resources/bpmn/a.xml">
       <view grid="false" />
     </stateFile>
+    <stateFile url="file://$PROJECT_DIR$/src/main/resources/bpmn/leave.bpmn">
+      <view grid="false" />
+    </stateFile>
     <stateFile url="file://$PROJECT_DIR$/deployments/leave.bpmn">
       <view grid="false" />
     </stateFile>
