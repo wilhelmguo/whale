@@ -7,83 +7,92 @@ import java.util.Date;
 
 @Alias("MsgInfo")
 public class MsgInfo extends BaseEntity {
-  private String id;
+    private String id;
 
-  private String name;
+    private String name;
 
-  private Integer type;
+    private Integer type;
 
-  private Date createtime;
+    private Date createtime;
 
-  private String senderid;
+    private String senderid;
 
-  private String receiverid;
+    private String receiverid;
 
-  private Integer status;
+    private String taskinfoid;
+    private Integer status;
 
-  private String content;
+    private String content;
 
-  public String getId() {
-    return id;
-  }
+    public String getTaskinfoid() {
+        return taskinfoid;
+    }
 
-  public void setId(String id) {
-    this.id = id == null ? null : id.trim();
-  }
+    public void setTaskinfoid(String taskinfoid) {
+        this.taskinfoid = taskinfoid;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getId() {
+        return id;
+    }
 
-  public void setName(String name) {
-    this.name = name == null ? null : name.trim();
-  }
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
 
-  public Integer getType() {
-    return type;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setType(Integer type) {
-    this.type = type;
-  }
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
 
-  public Date getCreatetime() {
-    return createtime;
-  }
+    public Integer getType() {
+        return type;
+    }
 
-  public void setCreatetime(Date createtime) {
-    this.createtime = createtime;
-  }
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
-  public String getSenderid() {
-    return senderid;
-  }
+    public Date getCreatetime() {
+        return createtime;
+    }
 
-  public void setSenderid(String senderid) {
-    this.senderid = senderid == null ? null : senderid.trim();
-  }
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
 
-  public String getReceiverid() {
-    return receiverid;
-  }
+    public String getSenderid() {
+        return senderid;
+    }
 
-  public void setReceiverid(String receiverid) {
-    this.receiverid = receiverid == null ? null : receiverid.trim();
-  }
+    public void setSenderid(String senderid) {
+        this.senderid = senderid == null ? null : senderid.trim();
+    }
 
-  public Integer getStatus() {
-    return status;
-  }
+    public String getReceiverid() {
+        return receiverid;
+    }
 
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
+    public void setReceiverid(String receiverid) {
+        this.receiverid = receiverid == null ? null : receiverid.trim();
+    }
 
-  public String getContent() {
-    return content;
-  }
+    public Integer getStatus() {
+        return status;
+    }
 
-  public void setContent(String content) {
-    this.content = content == null ? null : content.trim();
-  }
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
 }

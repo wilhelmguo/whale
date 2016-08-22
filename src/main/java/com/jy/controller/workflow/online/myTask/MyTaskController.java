@@ -140,29 +140,9 @@ public class MyTaskController extends BaseController<Object> {
                 List<TaskVo> taskVos = new ArrayList<TaskVo>();
                 Account account = AccountShiroUtil.getCurrentUser();
                 String currentUserId = account.getAccountId();
-                // 根据当前人的ID查询
-                //或者当前人的角色id
-//                List<Task> tasksTotal = new ArrayList<Task>();
-//                List<Task> tasks = new ArrayList<Task>();
-//                TaskQuery taskQuery = taskService.createTaskQuery().taskCandidateUser(currentUserId).orderByTaskCreateTime().desc();
-//                TaskQuery taskQueryRole = taskService.createTaskQuery().taskCandidateUser(account.getRoleId()).orderByTaskCreateTime().desc();
-//                List<Task> tasksuset = taskQuery.list();
-//                List<Task> tasksRole = taskQueryRole.list();
-//                tasksTotal.addAll(tasksuset);
-//                tasksTotal.addAll(tasksRole);
-//                int start = pageNum * pageSize;
-//                int end = (pageNum + 1) * pageSize;
-//                if (start > tasksTotal.size()) {
-//                    tasks.addAll(tasksTotal);
-//                } else {
-//                    if (end > tasksTotal.size()) {
-//                        tasks.addAll(tasksTotal.subList(start, tasksTotal.size() - 1));
-//                    } else {
-//                        tasks.addAll(tasksTotal.subList(start, end));
-//                    }
-//                }
+
                 TaskQuery taskQuery = taskService.createTaskQuery().taskCandidateUser(currentUserId).orderByTaskCreateTime().desc();
-                List<Task> tasks = taskQuery.list();
+                List<Task> tasks = taskQuery.listPage(pageNum,pageSize);
                 for (Task t : tasks) {
                     TaskVo taskVo = new TaskVo(t.getId(), t.getTaskDefinitionKey(), t.getName(), t.getProcessDefinitionId()
                             , t.getProcessInstanceId(), t.getPriority(), t.getCreateTime(), t.getDueDate()

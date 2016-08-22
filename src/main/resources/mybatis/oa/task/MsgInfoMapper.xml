@@ -11,11 +11,20 @@
         <if test="paramKey != null and paramKey!='' ">
             AND t.name=#{paramKey}
         </if>
+        <if test="taskinfoid != null and taskinfoid!='' ">
+            AND t.taskinfoid=#{taskinfoid}
+        </if>
     </select>
     <select id="findByPage" resultMap="base" parameterType="MsgInfo">
         SELECT t.* FROM MSG_INFO t WHERE 1=1
         <if test="param.id!= null and param.id!='' ">
             AND t.id=#{param.id}
+        </if>
+        <if test="param.receiverid!= null and param.receiverid!='' ">
+            AND t.receiverId=#{param.receiverid}
+        </if>
+        <if test="param.status!= null and param.status!='' ">
+            AND t.status=#{param.status}
         </if>
 
         <if test="param.keyWord!= null">
@@ -31,12 +40,14 @@
     <insert id="insert" parameterType="MsgInfo">
  	<![CDATA[
 
+
  insert into MSG_INFO (id, name, type,
       createTime, senderId, receiverId,
       status, content)
     values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER},
       #{createtime,jdbcType=TIMESTAMP}, #{senderid,jdbcType=VARCHAR}, #{receiverid,jdbcType=VARCHAR},
       #{status,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
+
 
         ]]>
 	</insert>

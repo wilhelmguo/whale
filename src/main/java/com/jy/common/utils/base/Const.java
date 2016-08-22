@@ -8,6 +8,13 @@ import java.util.Map;
  *
 */
 public class Const {
+	public static final String LEAVE_KEY="leave";
+
+	public static final String CLAIM_KEY="claim";
+
+	public static final String OVERTIME_KEY="overtime";
+
+	public static final String PATCH_KEY="patch";
 
 	public static final String LEAVE_NAME="请假流程";
 
