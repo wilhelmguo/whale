@@ -41,7 +41,7 @@
       "title" : "文档",
       "value" : "",
       "description" : "BPMN元素的描述名称.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "process_authorpackage",
@@ -51,7 +51,7 @@
       "title" : "流程作者",
       "value" : "",
       "description" : "流程定义的作者.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "process_versionpackage",
@@ -61,7 +61,7 @@
       "title" : "流程版本字符串(仅限于文档)",
       "value" : "",
       "description" : "文档的目的为版本标识",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "process_namespacepackage",
@@ -71,7 +71,7 @@
       "title" : "目标命名空间",
       "value" : "http://www.activiti.org/processdef",
       "description" : "流程定义的目标命名空间.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "asynchronousdefinitionpackage",
@@ -81,7 +81,7 @@
       "title" : "异步",
       "value" : "false",
       "description" : "定义异步的活动.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "exclusivedefinitionpackage",
@@ -91,7 +91,7 @@
       "title" : "排它性",
       "value" : "false",
       "description" : "定义排它的活动.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "executionlistenerspackage",
@@ -111,7 +111,7 @@
       "title" : "任务监听器",
       "value" : "",
       "description" : "人工任务的监听器",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "eventlistenerspackage",
@@ -121,7 +121,7 @@
       "title" : "事件监听器",
       "value" : "",
       "description" : "监听Activiti引擎的任何发生的事件. 同样可能是任何抛出的信号、信息、出错的事件。",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "usertaskassignmentpackage",
@@ -141,7 +141,7 @@
       "title" : "表单属性",
       "value" : "",
       "description" : "定义带有属性列表的表单",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "formkeydefinitionpackage",
@@ -151,7 +151,7 @@
       "title" : "表单的标识Key",
       "value" : "",
       "description" : "表单的Key(指向定义的Form).",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "duedatedefinitionpackage",
@@ -161,7 +161,7 @@
       "title" : "到期的日期",
       "value" : "",
       "description" : "人工任务的到期日期",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "prioritydefinitionpackage",
@@ -171,7 +171,7 @@
       "title" : "优先级",
       "value" : "",
       "description" : "人工任务的优先级.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "duedatedefinitionpackage",
@@ -181,7 +181,7 @@
       "title" : "到期的日期",
       "value" : "",
       "description" : "人工任务的到期日期.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "servicetaskclasspackage",
@@ -471,7 +471,7 @@
       "title" : "默认跳线",
       "value" : "false",
       "description" : "定义默认为顺序跳转",
-      "popular" : true,
+      "popular" : false,
       "refToView" : "default"
     } ]
   }, {
@@ -573,7 +573,7 @@
       "title" : "初始化器",
       "value" : "",
       "description" : "流程定义的初始初始化器",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "textpackage",
@@ -594,7 +594,7 @@
       "title" : "多实例类型",
       "value" : "None",
       "description" : "通过不同的循环类型，重复的活动执行(并行、串行)可显示",
-      "popular" : true,
+      "popular" : false,
       "refToView" : "multiinstance"
     } ]
   }, {
@@ -605,7 +605,7 @@
       "title" : "基数 (多实例)",
       "value" : "",
       "description" : "定义多实例的基数.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "multiinstance_collectionpackage",
@@ -615,7 +615,7 @@
       "title" : "集合(多实例)",
       "value" : "",
       "description" : "定义多实例的集合.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "multiinstance_variablepackage",
@@ -625,7 +625,7 @@
       "title" : "元素的变量(多实例)",
       "value" : "",
       "description" : "为多实例定义变量元素",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "multiinstance_conditionpackage",
@@ -635,7 +635,7 @@
       "title" : "完成条件(多实例)",
       "value" : "",
       "description" : "定义多实例的完成条件.",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "isforcompensationpackage",
@@ -645,7 +645,7 @@
       "title" : "作为修正",
       "value" : "false",
       "description" : "标识当前活动为修正执行活动。",
-      "popular" : true,
+      "popular" : false,
       "refToView" : "compensation"
     } ]
   }, {
@@ -666,7 +666,7 @@
       "title" : "信号定义",
       "value" : "",
       "description" : "信号定义",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "messagedefinitionspackage",
@@ -676,7 +676,7 @@
       "title" : "消息定义",
       "value" : "",
       "description" : "消息定义",
-      "popular" : true
+      "popular" : false
     } ]
   }, {
     "name" : "istransactionpackage",

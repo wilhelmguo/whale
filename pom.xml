@@ -10,6 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springversion>3.1.1.RELEASE</springversion>
         <junitversion>3.8.1</junitversion>
+        <activitiversion>5.21.0</activitiversion>
     </properties>
     <repositories>
 
@@ -55,113 +56,113 @@
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-bpmn-converter</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-bpmn-layout</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-bpmn-model</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-camel</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-cdi</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-common-rest</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-crystalball</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-cxf</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-diagram-rest</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-engine</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-explorer</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-image-generator</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-jmx</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
 
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-json-converter</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-ldap</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-modeler</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-mule</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-osgi</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-process-validation</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-rest</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-simple-workflow</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>org.activiti</groupId>
             <artifactId>activiti-spring</artifactId>
-            <version>5.19.0</version>
+            <version>${activitiversion}</version>
         </dependency>
         <dependency>
             <groupId>aopalliance</groupId>

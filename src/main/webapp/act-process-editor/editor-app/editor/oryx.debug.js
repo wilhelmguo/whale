@@ -1778,10 +1778,10 @@ if(!ORYX.CONFIG) ORYX.CONFIG = {};
 /**
  * This file contains URI constants that may be used for XMLHTTPRequests.
  */
-ORYX.CONFIG.APP_PATH=                   "/act-process-editor/editor-app/";
-ORYX.CONFIG.ROOT_PATH =					ORYX.CONFIG.APP_PATH+"editor/"; //TODO: Remove last slash!!
-ORYX.CONFIG.EXPLORER_PATH =				ORYX.CONFIG.APP_PATH+"explorer";
-ORYX.CONFIG.LIBS_PATH =					ORYX.CONFIG.APP_PATH+"libs";
+
+ORYX.CONFIG.ROOT_PATH =					"editor/"; //TODO: Remove last slash!!
+ORYX.CONFIG.EXPLORER_PATH =				"explorer";
+ORYX.CONFIG.LIBS_PATH =					"libs";
 
 /**
  * Regular Config
